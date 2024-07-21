@@ -39,3 +39,14 @@ $ GIT_USER=<Your GitHub username> yarn deploy
 ```
 
 If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+
+### Yarn Version 4.3.1
+
+- for yarn zero-install 
+
+### Docusaurus 3.3.2 -> 3.4.0 version update
+
+- https://docusaurus.io/docs/installation
+
+- 왜 필요했는가? 블로그 및 개발하며 얻은 자료들 정리가 필요해짐 
+
