@@ -3,7 +3,7 @@ import type { Config } from "@docusaurus/types";
 import type * as Preset from "@docusaurus/preset-classic";
 
 const config: Config = {
-  title: "My Site",
+  title: "Dev Pit Stop",
   tagline: "Dinosaurs are cool",
   favicon: "img/favicon.ico",
 
@@ -64,7 +64,7 @@ const config: Config = {
       title: "My Site",
       logo: {
         alt: "My Site Logo",
-        src: "img/logo.svg",
+        src: "img/dev-pit-stop.webp",
       },
       items: [
         {
