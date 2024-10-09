@@ -73,12 +73,12 @@ const config: Config = {
             },
             {
               label: "GitHub",
-              href: "https://github.com/facebook/docusaurus",
+              href: "https://github.com/IMHOJEONG",
             },
           ],
         },
       ],
-      copyright: `Copyright © 2024 Kevin`,
+      copyright: `Copyright © 2024 HoJeong Im`,
     },
     prism: {
       theme: prismThemes.github,
