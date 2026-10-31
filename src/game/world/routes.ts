@@ -333,7 +333,7 @@ export function landSurface(x: number, z: number) {
   }
   return natural + correction / Math.max(1, weight);
 }
-export function routeSurface(x: number, z: number): number | null {
+export function bridgeSurface(x: number, z: number): number | null {
   const bridge = nearestRoute(x, z, 'bridge');
   if (
     bridge &&
@@ -342,6 +342,11 @@ export function routeSurface(x: number, z: number): number | null {
     bridgeAlong(bridge.segment.route, x, z) <= 1
   )
     return bridge.height;
+  return null;
+}
+export function routeSurface(x: number, z: number): number | null {
+  const bridge = bridgeSurface(x, z);
+  if (bridge !== null) return bridge;
   const p = nearestRoute(x, z, 'ground');
   return p && p.distance <= p.segment.route.width / 2 ? landSurface(x, z) + 0.06 : null;
 }

@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import type { Resource } from '../resources/catalog';
 import { groundSurface } from '../world/ground-surface';
-import { bridgeRailBlocked } from '../world/routes';
+import { bridgeRailBlocked, bridgeSurface, nearestRoute } from '../world/routes';
 import { stationBlocked, stationSurface } from '../world/station-layout';
 import { placeBlocked } from '../world/places';
 import { LAUNCH } from '../world/landmarks';
@@ -88,8 +88,11 @@ export class VehicleController {
       Math.abs(position.y - this.position.y) < 2.5
     );
   }
+  get onBridge() {
+    return bridgeSurface(this.position.x, this.position.z) !== null;
+  }
   boardingApproach(position: THREE.Vector3): THREE.Vector3[] | null {
-    if (!this.nearby(position)) return null;
+    if (this.onBridge || !this.nearby(position)) return null;
     const dx = position.x - this.position.x,
       dz = position.z - this.position.z,
       sin = Math.sin(this.heading),
@@ -150,7 +153,7 @@ export class VehicleController {
     return true;
   }
   exit(): THREE.Vector3 | null {
-    if (!this.riding || Math.abs(this.speed) > 1.2) return null;
+    if (!this.riding || this.onBridge || Math.abs(this.speed) > 1.2) return null;
     for (const radius of [4.5, 6, 8])
       for (let i = 0; i < 16; i++) {
         const angle = this.heading + Math.PI / 2 + (i * Math.PI) / 8,
@@ -190,7 +193,6 @@ export class VehicleController {
   update(dt: number, throttle: number, steer: number, brake: boolean) {
     if (!this.riding) return 0;
     let distance = 0;
-    this.blocked = false;
     const steps = Math.max(1, Math.ceil(dt / (1 / 120))),
       delta = dt / steps;
     for (let i = 0; i < steps; i++) {
@@ -205,7 +207,38 @@ export class VehicleController {
       else if (throttle)
         this.speed = clamp(this.speed + clamp(throttle, -1, 1) * 10 * delta, -8, 24);
       else this.speed = Math.sign(this.speed) * Math.max(0, Math.abs(this.speed) - 5 * delta);
-      const heading = this.heading - (this.speed / 3.6) * Math.tan(this.steeringAngle) * delta;
+      let heading = this.heading - (this.speed / 3.6) * Math.tan(this.steeringAngle) * delta;
+      const bridge = nearestRoute(this.position.x, this.position.z, 'bridge');
+      if (!steer && Math.abs(this.speed) > 0.1 && bridge && bridge.distance < 4.5) {
+        const route = bridge.segment.route,
+          a = route.points[0],
+          b = route.points.at(-1)!,
+          length = Math.hypot(b.x - a.x, b.z - a.z);
+        const axisHeading = Math.atan2(a.x - b.x, a.z - b.z);
+        const angle = (value: number) => Math.atan2(Math.sin(value), Math.cos(value));
+        const base =
+          Math.abs(angle(heading - axisHeading)) < Math.PI / 2
+            ? axisHeading
+            : angle(axisHeading + Math.PI);
+        const lateral =
+          Math.abs((this.position.x - a.x) * (b.z - a.z) - (this.position.z - a.z) * (b.x - a.x)) /
+          length;
+        if (Math.abs(angle(heading - base)) < 0.4 && lateral < 1.5) {
+          const lookAhead = 7 + Math.abs(this.speed) * 0.35,
+            sign = Math.sign(this.speed);
+          const tx = bridge.x - Math.sin(base) * lookAhead * sign,
+            tz = bridge.z - Math.cos(base) * lookAhead * sign;
+          const target = Math.atan2(-(tx - this.position.x) * sign, -(tz - this.position.z) * sign);
+          const correction = angle(target - heading);
+          heading += clamp(correction * (1 - Math.exp(-delta * 4)), -delta * 0.8, delta * 0.8);
+        }
+      }
+      const yawLimit = (8 / Math.max(1, Math.abs(this.speed))) * delta;
+      const yawDelta = Math.atan2(
+        Math.sin(heading - this.heading),
+        Math.cos(heading - this.heading),
+      );
+      heading = this.heading + clamp(yawDelta, -yawLimit, yawLimit);
       const dx = -Math.sin(heading) * this.speed * delta,
         dz = -Math.cos(heading) * this.speed * delta;
       const x = this.position.x + dx,
@@ -222,6 +255,7 @@ export class VehicleController {
       this.heading = Math.atan2(Math.sin(heading), Math.cos(heading));
       this.position.set(x, h, z);
       distance += Math.hypot(dx, dz);
+      if (Math.hypot(dx, dz) > 1e-6) this.blocked = false;
       this.travel += this.speed * delta;
     }
     return distance;

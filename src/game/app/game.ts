@@ -426,7 +426,9 @@ export class Game {
         this.hud.showToast(
           Math.abs(vehicle.speed) > 1.2
             ? '브레이크로 멈춘 뒤 내려주세요 · SPACE'
-            : '내릴 자리가 좁아요. 조금 넓은 곳으로 이동하세요',
+            : vehicle.onBridge
+              ? '다리 끝의 넓은 지면에서 내려주세요'
+              : '내릴 자리가 좁아요. 조금 넓은 곳으로 이동하세요',
         );
         return;
       }

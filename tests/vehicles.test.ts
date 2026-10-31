@@ -300,6 +300,32 @@ describe('exploration buggy', () => {
       expect(foot.min.z - v.position.z).toBeGreaterThan(-1.5);
     }
   });
+  it.each([false, true])(
+    'smoothly centres a slightly misaligned buggy across the full bridge: reverse=%s',
+    (reverse) => {
+      const v = make();
+      v.restore({
+        x: 125.4,
+        z: reverse ? -21 : 133,
+        heading: reverse ? Math.PI + 0.08 : -0.08,
+        riding: true,
+      });
+      for (let i = 0; i < 1200 && (reverse ? v.position.z < 133 : v.position.z > -21); i++) {
+        v.update(1 / 60, 1, 0, false);
+        expect(v.position.x).toBeGreaterThan(124.3);
+        expect(v.position.x).toBeLessThan(125.7);
+      }
+      expect(reverse ? v.position.z >= 133 : v.position.z <= -21).toBe(true);
+    },
+  );
+  it('does not let either side of a buggy cross a bridge railing to board or exit, including its landward end', () => {
+    const v = make();
+    v.restore({ x: 125, z: 127, heading: 0, riding: true });
+    expect(v.onBridge).toBe(true);
+    expect(v.exit()).toBeNull();
+    v.riding = false;
+    expect(v.boardingApproach(new THREE.Vector3(129.5, groundSurface(129.5, 127), 127))).toBeNull();
+  });
   it('keeps the seated head below the roof and restores the driver appearance', () => {
     const scene = new THREE.Scene(),
       view = new VehicleView(scene),

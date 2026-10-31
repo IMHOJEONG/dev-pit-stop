@@ -229,9 +229,11 @@ export class Hud {
     $('vehicle-prompt').hidden =
       state.paused || state.vehicleTransition === true || (!vehicle.riding && !canBoard);
     $('vehicle-prompt-text').textContent = vehicle.riding
-      ? Math.abs(vehicle.speed) > 1.2
-        ? 'SPACE로 멈춘 뒤 F로 내리기'
-        : '탐험 버기에서 내리기'
+      ? vehicle.onBridge
+        ? '다리 끝의 넓은 지면에서 내리세요'
+        : Math.abs(vehicle.speed) > 1.2
+          ? 'SPACE로 멈춘 뒤 F로 내리기'
+          : '탐험 버기에서 내리기'
       : '탐험 버기 타기';
     $('touch-vehicle').hidden = !!state.vehicleTransition || (!vehicle.riding && !canBoard);
     $('touch-vehicle').textContent = vehicle.riding ? '내리기' : '타기';
