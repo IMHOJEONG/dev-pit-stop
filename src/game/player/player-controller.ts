@@ -29,6 +29,7 @@ export class PlayerController {
     private resources: Resource[],
     private collected: Set<number>,
     private onShore: () => void,
+    private extraBlocked: (x: number, z: number) => boolean = () => false,
   ) {}
   jump() {
     if (this.grounded) {
@@ -38,7 +39,10 @@ export class PlayerController {
   }
   reset(x = SPAWN.x, z = SPAWN.z) {
     const blocked = (px: number, pz: number) =>
-      stationBlocked(px, pz) || placeBlocked(px, pz) || bridgeRailBlocked(px, pz);
+      stationBlocked(px, pz) ||
+      placeBlocked(px, pz) ||
+      bridgeRailBlocked(px, pz) ||
+      this.extraBlocked(px, pz);
     // Older saves could stand inside a plinth before its collision footprint existed.
     if (blocked(x, z)) {
       const originalX = x,
@@ -151,6 +155,7 @@ export class PlayerController {
         const h = skySurface(x, z);
         return h === null || h - this.position.y <= (this.grounded ? STEP_HEIGHT + 0.02 : 0.01);
       }
+      if (this.extraBlocked(x, z)) return false;
       const h = groundSurface(x, z);
       const safe = constrainStationPosition(
         x,

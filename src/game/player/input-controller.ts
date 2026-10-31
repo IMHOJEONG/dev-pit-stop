@@ -1,5 +1,5 @@
 import { $ } from '../ui/dom';
-export type InputAction = 'pause' | 'map' | 'bag' | 'photo' | 'jump' | 'interact';
+export type InputAction = 'pause' | 'map' | 'bag' | 'photo' | 'jump' | 'interact' | 'vehicle';
 interface InputCallbacks {
   paused(): boolean;
   action(action: InputAction): void;
@@ -30,6 +30,7 @@ export class InputController {
           KeyH: 'photo',
           Space: 'jump',
           KeyE: 'interact',
+          KeyF: 'vehicle',
         };
         if (e.code === 'Escape') e.preventDefault();
         const action = actions[e.code];
@@ -76,7 +77,18 @@ export class InputController {
       },
       { signal, passive: false },
     );
-    $('touch-jump').addEventListener('pointerdown', () => callbacks.action('jump'), { signal });
+    $('touch-jump').addEventListener(
+      'pointerdown',
+      (event) => {
+        (event.currentTarget as HTMLElement).setPointerCapture(event.pointerId);
+        if (!callbacks.paused()) this.keys.add('Space');
+        callbacks.action('jump');
+      },
+      { signal },
+    );
+    for (const event of ['pointerup', 'pointercancel', 'lostpointercapture'])
+      $('touch-jump').addEventListener(event, () => this.keys.delete('Space'), { signal });
+    $('touch-vehicle').addEventListener('click', () => callbacks.action('vehicle'), { signal });
     $('touch-interact').addEventListener('click', () => callbacks.action('interact'), { signal });
     document.querySelectorAll<HTMLButtonElement>('[data-key]').forEach((button) => {
       button.addEventListener(
@@ -99,6 +111,7 @@ export class InputController {
       right:
         Number(this.keys.has('KeyD') || this.keys.has('ArrowRight')) -
         Number(this.keys.has('KeyA') || this.keys.has('ArrowLeft')),
+      brake: this.keys.has('Space'),
       sprint: this.keys.has('ShiftLeft') || this.keys.has('ShiftRight'),
     };
   }

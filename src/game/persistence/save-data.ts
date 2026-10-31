@@ -1,3 +1,4 @@
+import type { VehicleSave } from '../vehicles/vehicle-controller';
 import { WORLD_PLACES } from '../world/places';
 import { isAppearance } from '../player/appearance';
 import type { Appearance } from '../player/appearance';
@@ -11,6 +12,7 @@ import type { ExtraItemId } from '../items/catalog';
 import type { DropRecord } from '../items/item-system';
 export interface SaveData {
   version: 1;
+  vehicle?: VehicleSave;
   appearance?: Appearance;
   sky?: SkySave;
   harvestProgress?: [number, number][];
@@ -33,6 +35,16 @@ export function validateSave(value: unknown, resourceCount: number): SaveData | 
   const finite = (n: unknown): n is number => typeof n === 'number' && Number.isFinite(n);
   if (
     s.version !== 1 ||
+    (s.vehicle !== undefined &&
+      (!s.vehicle ||
+        !finite(s.vehicle.x) ||
+        !finite(s.vehicle.z) ||
+        Math.abs(s.vehicle.x) > 595 ||
+        Math.abs(s.vehicle.z) > 595 ||
+        !finite(s.vehicle.heading) ||
+        Math.abs(s.vehicle.heading) > Math.PI * 2 ||
+        typeof s.vehicle.riding !== 'boolean' ||
+        groundSurface(s.vehicle.x, s.vehicle.z) < 0.8)) ||
     (s.sky !== undefined &&
       (!s.sky ||
         typeof s.sky.built !== 'boolean' ||

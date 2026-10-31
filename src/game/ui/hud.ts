@@ -1,3 +1,4 @@
+import { navigationPoint } from '../world/regions';
 import { WORLD_PLACES } from '../world/places';
 import { groundSurface } from '../world/ground-surface';
 import { LAUNCH, RUNES, SUMMIT, ISLANDS } from '../sky/sky-world';
@@ -27,6 +28,7 @@ function resourceLabel(resource: Resource, expedition: ExpeditionState) {
     : rule.label + ' · ' + expedition.harvest.hits(resource.id) + ' / ' + rule.hits;
 }
 export class Hud {
+  private walkingHints = $('control-hints').innerHTML;
   private toastTimer: ReturnType<typeof setTimeout> | null = null;
   constructor(
     private camera: THREE.PerspectiveCamera,
@@ -63,7 +65,7 @@ export class Hud {
         ? '자유롭게 섬을 탐험하세요'
         : `관측소까지 ${Math.round(Math.hypot(s.x - state.position.x, s.z - state.position.z))} m`;
     $('bearing').textContent = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'][
-      Math.round((((((state.yaw * 180) / Math.PI) % 360) + 360) % 360) / 45) % 8
+      Math.round((((((-state.yaw * 180) / Math.PI) % 360) + 360) % 360) / 45) % 8
     ];
     $('exploration').textContent = `탐험 ${state.expedition.exploredPercent()}%`;
     $('interaction').hidden = !state.nearby || state.paused;
@@ -107,24 +109,22 @@ export class Hud {
     const sky = state.expedition.sky,
       journeyObjective = sky.objective(state.expedition.repaired.size),
       navigation = !sky.inSky && !sky.ride ? state.expedition.navigation : null,
-      destination = navigation
-        ? navigation.kind === 'station'
-          ? STATIONS[navigation.index]
-          : WORLD_PLACES[navigation.index]
-        : null,
+      destination = navigation ? navigationPoint(navigation, STATIONS, WORLD_PLACES) : null,
       objective = destination
         ? {
             ...journeyObjective,
             title:
-              navigation!.kind === 'station'
+              navigation!.kind !== 'place'
                 ? destination.name
                 : state.expedition.discoveries.has(WORLD_PLACES[navigation!.index].id)
                   ? destination.name
                   : '새로운 장소 찾아가기',
             detail:
-              navigation!.kind === 'station'
-                ? '큰길과 갈림길 표식을 따라 관측소로 향하세요'
-                : '지도에 표시된 갈림길 너머를 자유롭게 탐험하세요',
+              navigation!.kind === 'region'
+                ? '도로를 따라 지역 입구로 향하세요 · 계단 앞에서는 내려서 이동'
+                : navigation!.kind === 'station'
+                  ? '큰길과 갈림길 표식을 따라 관측소로 향하세요'
+                  : '지도에 표시된 갈림길 너머를 자유롭게 탐험하세요',
             point: {
               x: destination.x,
               z: destination.z,
@@ -200,6 +200,35 @@ export class Hud {
       $('interaction').hidden = false;
       $('interaction-text').textContent = skyPrompt;
     }
+    const vehicle = state.expedition.vehicle;
+    const canBoard = !sky.inSky && !sky.ride && vehicle.nearby(state.position);
+    $('vehicle-hud').hidden = !vehicle.riding || state.paused;
+    const hints = $('control-hints');
+    if (hints.dataset.driving !== String(vehicle.riding)) {
+      hints.dataset.driving = String(vehicle.riding);
+      hints.innerHTML = vehicle.riding
+        ? '<span><kbd>W S</kbd> 가속 · 후진</span><span><kbd>A D</kbd> 조향</span><span><kbd>SPACE</kbd> 브레이크</span><span><kbd>F</kbd> 내리기</span><span><kbd>M</kbd> 지역 지도</span><span><kbd>ESC</kbd> 일시 정지</span>'
+        : this.walkingHints;
+    }
+    $('vehicle-speed').textContent = String(Math.round(Math.abs(vehicle.speed) * 3.6));
+    $('vehicle-mode').textContent = vehicle.blocked
+      ? '진입 불가 · 후진해서 다른 길로'
+      : vehicle.speed < -0.2
+        ? 'R · 후진'
+        : Math.abs(vehicle.speed) < 0.2
+          ? 'P · 정차'
+          : 'D · 주행';
+    $('vehicle-prompt').hidden = state.paused || (!vehicle.riding && !canBoard);
+    $('vehicle-prompt-text').textContent = vehicle.riding
+      ? Math.abs(vehicle.speed) > 1.2
+        ? 'SPACE로 멈춘 뒤 F로 내리기'
+        : '탐험 버기에서 내리기'
+      : '탐험 버기 타기';
+    $('touch-vehicle').hidden = !vehicle.riding && !canBoard;
+    $('touch-vehicle').textContent = vehicle.riding ? '내리기' : '타기';
+    $('touch-jump').textContent = vehicle.riding ? '정지' : '↥';
+    $('touch-jump').setAttribute('aria-label', vehicle.riding ? '브레이크' : '점프');
+    if (vehicle.riding || canBoard) $('interaction').hidden = true;
     this.map.draw($<HTMLCanvasElement>('minimap'), false, state.position, state.yaw);
   }
   showToast(message: string) {

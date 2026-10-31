@@ -28,6 +28,10 @@ export class CameraController {
     this.yaw -= dx * 0.005;
     this.pitch = clamp(this.pitch + dy * 0.004, 0.1, 1.1);
   }
+  followHeading(heading: number, dt: number) {
+    const delta = Math.atan2(Math.sin(heading - this.yaw), Math.cos(heading - this.yaw));
+    this.yaw += delta * (1 - Math.exp(-dt * 2.5));
+  }
   zoomBy(delta: number) {
     this.zoom = clamp(this.zoom + delta * 0.025, 12, 65);
   }

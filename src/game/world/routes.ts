@@ -18,6 +18,19 @@ const points = (values: number[][]) => values.map(([x, z]) => ({ x, z }));
 const stationApproach = (index: number) => ({ x: STATIONS[index].x, z: STATIONS[index].z + 20 });
 export const WORLD_ROUTES: WorldRoute[] = [
   {
+    id: 'lift-bypass',
+    name: '상승장 우회로',
+    kind: 'road',
+    width: 6,
+    points: points([
+      [-35, 147],
+      [-52, 140],
+      [-59, 128],
+      [-59, 115],
+      [-51, 109],
+    ]),
+  },
+  {
     id: 'camp-ridge',
     name: '바람 초원길',
     kind: 'road',

@@ -1,3 +1,4 @@
+import { WORLD_REGIONS, navigationPoint } from '../world/regions';
 import { WORLD_ROUTES, landSurface } from '../world/routes';
 import { WORLD_PLACES } from '../world/places';
 import { ISLANDS, LAUNCH } from '../sky/sky-world';
@@ -7,6 +8,12 @@ import { STATIONS } from '../world/landmarks';
 import { terrainColor } from '../world/terrain-view';
 import { clamp } from '../shared/math';
 import type { ExpeditionState } from './expedition-state';
+export interface MapOptions {
+  layer?: 'ground' | 'sky';
+  focus?: { x: number; z: number };
+  range?: number;
+  region?: number;
+}
 export class MapView {
   private mapBase = document.createElement('canvas');
   constructor(private expedition: ExpeditionState) {
@@ -29,16 +36,28 @@ export class MapView {
       }
     ctx.putImageData(img, 0, 0);
   }
-  draw(canvas: HTMLCanvasElement, full: boolean, position: { x: number; z: number }, yaw: number) {
+  draw(
+    canvas: HTMLCanvasElement,
+    full: boolean,
+    position: { x: number; z: number },
+    yaw: number,
+    options: MapOptions = {},
+  ) {
     const ctx = canvas.getContext('2d')!;
     const w = canvas.width,
       h = canvas.height;
     ctx.clearRect(0, 0, w, h);
-    if (this.expedition.sky.inSky) {
+    const skyLayer = options.layer ? options.layer === 'sky' : this.expedition.sky.inSky;
+    if (skyLayer) {
       ctx.fillStyle = '#516a89';
       ctx.fillRect(0, 0, w, h);
-      const px = (x: number) => ((x + 85) / 230) * w,
-        pz = (z: number) => ((z + 95) / 270) * h;
+      const minX = Math.min(...ISLANDS.map((i) => i.x - i.radius)),
+        maxX = Math.max(...ISLANDS.map((i) => i.x + i.radius)),
+        minZ = Math.min(...ISLANDS.map((i) => i.z - i.radius)),
+        maxZ = Math.max(...ISLANDS.map((i) => i.z + i.radius));
+      const scale = Math.min((w - 40) / (maxX - minX), (h - 40) / (maxZ - minZ));
+      const px = (x: number) => (x - minX) * scale + (w - (maxX - minX) * scale) / 2,
+        pz = (z: number) => (z - minZ) * scale + (h - (maxZ - minZ) * scale) / 2;
       ctx.strokeStyle = '#e8d79c';
       ctx.lineWidth = 3;
       ctx.beginPath();
@@ -50,34 +69,36 @@ export class MapView {
       ISLANDS.forEach((island, i) => {
         ctx.fillStyle = i < this.expedition.sky.runes ? '#9de7c2' : '#a6b8ad';
         ctx.beginPath();
-        ctx.arc(px(island.x), pz(island.z), (island.radius / 230) * w, 0, Math.PI * 2);
+        ctx.arc(px(island.x), pz(island.z), island.radius * scale, 0, Math.PI * 2);
         ctx.fill();
         ctx.fillStyle = '#f6e3ac';
-        ctx.font = `${full ? 12 : 8}px sans-serif`;
+        ctx.font = `${full ? 16 : 8}px sans-serif`;
         ctx.textAlign = 'center';
         ctx.fillText(island.name, px(island.x), pz(island.z));
       });
+      if (!this.expedition.sky.inSky) return;
       ctx.fillStyle = '#fff7d0';
       ctx.beginPath();
       ctx.arc(px(position.x), pz(position.z), 5, 0, Math.PI * 2);
       ctx.fill();
       return;
     }
-    const range = full ? WORLD_SIZE : 390;
-    const centerX = full ? 0 : position.x,
-      centerZ = full ? 0 : position.z;
+    const verticalRange = full ? (options.range ?? WORLD_SIZE) : 390;
+    const range = full ? (verticalRange * w) / h : 390;
+    const centerX = full ? (options.focus?.x ?? 0) : position.x,
+      centerZ = full ? (options.focus?.z ?? 0) : position.z;
     const px = (x: number) => ((x - centerX) / range) * w + w / 2;
-    const pz = (z: number) => ((z - centerZ) / range) * h + h / 2;
+    const pz = (z: number) => ((z - centerZ) / verticalRange) * h + h / 2;
     ctx.fillStyle = '#56857c';
     ctx.fillRect(0, 0, w, h);
     const sx = (centerX / WORLD_SIZE + 0.5) * 512 - (range / WORLD_SIZE) * 256;
-    const sy = (centerZ / WORLD_SIZE + 0.5) * 512 - (range / WORLD_SIZE) * 256;
+    const sy = (centerZ / WORLD_SIZE + 0.5) * 512 - (verticalRange / WORLD_SIZE) * 256;
     ctx.drawImage(
       this.mapBase,
       sx,
       sy,
       (range / WORLD_SIZE) * 512,
-      (range / WORLD_SIZE) * 512,
+      (verticalRange / WORLD_SIZE) * 512,
       0,
       0,
       w,
@@ -98,7 +119,7 @@ export class MapView {
       ctx.fillStyle = '#243e3a28';
       for (const key of this.expedition.visited) {
         const [x, z] = key.split(',').map(Number);
-        ctx.fillRect(px(x * 20), pz(z * 20), (20 / range) * w, (20 / range) * h);
+        ctx.fillRect(px(x * 20), pz(z * 20), (20 / range) * w, (20 / verticalRange) * h);
       }
     }
     ctx.save();
@@ -141,21 +162,56 @@ export class MapView {
         ctx.fillText(discovered ? '◇' : '?', x, y + 3);
         if (discovered) {
           ctx.fillStyle = '#f2efd5';
-          ctx.font = '10px sans-serif';
+          ctx.font = '13px sans-serif';
           ctx.fillText(place.name, x, y + 17);
         }
       }
     }
     const navigation = this.expedition.navigation;
     if (navigation) {
-      const p =
-        navigation.kind === 'station' ? STATIONS[navigation.index] : WORLD_PLACES[navigation.index];
+      const p = navigationPoint(navigation, STATIONS, WORLD_PLACES);
       ctx.strokeStyle = '#fff6c4';
       ctx.lineWidth = 2;
       ctx.setLineDash([3, 3]);
       ctx.beginPath();
       ctx.arc(px(p.x), pz(p.z), full ? 12 : 9, 0, Math.PI * 2);
       ctx.stroke();
+    }
+    if (full)
+      for (const [i, region] of WORLD_REGIONS.entries()) {
+        const x = px(region.x),
+          y = pz(region.z);
+        if (x < 0 || x > w || y < 0 || y > h) continue;
+        ctx.font = 'bold 18px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.strokeStyle = '#203c36';
+        ctx.lineWidth = 4;
+        ctx.strokeText(region.name, x, y + 35);
+        ctx.fillStyle = region.color;
+        ctx.fillText(region.name, x, y + 35);
+        if (options.region === i) {
+          ctx.strokeStyle = '#fff1b7';
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.arc(x, y, 18, 0, Math.PI * 2);
+          ctx.stroke();
+        }
+      }
+    const vehicle = this.expedition.vehicle;
+    ctx.save();
+    ctx.translate(px(vehicle.position.x), pz(vehicle.position.z));
+    ctx.rotate(-vehicle.heading);
+    ctx.fillStyle = '#f1c37b';
+    ctx.strokeStyle = '#274638';
+    ctx.lineWidth = 2;
+    ctx.fillRect(-5, -7, 10, 14);
+    ctx.strokeRect(-5, -7, 10, 14);
+    ctx.restore();
+    if (full) {
+      ctx.font = '14px sans-serif';
+      ctx.fillStyle = '#fff1c0';
+      ctx.textAlign = 'left';
+      ctx.fillText('탐험 버기', px(vehicle.position.x) + 10, pz(vehicle.position.z) - 7);
     }
     ctx.restore();
     STATIONS.forEach((s, i) => {
@@ -172,7 +228,7 @@ export class MapView {
       ctx.restore();
       if (full) {
         ctx.fillStyle = '#eff1d9';
-        ctx.font = '11px sans-serif';
+        ctx.font = '14px sans-serif';
         ctx.textAlign = 'center';
         ctx.fillText(s.name, x, y - 13);
       }
@@ -182,13 +238,14 @@ export class MapView {
     ctx.arc(px(LAUNCH.x), pz(LAUNCH.z), 5, 0, Math.PI * 2);
     ctx.fill();
     if (full) {
-      ctx.font = '12px sans-serif';
+      ctx.font = '14px sans-serif';
       ctx.fillText('↑ 하늘 상승장', px(LAUNCH.x) + 10, pz(LAUNCH.z));
     }
     ctx.fillStyle = '#f5eed1';
     ctx.beginPath();
     ctx.arc(px(SPAWN.x), pz(SPAWN.z), full ? 3 : 2, 0, Math.PI * 2);
     ctx.fill();
+    if (this.expedition.sky.inSky) return;
     ctx.save();
     ctx.translate(px(position.x), pz(position.z));
     ctx.fillStyle = '#fff7cd';

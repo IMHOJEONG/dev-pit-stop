@@ -1,3 +1,4 @@
+import { VehicleController } from '../vehicles/vehicle-controller';
 import { WORLD_PLACES } from '../world/places';
 import type { PlaceId } from '../world/places';
 import { DEFAULT_APPEARANCE, isAppearance } from '../player/appearance';
@@ -18,9 +19,10 @@ export class ExpeditionState {
   readonly repaired = new Set<number>();
   readonly visited = new Set<string>();
   readonly discoveries = new Set<PlaceId>();
-  navigation: { kind: 'station' | 'place'; index: number } | null = null;
+  navigation: { kind: 'station' | 'place' | 'region'; index: number } | null = null;
   readonly harvest: HarvestSystem;
   readonly items: ItemSystem;
+  readonly vehicle: VehicleController;
   time = 9.67;
   timeRate = 1;
   distance = 0;
@@ -29,6 +31,7 @@ export class ExpeditionState {
   constructor(readonly resources: Resource[]) {
     this.harvest = new HarvestSystem(resources, this.collected);
     this.items = new ItemSystem(this.inventory, resources);
+    this.vehicle = new VehicleController(resources, this.collected);
     for (let x = -30; x < 31; x++)
       for (let z = -30; z < 31; z++)
         if (groundSurface(x * 20 + 10, z * 20 + 10) > 0.8) this.landCells++;
@@ -74,6 +77,7 @@ export class ExpeditionState {
   snapshot(position: { x: number; z: number }): SaveData {
     return {
       version: 1,
+      vehicle: this.vehicle.snapshot(),
       appearance: { ...this.appearance },
       sky: this.sky.snapshot(),
       x: position.x,
@@ -96,6 +100,8 @@ export class ExpeditionState {
     Object.assign(this.inventory, data.inventory);
     data.collected.forEach((id) => this.collected.add(id));
     this.items.restore(data.items, data.drops, this.collected);
+    this.vehicle.restore(data.vehicle);
+    if (data.sky?.inSky) this.vehicle.riding = false;
     data.repaired.forEach((id) => this.repaired.add(id));
     data.visited.forEach((cell) => this.visited.add(cell));
     for (const place of WORLD_PLACES)
@@ -118,6 +124,7 @@ export class ExpeditionState {
     this.navigation = null;
     this.harvest.reset();
     this.items.reset();
+    this.vehicle.reset();
     this.sky.restore();
     this.distance = 0;
     this.time = 9.67;

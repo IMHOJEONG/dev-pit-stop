@@ -1,3 +1,4 @@
+import { VehicleView } from '../vehicles/vehicle-view';
 import { RouteView } from './route-view';
 import { PlaceView } from './place-view';
 import { SkyView } from '../sky/sky-view';
@@ -25,6 +26,7 @@ export class WorldScene {
   readonly structures: StructuresView;
   readonly environment: EnvironmentView;
   readonly drops: DropView;
+  readonly vehicle: VehicleView;
   constructor(resources: Resource[]) {
     this.environment = new EnvironmentView(this.scene);
     createTerrain(this.scene);
@@ -35,6 +37,7 @@ export class WorldScene {
     this.places = new PlaceView(this.scene);
     this.player = new PlayerView(this.scene);
     this.drops = new DropView(this.scene);
+    this.vehicle = new VehicleView(this.scene);
     this.sky = new SkyView(this.scene);
   }
   update(
