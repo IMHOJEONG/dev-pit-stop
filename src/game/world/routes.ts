@@ -301,12 +301,37 @@ export function nearestRoute(
   return result;
 }
 export function landSurface(x: number, z: number) {
-  const natural = terrainHeight(x, z),
-    p = nearestRoute(x, z, 'ground');
-  if (!p) return natural;
-  const half = p.segment.route.width / 2;
-  const blend = 1 - smoothstep(half + 1.5, half + 4, p.distance);
-  return natural * (1 - blend) + (p.height - 0.06) * blend;
+  const natural = terrainHeight(x, z);
+  const projections = new Map<WorldRoute, { distance: number; height: number }>();
+  for (const segment of grid.get(`${Math.floor(x / CELL)},${Math.floor(z / CELL)}`) ?? []) {
+    if (segment.route.kind === 'bridge') continue;
+    const dx = segment.b.x - segment.a.x,
+      dz = segment.b.z - segment.a.z;
+    const t = Math.max(
+      0,
+      Math.min(
+        1,
+        ((x - segment.a.x) * dx + (z - segment.a.z) * dz) / (segment.length * segment.length),
+      ),
+    );
+    const distance = Math.hypot(x - segment.a.x - dx * t, z - segment.a.z - dz * t);
+    if (distance > segment.route.width / 2 + 4) continue;
+    const previous = projections.get(segment.route);
+    if (!previous || distance < previous.distance)
+      projections.set(segment.route, {
+        distance,
+        height: segment.ay + (segment.by - segment.ay) * t - 0.06,
+      });
+  }
+  let weight = 0,
+    correction = 0;
+  // Blend every overlapping road, so crossing the nearest-road boundary cannot create a wall.
+  for (const [route, p] of projections) {
+    const w = 1 - smoothstep(0, route.width / 2 + 4, p.distance);
+    weight += w;
+    correction += (p.height - natural) * w;
+  }
+  return natural + correction / Math.max(1, weight);
 }
 export function routeSurface(x: number, z: number): number | null {
   const bridge = nearestRoute(x, z, 'bridge');
@@ -318,7 +343,7 @@ export function routeSurface(x: number, z: number): number | null {
   )
     return bridge.height;
   const p = nearestRoute(x, z, 'ground');
-  return p && p.distance <= p.segment.route.width / 2 ? p.height : null;
+  return p && p.distance <= p.segment.route.width / 2 ? landSurface(x, z) + 0.06 : null;
 }
 export function routeClearing(x: number, z: number, extra = 0) {
   const p = nearestRoute(x, z);

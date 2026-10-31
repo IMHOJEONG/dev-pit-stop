@@ -236,6 +236,7 @@ export class Hud {
     $('touch-vehicle').hidden = !!state.vehicleTransition || (!vehicle.riding && !canBoard);
     $('touch-vehicle').textContent = vehicle.riding ? '내리기' : '타기';
     $('touch-jump').textContent = vehicle.riding ? '정지' : '↥';
+    $('touch-jump').dataset.driving = String(vehicle.riding);
     $('touch-jump').setAttribute('aria-label', vehicle.riding ? '브레이크' : '점프');
     if (vehicle.riding || canBoard) $('interaction').hidden = true;
     this.map.draw($<HTMLCanvasElement>('minimap'), false, state.position, state.yaw);

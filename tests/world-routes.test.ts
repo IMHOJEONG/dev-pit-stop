@@ -154,3 +154,37 @@ it('restores older positions inside station plinths to a nearby clear walking su
     expect(player.position.y).toBeCloseTo(groundSurface(player.position.x, player.position.z), 5);
   }
 });
+
+it('keeps the southern lake fork continuous when crossing between two roads', () => {
+  for (const heading of [-0.95, -1, -1.05, -1.1, -1.16]) {
+    let previous = groundSurface(88, 153);
+    for (let x = 88; x < 110; x += 0.1) {
+      const z = 153 - ((x - 88) * Math.cos(heading)) / -Math.sin(heading),
+        y = groundSurface(x, z);
+      expect(Math.abs(y - previous)).toBeLessThan(0.2);
+      previous = y;
+    }
+  }
+});
+it('renders the graded road surface at the same height as the walkable surface near the fork', () => {
+  const scene = new THREE.Scene(),
+    view = new RouteView(scene),
+    ray = new THREE.Raycaster();
+  scene.updateMatrixWorld(true);
+  const decks = WORLD_ROUTES.filter((r) => r.kind !== 'bridge').map((r) =>
+    view.root.getObjectByName(`route-deck-${r.id}`)!,
+  );
+  for (const [x, z] of [
+    [76, 151],
+    [93, 145],
+    [110, 139],
+    [90, 154.2],
+  ]) {
+    const y = groundSurface(x, z);
+    ray.set(new THREE.Vector3(x, y + 3, z), new THREE.Vector3(0, -1, 0));
+    const hits = ray.intersectObjects(decks, true);
+    expect(hits.length).toBeGreaterThan(0);
+    expect(Math.abs(hits[0].point.y - y)).toBeLessThan(0.15);
+  }
+  disposeScene(scene);
+});

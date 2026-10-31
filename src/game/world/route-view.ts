@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { mat, mesh } from '../shared/meshes';
-import { WORLD_ROUTES, ROUTE_SEGMENTS, type RouteSegment } from './routes';
+import { WORLD_ROUTES, ROUTE_SEGMENTS, landSurface, type RouteSegment } from './routes';
 import { terrainHeight } from './terrain';
 import { LAUNCH } from './landmarks';
 import { DOCK_APRON_RADIUS } from './ground-surface';
@@ -34,42 +34,51 @@ function stripGeometry(segments: RouteSegment[]) {
     const dx = (s.b.x - s.a.x) / s.length,
       dz = (s.b.z - s.a.z) / s.length,
       w = s.route.width / 2;
-    const index = positions.length / 3;
-    const vertices = [
-      [s.a.x - dz * w, s.ay, s.a.z + dx * w],
-      [s.a.x + dz * w, s.ay, s.a.z - dx * w],
-      [s.b.x - dz * w, s.by, s.b.z + dx * w],
-      [s.b.x + dz * w, s.by, s.b.z - dx * w],
-    ];
-    for (const vertex of vertices) positions.push(...vertex);
-    const color = new THREE.Color(
-      s.route.kind === 'bridge'
-        ? s.index % 2
-          ? 0x9b8060
-          : 0xaa906d
-        : s.route.kind === 'trail'
-          ? 0xb4a37f
-          : 0xc5af85,
-    );
-    for (let i = 0; i < 4; i++) colors.push(color.r, color.g, color.b);
-    indices.push(index, index + 2, index + 1, index + 1, index + 2, index + 3);
-    if (s.route.kind === 'bridge') {
-      for (const vertex of vertices) positions.push(vertex[0], vertex[1] - 0.38, vertex[2]);
-      for (let i = 0; i < 4; i++) colors.push(color.r * 0.72, color.g * 0.72, color.b * 0.72);
-      indices.push(
-        index,
-        index + 4,
-        index + 2,
-        index + 2,
-        index + 4,
-        index + 6,
-        index + 1,
-        index + 3,
-        index + 5,
-        index + 3,
-        index + 7,
-        index + 5,
+    for (const [left, right] of s.route.kind === 'bridge'
+      ? [[-w, w]]
+      : [
+          [-w, 0],
+          [0, w],
+        ]) {
+      const index = positions.length / 3;
+      const vertices = [
+        [s.a.x + dz * left, s.ay, s.a.z - dx * left],
+        [s.a.x + dz * right, s.ay, s.a.z - dx * right],
+        [s.b.x + dz * left, s.by, s.b.z - dx * left],
+        [s.b.x + dz * right, s.by, s.b.z - dx * right],
+      ];
+      if (s.route.kind !== 'bridge')
+        for (const vertex of vertices) vertex[1] = landSurface(vertex[0], vertex[2]) + 0.06;
+      for (const vertex of vertices) positions.push(...vertex);
+      const color = new THREE.Color(
+        s.route.kind === 'bridge'
+          ? s.index % 2
+            ? 0x9b8060
+            : 0xaa906d
+          : s.route.kind === 'trail'
+            ? 0xb4a37f
+            : 0xc5af85,
       );
+      for (let i = 0; i < 4; i++) colors.push(color.r, color.g, color.b);
+      indices.push(index, index + 2, index + 1, index + 1, index + 2, index + 3);
+      if (s.route.kind === 'bridge') {
+        for (const vertex of vertices) positions.push(vertex[0], vertex[1] - 0.38, vertex[2]);
+        for (let i = 0; i < 4; i++) colors.push(color.r * 0.72, color.g * 0.72, color.b * 0.72);
+        indices.push(
+          index,
+          index + 4,
+          index + 2,
+          index + 2,
+          index + 4,
+          index + 6,
+          index + 1,
+          index + 3,
+          index + 5,
+          index + 3,
+          index + 7,
+          index + 5,
+        );
+      }
     }
   }
   const geometry = new THREE.BufferGeometry();

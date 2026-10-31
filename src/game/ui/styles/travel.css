@@ -300,3 +300,8 @@ dialog[data-panel='map'] .modal-header {
   color: #fff4da;
   margin-left: auto;
 }
+
+#touch-jump[data-driving='true'] {
+  font-size: 11px;
+  white-space: nowrap;
+}

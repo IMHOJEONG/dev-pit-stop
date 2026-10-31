@@ -213,7 +213,7 @@ export class VehicleController {
         h = groundSurface(x, z);
       if (
         !this.canOccupy(x, z, heading) ||
-        Math.abs(h - this.position.y) > Math.hypot(dx, dz) * 0.85 + 0.75
+        Math.abs(h - this.position.y) > Math.hypot(dx, dz) * 0.85 + 0.25
       ) {
         this.speed = 0;
         this.blocked = true;

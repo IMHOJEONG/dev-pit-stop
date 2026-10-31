@@ -175,15 +175,19 @@ describe('exploration buggy', () => {
         expect(v.canOccupy(a.x + (b.x - a.x) * t, a.z + (b.z - a.z) * t, heading)).toBe(true);
     }
   });
-  it('crosses the southern lake road junction that stopped the deployed buggy', () => {
-    for (const fps of [30, 120]) {
-      const v = new VehicleController(makeResources(), new Set([0, 1]));
-      v.restore({ x: 60, z: 162, heading: -1.16, riding: true });
-      drive(v, 3.2, 1, 0, false, fps);
-      expect(v.position.x).toBeGreaterThan(98);
-      expect(v.blocked).toBe(false);
-    }
-  });
+  it.each([-0.95, -1, -1.05, -1.1, -1.16])(
+    'crosses the southern lake road junction from heading %s',
+    (heading) => {
+      for (const fps of [30, 120]) {
+        const v = new VehicleController(makeResources(), new Set([0, 1]));
+        v.restore({ x: 88, z: 153, heading, riding: true });
+        for (let frame = 0; frame < fps * 4 && v.position.x <= 110; frame++)
+          v.update(1 / fps, 1, 0, false);
+        expect(v.position.x).toBeGreaterThan(110);
+        expect(v.blocked).toBe(false);
+      }
+    },
+  );
   it('limits lateral acceleration during a sharp turn at driving speed', () => {
     const v = make();
     v.riding = true;
