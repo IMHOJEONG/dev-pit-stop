@@ -1,0 +1,215 @@
+dialog[data-panel='character'] {
+  width: min(920px, calc(100vw - 36px));
+  max-height: 94dvh;
+  padding: 26px;
+}
+dialog[data-panel='character'] .modal-header {
+  margin-bottom: 18px;
+}
+.character-intro {
+  margin: -8px 0 22px;
+  color: #70816a;
+  font-size: 12px;
+  line-height: 1.8;
+}
+.character-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+.character-stage {
+  position: relative;
+  background: radial-gradient(ellipse at 50% 40%, #edf0df, #c6d1b9);
+  border: 1px solid #59734b22;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.character-stage-label {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: #697d60;
+  pointer-events: none;
+}
+#character-preview {
+  display: block;
+  width: 100%;
+  height: 320px;
+}
+.character-motion,
+.character-rotation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 11px;
+  color: #65765b;
+  margin-top: 14px;
+}
+.character-rotation input {
+  flex: 1;
+  min-width: 50px;
+  accent-color: #526b45;
+}
+.character-rotation span {
+  font-size: 9px;
+}
+.character-layout select {
+  min-height: 36px;
+  border: 1px solid #536f4930;
+  border-radius: 6px;
+  background: #e8ecdd;
+  color: #354f35;
+  padding: 8px 10px;
+  font: inherit;
+}
+.character-presets {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7px;
+  margin-bottom: 17px;
+}
+.character-preset {
+  position: relative;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  text-align: center;
+  background: #e8ecde;
+  border: 1px solid #526a4420;
+  color: #40583b;
+  border-radius: 8px;
+  padding: 10px 6px;
+}
+.character-preset[aria-pressed='true'] {
+  background: #dbe4cd;
+  border-color: #63794d;
+  box-shadow: inset 0 0 0 1px #63794d;
+}
+.character-preset i {
+  width: 27px;
+  height: 31px;
+  border-radius: 10px 10px 6px 6px;
+  flex-shrink: 0;
+  box-shadow: inset 0 -7px #0002;
+}
+.character-preset strong {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+}
+.character-preset small {
+  display: none;
+  font-size: 10px;
+  color: #7d8a70;
+  margin-top: 3px;
+}
+.character-preset b {
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  opacity: 0;
+  font-size: 10px;
+}
+.character-preset[aria-pressed='true'] b {
+  opacity: 1;
+}
+.character-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.character-fields label {
+  display: grid;
+  gap: 6px;
+  font-size: 11px;
+  color: #65765b;
+}
+.character-fields select {
+  width: 100%;
+  min-width: 0;
+}
+.character-note {
+  color: #7b896f;
+  font-size: 10px;
+  line-height: 1.8;
+  margin: 16px 0 0;
+}
+.character-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  border-top: 1px solid #526a4420;
+  padding-top: 20px;
+  margin-top: 22px;
+}
+.character-footer > span {
+  margin-right: auto;
+  color: #7b896f;
+  font-size: 10px;
+  max-width: 250px;
+  line-height: 1.7;
+}
+.character-footer .primary-button {
+  padding: 12px 18px;
+  font-size: 11px;
+}
+.intro-character {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  color: #e9e6cc;
+}
+.intro-character .icon {
+  width: 15px;
+  height: 15px;
+}
+.character-layout :focus-visible,
+.character-footer :focus-visible {
+  outline: 2px solid #49673b;
+  outline-offset: 3px;
+}
+@media (max-width: 650px) {
+  .character-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  #character-preview {
+    height: 270px;
+  }
+  .character-presets {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .character-preset {
+    padding: 10px 7px;
+    gap: 5px;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+  }
+  .character-preset small {
+    display: none;
+  }
+  .character-preset b {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    font-size: 9px;
+  }
+  .character-footer {
+    flex-wrap: wrap;
+  }
+  .character-footer > span {
+    max-width: none;
+    flex-basis: 100%;
+  }
+  .character-fields label {
+    font-size: 12px;
+  }
+}

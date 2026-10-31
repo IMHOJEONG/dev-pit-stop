@@ -1,0 +1,12 @@
+Human gait joint animation derived from Cesium Man
+Copyright 2017 Cesium (https://cesium.com/)
+Source: https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/CesiumMan
+Source animation: https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Assets/main/Models/CesiumMan/glTF-Binary/CesiumMan.glb
+License: Creative Commons Attribution 4.0 International (CC-BY-4.0)
+License text: https://creativecommons.org/licenses/by/4.0/legalcode
+
+Changes in Wild Atlas: sampled joint directions, rescaled motion, retargeted arms,
+pelvis and spine onto the original customizable character; blended with foot
+contact, terrain adaptation, walking/running and start/stop transitions.
+Only the derived joint motion is distributed. The Cesium model, textures and
+logos are not used. No endorsement by Cesium is implied.

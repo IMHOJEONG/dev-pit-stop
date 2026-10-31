@@ -1,52 +1,111 @@
-# Website
+# Wild Atlas
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+브라우저에서 플레이하는 3D 오픈 월드 탐험 게임. 바람이 부는 섬을 돌아다니며 자원을 모으고, 관측소를 복구하고 상승기를 제작해 하늘섬으로 올라가 천공의 성소에 신호를 연결합니다.
 
-### Installation
+## 실행
 
-```
-$ yarn
-```
+Bun 1.3.14와 Node.js 22.18+, 24.11+ 또는 26+가 필요합니다. Bun은 패키지 매니저이며 Vite+ CLI는 Node.js에서 실행됩니다. 전역 Vite+ 설치는 필요하지 않습니다.
 
-### Local Development
-
-```
-$ yarn start
+```sh
+bun install --frozen-lockfile
+bun dev
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+터미널의 로컬 주소를 브라우저로 열면 됩니다. WebGL 2 및 하드웨어 가속을 지원하는 브라우저가 필요합니다.
 
-### Build
-
-```
-$ yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-### Deployment
-
-Using SSH:
-
-```
-$ USE_SSH=true yarn deploy
+```sh
+bun run typecheck  # TypeScript
+bun run check      # Vite+: Oxfmt + Oxlint
+bun run test       # Vite+: Vitest
+bun run build      # 타입 검사 + Vite/Rolldown 프로덕션 빌드
+bun run preview    # dist/ 미리 보기
+bun run fmt        # Vite+: Oxfmt
 ```
 
-Not using SSH:
+## 캐릭터 선택
 
+시작 화면의 `캐릭터 선택하기`, 상단 사람 아이콘, 또는 설정의 `캐릭터 바꾸기`에서 나의 탐험가를 꾸밀 수 있습니다. 길잡이·숲지기·항해자 중 하나를 고르거나 체형, 피부 톤, 머리 모양, 탐험복, 모자를 조합하세요. 모든 체형의 이동 능력은 같습니다.
+
+미리 보기에서 캐릭터를 360도로 돌리고 서기·걷기·달리기·계단 오르내리기·점프를 확인한 뒤 `이 모습 적용하기`를 누릅니다. 적용 전에는 게임의 외형이 바뀌지 않으며, 취소하거나 닫으면 미리 보기를 버립니다. 외형은 탐험을 시작하기 전에도 현재 브라우저에 저장되고, 새 탐험을 시작해도 유지됩니다.
+
+캐릭터는 무릎·팔꿈치가 있는 관절 모델을 사용합니다. 디딘 발을 지면에 고정하고, 계단 높이에 맞춰 무릎과 골반을 조절합니다. 걷기 속도는 초당 4.8, 달리기는 초당 11 월드 단위입니다. 사람 캐릭터용 보행 데이터에 맞춰 어깨·골반의 반대 회전과 팔꿈치 움직임을 적용하고, 발뒤꿈치 착지와 발끝 밀어내기, 정지할 때의 마무리 발걸음을 연결합니다.
+
+보행 관절 데이터는 [Cesium Man](https://github.com/KhronosGroup/glTF-Sample-Assets/tree/main/Models/CesiumMan), © 2017 Cesium, CC BY 4.0에서 추출·변환했습니다. 원본 모델·텍스처·로고는 사용하지 않습니다. 출처와 변경 내용은 `public/licenses/cesium-human-motion.txt`, 재생성 도구는 `scripts/extract-human-motion.mjs`에 있습니다.
+
+## 첫 번째 탐험
+
+1. `탐험 시작하기`를 누릅니다.
+2. 캠프 주변의 자원에 다가가 `E`를 세 번 눌러 채집합니다. 나무에는 도끼, 돌·수정에는 곡괭이를 사용합니다. 파괴 연출이 끝나면 자원 1개가 배낭에 담깁니다.
+3. 목재 3개, 돌 2개, 수정 1개로 지상 관측소 한 곳을 복구합니다.
+4. 캠프 북쪽 상승장 `(-35, 125)`에서 목재 2개, 돌 1개, 수정 1개로 바람 상승기를 제작합니다.
+5. 상승장에서 `E`를 다시 누르면 8초 동안 고도 155m의 구름 항구로 올라갑니다.
+6. 구름 항구 → 바람의 정원 → 별빛 채석장 순서로 룬을 활성화합니다. 높은 섬으로 이어지는 다리 두 곳에는 점프로 건너야 할 틈이 있습니다.
+7. 고도 220m의 천공 성소를 점화하면 여정이 완료됩니다. 첫 하늘섬의 상승장에서 다시 `E`를 누르면 지상으로 내려올 수 있습니다.
+
+추락하면 마지막 활성화한 룬의 섬으로 복귀하며 배낭을 유지합니다. 하늘 진입 여부와 룬 진행도도 자동 저장됩니다. 설정의 캠프 복귀는 지상으로 돌아오지만 제작·룬 진행도는 유지합니다.
+
+| 조작                        | 동작                    |
+| --------------------------- | ----------------------- |
+| WASD / 방향키               | 카메라 기준 이동        |
+| Shift                       | 달리기, 스태미나 소모   |
+| Space                       | 점프                    |
+| 마우스 드래그 / 터치 드래그 | 카메라 회전             |
+| 마우스 휠                   | 카메라 거리 조절        |
+| E                           | 자원 채집 / 관측소 복구 |
+| M                           | 전체 지도 / 목표 지정   |
+| H                           | 풍경 감상, HUD 숨기기   |
+| Esc                         | 일시 정지 / 설정        |
+
+작은 터치 화면에는 방향·점프·상호작용 버튼이 표시됩니다. 설정에서 그래픽 품질, 시간 배속, 자연 소리를 바꾸거나 캠프로 돌아갈 수 있습니다. `새 탐험`은 한 번 더 확인한 뒤 현재 진행을 초기화합니다.
+
+## 길과 지도의 관리
+
+현재 월드는 한 번에 생성하는 **1.24 × 1.24 km의 유한한 섬**입니다. 지형·자원·건물·길을 서로 다른 레이어로 관리합니다.
+
+- `world/terrain.ts`: 원래 지형 높이와 관측소·명소의 평탄한 주변 지형을 생성합니다. 자원 ID가 달라지지 않도록 원래 지형 함수도 유지합니다.
+- `world/routes.ts`: 11개 큰길·오솔길·다리의 좌표 목록입니다. 길을 3m 이하 구간으로 나눠 높이를 정하고, 32m 공간 인덱스로 주변 길을 찾습니다. 3D 도로, 다리, 이동 높이, 지도 선이 이 데이터를 공유합니다.
+- `world/station-layout.ts`: 관측소 단상·10단 계단·기둥 위치를 정의합니다. 화면과 캐릭터 이동 판정이 같은 높이를 사용합니다.
+- `world/ground-surface.ts`: 관측소, 상승장, 다리, 길과 일반 지형 중 실제로 밟는 바닥을 결정합니다.
+- `world/places.ts`: 해안 쉼터, 숲 야영지, 돌문, 호수 전망대, 풍차, 북쪽 유적의 좌표와 발견 범위입니다.
+- `expedition/map-view.ts`: 높이 데이터로 512px 지형 바탕을 한 번 만든 뒤, 전체 지도와 주변 390m 미니맵을 Canvas에 그립니다. 그 위에 같은 길·관측소·명소 데이터를 표시합니다.
+
+`M` 지도에서 관측소나 미발견 장소를 골라 자유 탐험 목적지로 지정할 수 있습니다. `여정 목표로 돌아가기`로 기본 여정 안내를 되돌립니다. 탐험 영역은 20m 셀, 명소는 고유 ID로 저장합니다. 발견은 한 번만 알리고 기존 버전 1 저장에 합쳐 보관합니다. 새 길을 비우기 위해 자원을 길 가장자리로 옮겨도 기존 자원 ID·종류·채집 기록은 유지합니다.
+
+## 월드와 저장
+
+- 시드 `2704`, 약 1.2 × 1.2 km의 유한한 섬. 초원, 숲, 산맥, 해안과 호수를 수학적으로 생성합니다.
+- 지형·길·다리·관측소 계단 높이에 맞춘 캐릭터 이동, 중력·점프, 자원·기둥 충돌, 깊은 물 진입 제한.
+- 관측소를 잇는 순환길과 갈림길, 호수 횡단 다리와 전망 데크, 발견 가능한 명소 6곳.
+- 시간에 따른 낮과 밤, 이동하는 구름, 새와 여우의 주변 움직임.
+- Three.js 인스턴싱으로 나무·바위·수정·풀을 렌더링합니다. 외부 3D 모델을 다운로드하지 않습니다.
+- 위치·자원·관측소·방문 영역·게임 시간이 12초마다, 상호작용 시, 페이지를 떠날 때 `localStorage`에 저장됩니다.
+- 저장은 같은 브라우저/오리진에 한정되며, 저장소를 지우면 초기화됩니다. 서버·계정·멀티플레이는 없습니다.
+
+## 구조와 책임
+
+```text
+src/game/
+  app/          실행 수명주기와 도메인 조립, WebGL 렌더러
+  resources/    자원 정의·배치·채집 상태·타격/파괴 연출·공용 파편 효과
+  world/        지형·바이옴·환경·관측소·캠프 표현
+  player/       입력·이동/중력·카메라·캐릭터와 도구 애니메이션
+  expedition/   배낭·복구·탐험 상태, 상호작용 대상 선택, 지도
+  persistence/  저장 스키마 검증과 브라우저 저장소 접근
+  sky/          상승기·단계별 목표·하늘섬/다리 지형·룬·체크포인트
+  audio/        환경음·타격음·완료음
+  ui/           화면 틀·HUD·설정/지도 패널·공용 아이콘·분리된 CSS
+  shared/       수학·메시 생성·GPU 자원 해제
+tests/          월드·채집 규칙·렌더링·저장 회귀 테스트
+vite.config.ts  Vite+ 통합 설정
 ```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+- `app/Game`은 입력을 각 도메인에 전달하고 프레임을 조율합니다. 채집 보상이나 3D 모델을 직접 구현하지 않습니다.
+- `resources/HarvestSystem`은 Three.js와 DOM을 사용하지 않는 채집 규칙입니다. 자원별 타격 횟수·도구·파괴 시간을 `resources/catalog.ts` 한 곳에서 정의합니다.
+- `resources/ResourceView`와 `player/PlayerView`는 도메인이 만든 타격 결과를 받아 애니메이션만 재생합니다. 화면 코드가 배낭을 수정하지 않습니다.
+- 보상은 마지막 타격의 파괴 연출이 끝난 뒤 한 번만 지급합니다. 나무는 밑동/통나무, 돌·수정은 작은 채굴 흔적을 남깁니다. 파편 효과는 고정 크기 인스턴스 풀을 재사용합니다.
+- 저장 데이터는 기존 버전 1과 같은 키를 유지합니다. 타격 진행도도 저장하며, 파괴 도중 종료하면 마지막 타격부터 재개해 보상 중복과 자원 소실을 방지합니다.
+- 패널을 열면 채집 타이머와 애니메이션도 함께 멈춥니다. 새 탐험은 진행 중 보상과 파편 효과까지 초기화합니다.
 
-### Yarn Version 4.3.1
+Bun을 유일한 패키지 매니저로 사용하며 `bun.lock`을 커밋합니다. Vite+ `1.4.0` 안의 Vite/Rolldown, Vitest `5.0.5`, Oxfmt, Oxlint를 사용합니다. `vite`와 `vitest` overrides는 Vite+ 버전과 맞춰 함께 갱신해야 합니다.
 
-- for yarn zero-install 
-
-### Docusaurus 3.3.2 -> 3.4.0 version update
-
-- https://docusaurus.io/docs/installation
-
-- 왜 필요했는가? 블로그 및 개발하며 얻은 자료들 정리가 필요해짐 
-
+기존 Docusaurus 글과 문서(`blog/`, `docs/`)는 참고용으로 남아 있으며 게임 빌드에는 포함되지 않습니다.

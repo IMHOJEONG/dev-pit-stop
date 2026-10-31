@@ -1,0 +1,300 @@
+dialog {
+  width: min(780px, calc(100vw - 36px));
+  max-height: 85dvh;
+  border: 1px solid #c5d0b746;
+  border-radius: 17px;
+  background: #f2f1e4;
+  color: #294236;
+  padding: 30px;
+  box-shadow: 0 30px 150px #10271e60;
+}
+dialog::backdrop {
+  background: #10291c6b;
+  backdrop-filter: blur(8px);
+}
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+.modal-header .eyebrow {
+  color: #7c8a6d;
+  font-size: 8px;
+}
+.modal-header h2 {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.8px;
+  margin: 9px 0 0;
+}
+.modal-header .icon-button {
+  background: #dce2ce;
+  border: 1px solid #34493322;
+}
+.map-layout {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 25px;
+}
+.large-map {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 9px;
+  background: #598477;
+  border: 1px solid #3a5f4433;
+}
+.map-station {
+  display: flex;
+  gap: 12px;
+  padding: 15px 0;
+  border-bottom: 1px solid #24422e22;
+}
+.map-station > span {
+  font-size: 11px;
+  color: #8c9674;
+  padding-top: 3px;
+}
+.map-station strong {
+  font-size: 13px;
+  font-weight: 500;
+}
+.map-station small {
+  display: block;
+  font-size: 9px;
+  margin: 5px 0;
+  color: #87947c;
+  letter-spacing: 0.6px;
+}
+.map-station button {
+  background: none;
+  color: #59764e;
+  padding: 3px 0;
+  font-size: 10px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.repair-cost {
+  font-size: 11px;
+  line-height: 2;
+  color: #778669;
+}
+.repair-cost strong {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  color: #3b563c;
+  margin-bottom: 5px;
+}
+.map-legend {
+  font-size: 9px;
+  color: #7d8c72;
+  margin-top: 12px;
+  line-height: 1.8;
+}
+.help-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 32px;
+}
+.help-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid #33553820;
+  font-size: 12px;
+}
+.help-row kbd {
+  border-color: #45633840;
+  background: #e1e6d5;
+  padding: 5px 8px;
+  color: #3b563f;
+}
+.guide-note {
+  padding: 18px 20px;
+  background: #e3e8d7;
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 1.9;
+  color: #617256;
+  margin-top: 22px;
+}
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  padding: 18px 0;
+  border-bottom: 1px solid #33553820;
+  font-size: 13px;
+}
+.setting-row small {
+  display: block;
+  font-size: 10px;
+  color: #7b886e;
+  margin-top: 7px;
+}
+.setting-row select,
+.secondary-button {
+  background: #e2e7d4;
+  color: #405a3e;
+  border: 1px solid #405a3e26;
+  border-radius: 5px;
+  padding: 9px 13px;
+  font-size: 11px;
+}
+.settings-footer {
+  display: flex;
+  gap: 10px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+.settings-footer .primary-button {
+  padding: 12px 18px;
+}
+.danger-button {
+  background: transparent;
+  color: #a66d4c;
+  border: 1px solid #a66d4c44;
+  border-radius: 5px;
+  padding: 10px 14px;
+  font-size: 11px;
+  margin-left: auto;
+}
+.completion {
+  text-align: center;
+  padding: 20px;
+}
+.completion .icon {
+  width: 60px;
+  height: 60px;
+  color: #b49657;
+  margin-bottom: 10px;
+}
+.completion h3 {
+  font:
+    38px Georgia,
+    serif;
+  margin: 15px 0;
+}
+.completion p {
+  font-size: 13px;
+  line-height: 2;
+  color: #7a896c;
+}
+.completion .primary-button {
+  margin: 25px auto 0;
+}
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin: 25px 0;
+}
+.stats strong {
+  display: block;
+  font-size: 25px;
+  font-weight: 400;
+}
+.stats small {
+  display: block;
+  color: #879378;
+  font-size: 10px;
+  margin-top: 8px;
+}
+#photo-label {
+  position: absolute;
+  left: 35px;
+  bottom: 30px;
+  font-size: 19px;
+  letter-spacing: 3px;
+  text-shadow: 0 1px 5px #234128;
+}
+#photo-label span {
+  display: block;
+  font:
+    italic 15px Georgia,
+    serif;
+  letter-spacing: 0.4px;
+  margin-top: 8px;
+}
+#photo-label small {
+  position: fixed;
+  bottom: 30px;
+  right: 35px;
+  font-size: 10px;
+  letter-spacing: 0;
+  color: #eee9d2a0;
+}
+.photo-mode .topbar,
+.photo-mode .quest,
+.photo-mode .location,
+.photo-mode .inventory,
+.photo-mode .minimap-panel,
+.photo-mode .control-hints,
+.photo-mode #world-markers,
+.photo-mode #interaction,
+.photo-mode .intro,
+.photo-mode.mobile-controls {
+  display: none;
+}
+.discovery-list {
+  margin-top: 18px;
+  padding-top: 15px;
+  border-top: 1px solid #33553820;
+}
+.discovery-list > strong {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.discovery-place {
+  width: 100%;
+  display: block;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #33553815;
+  color: #496543;
+  padding: 10px 0;
+}
+.discovery-place span {
+  display: block;
+  font-size: 11px;
+}
+.discovery-place small {
+  display: block;
+  font-size: 10px;
+  line-height: 1.7;
+  color: #7b886e;
+  margin-top: 4px;
+}
+.discovery-list .secondary-button {
+  margin-top: 12px;
+}
+@media (max-width: 760px) {
+  .discovery-list {
+    grid-column: 1/-1;
+  }
+}
+dialog[data-panel='map'] .map-layout aside {
+  max-height: calc(85dvh - 170px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  padding-right: 8px;
+}
+.repair-cost summary {
+  cursor: pointer;
+  color: #496543;
+  padding: 12px 0 4px;
+}
+@media (max-width: 760px) {
+  dialog[data-panel='map'] .map-layout aside {
+    max-height: none;
+    overflow: visible;
+    padding-right: 0;
+  }
+}

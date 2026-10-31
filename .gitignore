@@ -3,6 +3,8 @@
 
 # Production
 /build
+/dist
+/.vite
 
 # Generated files
 .docusaurus

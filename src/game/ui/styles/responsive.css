@@ -1,0 +1,454 @@
+.mobile-controls {
+  display: none;
+}
+.resumed-note {
+  font-size: 9px;
+  color: #d1e2b8;
+}
+@media (min-width: 1600px) {
+  .quest {
+    top: 135px;
+  }
+  .intro {
+    left: 8%;
+    top: 28%;
+  }
+  .location {
+    bottom: 95px;
+  }
+  .minimap-panel {
+    bottom: 85px;
+  }
+  .inventory {
+    bottom: 90px;
+  }
+}
+@media (max-width: 1050px) {
+  .topbar {
+    left: 24px;
+    right: 24px;
+    top: 23px;
+  }
+  .alpha {
+    display: none;
+  }
+  .compass {
+    width: 150px;
+  }
+  .compass-ruler {
+    letter-spacing: 3px;
+  }
+  .quest {
+    right: 24px;
+    width: 250px;
+    top: 100px;
+    padding: 18px;
+  }
+  .location {
+    left: 24px;
+  }
+  .minimap-panel {
+    right: 24px;
+    width: 180px;
+  }
+  .minimap-panel canvas {
+    height: 148px !important;
+  }
+  .inventory-slot {
+    width: 55px;
+    height: 65px;
+  }
+  .map-slot {
+    width: 43px;
+    height: 58px;
+  }
+  .intro {
+    left: 5%;
+    top: 29%;
+  }
+  .intro h1 {
+    font-size: 64px;
+  }
+  .weather {
+    margin-right: 3px;
+  }
+  .control-hints {
+    gap: 15px;
+  }
+  .brand {
+    font-size: 14px;
+    letter-spacing: 1.5px;
+  }
+  .brand small {
+    font-size: 6px;
+  }
+  .brand > .icon {
+    width: 35px;
+  }
+}
+@media (max-width: 760px) {
+  .topbar {
+    left: 17px;
+    right: 17px;
+    top: 17px;
+  }
+  .brand {
+    font-size: 12px;
+    gap: 8px;
+  }
+  .brand small {
+    font-size: 5px;
+    letter-spacing: 1.5px;
+  }
+  .brand > .icon {
+    width: 29px;
+    height: 29px;
+  }
+  .compass {
+    top: 51px;
+  }
+  .compass-ruler {
+    display: none;
+  }
+  .weather {
+    font-size: 10px;
+    gap: 6px;
+  }
+  .weather-divider,
+  .weather > span:last-child {
+    display: none;
+  }
+  .top-actions {
+    gap: 6px;
+  }
+  .icon-button {
+    width: 31px;
+    height: 31px;
+  }
+  .top-actions .icon-button > .icon {
+    width: 15px;
+  }
+  .quest {
+    top: 99px;
+    right: 17px;
+    width: 205px;
+    padding: 14px;
+    background: #1d372b99;
+  }
+  .quest h2 {
+    font-size: 13px;
+    margin-top: 12px;
+  }
+  .quest p {
+    display: none;
+  }
+  .quest .eyebrow {
+    font-size: 6px;
+  }
+  .quest-step {
+    margin-top: 12px;
+    padding: 12px 0;
+  }
+  .quest-step strong {
+    font-size: 10px;
+  }
+  .quest-step span:not(.step-arrow) {
+    font-size: 8px;
+  }
+  .text-button {
+    font-size: 8px;
+  }
+  .intro {
+    left: 24px;
+    top: 34%;
+  }
+  .intro h1 {
+    font-size: 50px;
+    letter-spacing: -2px;
+    margin: 18px 0;
+  }
+  .intro .eyebrow {
+    font-size: 6px;
+    letter-spacing: 1px;
+  }
+  .intro p {
+    font-size: 11px;
+    margin-bottom: 20px;
+  }
+  .intro-note {
+    font-size: 7px;
+  }
+  .primary-button {
+    font-size: 11px;
+    padding: 14px 18px;
+  }
+  .location {
+    left: 20px;
+    bottom: 28px;
+  }
+  .location h2 {
+    font-size: 22px;
+    margin: 8px 0;
+  }
+  .location .eyebrow {
+    font-size: 7px;
+  }
+  .location-sub {
+    font-size: 6px;
+    gap: 5px;
+    letter-spacing: 1px;
+  }
+  .location-sub > span:last-child {
+    font-size: 7px;
+  }
+  .stamina-row {
+    margin-top: 13px;
+    font-size: 6px;
+    gap: 6px;
+  }
+  .stamina-track {
+    width: 65px;
+  }
+  .inventory {
+    bottom: 30px;
+    left: 50%;
+  }
+  .inventory-slot {
+    width: 44px;
+    height: 56px;
+    border-radius: 6px;
+  }
+  .inventory-slot > .icon {
+    width: 20px;
+    height: 20px;
+  }
+  .inventory-slot small {
+    font-size: 7px;
+    bottom: 4px;
+  }
+  .inventory-slot b {
+    right: 5px;
+    bottom: 16px;
+    font-size: 9px;
+  }
+  .slot-number {
+    font-size: 6px;
+    top: 4px;
+    left: 4px;
+  }
+  .inventory-slots {
+    gap: 4px;
+  }
+  .map-slot {
+    display: none;
+  }
+  .inventory-caption {
+    display: none;
+  }
+  .minimap-panel {
+    width: 116px;
+    right: 17px;
+    bottom: 30px;
+  }
+  .minimap-panel canvas {
+    height: 100px !important;
+  }
+  .map-label {
+    display: none;
+  }
+  .map-north {
+    top: 6px;
+    font-size: 6px;
+  }
+  .map-north i {
+    font-size: 11px;
+  }
+  .map-expand {
+    padding: 3px;
+    top: 6px;
+    right: 6px;
+  }
+  .map-expand .icon {
+    width: 10px;
+  }
+  .map-footer {
+    font-size: 6px;
+    margin-top: 7px;
+  }
+  .map-footer > span:last-child {
+    display: none;
+  }
+  .control-hints {
+    display: none;
+  }
+  .mobile-controls {
+    position: absolute;
+    bottom: 155px;
+    left: 17px;
+    right: 17px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    pointer-events: none;
+  }
+  .mobile-controls button {
+    pointer-events: auto;
+    border: 1px solid #fff7d13d;
+    background: #284a3e66;
+    color: #eee8c9;
+    border-radius: 50%;
+    width: 39px;
+    height: 39px;
+    touch-action: none;
+    backdrop-filter: blur(10px);
+    font-size: 18px;
+  }
+  .direction-pad {
+    width: 126px;
+    display: grid;
+    grid-template-columns: repeat(3, 39px);
+    gap: 4px;
+  }
+  .direction-pad button:first-child {
+    grid-column: 2;
+  }
+  .direction-pad button:nth-child(2) {
+    grid-column: 1;
+  }
+  .mobile-controls > div:last-child {
+    display: flex;
+    gap: 9px;
+  }
+  .mobile-controls > div:last-child button {
+    width: 45px;
+    height: 45px;
+  }
+  .map-layout {
+    grid-template-columns: 1fr;
+  }
+  .map-layout aside {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .map-station {
+    gap: 6px;
+    padding: 8px 0;
+  }
+  .map-station strong {
+    font-size: 10px;
+  }
+  .map-station small {
+    font-size: 7px;
+  }
+  .repair-cost {
+    grid-column: 1/-1;
+  }
+  .help-grid {
+    grid-template-columns: 1fr;
+  }
+  .help-row {
+    font-size: 11px;
+    padding: 10px 0;
+  }
+  .modal-header {
+    margin-bottom: 20px;
+  }
+  .modal-header h2 {
+    font-size: 21px;
+  }
+  dialog {
+    padding: 23px;
+    max-height: 88dvh;
+  }
+  .setting-row {
+    font-size: 11px;
+    gap: 12px;
+  }
+  .setting-row small {
+    font-size: 9px;
+  }
+  .setting-row select {
+    max-width: 135px;
+    font-size: 10px;
+  }
+  .settings-footer {
+    gap: 8px;
+  }
+  .danger-button {
+    margin-left: 0;
+  }
+  .interaction-hint {
+    display: none;
+  }
+  #interaction {
+    bottom: 220px;
+    font-size: 11px;
+  }
+  .world-marker small {
+    font-size: 8px;
+  }
+  .world-marker > span {
+    width: 27px;
+    height: 27px;
+  }
+  .world-marker .icon {
+    width: 13px;
+  }
+  .stats {
+    gap: 25px;
+  }
+}
+@media (max-width: 440px) {
+  .location-sub > span:last-child,
+  .location-sub > span:first-child {
+    display: none;
+  }
+  .inventory {
+    left: 54%;
+    bottom: 32px;
+  }
+  .inventory-slot {
+    width: 39px;
+    height: 54px;
+  }
+  .minimap-panel {
+    width: 95px;
+  }
+  .minimap-panel canvas {
+    height: 85px !important;
+  }
+  .location h2 {
+    font-size: 20px;
+  }
+  .stamina-row > span {
+    display: none;
+  }
+  .intro h1 {
+    font-size: 45px;
+  }
+  .quest {
+    width: 190px;
+  }
+  .weather {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *:before,
+  *:after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Keep the welcome copy clear of the in-game location HUD. */
+#game:not(.started) .location {
+  opacity: 0;
+  pointer-events: none;
+}
+.large-map {
+  max-height: calc(85dvh - 185px);
+  object-fit: contain;
+}
