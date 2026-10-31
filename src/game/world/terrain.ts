@@ -40,10 +40,10 @@ export function terrainHeight(x: number, z: number): number {
   return natural;
 }
 export function biomeAt(x: number, z: number) {
+  if (Math.hypot(x - 125, z - 58) < 100) return '거울 호수';
   const h = terrainHeight(x, z);
   if (h < 2.7) return '코랄 해안';
   if (h > 76) return '구름 산맥';
-  if (Math.hypot(x - 125, z - 58) < 100) return '거울 호수';
   if (z < -70) return '속삭이는 숲';
   return '바람 초원';
 }

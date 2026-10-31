@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vite-plus/test';
 import { makeResources } from '../src/game/resources/distribution';
-import { terrainHeight, SPAWN } from '../src/game/world/terrain';
+import { terrainHeight, SPAWN, biomeAt } from '../src/game/world/terrain';
 import { STATIONS, canRepair, spendRepairCost } from '../src/game/world/landmarks';
 import { validateSave } from '../src/game/persistence/save-data';
 import type { SaveData } from '../src/game/persistence/save-data';
@@ -116,4 +116,10 @@ describe('third-person camera obstruction', () => {
   it('leaves clear views at the intended distance', () => {
     expect(cameraClearance(from, to, [{ ...tree, x: 30 }], new Set())).toBe(1);
   });
+});
+
+it('identifies the lake and its bridge as Mirror Lake even where the underlying lake bed is below sea level', () => {
+  for (const z of [58, 73, 83]) expect(biomeAt(125, z)).toBe('거울 호수');
+  expect(biomeAt(610, 610)).toBe('코랄 해안');
+  expect(biomeAt(SPAWN.x, SPAWN.z)).toBe('바람 초원');
 });
