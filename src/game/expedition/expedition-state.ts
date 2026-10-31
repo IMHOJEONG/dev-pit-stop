@@ -5,6 +5,7 @@ import { SkyJourney } from '../sky/sky-journey';
 import { emptyInventory } from '../resources/catalog';
 import type { Resource } from '../resources/catalog';
 import { HarvestSystem } from '../resources/harvest';
+import { ItemSystem } from '../items/item-system';
 import { STATIONS, spendRepairCost } from '../world/landmarks';
 import { groundSurface } from '../world/ground-surface';
 import type { SaveData } from '../persistence/save-data';
@@ -19,13 +20,15 @@ export class ExpeditionState {
   readonly discoveries = new Set<PlaceId>();
   navigation: { kind: 'station' | 'place'; index: number } | null = null;
   readonly harvest: HarvestSystem;
+  readonly items: ItemSystem;
   time = 9.67;
   timeRate = 1;
   distance = 0;
   target = 0;
   private landCells = 0;
   constructor(readonly resources: Resource[]) {
-    this.harvest = new HarvestSystem(resources, this.inventory, this.collected);
+    this.harvest = new HarvestSystem(resources, this.collected);
+    this.items = new ItemSystem(this.inventory, resources);
     for (let x = -30; x < 31; x++)
       for (let z = -30; z < 31; z++)
         if (groundSurface(x * 20 + 10, z * 20 + 10) > 0.8) this.landCells++;
@@ -63,6 +66,11 @@ export class ExpeditionState {
     );
     return true;
   }
+  advanceHarvest(dt: number) {
+    const completed = this.harvest.advance(dt);
+    for (const { resource } of completed) this.items.spawnFrom(resource);
+    return completed;
+  }
   snapshot(position: { x: number; z: number }): SaveData {
     return {
       version: 1,
@@ -72,6 +80,8 @@ export class ExpeditionState {
       z: position.z,
       time: this.time,
       inventory: { ...this.inventory },
+      items: { ...this.items.counts },
+      drops: this.items.snapshotDrops(),
       collected: [...this.collected],
       repaired: [...this.repaired],
       visited: [...this.visited],
@@ -85,6 +95,7 @@ export class ExpeditionState {
     this.appearance = { ...(isAppearance(data.appearance) ? data.appearance : DEFAULT_APPEARANCE) };
     Object.assign(this.inventory, data.inventory);
     data.collected.forEach((id) => this.collected.add(id));
+    this.items.restore(data.items, data.drops, this.collected);
     data.repaired.forEach((id) => this.repaired.add(id));
     data.visited.forEach((cell) => this.visited.add(cell));
     for (const place of WORLD_PLACES)
@@ -106,6 +117,7 @@ export class ExpeditionState {
     this.discoveries.clear();
     this.navigation = null;
     this.harvest.reset();
+    this.items.reset();
     this.sky.restore();
     this.distance = 0;
     this.time = 9.67;

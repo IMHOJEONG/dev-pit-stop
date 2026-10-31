@@ -673,7 +673,7 @@ kbd {
 #interaction {
   position: absolute;
   left: 50%;
-  bottom: 205px;
+  bottom: 180px;
   transform: translateX(-50%);
   display: flex;
   align-items: center;
@@ -684,9 +684,14 @@ kbd {
   padding: 11px 15px;
   backdrop-filter: blur(15px);
   font-size: 12px;
-  white-space: nowrap;
+  max-width: min(680px, calc(100vw - 32px));
+}
+#interaction-text {
+  min-width: 0;
+  line-height: 1.5;
 }
 #interaction kbd {
+  flex-shrink: 0;
   background: #ecd2a0;
   color: #29422e;
   font-size: 12px;

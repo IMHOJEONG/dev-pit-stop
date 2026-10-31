@@ -20,6 +20,8 @@ describe('expedition storage compatibility', () => {
     const storage = memoryStorage(),
       legacy = new ExpeditionState(resources).snapshot(SPAWN);
     delete legacy.harvestProgress;
+    delete legacy.items;
+    delete legacy.drops;
     legacy.inventory.wood = 1;
     legacy.collected = [0];
     legacy.repaired = [0];

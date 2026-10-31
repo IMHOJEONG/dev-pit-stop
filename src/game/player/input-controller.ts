@@ -1,5 +1,5 @@
 import { $ } from '../ui/dom';
-export type InputAction = 'pause' | 'map' | 'photo' | 'jump' | 'interact';
+export type InputAction = 'pause' | 'map' | 'bag' | 'photo' | 'jump' | 'interact';
 interface InputCallbacks {
   paused(): boolean;
   action(action: InputAction): void;
@@ -15,6 +15,7 @@ export class InputController {
     window.addEventListener(
       'keydown',
       (e) => {
+        if (e.ctrlKey || e.metaKey || e.altKey) return;
         if (e.target instanceof HTMLInputElement || e.target instanceof HTMLSelectElement) return;
         if (
           ['Space', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.code) &&
@@ -25,6 +26,7 @@ export class InputController {
         const actions: Record<string, InputAction> = {
           Escape: 'pause',
           KeyM: 'map',
+          KeyB: 'bag',
           KeyH: 'photo',
           Space: 'jump',
           KeyE: 'interact',

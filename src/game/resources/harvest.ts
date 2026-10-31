@@ -1,5 +1,5 @@
 import { HARVEST_COOLDOWN, HARVEST_RULES } from './catalog';
-import type { Inventory, Resource } from './catalog';
+import type { Resource } from './catalog';
 
 export interface HarvestHit {
   resource: Resource;
@@ -11,7 +11,7 @@ export interface HarvestCompletion {
   reward: number;
 }
 
-/** Owns progress, cooldowns and rewards; rendering never changes inventory. */
+/** Completes deposits once; their rewards become world drops before pickup. */
 export class HarvestSystem {
   private progress = new Map<number, number>();
   private pending = new Map<number, number>();
@@ -19,7 +19,6 @@ export class HarvestSystem {
   private byId: Map<number, Resource>;
   constructor(
     resources: Resource[],
-    private inventory: Inventory,
     private collected: Set<number>,
   ) {
     this.byId = new Map(resources.map((r) => [r.id, r]));
@@ -55,7 +54,6 @@ export class HarvestSystem {
       }
       const resource = this.byId.get(id)!;
       if (!this.collected.has(id)) {
-        this.inventory[resource.kind]++;
         this.collected.add(id);
         completed.push({ resource, reward: 1 });
       }

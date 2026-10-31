@@ -7,6 +7,7 @@ import { icon } from './icons';
 import { STATIONS, canRepair } from '../world/landmarks';
 import { terrainHeight, biomeAt } from '../world/terrain';
 import { HARVEST_RULES } from '../resources/catalog';
+import { ITEMS } from '../items/catalog';
 import type { Resource } from '../resources/catalog';
 import type { ExpeditionState } from '../expedition/expedition-state';
 import type { InteractionTarget } from '../expedition/interactions';
@@ -38,6 +39,10 @@ export class Hud {
     $('world-markers').append(marker);
   }
   update(state: HudState) {
+    const bag = state.expedition.items.totals();
+    $('bag-count').textContent = String(bag.kinds);
+    $('bag-count').hidden = bag.kinds === 0;
+    $('bag-button').title = `배낭 B · ${bag.kinds}종 · ${bag.amount}개`;
     for (const kind of ['wood', 'stone', 'crystal'] as const)
       $(`count-${kind}`).textContent = String(state.expedition.inventory[kind]);
     $('clock').textContent =
@@ -64,11 +69,18 @@ export class Hud {
     $('interaction').hidden = !state.nearby || state.paused;
     if (state.nearby)
       $('interaction-text').textContent =
-        state.nearby.type === 'resource'
-          ? resourceLabel(state.nearby.resource, state.expedition)
-          : canRepair(state.expedition.inventory)
-            ? '관측소 복구하기'
-            : '관측소 · 목재 3 / 돌 2 / 수정 1 필요';
+        state.nearby.type === 'drop'
+          ? '아이템 줍기 · ' +
+            state.nearby.ids
+              .map((id) => state.expedition.items.drops.get(id))
+              .filter((d) => d !== undefined)
+              .map((d) => `${ITEMS[d.item].name} ×${d.amount}`)
+              .join(' · ')
+          : state.nearby.type === 'resource'
+            ? resourceLabel(state.nearby.resource, state.expedition)
+            : canRepair(state.expedition.inventory)
+              ? '관측소 복구하기'
+              : '관측소 · 목재 3 / 돌 2 / 수정 1 필요';
     STATIONS.forEach((station, i) => {
       const point = new THREE.Vector3(
         station.x,
@@ -184,7 +196,7 @@ export class Hud {
         skyPrompt = '천공의 성소 점화';
     }
     if (sky.ride) skyPrompt = '상승 기류 이동 중…';
-    if (skyPrompt && !state.paused) {
+    if (skyPrompt && !state.paused && state.nearby?.type !== 'drop') {
       $('interaction').hidden = false;
       $('interaction-text').textContent = skyPrompt;
     }

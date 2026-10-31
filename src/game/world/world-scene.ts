@@ -9,6 +9,9 @@ import { EnvironmentView } from './environment-view';
 import { StructuresView } from './structures-view';
 import { createTerrain, createGrass } from './terrain-view';
 import { disposeScene } from '../shared/dispose';
+import { DropView } from '../items/drop-view';
+import type { ItemDrop } from '../items/item-system';
+const NO_DROPS = new Map<string, ItemDrop>();
 
 /** Composes domain views; gameplay state lives outside Three.js. */
 export class WorldScene {
@@ -21,6 +24,7 @@ export class WorldScene {
   readonly player: PlayerView;
   readonly structures: StructuresView;
   readonly environment: EnvironmentView;
+  readonly drops: DropView;
   constructor(resources: Resource[]) {
     this.environment = new EnvironmentView(this.scene);
     createTerrain(this.scene);
@@ -30,6 +34,7 @@ export class WorldScene {
     this.routes = new RouteView(this.scene);
     this.places = new PlaceView(this.scene);
     this.player = new PlayerView(this.scene);
+    this.drops = new DropView(this.scene);
     this.sky = new SkyView(this.scene);
   }
   update(
@@ -43,6 +48,7 @@ export class WorldScene {
     elevated = false,
     grounded?: boolean,
     platformHeight?: number,
+    drops: ReadonlyMap<string, ItemDrop> = NO_DROPS,
   ) {
     this.resources.update(t, dt);
     this.environment.update(t, dt, time, position);
@@ -50,8 +56,10 @@ export class WorldScene {
     this.places.update(t);
     if (moving) this.player.group.rotation.y = heading;
     this.player.update(t, position, moving, speed, elevated, { grounded, platformHeight });
+    this.drops.update(t, position, drops);
   }
   dispose() {
+    this.drops.dispose();
     disposeScene(this.scene);
   }
 }

@@ -14,7 +14,7 @@ const resources: Resource[] = RESOURCE_KINDS.map((kind, id) => ({
 function fixture() {
   const inventory = emptyInventory(),
     collected = new Set<number>();
-  return { inventory, collected, harvest: new HarvestSystem(resources, inventory, collected) };
+  return { inventory, collected, harvest: new HarvestSystem(resources, collected) };
 }
 function finishHits(harvest: HarvestSystem, id: number) {
   for (let hit = 0; hit < 3; hit++) {
@@ -24,7 +24,7 @@ function finishHits(harvest: HarvestSystem, id: number) {
 }
 describe.each(RESOURCE_KINDS)('%s harvesting', (kind) => {
   const id = resources.find((r) => r.kind === kind)!.id;
-  it('requires several hits and waits for the finishing animation before awarding anything', () => {
+  it('requires several hits and emits a completion only after the finishing animation', () => {
     const { harvest, inventory, collected } = fixture();
     expect(harvest.hit(id)).toMatchObject({ hits: 1, finishing: false });
     expect(harvest.hit(id)).toBeNull();
@@ -37,29 +37,29 @@ describe.each(RESOURCE_KINDS)('%s harvesting', (kind) => {
     expect(collected.has(id)).toBe(false);
     expect(inventory[kind]).toBe(0);
     expect(harvest.advance(0.11)).toEqual([{ resource: resources[id], reward: 1 }]);
-    expect(inventory[kind]).toBe(1);
+    expect(inventory[kind]).toBe(0);
     expect(collected.has(id)).toBe(true);
   });
-  it('cannot pay twice for a resource, including extra input during its animation', () => {
+  it('cannot complete twice for a resource, including extra input during its animation', () => {
     const { harvest, inventory } = fixture();
     finishHits(harvest, id);
     expect(harvest.hit(id)).toBeNull();
     harvest.advance(2);
     expect(harvest.hit(id)).toBeNull();
     expect(harvest.advance(10)).toEqual([]);
-    expect(inventory[kind]).toBe(1);
+    expect(inventory[kind]).toBe(0);
   });
   it('resumes interrupted finishing at the final hit without awarding free resources', () => {
     const { harvest, inventory, collected } = fixture();
     finishHits(harvest, id);
-    const restored = new HarvestSystem(resources, inventory, collected);
+    const restored = new HarvestSystem(resources, collected);
     restored.restore(harvest.snapshot());
     expect(restored.hits(id)).toBe(2);
     expect(restored.advance(10)).toEqual([]);
     expect(inventory[kind]).toBe(0);
     restored.hit(id);
     restored.advance(2);
-    expect(inventory[kind]).toBe(1);
+    expect(inventory[kind]).toBe(0);
   });
 });
 describe('shared harvest lifecycle', () => {
@@ -80,7 +80,9 @@ describe('shared harvest lifecycle', () => {
     expect(state.repair(0)).toBe(true);
     expect(state.repair(0)).toBe(false);
     finishHits(state.harvest, 1);
-    state.harvest.advance(2);
+    state.advanceHarvest(2);
+    const drop = [...state.items.drops.values()].find((d) => d.item === 'stone')!;
+    state.items.pickup([drop.id], drop);
     expect(state.inventory).toEqual({ wood: 0, stone: 1, crystal: 0 });
   });
   it('snapshots and restores partial progress with existing expedition state', () => {

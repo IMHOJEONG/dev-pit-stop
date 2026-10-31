@@ -5,6 +5,7 @@ import { LAUNCH, RUNES, SUMMIT } from '../sky/sky-world';
 import { WorldScene } from '../world/world-scene';
 import { STATIONS } from '../world/landmarks';
 import { HARVEST_RULES, RESOURCE_NAMES } from '../resources/catalog';
+import { ITEMS } from '../items/catalog';
 import { makeResources } from '../resources/distribution';
 import { ExpeditionState } from '../expedition/expedition-state';
 import { findInteraction } from '../expedition/interactions';
@@ -118,6 +119,15 @@ export class Game {
         this.hud.showToast('베이스캠프로 돌아왔습니다.');
       },
       reset: () => this.reset(),
+      useItem: (item) => {
+        const result = this.state.items.use(item, this.player.stamina);
+        if (result.used) {
+          this.player.stamina = result.stamina;
+          this.save(false);
+          this.updateUI();
+        }
+        return result;
+      },
     });
     this.input = new InputController($<HTMLCanvasElement>('world'), {
       paused: () => this.paused,
@@ -165,6 +175,7 @@ export class Game {
       'minimap-button': () => this.openPanel('map'),
       'journal-button': () => this.openPanel('map'),
       'character-button': () => this.openPanel('character'),
+      'bag-button': () => this.openPanel('bag'),
       'intro-character': () => this.openPanel('character'),
       'help-button': () => this.openPanel('help'),
       'settings-button': () => this.openPanel('settings'),
@@ -209,6 +220,11 @@ export class Game {
       else this.openPanel('map');
       return;
     }
+    if (action === 'bag') {
+      if (this.panels.active === 'bag') this.panels.close();
+      else this.openPanel('bag');
+      return;
+    }
     if (this.paused) return;
     if (action === 'photo') this.hud.togglePhoto();
     if (action === 'jump' && !this.state.sky.ride) this.player.jump();
@@ -225,6 +241,7 @@ export class Game {
       started: this.started,
       highQuality: this.renderer.highQuality,
       audioEnabled: this.audio.enabled,
+      stamina: this.player.stamina,
     });
   }
   private frame = (now: number) => {
@@ -277,10 +294,10 @@ export class Game {
           this.save(false);
         }
       }
-      for (const completed of this.state.harvest.advance(dt)) {
+      for (const completed of this.state.advanceHarvest(dt)) {
         this.world.resources.setCollected(completed.resource.id);
         this.hud.showToast(
-          `${RESOURCE_NAMES[completed.resource.kind]} +${completed.reward} · 배낭에 담았습니다`,
+          `${RESOURCE_NAMES[completed.resource.kind]} 채집 완료 · 아이템이 떨어졌어요 · 가까이에서 E로 줍기`,
         );
         this.audio.chime(false);
         this.save(false);
@@ -302,6 +319,7 @@ export class Game {
       this.player.elevated,
       this.player.isGrounded || this.state.sky.ride !== null,
       this.state.sky.ride ? this.player.position.y : undefined,
+      this.state.items.drops,
     );
     this.world.sky.update(this.elapsed, this.state.sky, this.player.position.y);
     this.renderer.render();
@@ -313,6 +331,26 @@ export class Game {
   };
   private interact() {
     if (this.paused || this.state.sky.ride || this.elapsed - this.lastInteraction < 0.5) return;
+    this.nearby = findInteraction(
+      this.player.position,
+      this.state.resources,
+      this.state.collected,
+      this.state.repaired,
+      this.state.items,
+    );
+    if (!this.state.sky.inSky && this.nearby?.type === 'drop') {
+      const receipt = this.state.items.pickup(this.nearby.ids, this.player.position);
+      if (receipt.length) {
+        this.lastInteraction = this.elapsed;
+        this.audio.chime(false);
+        this.hud.showToast(
+          receipt.map((r) => `${ITEMS[r.item].name} +${r.amount}`).join(' · ') + ' · 배낭 B',
+        );
+        this.save(false);
+        this.updateUI();
+      }
+      return;
+    }
     if (this.interactSky()) {
       this.lastInteraction = this.elapsed;
       this.save(false);
@@ -324,6 +362,7 @@ export class Game {
       this.state.resources,
       this.state.collected,
       this.state.repaired,
+      this.state.items,
     );
     if (!this.nearby) {
       this.hud.showToast('나무, 바위, 수정이나 관측소에 가까이 다가가세요.');
@@ -343,7 +382,7 @@ export class Game {
           ? `${rule.label} · ${hit.resource.kind === 'wood' ? '나무가 쓰러지는 중…' : '광석이 부서지는 중…'}`
           : `${rule.action} ${hit.hits} / ${rule.hits} · E 키로 계속 채집하세요`,
       );
-    } else {
+    } else if (this.nearby.type === 'station') {
       const index = this.nearby.index;
       this.lastInteraction = this.elapsed;
       if (!this.state.repair(index)) {
@@ -418,6 +457,7 @@ export class Game {
             this.state.resources,
             this.state.collected,
             this.state.repaired,
+            this.state.items,
           );
     this.world.resources.showHarvestTarget(
       this.nearby?.type === 'resource' ? this.nearby.resource.id : null,
@@ -450,6 +490,7 @@ export class Game {
     this.player.reset();
     this.world.player.reset();
     this.world.resources.restoreResources();
+    this.world.drops.reset();
     STATIONS.forEach((_, index) => this.world.structures.activateStation(index, false));
     this.state.explore(this.player.position);
     this.lastInteraction = -10;

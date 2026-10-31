@@ -1,4 +1,10 @@
 const paths: Record<string, string> = {
+  bag: '<path d="M6 8V6a6 6 0 0 1 12 0v2M5 8h14l2 14H3L5 8Zm3 6h8v5H8v-5Z"/>',
+  berry:
+    '<circle cx="8" cy="15" r="4"/><circle cx="16" cy="15" r="4"/><circle cx="12" cy="9" r="4"/><path d="M12 5V2m0 3c3 0 5-1 6-3"/>',
+  ironOre: '<path d="m4 7 10-4 7 7-4 11H6L2 13l2-6Zm0 0 6 7 11-4M10 14l-4 7m8-18-4 11"/>',
+  ancientCoin:
+    '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="6"/><path d="m12 8 3 4-3 4-3-4 3-4Z"/>',
   character: '<circle cx="12" cy="7" r="4"/><path d="M4 22v-3a8 8 0 0 1 16 0v3M8 22v-5m8 5v-5"/>',
   mountain: '<path d="m2 19 7-13 5 8 3-5 5 10H2Z"/><path d="m7 10 2 2 2-2"/>',
   sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/>',

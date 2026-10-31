@@ -6,6 +6,9 @@ import type { Inventory } from '../resources/catalog';
 import { HARVEST_RULES } from '../resources/catalog';
 import { STATIONS } from '../world/landmarks';
 import { groundSurface } from '../world/ground-surface';
+import { EXTRA_ITEM_IDS, isItemId } from '../items/catalog';
+import type { ExtraItemId } from '../items/catalog';
+import type { DropRecord } from '../items/item-system';
 export interface SaveData {
   version: 1;
   appearance?: Appearance;
@@ -15,6 +18,8 @@ export interface SaveData {
   z: number;
   time: number;
   inventory: Inventory;
+  items?: Partial<Record<ExtraItemId, number>>;
+  drops?: DropRecord[];
   collected: number[];
   repaired: number[];
   visited: string[];
@@ -76,6 +81,38 @@ export function validateSave(value: unknown, resourceCount: number): SaveData | 
             entry[1] < Math.max(...Object.values(HARVEST_RULES).map((rule) => rule.hits)),
         ))) ||
     !s.visited.every((v) => typeof v === 'string' && /^-?\d{1,2},-?\d{1,2}$/.test(v))
+  )
+    return null;
+  if (
+    s.items !== undefined &&
+    (!s.items ||
+      typeof s.items !== 'object' ||
+      Array.isArray(s.items) ||
+      Object.keys(s.items).some((k) => !EXTRA_ITEM_IDS.includes(k as ExtraItemId)) ||
+      EXTRA_ITEM_IDS.some(
+        (k) =>
+          s.items![k] !== undefined && (!Number.isSafeInteger(s.items![k]) || s.items![k]! < 0),
+      ))
+  )
+    return null;
+  if (
+    s.drops !== undefined &&
+    (!Array.isArray(s.drops) ||
+      s.drops.length > resourceCount * 2 ||
+      s.drops.some(
+        (d) =>
+          !d ||
+          !Number.isInteger(d.sourceId) ||
+          d.sourceId < 0 ||
+          d.sourceId >= resourceCount ||
+          !s.collected.includes(d.sourceId) ||
+          !isItemId(d.item) ||
+          d.id !== `${d.sourceId}:${d.item}` ||
+          !Number.isSafeInteger(d.amount) ||
+          d.amount < 1 ||
+          d.amount > 2,
+      ) ||
+      new Set(s.drops.map((d) => d.id)).size !== s.drops.length)
   )
     return null;
   return s.appearance !== undefined && !isAppearance(s.appearance)

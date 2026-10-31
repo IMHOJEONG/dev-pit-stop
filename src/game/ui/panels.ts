@@ -1,17 +1,21 @@
 import { WORLD_PLACES } from '../world/places';
 import { CharacterPanel } from './character-panel';
+import { InventoryPanel } from './inventory-panel';
+import type { ItemId } from '../items/catalog';
+import type { ItemUseResult } from '../items/item-system';
 import type { Appearance } from '../player/appearance';
 import { $ } from './dom';
 import { icon } from './icons';
 import { STATIONS } from '../world/landmarks';
 import { HARVEST_RULES } from '../resources/catalog';
 import type { ExpeditionState } from '../expedition/expedition-state';
-export type Panel = 'map' | 'help' | 'settings' | 'complete' | 'character';
+export type Panel = 'map' | 'help' | 'settings' | 'complete' | 'character' | 'bag';
 interface PanelState {
   expedition: ExpeditionState;
   started: boolean;
   highQuality: boolean;
   audioEnabled: boolean;
+  stamina: number;
 }
 interface PanelActions {
   appearance(value: Appearance): void;
@@ -26,8 +30,10 @@ interface PanelActions {
   save(): void;
   returnCamp(): void;
   reset(): void;
+  useItem(item: ItemId): ItemUseResult;
 }
 const titles = {
+  bag: '탐험가의 배낭',
   character: '나의 탐험가',
   map: '당신의 다음 발걸음',
   help: '가볍게 떠나는 방법',
@@ -35,6 +41,7 @@ const titles = {
   complete: '섬이 다시 깨어났습니다',
 };
 const eyebrows = {
+  bag: 'THE LITTLE THINGS YOU FIND',
   character: 'MAKE YOURSELF AT HOME',
   map: 'EXPEDITION MAP · WINDWARD ISLAND',
   help: 'A SMALL FIELD GUIDE',
@@ -49,15 +56,17 @@ const helpRows = [
   ['시점 회전', '마우스 드래그'],
   ['확대 · 축소', '마우스 휠'],
   ['탐험 지도', 'M'],
+  ['배낭 · 아이템 사용', 'B'],
   ['풍경 감상 · UI 숨기기', 'H'],
   ['일시 정지 · 돌아가기', 'ESC'],
 ];
 function harvestGuide() {
-  return `나무·돌·수정은 각각 E 키로 ${HARVEST_RULES.wood.hits}번 타격하세요. 나무에는 도끼, 돌·수정에는 곡괭이를 사용합니다. 연출이 끝나면 자원이 배낭에 담깁니다.`;
+  return `나무·돌·수정은 각각 E 키로 ${HARVEST_RULES.wood.hits}번 타격하세요. 연출이 끝나면 재료와 아이템이 바닥에 떨어집니다. 가까이에서 E로 줍고, B로 배낭을 열어 산열매를 먹거나 발견한 아이템을 확인하세요.`;
 }
 export class Panels {
   active: Panel | null = null;
   private character?: CharacterPanel;
+  private bag?: InventoryPanel;
   private abort = new AbortController();
   constructor(private actions: PanelActions) {
     $('close-modal').addEventListener('click', () => this.close(), { signal: this.abort.signal });
@@ -73,6 +82,8 @@ export class Panels {
   open(panel: Panel, state: PanelState) {
     this.character?.dispose();
     this.character = undefined;
+    this.bag?.dispose();
+    this.bag = undefined;
     this.active = panel;
     $('modal').dataset.panel = panel;
     this.actions.changed();
@@ -80,6 +91,11 @@ export class Panels {
     $('modal-eyebrow').textContent = eyebrows[panel];
     const content = $('modal-content');
     const renderers = {
+      bag: () => {
+        this.bag = new InventoryPanel(content, state.expedition.items, state.stamina, (item) =>
+          this.actions.useItem(item),
+        );
+      },
       character: () => {
         this.character = new CharacterPanel(
           content,
@@ -101,6 +117,8 @@ export class Panels {
     if (!modal.open) modal.showModal();
   }
   close() {
+    this.bag?.dispose();
+    this.bag = undefined;
     this.character?.dispose();
     this.character = undefined;
     $<HTMLDialogElement>('modal').close();
@@ -169,6 +187,7 @@ export class Panels {
     $('keep-going').onclick = () => this.close();
   }
   dispose() {
+    this.bag?.dispose();
     this.character?.dispose();
     this.abort.abort();
     $<HTMLDialogElement>('modal').close();
