@@ -14,10 +14,10 @@
     "fmt": "vp fmt"
   },
   "dependencies": {
-    "three": "^0.180.0"
+    "three": "^0.187.0"
   },
   "devDependencies": {
-    "@types/three": "^0.180.0",
+    "@types/three": "^0.187.0",
     "typescript": "~5.9.3",
     "vite-plus": "1.4.0"
   },
