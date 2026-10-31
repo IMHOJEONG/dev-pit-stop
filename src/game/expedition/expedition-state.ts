@@ -1,4 +1,5 @@
 import { VehicleController } from '../vehicles/vehicle-controller';
+import { WORLD_REGIONS } from '../world/regions';
 import { WORLD_PLACES } from '../world/places';
 import type { PlaceId } from '../world/places';
 import { DEFAULT_APPEARANCE, isAppearance } from '../player/appearance';
@@ -19,7 +20,8 @@ export class ExpeditionState {
   readonly repaired = new Set<number>();
   readonly visited = new Set<string>();
   readonly discoveries = new Set<PlaceId>();
-  navigation: { kind: 'station' | 'place' | 'region'; index: number } | null = null;
+  navigation: { kind: 'station' | 'place' | 'region'; index: number; arrived?: boolean } | null =
+    null;
   readonly harvest: HarvestSystem;
   readonly items: ItemSystem;
   readonly vehicle: VehicleController;
@@ -52,6 +54,14 @@ export class ExpeditionState {
     for (const place of found) this.discoveries.add(place.id);
     return found;
   }
+  arrive(position: { x: number; z: number }) {
+    const navigation = this.navigation;
+    if (navigation?.kind !== 'region' || navigation.arrived) return null;
+    const region = WORLD_REGIONS[navigation.index];
+    if (!region || Math.hypot(position.x - region.x, position.z - region.z) > 12) return null;
+    navigation.arrived = true;
+    return region;
+  }
   exploredPercent() {
     return Math.min(100, Math.round((this.visited.size / this.landCells) * 100));
   }
@@ -78,6 +88,7 @@ export class ExpeditionState {
     return {
       version: 1,
       vehicle: this.vehicle.snapshot(),
+      navigation: this.navigation ? { ...this.navigation } : null,
       appearance: { ...this.appearance },
       sky: this.sky.snapshot(),
       x: position.x,
@@ -101,6 +112,7 @@ export class ExpeditionState {
     data.collected.forEach((id) => this.collected.add(id));
     this.items.restore(data.items, data.drops, this.collected);
     this.vehicle.restore(data.vehicle);
+    this.navigation = data.navigation ? { ...data.navigation } : null;
     if (data.sky?.inSky) this.vehicle.riding = false;
     data.repaired.forEach((id) => this.repaired.add(id));
     data.visited.forEach((cell) => this.visited.add(cell));

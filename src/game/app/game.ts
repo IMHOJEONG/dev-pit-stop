@@ -1,3 +1,5 @@
+import { VehicleTransition } from '../vehicles/vehicle-transition';
+import { groundSurface } from '../world/ground-surface';
 import { WORLD_REGIONS } from '../world/regions';
 import { WORLD_PLACES } from '../world/places';
 import { WALK_SPEED } from '../player/movement';
@@ -65,6 +67,7 @@ export class Game {
   private lastSave = 0;
   private lastInteraction = -10;
   private lastCameraDrag = -10;
+  private vehicleTransition?: VehicleTransition;
   private storageAvailable = true;
   private nearby: InteractionTarget = null;
   private raf = 0;
@@ -136,6 +139,7 @@ export class Game {
         this.state.sky.ride = null;
         this.state.vehicle.riding = false;
         this.state.vehicle.speed = 0;
+        this.vehicleTransition = undefined;
         this.player.reset();
         this.save(false);
         this.hud.showToast('베이스캠프로 돌아왔습니다.');
@@ -260,7 +264,7 @@ export class Game {
       else this.openPanel('bag');
       return;
     }
-    if (this.paused) return;
+    if (this.paused || this.vehicleTransition) return;
     if (action === 'photo') this.hud.togglePhoto();
     if (action === 'vehicle') this.toggleVehicle();
     if (action === 'jump' && !this.state.sky.ride && !this.state.vehicle.riding) this.player.jump();
@@ -309,16 +313,39 @@ export class Game {
         }
       }
       const vehicle = this.state.vehicle;
-      const driven = vehicle.riding ? vehicle.update(dt, axes.forward, axes.right, axes.brake) : 0;
-      if (vehicle.riding) {
+      const transitioning = !!this.vehicleTransition;
+      if (this.vehicleTransition) {
+        const transition = this.vehicleTransition,
+          done = transition.advance(dt);
+        this.player.position.copy(transition.position);
+        if (transition.walking) {
+          this.player.position.y = groundSurface(this.player.position.x, this.player.position.z);
+          this.player.heading = transition.walkHeading;
+        }
+        if (done) {
+          this.player.teleport(transition.to.x, transition.to.y, transition.to.z, false);
+          this.player.heading = transition.kind === 'exit' ? transition.heading : vehicle.heading;
+          this.world.player.group.rotation.y = this.player.heading;
+          this.world.player.reset();
+          this.vehicleTransition = undefined;
+          this.save(false);
+        }
+      }
+      const driven =
+        vehicle.riding && !transitioning
+          ? vehicle.update(dt, axes.forward, axes.right, axes.brake)
+          : 0;
+      if (vehicle.riding && !transitioning) {
         this.player.position.copy(vehicle.position);
         this.player.heading = vehicle.heading;
       }
-      const movement = vehicle.riding
-        ? { moving: false, speed: 0, distance: driven }
-        : riding
-          ? { moving: false, speed: WALK_SPEED, distance: 0 }
-          : this.player.update(dt, this.camera.yaw, axes.forward, axes.right, axes.sprint);
+      const movement = transitioning
+        ? { moving: !!this.vehicleTransition?.walking, speed: WALK_SPEED, distance: 0 }
+        : vehicle.riding
+          ? { moving: false, speed: 0, distance: driven }
+          : riding
+            ? { moving: false, speed: WALK_SPEED, distance: 0 }
+            : this.player.update(dt, this.camera.yaw, axes.forward, axes.right, axes.sprint);
       moving = movement.moving;
       speed = movement.speed;
       this.state.distance += movement.distance;
@@ -328,6 +355,14 @@ export class Game {
         this.hud.showToast('바람이 마지막 체크포인트로 돌려보냈습니다 · 자원은 유지됩니다');
       }
       this.state.explore(this.player.position);
+      if (!this.state.sky.inSky && !this.state.sky.ride && !this.vehicleTransition) {
+        const arrived = this.state.arrive(this.player.position);
+        if (arrived) {
+          this.hud.showToast(`${arrived.name} 입구에 도착했습니다 · 주차하고 주변을 탐험하세요`);
+          this.audio.chime(false);
+          this.save(false);
+        }
+      }
       if (!this.state.sky.inSky && !this.state.sky.ride) {
         const discoveries = this.state.discover(this.player.position);
         if (discoveries.length) {
@@ -371,8 +406,9 @@ export class Game {
       this.state.sky.ride ? this.player.position.y : undefined,
       this.state.items.drops,
     );
-    this.world.player.group.visible = !this.state.vehicle.riding;
-    this.world.vehicle.update(this.state.vehicle, this.paused ? 0 : dt);
+    this.world.player.group.visible =
+      !!this.vehicleTransition?.walking || (!this.state.vehicle.riding && !this.vehicleTransition);
+    this.world.vehicle.update(this.state.vehicle, this.paused ? 0 : dt, this.vehicleTransition);
     this.world.sky.update(this.elapsed, this.state.sky, this.player.position.y);
     this.renderer.render();
     if (now - this.lastUI > 100) {
@@ -394,16 +430,29 @@ export class Game {
         );
         return;
       }
-      this.player.teleport(exit.x, exit.y, exit.z, false);
-      this.world.player.reset();
+      this.vehicleTransition = new VehicleTransition(
+        'exit',
+        vehicle.position.clone(),
+        exit,
+        Math.atan2(vehicle.position.x - exit.x, vehicle.position.z - exit.z),
+      );
       this.hud.showToast('버기를 주차했습니다 · F로 다시 타기');
     } else {
-      if (!this.player.isGrounded || !vehicle.board(this.player.position)) {
-        this.hud.showToast('버기에 가까이 다가가 F로 타세요 · M 지도에서 차량 위치 확인');
+      const approach = vehicle.boardingApproach(this.player.position);
+      if (!this.player.isGrounded || !approach || !vehicle.board(this.player.position)) {
+        this.hud.showToast('버기 옆의 열린 공간에서 F로 타세요 · M 지도에서 차량 위치 확인');
         return;
       }
-      this.player.teleport(vehicle.position.x, vehicle.position.y, vehicle.position.z, false);
-      this.player.heading = vehicle.heading;
+      this.vehicleTransition = new VehicleTransition(
+        'board',
+        this.player.position.clone(),
+        vehicle.position.clone(),
+        Math.atan2(
+          this.player.position.x - vehicle.position.x,
+          this.player.position.z - vehicle.position.z,
+        ),
+        approach,
+      );
       this.hud.showToast('탐험 버기 · W/S 가속·후진 · A/D 조향 · SPACE 브레이크 · F 내리기');
     }
     this.input.clear();
@@ -535,7 +584,11 @@ export class Game {
   }
   private updateUI() {
     this.nearby =
-      this.paused || this.state.sky.inSky || this.state.sky.ride || this.state.vehicle.riding
+      this.paused ||
+      this.state.sky.inSky ||
+      this.state.sky.ride ||
+      this.state.vehicle.riding ||
+      this.vehicleTransition
         ? null
         : findInteraction(
             this.player.position,
@@ -554,6 +607,7 @@ export class Game {
       yaw: this.camera.yaw,
       nearby: this.nearby,
       paused: this.paused,
+      vehicleTransition: !!this.vehicleTransition,
     });
   }
   private save(feedback: boolean) {
@@ -561,7 +615,15 @@ export class Game {
       if (feedback) this.hud.showToast('탐험을 시작하면 저장할 수 있어요.');
       return;
     }
-    if (this.storage.save(this.state.snapshot(this.player.position))) {
+    if (
+      this.storage.save(
+        this.state.snapshot(
+          this.vehicleTransition?.kind === 'exit'
+            ? this.vehicleTransition.to
+            : this.player.position,
+        ),
+      )
+    ) {
       if (feedback) this.hud.showToast('탐험 기록을 이 브라우저에 저장했습니다.');
     } else {
       if (feedback || this.storageAvailable)
@@ -572,6 +634,7 @@ export class Game {
   private reset() {
     if (this.completionTimer) clearTimeout(this.completionTimer);
     this.state.reset();
+    this.vehicleTransition = undefined;
     this.player.reset();
     this.world.player.reset();
     this.world.resources.restoreResources();

@@ -6,6 +6,7 @@ import { ExpeditionState } from '../src/game/expedition/expedition-state';
 import { validateSave } from '../src/game/persistence/save-data';
 import { WORLD_REGIONS } from '../src/game/world/regions';
 import { WORLD_ROUTES } from '../src/game/world/routes';
+import { VehicleTransition } from '../src/game/vehicles/vehicle-transition';
 import { VehicleView } from '../src/game/vehicles/vehicle-view';
 import * as THREE from 'three';
 const make = () => new VehicleController([], new Set());
@@ -172,6 +173,127 @@ describe('exploration buggy', () => {
         heading = Math.atan2(a.x - b.x, a.z - b.z);
       for (let t = 0; t <= 1; t += 0.05)
         expect(v.canOccupy(a.x + (b.x - a.x) * t, a.z + (b.z - a.z) * t, heading)).toBe(true);
+    }
+  });
+  it('crosses the southern lake road junction that stopped the deployed buggy', () => {
+    for (const fps of [30, 120]) {
+      const v = new VehicleController(makeResources(), new Set([0, 1]));
+      v.restore({ x: 60, z: 162, heading: -1.16, riding: true });
+      drive(v, 3.2, 1, 0, false, fps);
+      expect(v.position.x).toBeGreaterThan(98);
+      expect(v.blocked).toBe(false);
+    }
+  });
+  it('limits lateral acceleration during a sharp turn at driving speed', () => {
+    const v = make();
+    v.riding = true;
+    v.speed = 24;
+    v.steering = 1;
+    const heading = v.heading;
+    v.update(1 / 120, 1, 1, false);
+    const yawRate = Math.abs(v.heading - heading) * 120;
+    expect(Math.abs(v.speed) * yawRate).toBeLessThanOrEqual(8.001);
+    const fastAngle = v.steeringAngle;
+    v.speed = 3;
+    expect(v.steeringAngle).toBeGreaterThan(fastAngle * 3);
+  });
+  it('keeps wheel rotation signed through reversing and braking', () => {
+    const v = make();
+    drive(v, 1, -1);
+    const before = v.travel;
+    drive(v, 0.5, 0, 0, true);
+    expect(v.travel).toBeLessThan(before);
+  });
+  it('blends boarding and exiting continuously and pauses with the game', () => {
+    for (const kind of ['board', 'exit'] as const) {
+      const from = new THREE.Vector3(7, 23, 202),
+        to = new THREE.Vector3(11.5, 23.2, 202);
+      const transition = new VehicleTransition(kind, from, to, 0);
+      expect(transition.advance(0)).toBe(false);
+      expect(transition.position.equals(from)).toBe(true);
+      transition.advance(0.35);
+      expect(transition.seatBlend).toBeCloseTo(0.5);
+      expect(transition.position.x).toBeCloseTo(9.25);
+      const paused = transition.position.clone();
+      transition.advance(0);
+      expect(transition.position.equals(paused)).toBe(true);
+      expect(transition.advance(0.35)).toBe(true);
+      expect(transition.position.equals(to)).toBe(true);
+    }
+  });
+  it('announces a regional arrival once and restores its destination and arrival state', () => {
+    const state = new ExpeditionState(makeResources());
+    state.navigation = { kind: 'region', index: 1 };
+    expect(state.arrive({ x: 80, z: 150 })).toBeNull();
+    expect(state.arrive({ x: 120, z: 132 })?.id).toBe('lake');
+    expect(state.arrive({ x: 125, z: 130 })).toBeNull();
+    const save = state.snapshot({ x: 125, z: 130 });
+    expect(validateSave(save, state.resources.length)).not.toBeNull();
+    const restored = new ExpeditionState(state.resources);
+    restored.restore(save);
+    expect(restored.navigation).toEqual({ kind: 'region', index: 1, arrived: true });
+    expect(
+      validateSave({ ...save, navigation: { kind: 'region', index: 99 } }, state.resources.length),
+    ).toBeNull();
+    expect(
+      validateSave({ ...save, navigation: { kind: 'boat', index: 0 } }, state.resources.length),
+    ).toBeNull();
+    delete save.navigation;
+    restored.restore(save);
+    expect(restored.navigation).toBeNull();
+  });
+  it('suspends the chassis across a road height seam without a visible body jump', () => {
+    const scene = new THREE.Scene(),
+      view = new VehicleView(scene),
+      v = make();
+    v.position.set(86, groundSurface(86, 151), 151);
+    view.update(v, 1 / 60);
+    const before = view.root.position.y;
+    v.position.set(86, groundSurface(86, 150), 150);
+    view.update(v, 1 / 60);
+    expect(Math.abs(view.root.position.y - before)).toBeLessThan(0.25);
+    expect(view.root.position.y).toBeGreaterThan(groundSurface(86, 151) - 0.5);
+  });
+  it('walks around the parked bonnet before boarding from the front', () => {
+    const v = make(),
+      from = new THREE.Vector3(v.position.x, v.position.y, v.position.z - 5);
+    const approach = v.boardingApproach(from);
+    expect(approach).not.toBeNull();
+    expect(approach!.length).toBeGreaterThan(0);
+    const transition = new VehicleTransition('board', from, v.position.clone(), Math.PI, approach!);
+    let walked = 0;
+    for (let i = 0; i < 300; i++) {
+      const done = transition.advance(1 / 60);
+      if (transition.walking) {
+        walked++;
+        expect(v.blocksPedestrian(transition.position.x, transition.position.z)).toBe(false);
+        expect(transition.seatBlend).toBe(0);
+      }
+      if (done) break;
+    }
+    expect(walked).toBeGreaterThan(30);
+    expect(transition.seatBlend).toBe(1);
+    expect(transition.position.equals(v.position)).toBe(true);
+  });
+  it('keeps boarding paths and side exits off the lake and its bridge railings', () => {
+    const v = make();
+    v.restore({ x: 125, z: 58, heading: 0, riding: true });
+    expect(v.exit()).toBeNull();
+    expect(v.riding).toBe(true);
+    v.riding = false;
+    const front = new THREE.Vector3(125, v.position.y, 53);
+    expect(v.boardingApproach(front)).toBeNull();
+  });
+  it('places seated boots above the buggy floor and behind its bonnet', () => {
+    const view = new VehicleView(new THREE.Scene()),
+      v = make();
+    v.riding = true;
+    view.update(v, 1 / 60);
+    view.root.updateMatrixWorld(true);
+    for (const name of ['left-foot', 'right-foot']) {
+      const foot = new THREE.Box3().setFromObject(view.root.getObjectByName(name)!);
+      expect(foot.min.y - v.position.y).toBeGreaterThan(1.125);
+      expect(foot.min.z - v.position.z).toBeGreaterThan(-1.5);
     }
   });
   it('keeps the seated head below the roof and restores the driver appearance', () => {

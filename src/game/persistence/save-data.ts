@@ -1,3 +1,4 @@
+import { WORLD_REGIONS } from '../world/regions';
 import type { VehicleSave } from '../vehicles/vehicle-controller';
 import { WORLD_PLACES } from '../world/places';
 import { isAppearance } from '../player/appearance';
@@ -13,6 +14,7 @@ import type { DropRecord } from '../items/item-system';
 export interface SaveData {
   version: 1;
   vehicle?: VehicleSave;
+  navigation?: { kind: 'station' | 'place' | 'region'; index: number; arrived?: boolean } | null;
   appearance?: Appearance;
   sky?: SkySave;
   harvestProgress?: [number, number][];
@@ -35,6 +37,15 @@ export function validateSave(value: unknown, resourceCount: number): SaveData | 
   const finite = (n: unknown): n is number => typeof n === 'number' && Number.isFinite(n);
   if (
     s.version !== 1 ||
+    (s.navigation != null &&
+      (!['station', 'place', 'region'].includes(s.navigation.kind) ||
+        !Number.isInteger(s.navigation.index) ||
+        s.navigation.index < 0 ||
+        s.navigation.index >=
+          ({ station: STATIONS.length, place: WORLD_PLACES.length, region: WORLD_REGIONS.length }[
+            s.navigation.kind
+          ] ?? 0) ||
+        (s.navigation.arrived !== undefined && typeof s.navigation.arrived !== 'boolean'))) ||
     (s.vehicle !== undefined &&
       (!s.vehicle ||
         !finite(s.vehicle.x) ||

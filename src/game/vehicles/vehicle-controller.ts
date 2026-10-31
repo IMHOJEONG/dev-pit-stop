@@ -75,10 +75,72 @@ export class VehicleController {
       cos = Math.cos(this.heading);
     return Math.abs(dx * cos - dz * sin) < 2.2 && Math.abs(dx * sin + dz * cos) < 3.2;
   }
+  get steeringAngle() {
+    // Limit lateral acceleration at speed; tight turns remain available while parking.
+    return (
+      this.steering *
+      Math.atan(Math.min(Math.tan(0.5), (3.6 * 8) / Math.max(1, this.speed * this.speed)))
+    );
+  }
   nearby(position: { x: number; y: number; z: number }) {
     return (
       Math.hypot(position.x - this.position.x, position.z - this.position.z) < 5.5 &&
       Math.abs(position.y - this.position.y) < 2.5
+    );
+  }
+  boardingApproach(position: THREE.Vector3): THREE.Vector3[] | null {
+    if (!this.nearby(position)) return null;
+    const dx = position.x - this.position.x,
+      dz = position.z - this.position.z,
+      sin = Math.sin(this.heading),
+      cos = Math.cos(this.heading);
+    const side = dx * cos - dz * sin,
+      along = dx * sin + dz * cos;
+    if (Math.abs(along) < 2.5 && Math.abs(side) > 2.3) return [];
+    const sign = side >= 0 ? 1 : -1;
+    const local =
+      Math.abs(along) > 2.5
+        ? [
+            [sign * 4.5, Math.sign(along) * 4.5],
+            [sign * 4.5, 0.3],
+          ]
+        : [[sign * 4.5, 0.3]];
+    const points = local.map(
+      ([x, z]) =>
+        new THREE.Vector3(
+          this.position.x + x * cos + z * sin,
+          0,
+          this.position.z - x * sin + z * cos,
+        ),
+    );
+    let previous = position;
+    for (const point of points) {
+      point.y = groundSurface(point.x, point.z);
+      const steps = Math.ceil(previous.distanceTo(point) * 2);
+      for (let i = 1; i <= steps; i++) {
+        const t = i / steps,
+          x = previous.x + (point.x - previous.x) * t,
+          z = previous.z + (point.z - previous.z) * t;
+        if (!this.walkable(x, z) || this.blocksPedestrian(x, z)) return null;
+      }
+      previous = point;
+    }
+    return points;
+  }
+  private walkable(x: number, z: number) {
+    const y = groundSurface(x, z);
+    return (
+      y >= 0.8 &&
+      Math.abs(y - this.position.y) <= 1.2 &&
+      !stationBlocked(x, z) &&
+      !placeBlocked(x, z) &&
+      !bridgeRailBlocked(x, z) &&
+      !this.resources.some(
+        (r) =>
+          !this.collected.has(r.id) &&
+          Math.hypot(x - r.x, z - r.z) <
+            (r.kind === 'stone' ? 2.2 * r.scale : r.kind === 'wood' ? 1.05 * r.scale : 0.9) + 0.8,
+      )
     );
   }
   board(position: { x: number; y: number; z: number }) {
@@ -95,6 +157,11 @@ export class VehicleController {
           x = this.position.x + Math.sin(angle) * radius,
           z = this.position.z + Math.cos(angle) * radius,
           y = groundSurface(x, z);
+        const side =
+          (x - this.position.x) * Math.cos(this.heading) -
+          (z - this.position.z) * Math.sin(this.heading);
+        // Leave through an open side, never through the bonnet or a bridge railing.
+        if (Math.abs(side) < 2.4) continue;
         if (
           y < 0.8 ||
           Math.abs(y - this.position.y) > 1.2 ||
@@ -138,7 +205,7 @@ export class VehicleController {
       else if (throttle)
         this.speed = clamp(this.speed + clamp(throttle, -1, 1) * 10 * delta, -8, 24);
       else this.speed = Math.sign(this.speed) * Math.max(0, Math.abs(this.speed) - 5 * delta);
-      const heading = this.heading - this.steering * (this.speed / 3.6) * Math.tan(0.4) * delta;
+      const heading = this.heading - (this.speed / 3.6) * Math.tan(this.steeringAngle) * delta;
       const dx = -Math.sin(heading) * this.speed * delta,
         dz = -Math.cos(heading) * this.speed * delta;
       const x = this.position.x + dx,
@@ -146,7 +213,7 @@ export class VehicleController {
         h = groundSurface(x, z);
       if (
         !this.canOccupy(x, z, heading) ||
-        Math.abs(h - this.position.y) > Math.hypot(dx, dz) * 0.85 + 0.035
+        Math.abs(h - this.position.y) > Math.hypot(dx, dz) * 0.85 + 0.75
       ) {
         this.speed = 0;
         this.blocked = true;
@@ -155,8 +222,8 @@ export class VehicleController {
       this.heading = Math.atan2(Math.sin(heading), Math.cos(heading));
       this.position.set(x, h, z);
       distance += Math.hypot(dx, dz);
+      this.travel += this.speed * delta;
     }
-    this.travel += distance * Math.sign(this.speed);
     return distance;
   }
   snapshot(): VehicleSave {

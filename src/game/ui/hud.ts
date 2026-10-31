@@ -20,6 +20,7 @@ interface HudState {
   yaw: number;
   nearby: InteractionTarget;
   paused: boolean;
+  vehicleTransition?: boolean;
 }
 function resourceLabel(resource: Resource, expedition: ExpeditionState) {
   const rule = HARVEST_RULES[resource.kind];
@@ -121,7 +122,9 @@ export class Hud {
                   : '새로운 장소 찾아가기',
             detail:
               navigation!.kind === 'region'
-                ? '도로를 따라 지역 입구로 향하세요 · 계단 앞에서는 내려서 이동'
+                ? navigation!.arrived
+                  ? '지역 입구에 도착했습니다 · 주차하고 주변을 자유롭게 탐험하세요'
+                  : '도로를 따라 지역 입구로 향하세요 · 계단 앞에서는 내려서 이동'
                 : navigation!.kind === 'station'
                   ? '큰길과 갈림길 표식을 따라 관측소로 향하세요'
                   : '지도에 표시된 갈림길 너머를 자유롭게 탐험하세요',
@@ -135,13 +138,17 @@ export class Hud {
     document.querySelector('.quest h2')!.textContent = sky.complete
       ? '하늘과 땅의 신호가 연결됐습니다'
       : navigation
-        ? '나만의 길로 탐험하기'
+        ? navigation.arrived
+          ? '목적지에 도착했어요'
+          : '나만의 길로 탐험하기'
         : '구름 위의 신호를 찾아서';
     document.querySelector('.quest p')!.textContent = objective.detail;
     $('target-name').textContent = objective.title;
     $('target-distance').textContent = sky.ride
       ? `상승 기류 이동 ${Math.floor((sky.ride.elapsed / 8) * 100)}%`
-      : `목표까지 ${Math.round(Math.hypot(state.position.x - objective.point.x, state.position.z - objective.point.z))} m`;
+      : navigation?.arrived
+        ? '도착 · 주변을 자유롭게 탐험하세요'
+        : `목표까지 ${Math.round(Math.hypot(state.position.x - objective.point.x, state.position.z - objective.point.z))} m`;
     $('quest-count').textContent = `${sky.complete ? 7 : objective.step} / 7`;
     $('quest-progress').style.width = `${((sky.complete ? 7 : objective.step) / 7) * 100}%`;
     if (!sky.inSky) {
@@ -173,7 +180,8 @@ export class Hud {
       Math.abs(point.x) > 0.93 ||
       point.y > 0.85 ||
       point.y < -0.6 ||
-      sky.complete;
+      sky.complete ||
+      !!navigation?.arrived;
     marker.style.left = `${(point.x * 0.5 + 0.5) * innerWidth}px`;
     marker.style.top = `${(-point.y * 0.5 + 0.5) * innerHeight}px`;
     marker.querySelector('small')!.textContent = objective.title;
@@ -202,7 +210,7 @@ export class Hud {
     }
     const vehicle = state.expedition.vehicle;
     const canBoard = !sky.inSky && !sky.ride && vehicle.nearby(state.position);
-    $('vehicle-hud').hidden = !vehicle.riding || state.paused;
+    $('vehicle-hud').hidden = !vehicle.riding || state.paused || !!state.vehicleTransition;
     const hints = $('control-hints');
     if (hints.dataset.driving !== String(vehicle.riding)) {
       hints.dataset.driving = String(vehicle.riding);
@@ -218,13 +226,14 @@ export class Hud {
         : Math.abs(vehicle.speed) < 0.2
           ? 'P · 정차'
           : 'D · 주행';
-    $('vehicle-prompt').hidden = state.paused || (!vehicle.riding && !canBoard);
+    $('vehicle-prompt').hidden =
+      state.paused || state.vehicleTransition === true || (!vehicle.riding && !canBoard);
     $('vehicle-prompt-text').textContent = vehicle.riding
       ? Math.abs(vehicle.speed) > 1.2
         ? 'SPACE로 멈춘 뒤 F로 내리기'
         : '탐험 버기에서 내리기'
       : '탐험 버기 타기';
-    $('touch-vehicle').hidden = !vehicle.riding && !canBoard;
+    $('touch-vehicle').hidden = !!state.vehicleTransition || (!vehicle.riding && !canBoard);
     $('touch-vehicle').textContent = vehicle.riding ? '내리기' : '타기';
     $('touch-jump').textContent = vehicle.riding ? '정지' : '↥';
     $('touch-jump').setAttribute('aria-label', vehicle.riding ? '브레이크' : '점프');
