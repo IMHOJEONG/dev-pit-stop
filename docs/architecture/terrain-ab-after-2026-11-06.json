@@ -1,0 +1,2424 @@
+{
+  "schema": 4,
+  "notes": "World frame stats cover real main callbacks only; no FPS when world is on demand. Activity counters independently measure actual world/preview frames, calls and CPU elapsed per wall second. CPU excludes layout/paint and GPU time. Calls include shadow passes. Counts are not bytes. Event times may overlap stages. No network transmission.",
+  "reports": [],
+  "panelComparisons": [
+    {
+      "status": "complete",
+      "runs": [
+        {
+          "panel": true,
+          "durationMs": 15000,
+          "sameConditions": true,
+          "environment": {
+            "build": "production",
+            "asset": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+            "viewport": {
+              "width": 1440,
+              "height": 900
+            },
+            "drawingBuffer": {
+              "width": 1440,
+              "height": 900
+            },
+            "devicePixelRatio": 1,
+            "renderPixelRatio": 1,
+            "shadows": true,
+            "mainRendererOnly": true,
+            "worldScheduling": "continuous",
+            "camera": {
+              "position": [
+                -64.17221646664535,
+                29.5533493280849,
+                126.7217751580777
+              ],
+              "quaternion": [
+                -0.098824672859563,
+                0.029848535500544827,
+                0.002965629928151441,
+                0.9946526800857688
+              ]
+            },
+            "position": {
+              "x": -66.41403443027163,
+              "y": 18.75022553790357,
+              "z": 89.40298955466544
+            },
+            "time": 13.022365264001472,
+            "timeRate": 0,
+            "longAnimationFramesSupported": true
+          },
+          "environmentEnd": {
+            "build": "production",
+            "asset": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+            "viewport": {
+              "width": 1440,
+              "height": 900
+            },
+            "drawingBuffer": {
+              "width": 1440,
+              "height": 900
+            },
+            "devicePixelRatio": 1,
+            "renderPixelRatio": 1,
+            "shadows": true,
+            "mainRendererOnly": true,
+            "worldScheduling": "continuous",
+            "camera": {
+              "position": [
+                -64.17221646664552,
+                29.553349328084895,
+                126.72177515807748
+              ],
+              "quaternion": [
+                -0.09882467285956358,
+                0.029848535500542922,
+                0.0029656299281512685,
+                0.9946526800857688
+              ]
+            },
+            "position": {
+              "x": -66.41403443027163,
+              "y": 18.75022553790357,
+              "z": 89.40298955466544
+            },
+            "time": 13.022365264001472,
+            "timeRate": 0,
+            "longAnimationFramesSupported": true
+          },
+          "droppedFrames": 0,
+          "frames": 770,
+          "fps": 51.45258199627989,
+          "frameMs": {
+            "mean": 19.435370611183355,
+            "p50": 16.600000000002183,
+            "p95": 42.29999999999927,
+            "p99": 108.40000000000146,
+            "max": 158.39999999999964
+          },
+          "callbackMs": {
+            "mean": 16.262467541013446,
+            "p50": 12.799999713897705,
+            "p95": 38.60000038146973,
+            "p99": 85.90000009536743,
+            "max": 129.5
+          },
+          "renderMs": {
+            "mean": 10.236753241427532,
+            "p50": 8,
+            "p95": 22.59999990463257,
+            "p99": 60.39999961853027,
+            "max": 94
+          },
+          "calls": {
+            "mean": 400.7688311688312,
+            "p50": 401,
+            "p95": 403,
+            "p99": 403,
+            "max": 403
+          },
+          "triangles": {
+            "mean": 241578.36623376622,
+            "p50": 241586,
+            "p95": 241598,
+            "p99": 241598,
+            "max": 241598
+          },
+          "over100ms": 11,
+          "stalls": [
+            {
+              "offsetMs": 312.80000019073486,
+              "intervalMs": 104.10000000000036,
+              "previousCallbackMs": 64.7000002861023,
+              "previousRenderMs": 54.09999990463257,
+              "betweenCallbacksMs": 41,
+              "dispatchAfterRafMs": 9.300000190734863
+            },
+            {
+              "offsetMs": 1325.3000001907349,
+              "intervalMs": 108.40000000000146,
+              "previousCallbackMs": 106.69999980926514,
+              "previousRenderMs": 43,
+              "betweenCallbacksMs": 11.700000286102295,
+              "dispatchAfterRafMs": 17.600000190734136
+            },
+            {
+              "offsetMs": 3283.5,
+              "intervalMs": 158.39999999999964,
+              "previousCallbackMs": 125.7999997138977,
+              "previousRenderMs": 91.5,
+              "betweenCallbacksMs": 16.40000009536743,
+              "dispatchAfterRafMs": 17.5
+            },
+            {
+              "offsetMs": 3421.9000000953674,
+              "intervalMs": 141.60000000000036,
+              "previousCallbackMs": 129.5,
+              "previousRenderMs": 94,
+              "betweenCallbacksMs": 8.900000095367432,
+              "dispatchAfterRafMs": 14.300000095367068
+            },
+            {
+              "offsetMs": 4276.699999809265,
+              "intervalMs": 126,
+              "previousCallbackMs": 117.7999997138977,
+              "previousRenderMs": 70.69999980926514,
+              "betweenCallbacksMs": 1.0999999046325684,
+              "dispatchAfterRafMs": 10.699999809265137
+            },
+            {
+              "offsetMs": 6251.400000095367,
+              "intervalMs": 108.29999999999927,
+              "previousCallbackMs": 92.69999980926514,
+              "previousRenderMs": 60.39999961853027,
+              "betweenCallbacksMs": 8.200000286102295,
+              "dispatchAfterRafMs": 2.1000000953681592
+            },
+            {
+              "offsetMs": 7300.699999809265,
+              "intervalMs": 134.09999999999854,
+              "previousCallbackMs": 90.30000019073486,
+              "previousRenderMs": 64,
+              "betweenCallbacksMs": 54.799999713897705,
+              "dispatchAfterRafMs": 26.399999809265864
+            },
+            {
+              "offsetMs": 8300.300000190735,
+              "intervalMs": 150.70000000000073,
+              "previousCallbackMs": 92.59999990463257,
+              "previousRenderMs": 52.700000286102295,
+              "betweenCallbacksMs": 40.60000038146973,
+              "dispatchAfterRafMs": 9.400000190733408
+            },
+            {
+              "offsetMs": 9312.900000095367,
+              "intervalMs": 108.29999999999927,
+              "previousCallbackMs": 85.90000009536743,
+              "previousRenderMs": 62.60000038146973,
+              "betweenCallbacksMs": 27.59999990463257,
+              "dispatchAfterRafMs": 13.700000095366704
+            },
+            {
+              "offsetMs": 10322.300000190735,
+              "intervalMs": 116.70000000000073,
+              "previousCallbackMs": 78.5,
+              "previousRenderMs": 36.09999990463257,
+              "betweenCallbacksMs": 51.60000038146973,
+              "dispatchAfterRafMs": 18.900000190733408
+            },
+            {
+              "offsetMs": 11287.699999809265,
+              "intervalMs": 117.39999999999782,
+              "previousCallbackMs": 83.09999990463257,
+              "previousRenderMs": 69,
+              "betweenCallbacksMs": 19.699999809265137,
+              "dispatchAfterRafMs": 5.099999809266592
+            }
+          ],
+          "gpu": {
+            "supported": false,
+            "samples": 0,
+            "durationMs": {
+              "mean": 0,
+              "p50": 0,
+              "p95": 0,
+              "p99": 0,
+              "max": 0
+            },
+            "slowCpuSamples": [],
+            "unresolved": 0,
+            "disjoint": 0
+          },
+          "longFramesOver100ms": [
+            {
+              "offsetMs": 1205.3000001907349,
+              "durationMs": 111.59999990463257,
+              "blockingMs": 60.2,
+              "renderOffsetMs": 1.5999999046325684,
+              "styleLayoutToEndMs": 3,
+              "scripts": [
+                {
+                  "offsetMs": 1206.9000000953674,
+                  "durationMs": 107,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134508,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 3118.5999999046326,
+              "durationMs": 148.7000002861023,
+              "blockingMs": 76.1,
+              "renderOffsetMs": 22.700000286102295,
+              "styleLayoutToEndMs": 0.10000038146972656,
+              "scripts": [
+                {
+                  "offsetMs": 3141.300000190735,
+                  "durationMs": 125.7999997138977,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134508,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 3275,
+              "durationMs": 140,
+              "blockingMs": 89.1,
+              "renderOffsetMs": 8.300000190734863,
+              "styleLayoutToEndMs": 1.8000001907348633,
+              "scripts": [
+                {
+                  "offsetMs": 3283.4000000953674,
+                  "durationMs": 129.7999997138977,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134508,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 4155.699999809265,
+              "durationMs": 120,
+              "blockingMs": 69.3,
+              "renderOffsetMs": 0.8000001907348633,
+              "styleLayoutToEndMs": 0.09999990463256836,
+              "scripts": [
+                {
+                  "offsetMs": 4157.699999809265,
+                  "durationMs": 117.90000009536743,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134508,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 7154.5,
+              "durationMs": 110.80000019073486,
+              "blockingMs": 59.7,
+              "renderOffsetMs": 1.0999999046325684,
+              "styleLayoutToEndMs": 19.300000190734863,
+              "scripts": [
+                {
+                  "offsetMs": 7155.599999904633,
+                  "durationMs": 90.40000009536743,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134508,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 8159.699999809265,
+              "durationMs": 121.80000019073486,
+              "blockingMs": 64.6,
+              "renderOffsetMs": 7.300000190734863,
+              "styleLayoutToEndMs": 21.59999990463257,
+              "scripts": [
+                {
+                  "offsetMs": 8167.099999904633,
+                  "durationMs": 92.7000002861023,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134508,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 9198.800000190735,
+              "durationMs": 106.7999997138977,
+              "blockingMs": 56.3,
+              "renderOffsetMs": 0.5999999046325684,
+              "styleLayoutToEndMs": 17.799999713897705,
+              "scripts": [
+                {
+                  "offsetMs": 9199.400000095367,
+                  "durationMs": 88.40000009536743,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134508,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 10192.199999809265,
+              "durationMs": 121.5,
+              "blockingMs": 71.5,
+              "renderOffsetMs": 0,
+              "styleLayoutToEndMs": 35.5,
+              "scripts": [
+                {
+                  "offsetMs": 10192.199999809265,
+                  "durationMs": 85.90000009536743,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134508,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            }
+          ],
+          "longTasks": [
+            {
+              "offsetMs": 206.90000009536743,
+              "durationMs": 101,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1140.1999998092651,
+              "durationMs": 65,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1206.8000001907349,
+              "durationMs": 116,
+              "name": "self"
+            },
+            {
+              "offsetMs": 2154.800000190735,
+              "durationMs": 85,
+              "name": "self"
+            },
+            {
+              "offsetMs": 2241.800000190735,
+              "durationMs": 76,
+              "name": "self"
+            },
+            {
+              "offsetMs": 2857.699999809265,
+              "durationMs": 63,
+              "name": "self"
+            },
+            {
+              "offsetMs": 3141.199999809265,
+              "durationMs": 133,
+              "name": "self"
+            },
+            {
+              "offsetMs": 3275.9000000953674,
+              "durationMs": 142,
+              "name": "self"
+            },
+            {
+              "offsetMs": 3421.0999999046326,
+              "durationMs": 54,
+              "name": "self"
+            },
+            {
+              "offsetMs": 4156.400000095367,
+              "durationMs": 119,
+              "name": "self"
+            },
+            {
+              "offsetMs": 4276.599999904633,
+              "durationMs": 62,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5140.599999904633,
+              "durationMs": 56,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5199.400000095367,
+              "durationMs": 96,
+              "name": "self"
+            },
+            {
+              "offsetMs": 6150.199999809265,
+              "durationMs": 99,
+              "name": "self"
+            },
+            {
+              "offsetMs": 6251.300000190735,
+              "durationMs": 69,
+              "name": "self"
+            },
+            {
+              "offsetMs": 7155.5,
+              "durationMs": 137,
+              "name": "self"
+            },
+            {
+              "offsetMs": 8167,
+              "durationMs": 133,
+              "name": "self"
+            },
+            {
+              "offsetMs": 9142.699999809265,
+              "durationMs": 56,
+              "name": "self"
+            },
+            {
+              "offsetMs": 9199.300000190735,
+              "durationMs": 110,
+              "name": "self"
+            },
+            {
+              "offsetMs": 10192.199999809265,
+              "durationMs": 123,
+              "name": "self"
+            },
+            {
+              "offsetMs": 11113.900000095367,
+              "durationMs": 70,
+              "name": "self"
+            },
+            {
+              "offsetMs": 11184.800000190735,
+              "durationMs": 97,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12119,
+              "durationMs": 73,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12199.300000190735,
+              "durationMs": 84,
+              "name": "self"
+            },
+            {
+              "offsetMs": 13096.300000190735,
+              "durationMs": 58,
+              "name": "self"
+            },
+            {
+              "offsetMs": 13208.199999809265,
+              "durationMs": 101,
+              "name": "self"
+            },
+            {
+              "offsetMs": 14148.400000095367,
+              "durationMs": 84,
+              "name": "self"
+            },
+            {
+              "offsetMs": 14232.800000190735,
+              "durationMs": 83,
+              "name": "self"
+            },
+            {
+              "offsetMs": 14693,
+              "durationMs": 62,
+              "name": "self"
+            },
+            {
+              "offsetMs": 14918.300000190735,
+              "durationMs": 59,
+              "name": "self"
+            }
+          ],
+          "panelRefreshes": [
+            {
+              "offsetMs": 514.6999998092651,
+              "durationMs": 1
+            },
+            {
+              "offsetMs": 1013.5,
+              "durationMs": 1
+            },
+            {
+              "offsetMs": 1510.9000000953674,
+              "durationMs": 1.5999999046325684
+            },
+            {
+              "offsetMs": 2019.8000001907349,
+              "durationMs": 0.7999997138977051
+            },
+            {
+              "offsetMs": 2516.0999999046326,
+              "durationMs": 4.800000190734863
+            },
+            {
+              "offsetMs": 3022,
+              "durationMs": 1.4000000953674316
+            },
+            {
+              "offsetMs": 3509.4000000953674,
+              "durationMs": 10.5
+            },
+            {
+              "offsetMs": 4006.699999809265,
+              "durationMs": 0.7000002861022949
+            },
+            {
+              "offsetMs": 4523,
+              "durationMs": 0.9000000953674316
+            },
+            {
+              "offsetMs": 5011.599999904633,
+              "durationMs": 0.8000001907348633
+            },
+            {
+              "offsetMs": 5528.900000095367,
+              "durationMs": 0.5999999046325684
+            },
+            {
+              "offsetMs": 6022.699999809265,
+              "durationMs": 1
+            },
+            {
+              "offsetMs": 6504.5,
+              "durationMs": 1
+            },
+            {
+              "offsetMs": 7014.599999904633,
+              "durationMs": 1.3000001907348633
+            },
+            {
+              "offsetMs": 7507,
+              "durationMs": 4.400000095367432
+            },
+            {
+              "offsetMs": 8022.699999809265,
+              "durationMs": 0.8000001907348633
+            },
+            {
+              "offsetMs": 8498.199999809265,
+              "durationMs": 1
+            },
+            {
+              "offsetMs": 9015.5,
+              "durationMs": 1.3000001907348633
+            },
+            {
+              "offsetMs": 9515.900000095367,
+              "durationMs": 1.4000000953674316
+            },
+            {
+              "offsetMs": 10010.099999904633,
+              "durationMs": 2.4000000953674316
+            },
+            {
+              "offsetMs": 10497.800000190735,
+              "durationMs": 1.299999713897705
+            },
+            {
+              "offsetMs": 11005.900000095367,
+              "durationMs": 1
+            },
+            {
+              "offsetMs": 11498.800000190735,
+              "durationMs": 2.1999998092651367
+            },
+            {
+              "offsetMs": 12019.900000095367,
+              "durationMs": 0.9000000953674316
+            },
+            {
+              "offsetMs": 12514.800000190735,
+              "durationMs": 1.5999999046325684
+            },
+            {
+              "offsetMs": 13040.800000190735,
+              "durationMs": 2.3999996185302734
+            },
+            {
+              "offsetMs": 13520.599999904633,
+              "durationMs": 1.3000001907348633
+            },
+            {
+              "offsetMs": 14004.5,
+              "durationMs": 1
+            },
+            {
+              "offsetMs": 14511.699999809265,
+              "durationMs": 1.3000001907348633
+            }
+          ]
+        },
+        {
+          "panel": false,
+          "durationMs": 15000,
+          "sameConditions": true,
+          "environment": {
+            "build": "production",
+            "asset": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+            "viewport": {
+              "width": 1440,
+              "height": 900
+            },
+            "drawingBuffer": {
+              "width": 1440,
+              "height": 900
+            },
+            "devicePixelRatio": 1,
+            "renderPixelRatio": 1,
+            "shadows": true,
+            "mainRendererOnly": true,
+            "worldScheduling": "continuous",
+            "camera": {
+              "position": [
+                -64.17221646664552,
+                29.553349328084895,
+                126.72177515807748
+              ],
+              "quaternion": [
+                -0.09882467285956358,
+                0.029848535500542922,
+                0.0029656299281512685,
+                0.9946526800857688
+              ]
+            },
+            "position": {
+              "x": -66.41403443027163,
+              "y": 18.75022553790357,
+              "z": 89.40298955466544
+            },
+            "time": 13.022365264001472,
+            "timeRate": 0,
+            "longAnimationFramesSupported": true
+          },
+          "environmentEnd": {
+            "build": "production",
+            "asset": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+            "viewport": {
+              "width": 1440,
+              "height": 900
+            },
+            "drawingBuffer": {
+              "width": 1440,
+              "height": 900
+            },
+            "devicePixelRatio": 1,
+            "renderPixelRatio": 1,
+            "shadows": true,
+            "mainRendererOnly": true,
+            "worldScheduling": "continuous",
+            "camera": {
+              "position": [
+                -64.17221646664552,
+                29.553349328084895,
+                126.72177515807748
+              ],
+              "quaternion": [
+                -0.09882467285956358,
+                0.029848535500542922,
+                0.0029656299281512685,
+                0.9946526800857688
+              ]
+            },
+            "position": {
+              "x": -66.41403443027163,
+              "y": 18.75022553790357,
+              "z": 89.40298955466544
+            },
+            "time": 13.022365264001472,
+            "timeRate": 0,
+            "longAnimationFramesSupported": true
+          },
+          "droppedFrames": 0,
+          "frames": 785,
+          "fps": 52.3263186699504,
+          "frameMs": {
+            "mean": 19.110841836734696,
+            "p50": 16.599999999998545,
+            "p95": 42.099999999998545,
+            "p99": 91.39999999999782,
+            "max": 270.59999999999854
+          },
+          "callbackMs": {
+            "mean": 15.99808916772247,
+            "p50": 12.5,
+            "p95": 35.40000009536743,
+            "p99": 74.60000038146973,
+            "max": 118.90000009536743
+          },
+          "renderMs": {
+            "mean": 10.1496815316996,
+            "p50": 7.799999713897705,
+            "p95": 22.300000190734863,
+            "p99": 52,
+            "max": 76.2999997138977
+          },
+          "calls": {
+            "mean": 403.143949044586,
+            "p50": 403,
+            "p95": 404,
+            "p99": 404,
+            "max": 404
+          },
+          "triangles": {
+            "mean": 241696.90191082802,
+            "p50": 241678,
+            "p95": 241826,
+            "p99": 241826,
+            "max": 241826
+          },
+          "over100ms": 6,
+          "stalls": [
+            {
+              "offsetMs": 5316.199999809265,
+              "intervalMs": 270.59999999999854,
+              "previousCallbackMs": 81,
+              "previousRenderMs": 25.199999809265137,
+              "betweenCallbacksMs": 199.09999990463257,
+              "dispatchAfterRafMs": 19.400000000001455
+            },
+            {
+              "offsetMs": 5452,
+              "intervalMs": 125.20000000000437,
+              "previousCallbackMs": 108.09999990463257,
+              "previousRenderMs": 56.299999713897705,
+              "betweenCallbacksMs": 27.700000286102295,
+              "dispatchAfterRafMs": 30.000000190731953
+            },
+            {
+              "offsetMs": 5938.5,
+              "intervalMs": 101,
+              "previousCallbackMs": 88.09999990463257,
+              "previousRenderMs": 56.89999961853027,
+              "betweenCallbacksMs": 12.600000381469727,
+              "dispatchAfterRafMs": 24.800000190734863
+            },
+            {
+              "offsetMs": 8210.89999961853,
+              "intervalMs": 113.80000000000291,
+              "previousCallbackMs": 117.2000002861023,
+              "previousRenderMs": 76.2999997138977,
+              "betweenCallbacksMs": 1.3999996185302734,
+              "dispatchAfterRafMs": 14.899999809262226
+            },
+            {
+              "offsetMs": 13246.5,
+              "intervalMs": 100.10000000000582,
+              "previousCallbackMs": 75.80000019073486,
+              "previousRenderMs": 30.199999809265137,
+              "betweenCallbacksMs": 7,
+              "dispatchAfterRafMs": 8.500000190731953
+            },
+            {
+              "offsetMs": 14257.699999809265,
+              "intervalMs": 155,
+              "previousCallbackMs": 118.90000009536743,
+              "previousRenderMs": 75.2000002861023,
+              "betweenCallbacksMs": 41,
+              "dispatchAfterRafMs": 14.099999999998545
+            }
+          ],
+          "gpu": {
+            "supported": false,
+            "samples": 0,
+            "durationMs": {
+              "mean": 0,
+              "p50": 0,
+              "p95": 0,
+              "p99": 0,
+              "max": 0
+            },
+            "slowCpuSamples": [],
+            "unresolved": 0,
+            "disjoint": 0
+          },
+          "longFramesOver100ms": [
+            {
+              "offsetMs": 5028.5,
+              "durationMs": 227.39999961853027,
+              "blockingMs": 169.8,
+              "renderOffsetMs": 7.599999904632568,
+              "styleLayoutToEndMs": 138.69999980926514,
+              "scripts": [
+                {
+                  "offsetMs": 5036.099999904633,
+                  "durationMs": 81.09999990463257,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134508,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 5305.89999961853,
+              "durationMs": 126.40000009536743,
+              "blockingMs": 66.5,
+              "renderOffsetMs": 10,
+              "styleLayoutToEndMs": 7.099999904632568,
+              "scripts": [
+                {
+                  "offsetMs": 5316.199999809265,
+                  "durationMs": 108.90000009536743,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134508,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 5824.5,
+              "durationMs": 102.69999980926514,
+              "blockingMs": 46.7,
+              "renderOffsetMs": 6,
+              "styleLayoutToEndMs": 0.3000001907348633,
+              "scripts": [
+                {
+                  "offsetMs": 5837.799999713898,
+                  "durationMs": 89,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134508,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 8091.5,
+              "durationMs": 118.19999980926514,
+              "blockingMs": 67.5,
+              "renderOffsetMs": 0.7999997138977051,
+              "styleLayoutToEndMs": 0.09999990463256836,
+              "scripts": [
+                {
+                  "offsetMs": 8092.299999713898,
+                  "durationMs": 117.2000002861023,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134508,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 14097.699999809265,
+              "durationMs": 138.69999980926514,
+              "blockingMs": 88.6,
+              "renderOffsetMs": 0.09999990463256836,
+              "styleLayoutToEndMs": 15.599999904632568,
+              "scripts": [
+                {
+                  "offsetMs": 14097.799999713898,
+                  "durationMs": 122.90000009536743,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134508,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            }
+          ],
+          "longTasks": [
+            {
+              "offsetMs": 707.0999999046326,
+              "durationMs": 81,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1639.1999998092651,
+              "durationMs": 64,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1725,
+              "durationMs": 57,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1783.2999997138977,
+              "durationMs": 69,
+              "name": "self"
+            },
+            {
+              "offsetMs": 3285.7999997138977,
+              "durationMs": 51,
+              "name": "self"
+            },
+            {
+              "offsetMs": 4093.3999996185303,
+              "durationMs": 101,
+              "name": "self"
+            },
+            {
+              "offsetMs": 4862.5,
+              "durationMs": 55,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5036,
+              "durationMs": 269,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5315.89999961853,
+              "durationMs": 133,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5645.39999961853,
+              "durationMs": 72,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5717.599999904633,
+              "durationMs": 73,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5830.5,
+              "durationMs": 98,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5938.099999904633,
+              "durationMs": 85,
+              "name": "self"
+            },
+            {
+              "offsetMs": 6023.299999713898,
+              "durationMs": 66,
+              "name": "self"
+            },
+            {
+              "offsetMs": 8092.299999713898,
+              "durationMs": 117,
+              "name": "self"
+            },
+            {
+              "offsetMs": 8210.89999961853,
+              "durationMs": 67,
+              "name": "self"
+            },
+            {
+              "offsetMs": 9130.39999961853,
+              "durationMs": 54,
+              "name": "self"
+            },
+            {
+              "offsetMs": 9196.599999904633,
+              "durationMs": 66,
+              "name": "self"
+            },
+            {
+              "offsetMs": 10051.799999713898,
+              "durationMs": 63,
+              "name": "self"
+            },
+            {
+              "offsetMs": 10115.799999713898,
+              "durationMs": 59,
+              "name": "self"
+            },
+            {
+              "offsetMs": 10179.599999904633,
+              "durationMs": 60,
+              "name": "self"
+            },
+            {
+              "offsetMs": 11107.599999904633,
+              "durationMs": 74,
+              "name": "self"
+            },
+            {
+              "offsetMs": 11188.699999809265,
+              "durationMs": 79,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12173,
+              "durationMs": 72,
+              "name": "self"
+            },
+            {
+              "offsetMs": 13104.599999904633,
+              "durationMs": 50,
+              "name": "self"
+            },
+            {
+              "offsetMs": 13163.699999809265,
+              "durationMs": 80,
+              "name": "self"
+            },
+            {
+              "offsetMs": 14045.099999904633,
+              "durationMs": 52,
+              "name": "self"
+            },
+            {
+              "offsetMs": 14097.799999713898,
+              "durationMs": 158,
+              "name": "self"
+            },
+            {
+              "offsetMs": 14257.5,
+              "durationMs": 61,
+              "name": "self"
+            }
+          ],
+          "panelRefreshes": []
+        },
+        {
+          "panel": false,
+          "durationMs": 15000,
+          "sameConditions": true,
+          "environment": {
+            "build": "production",
+            "asset": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+            "viewport": {
+              "width": 1440,
+              "height": 900
+            },
+            "drawingBuffer": {
+              "width": 1440,
+              "height": 900
+            },
+            "devicePixelRatio": 1,
+            "renderPixelRatio": 1,
+            "shadows": true,
+            "mainRendererOnly": true,
+            "worldScheduling": "continuous",
+            "camera": {
+              "position": [
+                -64.17221646664552,
+                29.553349328084895,
+                126.72177515807748
+              ],
+              "quaternion": [
+                -0.09882467285956358,
+                0.029848535500542922,
+                0.0029656299281512685,
+                0.9946526800857688
+              ]
+            },
+            "position": {
+              "x": -66.41403443027163,
+              "y": 18.75022553790357,
+              "z": 89.40298955466544
+            },
+            "time": 13.022365264001472,
+            "timeRate": 0,
+            "longAnimationFramesSupported": true
+          },
+          "environmentEnd": {
+            "build": "production",
+            "asset": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+            "viewport": {
+              "width": 1440,
+              "height": 900
+            },
+            "drawingBuffer": {
+              "width": 1440,
+              "height": 900
+            },
+            "devicePixelRatio": 1,
+            "renderPixelRatio": 1,
+            "shadows": true,
+            "mainRendererOnly": true,
+            "worldScheduling": "continuous",
+            "camera": {
+              "position": [
+                -64.17221646664552,
+                29.553349328084895,
+                126.72177515807748
+              ],
+              "quaternion": [
+                -0.09882467285956358,
+                0.029848535500542922,
+                0.0029656299281512685,
+                0.9946526800857688
+              ]
+            },
+            "position": {
+              "x": -66.41403443027163,
+              "y": 18.75022553790357,
+              "z": 89.40298955466544
+            },
+            "time": 13.022365264001472,
+            "timeRate": 0,
+            "longAnimationFramesSupported": true
+          },
+          "droppedFrames": 0,
+          "frames": 866,
+          "fps": 57.79574382788226,
+          "frameMs": {
+            "mean": 17.302312138728325,
+            "p50": 15.80000000000291,
+            "p95": 41.19999999999709,
+            "p99": 125,
+            "max": 221.09999999999854
+          },
+          "callbackMs": {
+            "mean": 14.702194004631483,
+            "p50": 11,
+            "p95": 31.300000190734863,
+            "p99": 91.90000009536743,
+            "max": 142.39999961853027
+          },
+          "renderMs": {
+            "mean": 9.330369523711347,
+            "p50": 6.899999618530273,
+            "p95": 19.90000009536743,
+            "p99": 61.69999980926514,
+            "max": 131.59999990463257
+          },
+          "calls": {
+            "mean": 403.40184757505773,
+            "p50": 404,
+            "p95": 404,
+            "p99": 404,
+            "max": 404
+          },
+          "triangles": {
+            "mean": 241822.41108545035,
+            "p50": 241826,
+            "p95": 241826,
+            "p99": 241826,
+            "max": 241826
+          },
+          "over100ms": 11,
+          "stalls": [
+            {
+              "offsetMs": 3182.5999999046326,
+              "intervalMs": 166.60000000000582,
+              "previousCallbackMs": 127.30000019073486,
+              "previousRenderMs": 111.90000009536743,
+              "betweenCallbacksMs": 8.900000095367432,
+              "dispatchAfterRafMs": 2.1000000953645213
+            },
+            {
+              "offsetMs": 4197.89999961853,
+              "intervalMs": 150.90000000000146,
+              "previousCallbackMs": 91.90000009536743,
+              "previousRenderMs": 50.5,
+              "betweenCallbacksMs": 54.299999713897705,
+              "dispatchAfterRafMs": 9.099999809266592
+            },
+            {
+              "offsetMs": 5206.199999809265,
+              "intervalMs": 133.5,
+              "previousCallbackMs": 107.39999961853027,
+              "previousRenderMs": 80.7000002861023,
+              "betweenCallbacksMs": 31.800000190734863,
+              "dispatchAfterRafMs": 17.30000000000291
+            },
+            {
+              "offsetMs": 7187.199999809265,
+              "intervalMs": 108.40000000000146,
+              "previousCallbackMs": 98.10000038146973,
+              "previousRenderMs": 81.59999990463257,
+              "betweenCallbacksMs": 16.699999809265137,
+              "dispatchAfterRafMs": 15
+            },
+            {
+              "offsetMs": 9207.89999961853,
+              "intervalMs": 141.59999999999854,
+              "previousCallbackMs": 102.09999990463257,
+              "previousRenderMs": 47.59999990463257,
+              "betweenCallbacksMs": 20.799999713897705,
+              "dispatchAfterRafMs": 6.599999809266592
+            },
+            {
+              "offsetMs": 10189,
+              "intervalMs": 100.09999999999854,
+              "previousCallbackMs": 85.5,
+              "previousRenderMs": 53.90000009536743,
+              "betweenCallbacksMs": 14.400000095367432,
+              "dispatchAfterRafMs": 12.600000190737774
+            },
+            {
+              "offsetMs": 11213.39999961853,
+              "intervalMs": 158.40000000000146,
+              "previousCallbackMs": 119.09999990463257,
+              "previousRenderMs": 54.39999961853027,
+              "betweenCallbacksMs": 26.799999713897705,
+              "dispatchAfterRafMs": 3.8999998092622263
+            },
+            {
+              "offsetMs": 12105.299999713898,
+              "intervalMs": 221.09999999999854,
+              "previousCallbackMs": 77.40000009536743,
+              "previousRenderMs": 48.80000019073486,
+              "betweenCallbacksMs": 137,
+              "dispatchAfterRafMs": 16.499999904634024
+            },
+            {
+              "offsetMs": 12247.5,
+              "intervalMs": 125,
+              "previousCallbackMs": 66.90000009536743,
+              "previousRenderMs": 16.200000286102295,
+              "betweenCallbacksMs": 75.30000019073486,
+              "dispatchAfterRafMs": 33.70000019073632
+            },
+            {
+              "offsetMs": 12438.799999713898,
+              "intervalMs": 208.3000000000029,
+              "previousCallbackMs": 135.5,
+              "previousRenderMs": 76.30000019073486,
+              "betweenCallbacksMs": 55.799999713897705,
+              "dispatchAfterRafMs": 16.699999904631113
+            },
+            {
+              "offsetMs": 13216.799999713898,
+              "intervalMs": 158.40000000000146,
+              "previousCallbackMs": 142.39999961853027,
+              "previousRenderMs": 131.59999990463257,
+              "betweenCallbacksMs": 18.90000009536743,
+              "dispatchAfterRafMs": 11.299999904629658
+            }
+          ],
+          "gpu": {
+            "supported": false,
+            "samples": 0,
+            "durationMs": {
+              "mean": 0,
+              "p50": 0,
+              "p95": 0,
+              "p99": 0,
+              "max": 0
+            },
+            "slowCpuSamples": [],
+            "unresolved": 0,
+            "disjoint": 0
+          },
+          "longFramesOver100ms": [
+            {
+              "offsetMs": 3040.0999999046326,
+              "durationMs": 133.69999980926514,
+              "blockingMs": 83.6,
+              "renderOffsetMs": 0.19999980926513672,
+              "styleLayoutToEndMs": 0.09999990463256836,
+              "scripts": [
+                {
+                  "offsetMs": 3046.3999996185303,
+                  "durationMs": 127.30000019073486,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134508,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 3174.5,
+              "durationMs": 101.09999990463257,
+              "blockingMs": 45,
+              "renderOffsetMs": 8,
+              "styleLayoutToEndMs": 3.8000001907348633,
+              "scripts": [
+                {
+                  "offsetMs": 3182.5999999046326,
+                  "durationMs": 89.19999980926514,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134508,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 4050.699999809265,
+              "durationMs": 108.69999980926514,
+              "blockingMs": 57.8,
+              "renderOffsetMs": 0.8000001907348633,
+              "styleLayoutToEndMs": 15.599999904632568,
+              "scripts": [
+                {
+                  "offsetMs": 4051.699999809265,
+                  "durationMs": 92,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134508,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 5066.599999904633,
+              "durationMs": 126.69999980926514,
+              "blockingMs": 76.4,
+              "renderOffsetMs": 0.2999997138977051,
+              "styleLayoutToEndMs": 13.900000095367432,
+              "scripts": [
+                {
+                  "offsetMs": 5067,
+                  "durationMs": 112.2999997138977,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134508,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 7072.299999713898,
+              "durationMs": 110.30000019073486,
+              "blockingMs": 60.3,
+              "renderOffsetMs": 0.09999990463256836,
+              "styleLayoutToEndMs": 9.700000286102295,
+              "scripts": [
+                {
+                  "offsetMs": 7072.39999961853,
+                  "durationMs": 98.2000002861023,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134508,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 9084.89999961853,
+              "durationMs": 120.90000009536743,
+              "blockingMs": 70.8,
+              "renderOffsetMs": 0.10000038146972656,
+              "styleLayoutToEndMs": 18.40000009536743,
+              "scripts": [
+                {
+                  "offsetMs": 9085,
+                  "durationMs": 102.2999997138977,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134508,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 11061,
+              "durationMs": 138.7999997138977,
+              "blockingMs": 82.4,
+              "renderOffsetMs": 6.5,
+              "styleLayoutToEndMs": 12.900000095367432,
+              "scripts": [
+                {
+                  "offsetMs": 11067.5,
+                  "durationMs": 119.2999997138977,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134508,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 11884.699999809265,
+              "durationMs": 180.69999980926514,
+              "blockingMs": 128.8,
+              "renderOffsetMs": 6.099999904632568,
+              "styleLayoutToEndMs": 89.69999980926514,
+              "scripts": [
+                {
+                  "offsetMs": 11890.799999713898,
+                  "durationMs": 77.59999990463257,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134508,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 12099.599999904633,
+              "durationMs": 100.40000009536743,
+              "blockingMs": 50.3,
+              "renderOffsetMs": 0.19999980926513672,
+              "styleLayoutToEndMs": 27.600000381469727,
+              "scripts": [
+                {
+                  "offsetMs": 12100,
+                  "durationMs": 72.39999961853027,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134508,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 12222.199999809265,
+              "durationMs": 200,
+              "blockingMs": 133.4,
+              "renderOffsetMs": 25,
+              "styleLayoutToEndMs": 39,
+              "scripts": [
+                {
+                  "offsetMs": 12247.39999961853,
+                  "durationMs": 135.80000019073486,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134508,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 13055.199999809265,
+              "durationMs": 151,
+              "blockingMs": 100.7,
+              "renderOffsetMs": 0.3000001907348633,
+              "styleLayoutToEndMs": 0.09999990463256836,
+              "scripts": [
+                {
+                  "offsetMs": 13055.5,
+                  "durationMs": 142.5,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134508,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            }
+          ],
+          "longTasks": [
+            {
+              "offsetMs": 61.69999980926514,
+              "durationMs": 77,
+              "name": "self"
+            },
+            {
+              "offsetMs": 139.39999961853027,
+              "durationMs": 56,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1051.6999998092651,
+              "durationMs": 85,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1139.6999998092651,
+              "durationMs": 54,
+              "name": "self"
+            },
+            {
+              "offsetMs": 2007.1999998092651,
+              "durationMs": 99,
+              "name": "self"
+            },
+            {
+              "offsetMs": 2110.5,
+              "durationMs": 93,
+              "name": "self"
+            },
+            {
+              "offsetMs": 3040.199999809265,
+              "durationMs": 134,
+              "name": "self"
+            },
+            {
+              "offsetMs": 3180.5999999046326,
+              "durationMs": 96,
+              "name": "self"
+            },
+            {
+              "offsetMs": 3278,
+              "durationMs": 95,
+              "name": "self"
+            },
+            {
+              "offsetMs": 3373.5,
+              "durationMs": 75,
+              "name": "self"
+            },
+            {
+              "offsetMs": 4051.5,
+              "durationMs": 140,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5011.699999809265,
+              "durationMs": 54,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5066.89999961853,
+              "durationMs": 137,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5696.099999904633,
+              "durationMs": 58,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5764,
+              "durationMs": 74,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5841.39999961853,
+              "durationMs": 62,
+              "name": "self"
+            },
+            {
+              "offsetMs": 6008.89999961853,
+              "durationMs": 102,
+              "name": "self"
+            },
+            {
+              "offsetMs": 7012.599999904633,
+              "durationMs": 59,
+              "name": "self"
+            },
+            {
+              "offsetMs": 7072.39999961853,
+              "durationMs": 114,
+              "name": "self"
+            },
+            {
+              "offsetMs": 8017.599999904633,
+              "durationMs": 87,
+              "name": "self"
+            },
+            {
+              "offsetMs": 8113.89999961853,
+              "durationMs": 63,
+              "name": "self"
+            },
+            {
+              "offsetMs": 9018.39999961853,
+              "durationMs": 66,
+              "name": "self"
+            },
+            {
+              "offsetMs": 9085,
+              "durationMs": 122,
+              "name": "self"
+            },
+            {
+              "offsetMs": 10089,
+              "durationMs": 99,
+              "name": "self"
+            },
+            {
+              "offsetMs": 11067.39999961853,
+              "durationMs": 144,
+              "name": "self"
+            },
+            {
+              "offsetMs": 11834.599999904633,
+              "durationMs": 50,
+              "name": "self"
+            },
+            {
+              "offsetMs": 11890.799999713898,
+              "durationMs": 208,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12099.799999713898,
+              "durationMs": 122,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12239,
+              "durationMs": 190,
+              "name": "self"
+            },
+            {
+              "offsetMs": 13055.5,
+              "durationMs": 151,
+              "name": "self"
+            },
+            {
+              "offsetMs": 13216.39999961853,
+              "durationMs": 75,
+              "name": "self"
+            },
+            {
+              "offsetMs": 14050.099999904633,
+              "durationMs": 78,
+              "name": "self"
+            },
+            {
+              "offsetMs": 14130.699999809265,
+              "durationMs": 63,
+              "name": "self"
+            }
+          ],
+          "panelRefreshes": []
+        },
+        {
+          "panel": true,
+          "durationMs": 15000,
+          "sameConditions": true,
+          "environment": {
+            "build": "production",
+            "asset": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+            "viewport": {
+              "width": 1440,
+              "height": 900
+            },
+            "drawingBuffer": {
+              "width": 1440,
+              "height": 900
+            },
+            "devicePixelRatio": 1,
+            "renderPixelRatio": 1,
+            "shadows": true,
+            "mainRendererOnly": true,
+            "worldScheduling": "continuous",
+            "camera": {
+              "position": [
+                -64.17221646664552,
+                29.553349328084895,
+                126.72177515807748
+              ],
+              "quaternion": [
+                -0.09882467285956358,
+                0.029848535500542922,
+                0.0029656299281512685,
+                0.9946526800857688
+              ]
+            },
+            "position": {
+              "x": -66.41403443027163,
+              "y": 18.75022553790357,
+              "z": 89.40298955466544
+            },
+            "time": 13.022365264001472,
+            "timeRate": 0,
+            "longAnimationFramesSupported": true
+          },
+          "environmentEnd": {
+            "build": "production",
+            "asset": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+            "viewport": {
+              "width": 1440,
+              "height": 900
+            },
+            "drawingBuffer": {
+              "width": 1440,
+              "height": 900
+            },
+            "devicePixelRatio": 1,
+            "renderPixelRatio": 1,
+            "shadows": true,
+            "mainRendererOnly": true,
+            "worldScheduling": "continuous",
+            "camera": {
+              "position": [
+                -64.17221646664552,
+                29.553349328084895,
+                126.72177515807748
+              ],
+              "quaternion": [
+                -0.09882467285956358,
+                0.029848535500542922,
+                0.0029656299281512685,
+                0.9946526800857688
+              ]
+            },
+            "position": {
+              "x": -66.41403443027163,
+              "y": 18.75022553790357,
+              "z": 89.40298955466544
+            },
+            "time": 13.022365264001472,
+            "timeRate": 0,
+            "longAnimationFramesSupported": true
+          },
+          "droppedFrames": 0,
+          "frames": 853,
+          "fps": 57.63220909939528,
+          "frameMs": {
+            "mean": 17.35140845070422,
+            "p50": 16.5,
+            "p95": 41.5,
+            "p99": 117,
+            "max": 200
+          },
+          "callbackMs": {
+            "mean": 14.834701042242374,
+            "p50": 11.5,
+            "p95": 31.899999618530273,
+            "p99": 89.59999990463257,
+            "max": 197
+          },
+          "renderMs": {
+            "mean": 9.481594360168206,
+            "p50": 7.099999904632568,
+            "p95": 19.600000381469727,
+            "p99": 67.2000002861023,
+            "max": 126.59999990463257
+          },
+          "calls": {
+            "mean": 401.031652989449,
+            "p50": 401,
+            "p95": 402,
+            "p99": 402,
+            "max": 402
+          },
+          "triangles": {
+            "mean": 241808.1899179367,
+            "p50": 241808,
+            "p95": 241814,
+            "p99": 241814,
+            "max": 241814
+          },
+          "over100ms": 10,
+          "stalls": [
+            {
+              "offsetMs": 2124,
+              "intervalMs": 149.59999999999127,
+              "previousCallbackMs": 121.69999980926514,
+              "previousRenderMs": 56.200000286102295,
+              "betweenCallbacksMs": 26.90000009536743,
+              "dispatchAfterRafMs": 12.80000000000291
+            },
+            {
+              "offsetMs": 3132.699999809265,
+              "intervalMs": 141.70000000001164,
+              "previousCallbackMs": 96.30000019073486,
+              "previousRenderMs": 70.19999980926514,
+              "betweenCallbacksMs": 46.39999961853027,
+              "dispatchAfterRafMs": 13.099999809259316
+            },
+            {
+              "offsetMs": 4125.099999904633,
+              "intervalMs": 124.89999999999418,
+              "previousCallbackMs": 118.69999980926514,
+              "previousRenderMs": 67.2000002861023,
+              "betweenCallbacksMs": 31.40000009536743,
+              "dispatchAfterRafMs": 30.59999990463257
+            },
+            {
+              "offsetMs": 5106.5,
+              "intervalMs": 134.09999999999127,
+              "previousCallbackMs": 89.59999990463257,
+              "previousRenderMs": 77.09999990463257,
+              "betweenCallbacksMs": 10.900000095367432,
+              "dispatchAfterRafMs": 7.600000000005821
+            },
+            {
+              "offsetMs": 6145.199999809265,
+              "intervalMs": 117,
+              "previousCallbackMs": 74,
+              "previousRenderMs": 14.100000381469727,
+              "betweenCallbacksMs": 14.099999904632568,
+              "dispatchAfterRafMs": 13.499999809268047
+            },
+            {
+              "offsetMs": 7185.599999904633,
+              "intervalMs": 200,
+              "previousCallbackMs": 197,
+              "previousRenderMs": 126.59999990463257,
+              "betweenCallbacksMs": 8.5,
+              "dispatchAfterRafMs": 11.899999904635479
+            },
+            {
+              "offsetMs": 8138,
+              "intervalMs": 125,
+              "previousCallbackMs": 103,
+              "previousRenderMs": 70,
+              "betweenCallbacksMs": 22.59999990463257,
+              "dispatchAfterRafMs": 22.80000000000291
+            },
+            {
+              "offsetMs": 9135.300000190735,
+              "intervalMs": 133.20000000001164,
+              "previousCallbackMs": 111.40000009536743,
+              "previousRenderMs": 78.7999997138977,
+              "betweenCallbacksMs": 6.900000095367432,
+              "dispatchAfterRafMs": 11.700000190729043
+            },
+            {
+              "offsetMs": 11049.900000095367,
+              "intervalMs": 100.09999999999127,
+              "previousCallbackMs": 77.7000002861023,
+              "previousRenderMs": 54.700000286102295,
+              "betweenCallbacksMs": 13.099999904632568,
+              "dispatchAfterRafMs": 18.000000095373252
+            },
+            {
+              "offsetMs": 14079.300000190735,
+              "intervalMs": 135.39999999999418,
+              "previousCallbackMs": 130.59999990463257,
+              "previousRenderMs": 112.40000009536743,
+              "betweenCallbacksMs": 37.30000019073486,
+              "dispatchAfterRafMs": 37.80000019073486
+            }
+          ],
+          "gpu": {
+            "supported": false,
+            "samples": 0,
+            "durationMs": {
+              "mean": 0,
+              "p50": 0,
+              "p95": 0,
+              "p99": 0,
+              "max": 0
+            },
+            "slowCpuSamples": [],
+            "unresolved": 0,
+            "disjoint": 0
+          },
+          "longFramesOver100ms": [
+            {
+              "offsetMs": 1971.9000000953674,
+              "durationMs": 144.5,
+              "blockingMs": 91.1,
+              "renderOffsetMs": 3.5,
+              "styleLayoutToEndMs": 10.400000095367432,
+              "scripts": [
+                {
+                  "offsetMs": 1975.4000000953674,
+                  "durationMs": 130.5,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134508,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 2979.800000190735,
+              "durationMs": 141.39999961853027,
+              "blockingMs": 87.7,
+              "renderOffsetMs": 9.399999618530273,
+              "styleLayoutToEndMs": 34.59999990463257,
+              "scripts": [
+                {
+                  "offsetMs": 2980,
+                  "durationMs": 5.5,
+                  "invoker": "TimerHandler:setInterval",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+                  "sourceFunctionName": "",
+                  "sourceCharPosition": 161435,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                },
+                {
+                  "offsetMs": 2989.9000000953674,
+                  "durationMs": 96.59999990463257,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134508,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 3974.300000190735,
+              "durationMs": 126.89999961853027,
+              "blockingMs": 76.2,
+              "renderOffsetMs": 0.6999998092651367,
+              "styleLayoutToEndMs": 7.199999809265137,
+              "scripts": [
+                {
+                  "offsetMs": 3975,
+                  "durationMs": 118.80000019073486,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134508,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 4991.5,
+              "durationMs": 106.09999990463257,
+              "blockingMs": 53.7,
+              "renderOffsetMs": 10.199999809265137,
+              "styleLayoutToEndMs": 1.6999998092651367,
+              "scripts": [
+                {
+                  "offsetMs": 4992.5,
+                  "durationMs": 7.800000190734863,
+                  "invoker": "TimerHandler:setInterval",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+                  "sourceFunctionName": "",
+                  "sourceCharPosition": 161435,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                },
+                {
+                  "offsetMs": 5005.900000095367,
+                  "durationMs": 89.90000009536743,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134508,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 6025.300000190735,
+              "durationMs": 110.39999961853027,
+              "blockingMs": 58.8,
+              "renderOffsetMs": 26.699999809265137,
+              "styleLayoutToEndMs": 4.199999809265137,
+              "scripts": [
+                {
+                  "offsetMs": 6025.699999809265,
+                  "durationMs": 24.90000009536743,
+                  "invoker": "TimerHandler:setInterval",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+                  "sourceFunctionName": "",
+                  "sourceCharPosition": 161435,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                },
+                {
+                  "offsetMs": 6057.099999904633,
+                  "durationMs": 74.30000019073486,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134508,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 6979.400000095367,
+              "durationMs": 198.09999990463257,
+              "blockingMs": 147.5,
+              "renderOffsetMs": 0.5999999046325684,
+              "styleLayoutToEndMs": 0.19999980926513672,
+              "scripts": [
+                {
+                  "offsetMs": 6980.099999904633,
+                  "durationMs": 197,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134508,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 8002.599999904633,
+              "durationMs": 117.90000009536743,
+              "blockingMs": 61.3,
+              "renderOffsetMs": 9.400000095367432,
+              "styleLayoutToEndMs": 2.0999999046325684,
+              "scripts": [
+                {
+                  "offsetMs": 8012.400000095367,
+                  "durationMs": 105.90000009536743,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134508,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 8996.400000095367,
+              "durationMs": 133.7999997138977,
+              "blockingMs": 71.5,
+              "renderOffsetMs": 20.199999809265137,
+              "styleLayoutToEndMs": 1.6999998092651367,
+              "scripts": [
+                {
+                  "offsetMs": 9017,
+                  "durationMs": 111.5,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134508,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 13910.800000190735,
+              "durationMs": 131.39999961853027,
+              "blockingMs": 81,
+              "renderOffsetMs": 0.5,
+              "styleLayoutToEndMs": 0,
+              "scripts": [
+                {
+                  "offsetMs": 13911.300000190735,
+                  "durationMs": 130.7999997138977,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DpsNJoKU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134508,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            }
+          ],
+          "longTasks": [
+            {
+              "offsetMs": 2.9000000953674316,
+              "durationMs": 114,
+              "name": "self"
+            },
+            {
+              "offsetMs": 906.5999999046326,
+              "durationMs": 84,
+              "name": "self"
+            },
+            {
+              "offsetMs": 992.0999999046326,
+              "durationMs": 93,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1217,
+              "durationMs": 61,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1907.1999998092651,
+              "durationMs": 64,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1975.3000001907349,
+              "durationMs": 143,
+              "name": "self"
+            },
+            {
+              "offsetMs": 2985.5999999046326,
+              "durationMs": 141,
+              "name": "self"
+            },
+            {
+              "offsetMs": 3910.199999809265,
+              "durationMs": 64,
+              "name": "self"
+            },
+            {
+              "offsetMs": 3974.9000000953674,
+              "durationMs": 130,
+              "name": "self"
+            },
+            {
+              "offsetMs": 4938.900000095367,
+              "durationMs": 52,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5000.300000190735,
+              "durationMs": 101,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5739.300000190735,
+              "durationMs": 51,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5796.099999904633,
+              "durationMs": 63,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5945.5,
+              "durationMs": 79,
+              "name": "self"
+            },
+            {
+              "offsetMs": 6050.699999809265,
+              "durationMs": 87,
+              "name": "self"
+            },
+            {
+              "offsetMs": 6905.400000095367,
+              "durationMs": 74,
+              "name": "self"
+            },
+            {
+              "offsetMs": 6980,
+              "durationMs": 197,
+              "name": "self"
+            },
+            {
+              "offsetMs": 7934,
+              "durationMs": 68,
+              "name": "self"
+            },
+            {
+              "offsetMs": 8009.199999809265,
+              "durationMs": 116,
+              "name": "self"
+            },
+            {
+              "offsetMs": 9008.599999904633,
+              "durationMs": 125,
+              "name": "self"
+            },
+            {
+              "offsetMs": 9908.599999904633,
+              "durationMs": 84,
+              "name": "self"
+            },
+            {
+              "offsetMs": 10009.900000095367,
+              "durationMs": 81,
+              "name": "self"
+            },
+            {
+              "offsetMs": 10900.599999904633,
+              "durationMs": 55,
+              "name": "self"
+            },
+            {
+              "offsetMs": 10959,
+              "durationMs": 90,
+              "name": "self"
+            },
+            {
+              "offsetMs": 11900.300000190735,
+              "durationMs": 113,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12946.699999809265,
+              "durationMs": 107,
+              "name": "self"
+            },
+            {
+              "offsetMs": 13911.199999809265,
+              "durationMs": 140,
+              "name": "self"
+            },
+            {
+              "offsetMs": 14071.5,
+              "durationMs": 52,
+              "name": "self"
+            },
+            {
+              "offsetMs": 14911.199999809265,
+              "durationMs": 162,
+              "name": "self"
+            }
+          ],
+          "panelRefreshes": [
+            {
+              "offsetMs": 502.09999990463257,
+              "durationMs": 0.7000002861022949
+            },
+            {
+              "offsetMs": 991.4000000953674,
+              "durationMs": 0.5999999046325684
+            },
+            {
+              "offsetMs": 1505.0999999046326,
+              "durationMs": 1
+            },
+            {
+              "offsetMs": 2119.0999999046326,
+              "durationMs": 3.9000000953674316
+            },
+            {
+              "offsetMs": 2506.300000190735,
+              "durationMs": 1.6999998092651367
+            },
+            {
+              "offsetMs": 2980,
+              "durationMs": 5.5
+            },
+            {
+              "offsetMs": 3489.5999999046326,
+              "durationMs": 0.7000002861022949
+            },
+            {
+              "offsetMs": 4105.599999904633,
+              "durationMs": 10.900000095367432
+            },
+            {
+              "offsetMs": 4493.599999904633,
+              "durationMs": 1.200000286102295
+            },
+            {
+              "offsetMs": 4992.5,
+              "durationMs": 7.800000190734863
+            },
+            {
+              "offsetMs": 5495.099999904633,
+              "durationMs": 1.200000286102295
+            },
+            {
+              "offsetMs": 6025.699999809265,
+              "durationMs": 24.90000009536743
+            },
+            {
+              "offsetMs": 6503.5,
+              "durationMs": 1.5
+            },
+            {
+              "offsetMs": 7177.800000190735,
+              "durationMs": 3.3999996185302734
+            },
+            {
+              "offsetMs": 7493.5,
+              "durationMs": 1.5
+            },
+            {
+              "offsetMs": 8002.699999809265,
+              "durationMs": 1.6000003814697266
+            },
+            {
+              "offsetMs": 8495.099999904633,
+              "durationMs": 0.9000000953674316
+            },
+            {
+              "offsetMs": 8996.599999904633,
+              "durationMs": 3.700000286102295
+            },
+            {
+              "offsetMs": 9503.699999809265,
+              "durationMs": 0.9000000953674316
+            },
+            {
+              "offsetMs": 9993.599999904633,
+              "durationMs": 16.200000286102295
+            },
+            {
+              "offsetMs": 10513.800000190735,
+              "durationMs": 1.299999713897705
+            },
+            {
+              "offsetMs": 11094.099999904633,
+              "durationMs": 0.8000001907348633
+            },
+            {
+              "offsetMs": 11491.800000190735,
+              "durationMs": 2.1999998092651367
+            },
+            {
+              "offsetMs": 12065.099999904633,
+              "durationMs": 8.099999904632568
+            },
+            {
+              "offsetMs": 12502.300000190735,
+              "durationMs": 1
+            },
+            {
+              "offsetMs": 13087.099999904633,
+              "durationMs": 0.9000000953674316
+            },
+            {
+              "offsetMs": 13500.800000190735,
+              "durationMs": 1.1999998092651367
+            },
+            {
+              "offsetMs": 14052.300000190735,
+              "durationMs": 19
+            },
+            {
+              "offsetMs": 14491.599999904633,
+              "durationMs": 1.700000286102295
+            }
+          ]
+        }
+      ],
+      "gpuProfiling": false,
+      "loafSupported": true,
+      "longTaskSupported": true,
+      "recordedAt": "2026-11-06T12:42:53.690Z"
+    }
+  ]
+}

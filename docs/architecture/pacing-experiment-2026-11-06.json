@@ -1,0 +1,2620 @@
+{
+  "schema": 4,
+  "notes": "World frame stats cover real main callbacks only; no FPS when world is on demand. Activity counters independently measure actual world/preview frames, calls and CPU elapsed per wall second. CPU excludes layout/paint and GPU time. Calls include shadow passes. Counts are not bytes. Event times may overlap stages. No network transmission.",
+  "reports": [],
+  "panelComparisons": [
+    {
+      "status": "complete",
+      "runs": [
+        {
+          "panel": true,
+          "durationMs": 15000,
+          "sameConditions": true,
+          "environment": {
+            "build": "production",
+            "asset": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+            "viewport": {
+              "width": 1440,
+              "height": 900
+            },
+            "drawingBuffer": {
+              "width": 1440,
+              "height": 900
+            },
+            "devicePixelRatio": 1,
+            "renderPixelRatio": 1,
+            "shadows": true,
+            "mainRendererOnly": true,
+            "worldScheduling": "continuous",
+            "camera": {
+              "position": [
+                -64.17221646664515,
+                29.553349328084902,
+                126.721775158078
+              ],
+              "quaternion": [
+                -0.09882467285956226,
+                0.029848535500547415,
+                0.002965629928151675,
+                0.9946526800857686
+              ]
+            },
+            "position": {
+              "x": -66.41403443027163,
+              "y": 18.75022553790357,
+              "z": 89.40298955466544
+            },
+            "time": 13.022365264001472,
+            "timeRate": 0,
+            "longAnimationFramesSupported": true
+          },
+          "environmentEnd": {
+            "build": "production",
+            "asset": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+            "viewport": {
+              "width": 1440,
+              "height": 900
+            },
+            "drawingBuffer": {
+              "width": 1440,
+              "height": 900
+            },
+            "devicePixelRatio": 1,
+            "renderPixelRatio": 1,
+            "shadows": true,
+            "mainRendererOnly": true,
+            "worldScheduling": "continuous",
+            "camera": {
+              "position": [
+                -64.17221646664552,
+                29.553349328084895,
+                126.72177515807748
+              ],
+              "quaternion": [
+                -0.09882467285956358,
+                0.029848535500542922,
+                0.0029656299281512685,
+                0.9946526800857688
+              ]
+            },
+            "position": {
+              "x": -66.41403443027163,
+              "y": 18.75022553790357,
+              "z": 89.40298955466544
+            },
+            "time": 13.022365264001472,
+            "timeRate": 0,
+            "longAnimationFramesSupported": true
+          },
+          "droppedFrames": 0,
+          "frames": 658,
+          "fps": 43.839748038221316,
+          "frameMs": {
+            "mean": 22.810350076103504,
+            "p50": 16.799999999999272,
+            "p95": 50.19999999999891,
+            "p99": 139.09999999999854,
+            "max": 184.90000000000146
+          },
+          "callbackMs": {
+            "mean": 16.0366261425714,
+            "p50": 11.300000190734863,
+            "p95": 40,
+            "p99": 103.69999980926514,
+            "max": 181
+          },
+          "renderMs": {
+            "mean": 10.19711245519412,
+            "p50": 6.899999618530273,
+            "p95": 25.799999713897705,
+            "p99": 79.5,
+            "max": 140.69999980926514
+          },
+          "calls": {
+            "mean": 400.69604863221883,
+            "p50": 401,
+            "p95": 403,
+            "p99": 403,
+            "max": 403
+          },
+          "triangles": {
+            "mean": 241576.97872340426,
+            "p50": 241586,
+            "p95": 241598,
+            "p99": 241598,
+            "max": 241598
+          },
+          "over100ms": 13,
+          "stalls": [
+            {
+              "offsetMs": 677.6000003814697,
+              "intervalMs": 174.60000000000036,
+              "previousCallbackMs": 143.5,
+              "previousRenderMs": 97.19999980926514,
+              "betweenCallbacksMs": 14.600000381469727,
+              "dispatchAfterRafMs": 6.000000095367795
+            },
+            {
+              "offsetMs": 1712.4000000953674,
+              "intervalMs": 146.1999999999989,
+              "previousCallbackMs": 133.39999961853027,
+              "previousRenderMs": 89,
+              "betweenCallbacksMs": 6.400000095367432,
+              "dispatchAfterRafMs": 11.399999809265864
+            },
+            {
+              "offsetMs": 2626.1000003814697,
+              "intervalMs": 141,
+              "previousCallbackMs": 96.59999990463257,
+              "previousRenderMs": 70.69999980926514,
+              "betweenCallbacksMs": 7.200000286102295,
+              "dispatchAfterRafMs": 4.700000095366704
+            },
+            {
+              "offsetMs": 2843.4000000953674,
+              "intervalMs": 166.70000000000073,
+              "previousCallbackMs": 144.59999990463257,
+              "previousRenderMs": 101.2999997138977,
+              "betweenCallbacksMs": 8.900000095367432,
+              "dispatchAfterRafMs": 12.99999980926441
+            },
+            {
+              "offsetMs": 2970.9000000953674,
+              "intervalMs": 124.09999999999854,
+              "previousCallbackMs": 83.90000009536743,
+              "previousRenderMs": 33.60000038146973,
+              "betweenCallbacksMs": 43.59999990463257,
+              "dispatchAfterRafMs": 16.399999809265864
+            },
+            {
+              "offsetMs": 4648.10000038147,
+              "intervalMs": 108.40000000000146,
+              "previousCallbackMs": 103.69999980926514,
+              "previousRenderMs": 79.5,
+              "betweenCallbacksMs": 1.1000003814697266,
+              "dispatchAfterRafMs": 5.700000095366704
+            },
+            {
+              "offsetMs": 5663.200000286102,
+              "intervalMs": 184.90000000000146,
+              "previousCallbackMs": 181,
+              "previousRenderMs": 140.69999980926514,
+              "betweenCallbacksMs": 24.300000190734863,
+              "dispatchAfterRafMs": 25
+            },
+            {
+              "offsetMs": 5788.10000038147,
+              "intervalMs": 139.09999999999854,
+              "previousCallbackMs": 103.2999997138977,
+              "previousRenderMs": 50,
+              "betweenCallbacksMs": 21.600000381469727,
+              "dispatchAfterRafMs": 10.800000095368887
+            },
+            {
+              "offsetMs": 7645,
+              "intervalMs": 117.09999999999854,
+              "previousCallbackMs": 66.80000019073486,
+              "previousRenderMs": 27.09999990463257,
+              "betweenCallbacksMs": 23.399999618530273,
+              "dispatchAfterRafMs": 15.299999713897705
+            },
+            {
+              "offsetMs": 8716.60000038147,
+              "intervalMs": 153.09999999999854,
+              "previousCallbackMs": 98.10000038146973,
+              "previousRenderMs": 55.59999990463257,
+              "betweenCallbacksMs": 63.5,
+              "dispatchAfterRafMs": 19.300000095368887
+            },
+            {
+              "offsetMs": 11634.800000190735,
+              "intervalMs": 133.79999999999927,
+              "previousCallbackMs": 132.19999980926514,
+              "previousRenderMs": 125.2999997138977,
+              "betweenCallbacksMs": 19.800000190734863,
+              "dispatchAfterRafMs": 21.39999990463184
+            },
+            {
+              "offsetMs": 12644.60000038147,
+              "intervalMs": 107.10000000000218,
+              "previousCallbackMs": 72.2999997138977,
+              "previousRenderMs": 60.09999990463257,
+              "betweenCallbacksMs": 15.600000381469727,
+              "dispatchAfterRafMs": 15.700000095366704
+            },
+            {
+              "offsetMs": 14572.60000038147,
+              "intervalMs": 112.40000000000146,
+              "previousCallbackMs": 103.7999997138977,
+              "previousRenderMs": 44.59999990463257,
+              "betweenCallbacksMs": 7.600000381469727,
+              "dispatchAfterRafMs": 10.000000095365976
+            }
+          ],
+          "gpu": {
+            "supported": false,
+            "samples": 0,
+            "durationMs": {
+              "mean": 0,
+              "p50": 0,
+              "p95": 0,
+              "p99": 0,
+              "max": 0
+            },
+            "slowCpuSamples": [],
+            "unresolved": 0,
+            "disjoint": 0
+          },
+          "longFramesOver100ms": [
+            {
+              "offsetMs": 503.2000002861023,
+              "durationMs": 170.40000009536743,
+              "blockingMs": 118.8,
+              "renderOffsetMs": 2.5,
+              "styleLayoutToEndMs": 10.400000095367432,
+              "scripts": [
+                {
+                  "offsetMs": 519.4000000953674,
+                  "durationMs": 143.80000019073486,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134543,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 1458.9000000953674,
+              "durationMs": 103.40000009536743,
+              "blockingMs": 52.1,
+              "renderOffsetMs": 1.3000001907348633,
+              "styleLayoutToEndMs": 0,
+              "scripts": [
+                {
+                  "offsetMs": 1460.2000002861023,
+                  "durationMs": 102.09999990463257,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134543,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 1562.5,
+              "durationMs": 146.40000009536743,
+              "blockingMs": 93,
+              "renderOffsetMs": 10,
+              "styleLayoutToEndMs": 2.6999998092651367,
+              "scripts": [
+                {
+                  "offsetMs": 1572.6000003814697,
+                  "durationMs": 133.59999990463257,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134543,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 2505.9000000953674,
+              "durationMs": 113.2000002861023,
+              "blockingMs": 62.7,
+              "renderOffsetMs": 8.300000190734863,
+              "styleLayoutToEndMs": 0.20000028610229492,
+              "scripts": [
+                {
+                  "offsetMs": 2522.2000002861023,
+                  "durationMs": 96.69999980926514,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134543,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 2689.6000003814697,
+              "durationMs": 145.2999997138977,
+              "blockingMs": 95.2,
+              "renderOffsetMs": 0.19999980926513672,
+              "styleLayoutToEndMs": 0.09999990463256836,
+              "scripts": [
+                {
+                  "offsetMs": 2689.800000190735,
+                  "durationMs": 144.80000019073486,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134543,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 2835.4000000953674,
+              "durationMs": 103.80000019073486,
+              "blockingMs": 49.4,
+              "renderOffsetMs": 7.900000095367432,
+              "styleLayoutToEndMs": 8.599999904632568,
+              "scripts": [
+                {
+                  "offsetMs": 2843.4000000953674,
+                  "durationMs": 87.2000002861023,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134543,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 4543.200000286102,
+              "durationMs": 103.90000009536743,
+              "blockingMs": 53.9,
+              "renderOffsetMs": 0.09999990463256836,
+              "styleLayoutToEndMs": 0,
+              "scripts": [
+                {
+                  "offsetMs": 4543.300000190735,
+                  "durationMs": 103.69999980926514,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134543,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 5457.60000038147,
+              "durationMs": 181.39999961853027,
+              "blockingMs": 131.3,
+              "renderOffsetMs": 0.09999990463256836,
+              "styleLayoutToEndMs": 0,
+              "scripts": [
+                {
+                  "offsetMs": 5457.800000190735,
+                  "durationMs": 181.19999980926514,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134543,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 5639,
+              "durationMs": 142.40000009536743,
+              "blockingMs": 88,
+              "renderOffsetMs": 24,
+              "styleLayoutToEndMs": 14.799999713897705,
+              "scripts": [
+                {
+                  "offsetMs": 5639.200000286102,
+                  "durationMs": 19.5,
+                  "invoker": "TimerHandler:setInterval",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "",
+                  "sourceCharPosition": 161548,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                },
+                {
+                  "offsetMs": 5663.200000286102,
+                  "durationMs": 103.40000009536743,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134543,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 6521.300000190735,
+              "durationMs": 107.19999980926514,
+              "blockingMs": 48,
+              "renderOffsetMs": 34.30000019073486,
+              "styleLayoutToEndMs": 0.09999990463256836,
+              "scripts": [
+                {
+                  "offsetMs": 6521.400000095367,
+                  "durationMs": 25,
+                  "invoker": "TimerHandler:setInterval",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "",
+                  "sourceCharPosition": 161548,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                },
+                {
+                  "offsetMs": 6556.5,
+                  "durationMs": 71.80000019073486,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134543,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 7521.60000038147,
+              "durationMs": 114.09999990463257,
+              "blockingMs": 61.9,
+              "renderOffsetMs": 27.299999713897705,
+              "styleLayoutToEndMs": 14,
+              "scripts": [
+                {
+                  "offsetMs": 7529.800000190735,
+                  "durationMs": 17,
+                  "invoker": "TimerHandler:setInterval",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "",
+                  "sourceCharPosition": 161548,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                },
+                {
+                  "offsetMs": 7554.700000286102,
+                  "durationMs": 67,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134543,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 8553.700000286102,
+              "durationMs": 149.90000009536743,
+              "blockingMs": 99.7,
+              "renderOffsetMs": 1.299999713897705,
+              "styleLayoutToEndMs": 50.40000009536743,
+              "scripts": [
+                {
+                  "offsetMs": 8555,
+                  "durationMs": 98.2000002861023,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134543,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 11479.800000190735,
+              "durationMs": 135.5,
+              "blockingMs": 84.5,
+              "renderOffsetMs": 2.9000000953674316,
+              "styleLayoutToEndMs": 0.19999980926513672,
+              "scripts": [
+                {
+                  "offsetMs": 11482.700000286102,
+                  "durationMs": 132.2999997138977,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134543,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 14457.200000286102,
+              "durationMs": 108.19999980926514,
+              "blockingMs": 54.3,
+              "renderOffsetMs": 4,
+              "styleLayoutToEndMs": 0.40000009536743164,
+              "scripts": [
+                {
+                  "offsetMs": 14461.200000286102,
+                  "durationMs": 103.7999997138977,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134543,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            }
+          ],
+          "longTasks": [
+            {
+              "offsetMs": 447.6000003814697,
+              "durationMs": 55,
+              "name": "self"
+            },
+            {
+              "offsetMs": 505.40000009536743,
+              "durationMs": 170,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1460.2000002861023,
+              "durationMs": 102,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1565.8000001907349,
+              "durationMs": 145,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1712,
+              "durationMs": 53,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1804.9000000953674,
+              "durationMs": 57,
+              "name": "self"
+            },
+            {
+              "offsetMs": 2506.4000000953674,
+              "durationMs": 118,
+              "name": "self"
+            },
+            {
+              "offsetMs": 2626,
+              "durationMs": 63,
+              "name": "self"
+            },
+            {
+              "offsetMs": 2689.7000002861023,
+              "durationMs": 145,
+              "name": "self"
+            },
+            {
+              "offsetMs": 2839.800000190735,
+              "durationMs": 120,
+              "name": "self"
+            },
+            {
+              "offsetMs": 2970.7000002861023,
+              "durationMs": 93,
+              "name": "self"
+            },
+            {
+              "offsetMs": 3441.800000190735,
+              "durationMs": 51,
+              "name": "self"
+            },
+            {
+              "offsetMs": 3493.5,
+              "durationMs": 53,
+              "name": "self"
+            },
+            {
+              "offsetMs": 4543.200000286102,
+              "durationMs": 104,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5457.60000038147,
+              "durationMs": 181,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5658.900000095367,
+              "durationMs": 125,
+              "name": "self"
+            },
+            {
+              "offsetMs": 6458.200000286102,
+              "durationMs": 63,
+              "name": "self"
+            },
+            {
+              "offsetMs": 6546.5,
+              "durationMs": 83,
+              "name": "self"
+            },
+            {
+              "offsetMs": 7457.900000095367,
+              "durationMs": 63,
+              "name": "self"
+            },
+            {
+              "offsetMs": 7548.200000286102,
+              "durationMs": 93,
+              "name": "self"
+            },
+            {
+              "offsetMs": 8496.400000095367,
+              "durationMs": 57,
+              "name": "self"
+            },
+            {
+              "offsetMs": 8554.900000095367,
+              "durationMs": 159,
+              "name": "self"
+            },
+            {
+              "offsetMs": 9580.300000190735,
+              "durationMs": 76,
+              "name": "self"
+            },
+            {
+              "offsetMs": 9660.800000190735,
+              "durationMs": 72,
+              "name": "self"
+            },
+            {
+              "offsetMs": 10486.200000286102,
+              "durationMs": 61,
+              "name": "self"
+            },
+            {
+              "offsetMs": 11480.800000190735,
+              "durationMs": 135,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12456.60000038147,
+              "durationMs": 77,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12540,
+              "durationMs": 96,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12644.300000190735,
+              "durationMs": 50,
+              "name": "self"
+            },
+            {
+              "offsetMs": 13210.400000095367,
+              "durationMs": 54,
+              "name": "self"
+            },
+            {
+              "offsetMs": 13455.300000190735,
+              "durationMs": 85,
+              "name": "self"
+            },
+            {
+              "offsetMs": 13546.60000038147,
+              "durationMs": 72,
+              "name": "self"
+            },
+            {
+              "offsetMs": 14461.200000286102,
+              "durationMs": 104,
+              "name": "self"
+            }
+          ],
+          "panelRefreshes": [
+            {
+              "offsetMs": 503.5,
+              "durationMs": 0.7000002861022949
+            },
+            {
+              "offsetMs": 983.3000001907349,
+              "durationMs": 0.8000001907348633
+            },
+            {
+              "offsetMs": 1562.7000002861023,
+              "durationMs": 3.0999999046325684
+            },
+            {
+              "offsetMs": 1985.7000002861023,
+              "durationMs": 0.7999997138977051
+            },
+            {
+              "offsetMs": 2506,
+              "durationMs": 0.3000001907348633
+            },
+            {
+              "offsetMs": 3109.7000002861023,
+              "durationMs": 0.6999998092651367
+            },
+            {
+              "offsetMs": 3547.6000003814697,
+              "durationMs": 2.5999999046325684
+            },
+            {
+              "offsetMs": 3989.4000000953674,
+              "durationMs": 0.8000001907348633
+            },
+            {
+              "offsetMs": 4497.5,
+              "durationMs": 0.6000003814697266
+            },
+            {
+              "offsetMs": 4980.800000190735,
+              "durationMs": 0.3000001907348633
+            },
+            {
+              "offsetMs": 5639.200000286102,
+              "durationMs": 19.299999713897705
+            },
+            {
+              "offsetMs": 5998.60000038147,
+              "durationMs": 0.6999998092651367
+            },
+            {
+              "offsetMs": 6521.400000095367,
+              "durationMs": 25
+            },
+            {
+              "offsetMs": 6982.60000038147,
+              "durationMs": 1.1999998092651367
+            },
+            {
+              "offsetMs": 7529.800000190735,
+              "durationMs": 17
+            },
+            {
+              "offsetMs": 7993.900000095367,
+              "durationMs": 1.200000286102295
+            },
+            {
+              "offsetMs": 8490.700000286102,
+              "durationMs": 5.5
+            },
+            {
+              "offsetMs": 9005.400000095367,
+              "durationMs": 1.0999999046325684
+            },
+            {
+              "offsetMs": 9501.200000286102,
+              "durationMs": 3.5
+            },
+            {
+              "offsetMs": 9981.800000190735,
+              "durationMs": 1.3000001907348633
+            },
+            {
+              "offsetMs": 10548.10000038147,
+              "durationMs": 0.8999996185302734
+            },
+            {
+              "offsetMs": 10990.60000038147,
+              "durationMs": 0.8999996185302734
+            },
+            {
+              "offsetMs": 11622.700000286102,
+              "durationMs": 8.799999713897705
+            },
+            {
+              "offsetMs": 11982,
+              "durationMs": 1.3000001907348633
+            },
+            {
+              "offsetMs": 12534.400000095367,
+              "durationMs": 5.5
+            },
+            {
+              "offsetMs": 12987,
+              "durationMs": 5.900000095367432
+            },
+            {
+              "offsetMs": 13540.800000190735,
+              "durationMs": 2.1999998092651367
+            },
+            {
+              "offsetMs": 13983.800000190735,
+              "durationMs": 3.0999999046325684
+            },
+            {
+              "offsetMs": 14566.10000038147,
+              "durationMs": 3.3999996185302734
+            },
+            {
+              "offsetMs": 14998.10000038147,
+              "durationMs": 1.299999713897705
+            }
+          ]
+        },
+        {
+          "panel": false,
+          "durationMs": 15000,
+          "sameConditions": true,
+          "environment": {
+            "build": "production",
+            "asset": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+            "viewport": {
+              "width": 1440,
+              "height": 900
+            },
+            "drawingBuffer": {
+              "width": 1440,
+              "height": 900
+            },
+            "devicePixelRatio": 1,
+            "renderPixelRatio": 1,
+            "shadows": true,
+            "mainRendererOnly": true,
+            "worldScheduling": "continuous",
+            "camera": {
+              "position": [
+                -64.17221646664552,
+                29.553349328084895,
+                126.72177515807748
+              ],
+              "quaternion": [
+                -0.09882467285956358,
+                0.029848535500542922,
+                0.0029656299281512685,
+                0.9946526800857688
+              ]
+            },
+            "position": {
+              "x": -66.41403443027163,
+              "y": 18.75022553790357,
+              "z": 89.40298955466544
+            },
+            "time": 13.022365264001472,
+            "timeRate": 0,
+            "longAnimationFramesSupported": true
+          },
+          "environmentEnd": {
+            "build": "production",
+            "asset": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+            "viewport": {
+              "width": 1440,
+              "height": 900
+            },
+            "drawingBuffer": {
+              "width": 1440,
+              "height": 900
+            },
+            "devicePixelRatio": 1,
+            "renderPixelRatio": 1,
+            "shadows": true,
+            "mainRendererOnly": true,
+            "worldScheduling": "continuous",
+            "camera": {
+              "position": [
+                -64.17221646664552,
+                29.553349328084895,
+                126.72177515807748
+              ],
+              "quaternion": [
+                -0.09882467285956358,
+                0.029848535500542922,
+                0.0029656299281512685,
+                0.9946526800857688
+              ]
+            },
+            "position": {
+              "x": -66.41403443027163,
+              "y": 18.75022553790357,
+              "z": 89.40298955466544
+            },
+            "time": 13.022365264001472,
+            "timeRate": 0,
+            "longAnimationFramesSupported": true
+          },
+          "droppedFrames": 0,
+          "frames": 666,
+          "fps": 44.35965339434732,
+          "frameMs": {
+            "mean": 22.54300751879699,
+            "p50": 16.799999999999272,
+            "p95": 58.29999999999927,
+            "p99": 108.10000000000582,
+            "max": 159.5
+          },
+          "callbackMs": {
+            "mean": 15.70975975088171,
+            "p50": 11.5,
+            "p95": 39.09999990463257,
+            "p99": 80.89999961853027,
+            "max": 130.60000038146973
+          },
+          "renderMs": {
+            "mean": 9.90525525539845,
+            "p50": 7,
+            "p95": 26.299999713897705,
+            "p99": 58.700000286102295,
+            "max": 93.10000038146973
+          },
+          "calls": {
+            "mean": 403.1381381381381,
+            "p50": 403,
+            "p95": 404,
+            "p99": 404,
+            "max": 404
+          },
+          "triangles": {
+            "mean": 241692.38438438438,
+            "p50": 241678,
+            "p95": 241826,
+            "p99": 241826,
+            "max": 241826
+          },
+          "over100ms": 10,
+          "stalls": [
+            {
+              "offsetMs": 1553.5999999046326,
+              "intervalMs": 107.79999999999927,
+              "previousCallbackMs": 55.69999980926514,
+              "previousRenderMs": 35.30000019073486,
+              "betweenCallbacksMs": 39.40000009536743,
+              "dispatchAfterRafMs": 12
+            },
+            {
+              "offsetMs": 2568.5,
+              "intervalMs": 129,
+              "previousCallbackMs": 89.2000002861023,
+              "previousRenderMs": 50.80000019073486,
+              "betweenCallbacksMs": 41.5,
+              "dispatchAfterRafMs": 9.900000095367432
+            },
+            {
+              "offsetMs": 4560.89999961853,
+              "intervalMs": 115.70000000000437,
+              "previousCallbackMs": 90.59999990463257,
+              "previousRenderMs": 57.90000009536743,
+              "betweenCallbacksMs": 37.5,
+              "dispatchAfterRafMs": 15.89999971389625
+            },
+            {
+              "offsetMs": 4712.299999713898,
+              "intervalMs": 159.5,
+              "previousCallbackMs": 130.60000038146973,
+              "previousRenderMs": 83.7000002861023,
+              "betweenCallbacksMs": 20.799999713897705,
+              "dispatchAfterRafMs": 7.7999998092636815
+            },
+            {
+              "offsetMs": 5531.599999904633,
+              "intervalMs": 108.10000000000582,
+              "previousCallbackMs": 78.60000038146973,
+              "previousRenderMs": 58.700000286102295,
+              "betweenCallbacksMs": 10.599999904632568,
+              "dispatchAfterRafMs": 15.69999999999709
+            },
+            {
+              "offsetMs": 6230.599999904633,
+              "intervalMs": 113.40000000000146,
+              "previousCallbackMs": 80.7999997138977,
+              "previousRenderMs": 48.5,
+              "betweenCallbacksMs": 14.700000286102295,
+              "dispatchAfterRafMs": 5.900000000001455
+            },
+            {
+              "offsetMs": 6566.89999961853,
+              "intervalMs": 122.90000000000146,
+              "previousCallbackMs": 110.90000009536743,
+              "previousRenderMs": 93.10000038146973,
+              "betweenCallbacksMs": 21.899999618530273,
+              "dispatchAfterRafMs": 21.299999713897705
+            },
+            {
+              "offsetMs": 7767.099999904633,
+              "intervalMs": 105.59999999999854,
+              "previousCallbackMs": 108.09999990463257,
+              "previousRenderMs": 82.59999990463257,
+              "betweenCallbacksMs": 3.8000001907348633,
+              "dispatchAfterRafMs": 7.400000000001455
+            },
+            {
+              "offsetMs": 7926,
+              "intervalMs": 148.20000000000437,
+              "previousCallbackMs": 76.19999980926514,
+              "previousRenderMs": 56,
+              "betweenCallbacksMs": 82.7000002861023,
+              "dispatchAfterRafMs": 18.10000009536452
+            },
+            {
+              "offsetMs": 10557.89999961853,
+              "intervalMs": 100.40000000000146,
+              "previousCallbackMs": 45.5,
+              "previousRenderMs": 29.800000190734863,
+              "betweenCallbacksMs": 53.69999980926514,
+              "dispatchAfterRafMs": 16.39999971389625
+            }
+          ],
+          "gpu": {
+            "supported": false,
+            "samples": 0,
+            "durationMs": {
+              "mean": 0,
+              "p50": 0,
+              "p95": 0,
+              "p99": 0,
+              "max": 0
+            },
+            "slowCpuSamples": [],
+            "unresolved": 0,
+            "disjoint": 0
+          },
+          "longFramesOver100ms": [
+            {
+              "offsetMs": 2437.699999809265,
+              "durationMs": 127.09999990463257,
+              "blockingMs": 77,
+              "renderOffsetMs": 0.09999990463256836,
+              "styleLayoutToEndMs": 37.59999990463257,
+              "scripts": [
+                {
+                  "offsetMs": 2437.7999997138977,
+                  "durationMs": 89.40000009536743,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134543,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 4430.89999961853,
+              "durationMs": 119.10000038146973,
+              "blockingMs": 67.5,
+              "renderOffsetMs": 1.6000003814697266,
+              "styleLayoutToEndMs": 26.40000009536743,
+              "scripts": [
+                {
+                  "offsetMs": 4432.699999809265,
+                  "durationMs": 90.90000009536743,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134543,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 4552.699999809265,
+              "durationMs": 155.5,
+              "blockingMs": 98.9,
+              "renderOffsetMs": 6.699999809265137,
+              "styleLayoutToEndMs": 16.5,
+              "scripts": [
+                {
+                  "offsetMs": 4560.799999713898,
+                  "durationMs": 130.90000009536743,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134543,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 6427.599999904633,
+              "durationMs": 117.59999990463257,
+              "blockingMs": 64.4,
+              "renderOffsetMs": 3.1999998092651367,
+              "styleLayoutToEndMs": 0.19999980926513672,
+              "scripts": [
+                {
+                  "offsetMs": 6434.099999904633,
+                  "durationMs": 110.90000009536743,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134543,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 7648,
+              "durationMs": 115.39999961853027,
+              "blockingMs": 58.3,
+              "renderOffsetMs": 7.199999809265137,
+              "styleLayoutToEndMs": 0.09999990463256836,
+              "scripts": [
+                {
+                  "offsetMs": 7655.199999809265,
+                  "durationMs": 108.09999990463257,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134543,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 7763.599999904633,
+              "durationMs": 110.5,
+              "blockingMs": 60.5,
+              "renderOffsetMs": 0.09999990463256836,
+              "styleLayoutToEndMs": 26.90000009536743,
+              "scripts": [
+                {
+                  "offsetMs": 7767.099999904633,
+                  "durationMs": 80.09999990463257,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134543,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            }
+          ],
+          "longTasks": [
+            {
+              "offsetMs": 412.5,
+              "durationMs": 60,
+              "name": "self"
+            },
+            {
+              "offsetMs": 478.59999990463257,
+              "durationMs": 65,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1376.7999997138977,
+              "durationMs": 81,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1458.3999996185303,
+              "durationMs": 93,
+              "name": "self"
+            },
+            {
+              "offsetMs": 2375.199999809265,
+              "durationMs": 62,
+              "name": "self"
+            },
+            {
+              "offsetMs": 2437.699999809265,
+              "durationMs": 128,
+              "name": "self"
+            },
+            {
+              "offsetMs": 3442.2999997138977,
+              "durationMs": 51,
+              "name": "self"
+            },
+            {
+              "offsetMs": 3498.2999997138977,
+              "durationMs": 86,
+              "name": "self"
+            },
+            {
+              "offsetMs": 3958.3999996185303,
+              "durationMs": 70,
+              "name": "self"
+            },
+            {
+              "offsetMs": 4029.0999999046326,
+              "durationMs": 69,
+              "name": "self"
+            },
+            {
+              "offsetMs": 4432.5,
+              "durationMs": 120,
+              "name": "self"
+            },
+            {
+              "offsetMs": 4559.39999961853,
+              "durationMs": 151,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5371.199999809265,
+              "durationMs": 68,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5441.89999961853,
+              "durationMs": 85,
+              "name": "self"
+            },
+            {
+              "offsetMs": 6054.699999809265,
+              "durationMs": 75,
+              "name": "self"
+            },
+            {
+              "offsetMs": 6135,
+              "durationMs": 95,
+              "name": "self"
+            },
+            {
+              "offsetMs": 6356.299999713898,
+              "durationMs": 71,
+              "name": "self"
+            },
+            {
+              "offsetMs": 6430.799999713898,
+              "durationMs": 123,
+              "name": "self"
+            },
+            {
+              "offsetMs": 7385.799999713898,
+              "durationMs": 68,
+              "name": "self"
+            },
+            {
+              "offsetMs": 7454.099999904633,
+              "durationMs": 92,
+              "name": "self"
+            },
+            {
+              "offsetMs": 7655.099999904633,
+              "durationMs": 108,
+              "name": "self"
+            },
+            {
+              "offsetMs": 7763.699999809265,
+              "durationMs": 158,
+              "name": "self"
+            },
+            {
+              "offsetMs": 7923.199999809265,
+              "durationMs": 79,
+              "name": "self"
+            },
+            {
+              "offsetMs": 8059.39999961853,
+              "durationMs": 67,
+              "name": "self"
+            },
+            {
+              "offsetMs": 8389,
+              "durationMs": 77,
+              "name": "self"
+            },
+            {
+              "offsetMs": 8466.799999713898,
+              "durationMs": 75,
+              "name": "self"
+            },
+            {
+              "offsetMs": 9401.39999961853,
+              "durationMs": 76,
+              "name": "self"
+            },
+            {
+              "offsetMs": 9482.199999809265,
+              "durationMs": 95,
+              "name": "self"
+            },
+            {
+              "offsetMs": 10458.599999904633,
+              "durationMs": 86,
+              "name": "self"
+            },
+            {
+              "offsetMs": 11440.199999809265,
+              "durationMs": 80,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12430.39999961853,
+              "durationMs": 61,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12549.599999904633,
+              "durationMs": 59,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12840.099999904633,
+              "durationMs": 51,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12895.099999904633,
+              "durationMs": 67,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12996.39999961853,
+              "durationMs": 68,
+              "name": "self"
+            },
+            {
+              "offsetMs": 14407.89999961853,
+              "durationMs": 61,
+              "name": "self"
+            }
+          ],
+          "panelRefreshes": []
+        },
+        {
+          "panel": false,
+          "durationMs": 15000,
+          "sameConditions": true,
+          "environment": {
+            "build": "production",
+            "asset": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+            "viewport": {
+              "width": 1440,
+              "height": 900
+            },
+            "drawingBuffer": {
+              "width": 1440,
+              "height": 900
+            },
+            "devicePixelRatio": 1,
+            "renderPixelRatio": 1,
+            "shadows": true,
+            "mainRendererOnly": true,
+            "worldScheduling": "continuous",
+            "camera": {
+              "position": [
+                -64.17221646664552,
+                29.553349328084895,
+                126.72177515807748
+              ],
+              "quaternion": [
+                -0.09882467285956358,
+                0.029848535500542922,
+                0.0029656299281512685,
+                0.9946526800857688
+              ]
+            },
+            "position": {
+              "x": -66.41403443027163,
+              "y": 18.75022553790357,
+              "z": 89.40298955466544
+            },
+            "time": 13.022365264001472,
+            "timeRate": 0,
+            "longAnimationFramesSupported": true
+          },
+          "environmentEnd": {
+            "build": "production",
+            "asset": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+            "viewport": {
+              "width": 1440,
+              "height": 900
+            },
+            "drawingBuffer": {
+              "width": 1440,
+              "height": 900
+            },
+            "devicePixelRatio": 1,
+            "renderPixelRatio": 1,
+            "shadows": true,
+            "mainRendererOnly": true,
+            "worldScheduling": "continuous",
+            "camera": {
+              "position": [
+                -64.17221646664552,
+                29.553349328084895,
+                126.72177515807748
+              ],
+              "quaternion": [
+                -0.09882467285956358,
+                0.029848535500542922,
+                0.0029656299281512685,
+                0.9946526800857688
+              ]
+            },
+            "position": {
+              "x": -66.41403443027163,
+              "y": 18.75022553790357,
+              "z": 89.40298955466544
+            },
+            "time": 13.022365264001472,
+            "timeRate": 0,
+            "longAnimationFramesSupported": true
+          },
+          "droppedFrames": 0,
+          "frames": 678,
+          "fps": 45.34038777082007,
+          "frameMs": {
+            "mean": 22.05539143279173,
+            "p50": 16.799999999995634,
+            "p95": 43.60000000000582,
+            "p99": 101,
+            "max": 303.8999999999942
+          },
+          "callbackMs": {
+            "mean": 15.119911494859904,
+            "p50": 10.799999713897705,
+            "p95": 33.69999980926514,
+            "p99": 86.09999990463257,
+            "max": 286.90000009536743
+          },
+          "renderMs": {
+            "mean": 9.116371685073087,
+            "p50": 6.600000381469727,
+            "p95": 20,
+            "p99": 58.59999990463257,
+            "max": 162.80000019073486
+          },
+          "calls": {
+            "mean": 403.476401179941,
+            "p50": 404,
+            "p95": 404,
+            "p99": 404,
+            "max": 404
+          },
+          "triangles": {
+            "mean": 241822.85840707965,
+            "p50": 241826,
+            "p95": 241826,
+            "p99": 241826,
+            "max": 241826
+          },
+          "over100ms": 8,
+          "stalls": [
+            {
+              "offsetMs": 1528.1000003814697,
+              "intervalMs": 229.8000000000029,
+              "previousCallbackMs": 207.90000009536743,
+              "previousRenderMs": 100.2999997138977,
+              "betweenCallbacksMs": 19.200000286102295,
+              "dispatchAfterRafMs": 11.600000095364521
+            },
+            {
+              "offsetMs": 1721.4000000953674,
+              "intervalMs": 195.39999999999418,
+              "previousCallbackMs": 184.7999997138977,
+              "previousRenderMs": 11.400000095367432,
+              "betweenCallbacksMs": 8.5,
+              "dispatchAfterRafMs": 9.499999809268047
+            },
+            {
+              "offsetMs": 3484.300000190735,
+              "intervalMs": 100.20000000000437,
+              "previousCallbackMs": 60.10000038146973,
+              "previousRenderMs": 46.5,
+              "betweenCallbacksMs": 50.19999980926514,
+              "dispatchAfterRafMs": 10.299999904629658
+            },
+            {
+              "offsetMs": 3797.2000002861023,
+              "intervalMs": 303.8999999999942,
+              "previousCallbackMs": 286.90000009536743,
+              "previousRenderMs": 130.30000019073486,
+              "betweenCallbacksMs": 26,
+              "dispatchAfterRafMs": 19.30000000000291
+            },
+            {
+              "offsetMs": 5479.900000095367,
+              "intervalMs": 101,
+              "previousCallbackMs": 85.90000009536743,
+              "previousRenderMs": 19.700000286102295,
+              "betweenCallbacksMs": 7.799999713897705,
+              "dispatchAfterRafMs": 9.999999809268047
+            },
+            {
+              "offsetMs": 5599.700000286102,
+              "intervalMs": 104.5,
+              "previousCallbackMs": 60.09999990463257,
+              "previousRenderMs": 26.299999713897705,
+              "betweenCallbacksMs": 59.700000286102295,
+              "dispatchAfterRafMs": 25.30000000000291
+            },
+            {
+              "offsetMs": 11583.800000190735,
+              "intervalMs": 239.60000000000582,
+              "previousCallbackMs": 213.59999990463257,
+              "previousRenderMs": 162.80000019073486,
+              "betweenCallbacksMs": 21.5,
+              "dispatchAfterRafMs": 13.799999904629658
+            },
+            {
+              "offsetMs": 13441.400000095367,
+              "intervalMs": 117,
+              "previousCallbackMs": 117.30000019073486,
+              "previousRenderMs": 114.7000002861023,
+              "betweenCallbacksMs": 2.6999998092651367,
+              "dispatchAfterRafMs": 4.899999809262226
+            }
+          ],
+          "gpu": {
+            "supported": false,
+            "samples": 0,
+            "durationMs": {
+              "mean": 0,
+              "p50": 0,
+              "p95": 0,
+              "p99": 0,
+              "max": 0
+            },
+            "slowCpuSamples": [],
+            "unresolved": 0,
+            "disjoint": 0
+          },
+          "longFramesOver100ms": [
+            {
+              "offsetMs": 320,
+              "durationMs": 101,
+              "blockingMs": 45.3,
+              "renderOffsetMs": 5.700000286102295,
+              "styleLayoutToEndMs": 2.5999999046325684,
+              "scripts": [
+                {
+                  "offsetMs": 325.7000002861023,
+                  "durationMs": 91.59999990463257,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134543,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 1286.7000002861023,
+              "durationMs": 231.69999980926514,
+              "blockingMs": 168.6,
+              "renderOffsetMs": 14.199999809265137,
+              "styleLayoutToEndMs": 0.19999980926513672,
+              "scripts": [
+                {
+                  "offsetMs": 1301,
+                  "durationMs": 217.2000002861023,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134543,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 1522.9000000953674,
+              "durationMs": 194.2000002861023,
+              "blockingMs": 139.1,
+              "renderOffsetMs": 5.200000286102295,
+              "styleLayoutToEndMs": 3.5,
+              "scripts": [
+                {
+                  "offsetMs": 1528.1000003814697,
+                  "durationMs": 185.39999961853027,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134543,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 3484,
+              "durationMs": 306.40000009536743,
+              "blockingMs": 256.3,
+              "renderOffsetMs": 0.10000038146972656,
+              "styleLayoutToEndMs": 15.699999809265137,
+              "scripts": [
+                {
+                  "offsetMs": 3484.300000190735,
+                  "durationMs": 290.40000009536743,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134543,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 5472.300000190735,
+              "durationMs": 104.09999990463257,
+              "blockingMs": 48.2,
+              "renderOffsetMs": 6.099999904632568,
+              "styleLayoutToEndMs": 36.299999713897705,
+              "scripts": [
+                {
+                  "offsetMs": 5478.900000095367,
+                  "durationMs": 61.200000286102295,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134543,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 11323.400000095367,
+              "durationMs": 246.90000009536743,
+              "blockingMs": 189.1,
+              "renderOffsetMs": 16.59999990463257,
+              "styleLayoutToEndMs": 8,
+              "scripts": [
+                {
+                  "offsetMs": 11340,
+                  "durationMs": 222.30000019073486,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134543,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 13314.400000095367,
+              "durationMs": 124.5,
+              "blockingMs": 69.1,
+              "renderOffsetMs": 5.400000095367432,
+              "styleLayoutToEndMs": 0.19999980926513672,
+              "scripts": [
+                {
+                  "offsetMs": 13321.400000095367,
+                  "durationMs": 117.30000019073486,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134543,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            }
+          ],
+          "longTasks": [
+            {
+              "offsetMs": 325.7000002861023,
+              "durationMs": 95,
+              "name": "self"
+            },
+            {
+              "offsetMs": 421.90000009536743,
+              "durationMs": 67,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1299.8000001907349,
+              "durationMs": 223,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1527.9000000953674,
+              "durationMs": 190,
+              "name": "self"
+            },
+            {
+              "offsetMs": 2330.6000003814697,
+              "durationMs": 86,
+              "name": "self"
+            },
+            {
+              "offsetMs": 2420,
+              "durationMs": 82,
+              "name": "self"
+            },
+            {
+              "offsetMs": 3373.9000000953674,
+              "durationMs": 110,
+              "name": "self"
+            },
+            {
+              "offsetMs": 3484.1000003814697,
+              "durationMs": 308,
+              "name": "self"
+            },
+            {
+              "offsetMs": 4346.10000038147,
+              "durationMs": 74,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5385.5,
+              "durationMs": 86,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5478.300000190735,
+              "durationMs": 104,
+              "name": "self"
+            },
+            {
+              "offsetMs": 6324.900000095367,
+              "durationMs": 74,
+              "name": "self"
+            },
+            {
+              "offsetMs": 6411.200000286102,
+              "durationMs": 55,
+              "name": "self"
+            },
+            {
+              "offsetMs": 7348.700000286102,
+              "durationMs": 53,
+              "name": "self"
+            },
+            {
+              "offsetMs": 8321.900000095367,
+              "durationMs": 64,
+              "name": "self"
+            },
+            {
+              "offsetMs": 9374.200000286102,
+              "durationMs": 86,
+              "name": "self"
+            },
+            {
+              "offsetMs": 10340.400000095367,
+              "durationMs": 75,
+              "name": "self"
+            },
+            {
+              "offsetMs": 10421,
+              "durationMs": 69,
+              "name": "self"
+            },
+            {
+              "offsetMs": 11331.200000286102,
+              "durationMs": 239,
+              "name": "self"
+            },
+            {
+              "offsetMs": 11578.5,
+              "durationMs": 77,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12362.60000038147,
+              "durationMs": 59,
+              "name": "self"
+            },
+            {
+              "offsetMs": 13319.800000190735,
+              "durationMs": 119,
+              "name": "self"
+            },
+            {
+              "offsetMs": 14341,
+              "durationMs": 97,
+              "name": "self"
+            },
+            {
+              "offsetMs": 14481.900000095367,
+              "durationMs": 57,
+              "name": "self"
+            },
+            {
+              "offsetMs": 14792.800000190735,
+              "durationMs": 67,
+              "name": "self"
+            },
+            {
+              "offsetMs": 14865.5,
+              "durationMs": 84,
+              "name": "self"
+            },
+            {
+              "offsetMs": 14950.10000038147,
+              "durationMs": 55,
+              "name": "self"
+            }
+          ],
+          "panelRefreshes": []
+        },
+        {
+          "panel": true,
+          "durationMs": 15000,
+          "sameConditions": true,
+          "environment": {
+            "build": "production",
+            "asset": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+            "viewport": {
+              "width": 1440,
+              "height": 900
+            },
+            "drawingBuffer": {
+              "width": 1440,
+              "height": 900
+            },
+            "devicePixelRatio": 1,
+            "renderPixelRatio": 1,
+            "shadows": true,
+            "mainRendererOnly": true,
+            "worldScheduling": "continuous",
+            "camera": {
+              "position": [
+                -64.17221646664552,
+                29.553349328084895,
+                126.72177515807748
+              ],
+              "quaternion": [
+                -0.09882467285956358,
+                0.029848535500542922,
+                0.0029656299281512685,
+                0.9946526800857688
+              ]
+            },
+            "position": {
+              "x": -66.41403443027163,
+              "y": 18.75022553790357,
+              "z": 89.40298955466544
+            },
+            "time": 13.022365264001472,
+            "timeRate": 0,
+            "longAnimationFramesSupported": true
+          },
+          "environmentEnd": {
+            "build": "production",
+            "asset": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+            "viewport": {
+              "width": 1440,
+              "height": 900
+            },
+            "drawingBuffer": {
+              "width": 1440,
+              "height": 900
+            },
+            "devicePixelRatio": 1,
+            "renderPixelRatio": 1,
+            "shadows": true,
+            "mainRendererOnly": true,
+            "worldScheduling": "continuous",
+            "camera": {
+              "position": [
+                -64.17221646664552,
+                29.553349328084895,
+                126.72177515807748
+              ],
+              "quaternion": [
+                -0.09882467285956358,
+                0.029848535500542922,
+                0.0029656299281512685,
+                0.9946526800857688
+              ]
+            },
+            "position": {
+              "x": -66.41403443027163,
+              "y": 18.75022553790357,
+              "z": 89.40298955466544
+            },
+            "time": 13.022365264001472,
+            "timeRate": 0,
+            "longAnimationFramesSupported": true
+          },
+          "droppedFrames": 0,
+          "frames": 611,
+          "fps": 40.691624196173684,
+          "frameMs": {
+            "mean": 24.575081967213094,
+            "p50": 16.80000000000291,
+            "p95": 52.19999999999709,
+            "p99": 118.59999999999127,
+            "max": 299.90000000000873
+          },
+          "callbackMs": {
+            "mean": 17.302618661215575,
+            "p50": 11.900000095367432,
+            "p95": 44.90000009536743,
+            "p99": 94.40000009536743,
+            "max": 268.80000019073486
+          },
+          "renderMs": {
+            "mean": 10.973158752079291,
+            "p50": 7.199999809265137,
+            "p95": 30.299999713897705,
+            "p99": 69.80000019073486,
+            "max": 229.59999990463257
+          },
+          "calls": {
+            "mean": 401.0261865793781,
+            "p50": 401,
+            "p95": 402,
+            "p99": 402,
+            "max": 402
+          },
+          "triangles": {
+            "mean": 241808.15711947627,
+            "p50": 241808,
+            "p95": 241814,
+            "p99": 241814,
+            "max": 241814
+          },
+          "over100ms": 11,
+          "stalls": [
+            {
+              "offsetMs": 704,
+              "intervalMs": 250.40000000000873,
+              "previousCallbackMs": 260.6000003814697,
+              "previousRenderMs": 205.2999997138977,
+              "betweenCallbacksMs": 28,
+              "dispatchAfterRafMs": 47.60000009536452
+            },
+            {
+              "offsetMs": 885.5999999046326,
+              "intervalMs": 212.39999999999418,
+              "previousCallbackMs": 157.2999997138977,
+              "previousRenderMs": 58.80000019073486,
+              "betweenCallbacksMs": 24.300000190734863,
+              "dispatchAfterRafMs": 16.80000000000291
+            },
+            {
+              "offsetMs": 1045.8999996185303,
+              "intervalMs": 101.09999999999127,
+              "previousCallbackMs": 94.40000009536743,
+              "previousRenderMs": 52.10000038146973,
+              "betweenCallbacksMs": 6.899999618530273,
+              "dispatchAfterRafMs": 13.899999713903526
+            },
+            {
+              "offsetMs": 3127.2999997138977,
+              "intervalMs": 124.39999999999418,
+              "previousCallbackMs": 48.90000009536743,
+              "previousRenderMs": 22.40000009536743,
+              "betweenCallbacksMs": 90.7999997138977,
+              "dispatchAfterRafMs": 21.999999809268047
+            },
+            {
+              "offsetMs": 5427.199999809265,
+              "intervalMs": 108.39999999999418,
+              "previousCallbackMs": 87.19999980926514,
+              "previousRenderMs": 62.59999990463257,
+              "betweenCallbacksMs": 17,
+              "dispatchAfterRafMs": 20.89999990463548
+            },
+            {
+              "offsetMs": 6410.599999904633,
+              "intervalMs": 118.59999999999127,
+              "previousCallbackMs": 84.10000038146973,
+              "previousRenderMs": 37.69999980926514,
+              "betweenCallbacksMs": 58.09999990463257,
+              "dispatchAfterRafMs": 26.10000000000582
+            },
+            {
+              "offsetMs": 7416.799999713898,
+              "intervalMs": 107.40000000000873,
+              "previousCallbackMs": 88,
+              "previousRenderMs": 42.40000009536743,
+              "betweenCallbacksMs": 10.099999904632568,
+              "dispatchAfterRafMs": 7.399999809262226
+            },
+            {
+              "offsetMs": 9402.5,
+              "intervalMs": 108.39999999999418,
+              "previousCallbackMs": 106.5,
+              "previousRenderMs": 87.90000009536743,
+              "betweenCallbacksMs": 5.700000286102295,
+              "dispatchAfterRafMs": 9.700000095370342
+            },
+            {
+              "offsetMs": 10554.799999713898,
+              "intervalMs": 150,
+              "previousCallbackMs": 145.10000038146973,
+              "previousRenderMs": 117.90000009536743,
+              "betweenCallbacksMs": 16.799999713897705,
+              "dispatchAfterRafMs": 19.499999809268047
+            },
+            {
+              "offsetMs": 11567.89999961853,
+              "intervalMs": 299.90000000000873,
+              "previousCallbackMs": 268.80000019073486,
+              "previousRenderMs": 229.59999990463257,
+              "betweenCallbacksMs": 5.899999618530273,
+              "dispatchAfterRafMs": 7.699999713891884
+            },
+            {
+              "offsetMs": 13443.799999713898,
+              "intervalMs": 134.1999999999971,
+              "previousCallbackMs": 134.59999990463257,
+              "previousRenderMs": 101.09999990463257,
+              "betweenCallbacksMs": 5.599999904632568,
+              "dispatchAfterRafMs": 8.399999809262226
+            }
+          ],
+          "gpu": {
+            "supported": false,
+            "samples": 0,
+            "durationMs": {
+              "mean": 0,
+              "p50": 0,
+              "p95": 0,
+              "p99": 0,
+              "max": 0
+            },
+            "slowCpuSamples": [],
+            "unresolved": 0,
+            "disjoint": 0
+          },
+          "longFramesOver100ms": [
+            {
+              "offsetMs": 237.19999980926514,
+              "durationMs": 100.5,
+              "blockingMs": 47.5,
+              "renderOffsetMs": 5.599999904632568,
+              "styleLayoutToEndMs": 0,
+              "scripts": [
+                {
+                  "offsetMs": 243.59999990463257,
+                  "durationMs": 94.09999990463257,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134543,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 415.2999997138977,
+              "durationMs": 260.80000019073486,
+              "blockingMs": 210.7,
+              "renderOffsetMs": 0.09999990463256836,
+              "styleLayoutToEndMs": 0.09999990463256836,
+              "scripts": [
+                {
+                  "offsetMs": 415.3999996185303,
+                  "durationMs": 260.6000003814697,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134543,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 676.5,
+              "durationMs": 191.09999990463257,
+              "blockingMs": 138.1,
+              "renderOffsetMs": 12.599999904632568,
+              "styleLayoutToEndMs": 4.900000095367432,
+              "scripts": [
+                {
+                  "offsetMs": 676.6999998092651,
+                  "durationMs": 9.599999904632568,
+                  "invoker": "TimerHandler:setInterval",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "",
+                  "sourceCharPosition": 161548,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                },
+                {
+                  "offsetMs": 704,
+                  "durationMs": 158.69999980926514,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134543,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 1778.2999997138977,
+              "durationMs": 104,
+              "blockingMs": 52,
+              "renderOffsetMs": 3.5999999046325684,
+              "styleLayoutToEndMs": 67.5,
+              "scripts": [
+                {
+                  "offsetMs": 1781.8999996185303,
+                  "durationMs": 31,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134543,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 2987.3999996185303,
+              "durationMs": 111,
+              "blockingMs": 60.8,
+              "renderOffsetMs": 0.10000038146972656,
+              "styleLayoutToEndMs": 48.299999713897705,
+              "scripts": [
+                {
+                  "offsetMs": 2987.5999999046326,
+                  "durationMs": 62.5,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134543,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 6268.299999713898,
+              "durationMs": 120.59999990463257,
+              "blockingMs": 70.7,
+              "renderOffsetMs": 0,
+              "styleLayoutToEndMs": 36.09999990463257,
+              "scripts": [
+                {
+                  "offsetMs": 6268.39999961853,
+                  "durationMs": 84.40000009536743,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134543,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 9284.5,
+              "durationMs": 112.69999980926514,
+              "blockingMs": 56.9,
+              "renderOffsetMs": 5.699999809265137,
+              "styleLayoutToEndMs": 0.19999980926513672,
+              "scripts": [
+                {
+                  "offsetMs": 9290.299999713898,
+                  "durationMs": 106.59999990463257,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134543,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 10392.299999713898,
+              "durationMs": 147.80000019073486,
+              "blockingMs": 97.3,
+              "renderOffsetMs": 0.5999999046325684,
+              "styleLayoutToEndMs": 1.9000000953674316,
+              "scripts": [
+                {
+                  "offsetMs": 10392.89999961853,
+                  "durationMs": 145.30000019073486,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134543,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 11262.799999713898,
+              "durationMs": 301.09999990463257,
+              "blockingMs": 228.4,
+              "renderOffsetMs": 30.300000190734863,
+              "styleLayoutToEndMs": 1.6999998092651367,
+              "scripts": [
+                {
+                  "offsetMs": 11293.199999809265,
+                  "durationMs": 269,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134543,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 13303.5,
+              "durationMs": 134.7999997138977,
+              "blockingMs": 84.7,
+              "renderOffsetMs": 0.09999990463256836,
+              "styleLayoutToEndMs": 0.09999990463256836,
+              "scripts": [
+                {
+                  "offsetMs": 13303.599999904633,
+                  "durationMs": 134.59999990463257,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DuiqsuGw.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 134543,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            }
+          ],
+          "longTasks": [
+            {
+              "offsetMs": 240.19999980926514,
+              "durationMs": 97,
+              "name": "self"
+            },
+            {
+              "offsetMs": 352.7999997138977,
+              "durationMs": 62,
+              "name": "self"
+            },
+            {
+              "offsetMs": 415.3999996185303,
+              "durationMs": 261,
+              "name": "self"
+            },
+            {
+              "offsetMs": 688,
+              "durationMs": 194,
+              "name": "self"
+            },
+            {
+              "offsetMs": 885.3999996185303,
+              "durationMs": 58,
+              "name": "self"
+            },
+            {
+              "offsetMs": 943.7999997138977,
+              "durationMs": 95,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1257.0999999046326,
+              "durationMs": 96,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1719.1999998092651,
+              "durationMs": 59,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1781.7999997138977,
+              "durationMs": 124,
+              "name": "self"
+            },
+            {
+              "offsetMs": 2237.0999999046326,
+              "durationMs": 58,
+              "name": "self"
+            },
+            {
+              "offsetMs": 2342.199999809265,
+              "durationMs": 94,
+              "name": "self"
+            },
+            {
+              "offsetMs": 2486.199999809265,
+              "durationMs": 54,
+              "name": "self"
+            },
+            {
+              "offsetMs": 2591.0999999046326,
+              "durationMs": 51,
+              "name": "self"
+            },
+            {
+              "offsetMs": 2644.199999809265,
+              "durationMs": 91,
+              "name": "self"
+            },
+            {
+              "offsetMs": 2931,
+              "durationMs": 56,
+              "name": "self"
+            },
+            {
+              "offsetMs": 2987.5,
+              "durationMs": 132,
+              "name": "self"
+            },
+            {
+              "offsetMs": 3336.3999996185303,
+              "durationMs": 74,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5256.799999713898,
+              "durationMs": 63,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5323,
+              "durationMs": 100,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5729.39999961853,
+              "durationMs": 76,
+              "name": "self"
+            },
+            {
+              "offsetMs": 6268.199999809265,
+              "durationMs": 142,
+              "name": "self"
+            },
+            {
+              "offsetMs": 6410.5,
+              "durationMs": 56,
+              "name": "self"
+            },
+            {
+              "offsetMs": 7262.299999713898,
+              "durationMs": 54,
+              "name": "self"
+            },
+            {
+              "offsetMs": 7317.199999809265,
+              "durationMs": 98,
+              "name": "self"
+            },
+            {
+              "offsetMs": 7416.299999713898,
+              "durationMs": 51,
+              "name": "self"
+            },
+            {
+              "offsetMs": 8301.199999809265,
+              "durationMs": 100,
+              "name": "self"
+            },
+            {
+              "offsetMs": 9290.199999809265,
+              "durationMs": 107,
+              "name": "self"
+            },
+            {
+              "offsetMs": 10243.599999904633,
+              "durationMs": 55,
+              "name": "self"
+            },
+            {
+              "offsetMs": 10303.699999809265,
+              "durationMs": 88,
+              "name": "self"
+            },
+            {
+              "offsetMs": 10392.799999713898,
+              "durationMs": 149,
+              "name": "self"
+            },
+            {
+              "offsetMs": 11285.5,
+              "durationMs": 280,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12324.099999904633,
+              "durationMs": 103,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12513.299999713898,
+              "durationMs": 51,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12571.599999904633,
+              "durationMs": 70,
+              "name": "self"
+            },
+            {
+              "offsetMs": 13303.5,
+              "durationMs": 140,
+              "name": "self"
+            },
+            {
+              "offsetMs": 13443.799999713898,
+              "durationMs": 52,
+              "name": "self"
+            },
+            {
+              "offsetMs": 14297.199999809265,
+              "durationMs": 58,
+              "name": "self"
+            },
+            {
+              "offsetMs": 14356.39999961853,
+              "durationMs": 78,
+              "name": "self"
+            }
+          ],
+          "panelRefreshes": [
+            {
+              "offsetMs": 676.7999997138977,
+              "durationMs": 9.400000095367432
+            },
+            {
+              "offsetMs": 1039.5999999046326,
+              "durationMs": 4.099999904632568
+            },
+            {
+              "offsetMs": 1471.8999996185303,
+              "durationMs": 3.200000286102295
+            },
+            {
+              "offsetMs": 1978.1999998092651,
+              "durationMs": 2.6999998092651367
+            },
+            {
+              "offsetMs": 2485,
+              "durationMs": 1
+            },
+            {
+              "offsetMs": 3119.7999997138977,
+              "durationMs": 3.3000001907348633
+            },
+            {
+              "offsetMs": 3470.7999997138977,
+              "durationMs": 0.5999999046325684
+            },
+            {
+              "offsetMs": 3980.699999809265,
+              "durationMs": 1.3000001907348633
+            },
+            {
+              "offsetMs": 4466.39999961853,
+              "durationMs": 0.6000003814697266
+            },
+            {
+              "offsetMs": 4978,
+              "durationMs": 1.0999999046325684
+            },
+            {
+              "offsetMs": 5484.099999904633,
+              "durationMs": 3.5999999046325684
+            },
+            {
+              "offsetMs": 6010.699999809265,
+              "durationMs": 1.4000000953674316
+            },
+            {
+              "offsetMs": 6487.39999961853,
+              "durationMs": 3.700000286102295
+            },
+            {
+              "offsetMs": 6977,
+              "durationMs": 5.799999713897705
+            },
+            {
+              "offsetMs": 7480.89999961853,
+              "durationMs": 0.9000000953674316
+            },
+            {
+              "offsetMs": 7972.099999904633,
+              "durationMs": 2.0999999046325684
+            },
+            {
+              "offsetMs": 8480.799999713898,
+              "durationMs": 1.5
+            },
+            {
+              "offsetMs": 8975.39999961853,
+              "durationMs": 2.8000001907348633
+            },
+            {
+              "offsetMs": 9467.89999961853,
+              "durationMs": 2.5
+            },
+            {
+              "offsetMs": 9967.5,
+              "durationMs": 1.5999999046325684
+            },
+            {
+              "offsetMs": 10542.099999904633,
+              "durationMs": 8.699999809265137
+            },
+            {
+              "offsetMs": 10967.5,
+              "durationMs": 1.5
+            },
+            {
+              "offsetMs": 11565.89999961853,
+              "durationMs": 1.200000286102295
+            },
+            {
+              "offsetMs": 11979.89999961853,
+              "durationMs": 1.200000286102295
+            },
+            {
+              "offsetMs": 12466.39999961853,
+              "durationMs": 0.9000000953674316
+            },
+            {
+              "offsetMs": 12965.299999713898,
+              "durationMs": 0.5
+            },
+            {
+              "offsetMs": 13496,
+              "durationMs": 2.8999996185302734
+            },
+            {
+              "offsetMs": 13964.799999713898,
+              "durationMs": 1.3000001907348633
+            },
+            {
+              "offsetMs": 14479.799999713898,
+              "durationMs": 6.5
+            },
+            {
+              "offsetMs": 14970.299999713898,
+              "durationMs": 2.0999999046325684
+            }
+          ]
+        }
+      ],
+      "gpuProfiling": false,
+      "loafSupported": true,
+      "longTaskSupported": true,
+      "recordedAt": "2026-11-06T12:46:11.220Z"
+    }
+  ]
+}

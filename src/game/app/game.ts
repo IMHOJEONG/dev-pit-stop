@@ -94,6 +94,8 @@ export class Game {
           position: this.world.camera.position.toArray(),
           quaternion: this.world.camera.quaternion.toArray(),
         },
+        time: this.state.time,
+        timeRate: this.state.timeRate,
       }),
       (enabled) => {
         this.renderer.setShadows(enabled);
@@ -355,7 +357,7 @@ export class Game {
   }
   private frame = ({ now, dt, continuous }: FrameTick) => {
     if (this.disposed) return;
-    this.performance.beginFrame();
+    this.performance.beginFrame(now);
     let moving = false,
       speed = WALK_SPEED;
     if (!this.paused) {
@@ -488,7 +490,9 @@ export class Game {
       this.performance.mark('sky');
       this.viewsDirty = false;
     }
+    this.performance.beforeRender();
     this.renderer.render();
+    this.performance.afterRender();
     this.performance.mark('render');
     if (continuous && now - this.lastUI > 100) {
       this.updateUI();

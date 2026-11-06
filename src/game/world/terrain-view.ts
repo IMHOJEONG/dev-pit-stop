@@ -5,8 +5,55 @@ import { LAUNCH, DOCK_APRON_RADIUS } from '../sky/sky-world';
 import { landSurface, nearestRoute, routeClearing } from './routes';
 import { WORLD_SIZE } from './terrain';
 import { STATIONS } from './landmarks';
+export const TERRAIN_SEGMENTS = 260;
+export const TERRAIN_TILE_SEGMENTS = 65;
+const TILE_SIZE = (WORLD_SIZE * TERRAIN_TILE_SEGMENTS) / TERRAIN_SEGMENTS;
+
+/** Preserve the original lattice, vertex attributes and triangle winding across tile borders. */
+export function tileTerrainGeometry(
+  geometry: THREE.BufferGeometry,
+  segments: number,
+  tile: number,
+) {
+  const tiles: THREE.BufferGeometry[] = [];
+  const side = segments + 1,
+    sourceIndices = geometry.index!.array;
+  for (let z = 0; z < segments; z += tile)
+    for (let x = 0; x < segments; x += tile) {
+      const cols = Math.min(tile, segments - x),
+        rows = Math.min(tile, segments - z);
+      const stride = cols + 1,
+        result = new THREE.BufferGeometry();
+      for (const name of Object.keys(geometry.attributes)) {
+        const a = geometry.getAttribute(name);
+        const size = a.itemSize,
+          values = new Float32Array(stride * (rows + 1) * size);
+        for (let row = 0; row <= rows; row++) {
+          const from = ((z + row) * side + x) * size;
+          values.set(a.array.subarray(from, from + stride * size), row * stride * size);
+        }
+        result.setAttribute(name, new THREE.BufferAttribute(values, size, a.normalized));
+      }
+      const indices = new Uint16Array(cols * rows * 6);
+      let next = 0;
+      for (let row = 0; row < rows; row++)
+        for (let col = 0; col < cols; col++) {
+          const from = ((z + row) * segments + x + col) * 6;
+          for (let i = 0; i < 6; i++) {
+            const index = sourceIndices[from + i];
+            indices[next++] = (Math.floor(index / side) - z) * stride + (index % side) - x;
+          }
+        }
+      result.setIndex(new THREE.BufferAttribute(indices, 1));
+      result.computeBoundingBox();
+      result.computeBoundingSphere();
+      tiles.push(result);
+    }
+  return tiles;
+}
+
 export function createTerrain(scene: THREE.Scene) {
-  const geo = new THREE.PlaneGeometry(WORLD_SIZE, WORLD_SIZE, 260, 260);
+  const geo = new THREE.PlaneGeometry(WORLD_SIZE, WORLD_SIZE, TERRAIN_SEGMENTS, TERRAIN_SEGMENTS);
   geo.rotateX(-Math.PI / 2);
   const pos = geo.attributes.position;
   const colors = new Float32Array(pos.count * 3);
@@ -24,12 +71,17 @@ export function createTerrain(scene: THREE.Scene) {
   }
   geo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
   geo.computeVertexNormals();
-  const terrain = mesh(
-    geo,
-    new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 1, flatShading: true }),
-    scene,
-  );
-  terrain.castShadow = false;
+  const material = new THREE.MeshStandardMaterial({
+    vertexColors: true,
+    roughness: 1,
+    flatShading: true,
+  });
+  const root = new THREE.Group();
+  root.name = 'world-terrain';
+  for (const tile of tileTerrainGeometry(geo, TERRAIN_SEGMENTS, TERRAIN_TILE_SEGMENTS))
+    mesh(tile, material, root).castShadow = false;
+  geo.dispose();
+  scene.add(root);
 }
 export function terrainColor(x: number, z: number, h = landSurface(x, z)) {
   const c = new THREE.Color();
@@ -46,7 +98,8 @@ export function terrainColor(x: number, z: number, h = landSurface(x, z)) {
 export function createGrass(scene: THREE.Scene) {
   const dummy = new THREE.Object3D();
   const rng = random(89);
-  const positions: { x: number; z: number; scale: number }[] = [];
+  const positions: { x: number; y: number; z: number; scale: number; cell: string }[] = [];
+  const counts = new Map<string, number>();
   for (let i = 0; i < 6500; i++) {
     const x = (rng() - 0.5) * 980,
       z = (rng() - 0.5) * 900,
@@ -57,22 +110,35 @@ export function createGrass(scene: THREE.Scene) {
         Math.hypot(x - LAUNCH.x, z - LAUNCH.z) > DOCK_APRON_RADIUS + 0.5 &&
         !routeClearing(x, z, 2) &&
         !STATIONS.some((s) => Math.hypot(x - s.x, z - s.z) < 21)
-      )
-        positions.push({ x, z, scale });
+      ) {
+        const cell = `${Math.floor((x + WORLD_SIZE / 2) / TILE_SIZE)},${Math.floor((z + WORLD_SIZE / 2) / TILE_SIZE)}`;
+        positions.push({ x, y: h + 0.4, z, scale, cell });
+        counts.set(cell, (counts.get(cell) ?? 0) + 1);
+      }
     }
   }
-  const grass = new THREE.InstancedMesh(
-    new THREE.ConeGeometry(0.3, 1.5, 3),
-    mat(0x789060),
-    positions.length,
-  );
+  const geometry = new THREE.ConeGeometry(0.3, 1.5, 3),
+    material = mat(0x789060);
+  const patches = new Map<string, { mesh: THREE.InstancedMesh; used: number }>();
+  for (const [cell, count] of counts)
+    patches.set(cell, { mesh: new THREE.InstancedMesh(geometry, material, count), used: 0 });
+  const root = new THREE.Group();
+  root.name = 'world-grass';
+  const straw = new THREE.Color('#e9d5a2'),
+    green = new THREE.Color('#96af75');
   positions.forEach((p, i) => {
-    dummy.position.set(p.x, landSurface(p.x, p.z) + 0.4, p.z);
+    dummy.position.set(p.x, p.y, p.z);
     dummy.scale.set(p.scale, p.scale, p.scale);
     dummy.rotation.set(0, rng() * 6.28, -0.15);
     dummy.updateMatrix();
-    grass.setMatrixAt(i, dummy.matrix);
-    grass.setColorAt(i, new THREE.Color(i % 8 === 0 ? '#e9d5a2' : '#96af75'));
+    const patch = patches.get(p.cell)!;
+    const index = patch.used++;
+    patch.mesh.setMatrixAt(index, dummy.matrix);
+    patch.mesh.setColorAt(index, i % 8 === 0 ? straw : green);
   });
-  scene.add(grass);
+  for (const { mesh: grass } of patches.values()) {
+    grass.computeBoundingSphere();
+    root.add(grass);
+  }
+  scene.add(root);
 }

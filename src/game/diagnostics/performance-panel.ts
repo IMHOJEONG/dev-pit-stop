@@ -11,12 +11,15 @@ import type { ActivitySnapshot } from './render-activity';
 import type { CameraQueryStats } from './camera-query-stats';
 import { describeLongFrame } from './long-frames';
 import type { LongFrameEntry } from './long-frames';
+import { PanelComparison } from './panel-comparison';
 
 interface PerformanceContext {
   mode: string;
   position: { x: number; y: number; z: number };
   cameraStats?: CameraQueryStats;
   camera?: { position: number[]; quaternion: number[] };
+  time: number;
+  timeRate: number;
 }
 
 const stageNames: Record<FrameStage, string> = {
@@ -71,6 +74,8 @@ export class PerformancePanel {
   private stages = emptyTimes();
   private capture?: Capture;
   private reports: object[] = [];
+  private comparison?: PanelComparison;
+  private comparisonReports: object[] = [];
   private recentEvents: EventSample[] = [];
   private modal?: HTMLDialogElement;
   private pulseTimer?: ReturnType<typeof setInterval>;
@@ -93,7 +98,8 @@ export class PerformancePanel {
         if (event.code !== 'F3' || event.repeat || event.ctrlKey || event.metaKey || event.altKey)
           return;
         event.preventDefault();
-        this.setEnabled(!this.enabled);
+        if (this.comparison) this.comparison.stop('stopped');
+        else this.setEnabled(!this.enabled);
       },
       { signal: this.abort.signal },
     );
@@ -104,6 +110,7 @@ export class PerformancePanel {
         this.window.clear();
         this.activityHistory = [];
         if (document.hidden && this.capture) this.finishCapture('interrupted-hidden');
+        if (document.hidden) this.comparison?.stop('interrupted-hidden');
       },
       { signal: this.abort.signal },
     );
@@ -111,8 +118,10 @@ export class PerformancePanel {
   }
   environment() {
     const canvas = this.renderer.domElement;
+    const context = this.context();
     return {
       build: import.meta.env.MODE,
+      asset: document.querySelector<HTMLScriptElement>('script[type="module"]')?.src,
       userAgent: navigator.userAgent,
       viewport: { width: innerWidth, height: innerHeight },
       drawingBuffer: { width: canvas.width, height: canvas.height },
@@ -121,7 +130,10 @@ export class PerformancePanel {
       shadows: this.renderer.shadowMap.enabled,
       mainRendererOnly: true,
       worldScheduling: this.scheduling,
-      camera: this.context().camera,
+      camera: context.camera,
+      position: { x: context.position.x, y: context.position.y, z: context.position.z },
+      time: context.time,
+      timeRate: context.timeRate,
       longAnimationFramesSupported: this.longFramesSupported,
     };
   }
@@ -133,6 +145,7 @@ export class PerformancePanel {
   setScheduling(mode: 'continuous' | 'on-demand' | 'blocked') {
     if (this.scheduling !== mode) this.previous = null;
     this.scheduling = mode;
+    if (mode !== 'continuous') this.comparison?.stop('interrupted-paused');
   }
   private setEnabled(enabled: boolean) {
     if (this.capture) this.finishCapture('interrupted-disabled');
@@ -152,6 +165,7 @@ export class PerformancePanel {
     if (enabled) this.pulseTimer = setInterval(() => this.pulse(), 500);
     if (enabled && !this.root) this.mount();
     if (this.root) this.root.hidden = !enabled;
+    this.updateComparisonButtons();
   }
   private mount() {
     const root = document.createElement('section');
@@ -161,7 +175,8 @@ export class PerformancePanel {
       <pre data-output>프레임 수집 중…</pre>
       <div class="performance-controls"><select aria-label="성능 측정 시나리오"><option value="idle">정지</option><option value="walk">걷기</option><option value="stairs">계단 오르내리기</option><option value="drive">차량 주행</option><option value="map">지도</option><option value="pause">일시정지</option><option value="appearance">캐릭터 변경</option><option value="mixed">혼합 이동</option></select><button type="button" data-action="record">15초 측정</button></div>
       <p data-status>3초 준비 후 기록 · 결과는 이 탭에만 보관</p>
-      <div class="performance-controls"><button type="button" data-action="shadows">그림자만 끄기</button></div>
+      <div class="performance-controls"><button type="button" data-action="shadows">그림자만 끄기</button><button type="button" data-action="compare">패널 켬/끔 비교</button></div>
+      <p><label><input type="checkbox" data-gpu-profiling> 비교 중 GPU 시간도 수집</label></p>
       <div class="performance-controls"><button type="button" data-action="reports" disabled>결과 보기 (0)</button><button type="button" data-action="download" disabled>JSON 저장</button></div>
       <textarea aria-label="성능 측정 결과 JSON" readonly hidden spellcheck="false"></textarea>
       <small>실제 렌더만 집계 · 그림자 패스 포함<br>렌더 CPU ≠ GPU 시간 · 자원 수 ≠ 메모리 용량</small>`;
@@ -177,12 +192,19 @@ export class PerformancePanel {
       (event) => {
         const action = (event.target as HTMLElement).closest<HTMLButtonElement>('[data-action]')
           ?.dataset.action;
-        if (action === 'hide') this.setEnabled(false);
-        if (action === 'shadows' && !this.capture) {
+        if (action === 'hide') {
+          if (this.comparison) this.comparison.stop('stopped');
+          this.setEnabled(false);
+        }
+        if (action === 'compare') {
+          if (this.comparison) this.comparison.stop('stopped');
+          else this.startComparison();
+        }
+        if (action === 'shadows' && !this.capture && !this.comparison) {
           this.changeShadows(!this.renderer.shadowMap.enabled);
           this.updateShadowButton();
         }
-        if (action === 'record') {
+        if (action === 'record' && !this.comparison) {
           if (this.capture) this.finishCapture('stopped');
           else {
             const start = performance.now() + 3000;
@@ -207,6 +229,7 @@ export class PerformancePanel {
             this.recordButton!.textContent = '측정 중지';
             this.scenario!.disabled = true;
             this.updateShadowButton();
+            this.updateComparisonButtons();
             if (!this.modal) this.renderer.domElement.focus();
           }
         }
@@ -235,7 +258,48 @@ export class PerformancePanel {
     if (!button) return;
     const label = this.renderer.shadowMap.enabled ? '그림자만 끄기' : '그림자만 켜기';
     if (button.textContent !== label) button.textContent = label;
+    button.disabled = !!this.capture || !!this.comparison;
+  }
+  private updateComparisonButtons() {
+    const button = this.root?.querySelector<HTMLButtonElement>('[data-action="compare"]');
+    if (!button) return;
     button.disabled = !!this.capture;
+    button.textContent = this.comparison ? '비교 중지 (F3)' : '패널 켬/끔 비교';
+    this.recordButton!.disabled = !!this.comparison;
+    this.scenario!.disabled = !!this.comparison || !!this.capture;
+    this.root!.querySelector<HTMLInputElement>('[data-gpu-profiling]')!.disabled =
+      !!this.comparison || !!this.capture;
+    this.updateShadowButton();
+  }
+  private startComparison() {
+    if (this.capture) return;
+    if (this.scheduling !== 'continuous' || this.context().timeRate !== 0) {
+      this.status!.textContent = '설정에서 시간을 멈춘 뒤 플레이 화면에서 비교하세요.';
+      return;
+    }
+    this.reportsText!.hidden = true;
+    this.status!.textContent = '켬 → 끔 → 끔 → 켬 · 각 15초 · 움직이지 마세요 (F3 취소)';
+    this.comparison = new PanelComparison(
+      {
+        setPanel: (on) => this.setEnabled(on),
+        environment: () => this.environment(),
+        finished: (report) => {
+          this.comparison = undefined;
+          this.setEnabled(true);
+          this.comparisonReports.push({ ...report, recordedAt: new Date().toISOString() });
+          if (this.comparisonReports.length > 3) this.comparisonReports.shift();
+          this.status!.textContent =
+            report.status === 'complete'
+              ? '패널 비교 완료 · 결과 보기에서 확인'
+              : `패널 비교 중단 · ${report.status}`;
+          this.updateReportButtons();
+        },
+      },
+      this.root!.querySelector<HTMLInputElement>('[data-gpu-profiling]')!.checked
+        ? this.renderer.getContext()
+        : undefined,
+    );
+    this.comparison.run();
   }
   private collectLongFrames(entries: readonly PerformanceEntry[]) {
     const capture = this.capture;
@@ -254,10 +318,17 @@ export class PerformancePanel {
       else capture.longFrameOverflow++;
     }
   }
-  beginFrame() {
+  beginFrame(raf: number) {
+    this.comparison?.beginFrame(raf);
     if (!this.enabled || document.hidden) return;
     this.frameStart = this.markAt = performance.now();
     this.stages = emptyTimes();
+  }
+  beforeRender() {
+    this.comparison?.beforeRender();
+  }
+  afterRender() {
+    this.comparison?.afterRender();
   }
   mark(stage: FrameStage) {
     if (!this.enabled || document.hidden) return;
@@ -284,7 +355,13 @@ export class PerformancePanel {
     position: { x: number; y: number; z: number },
     cameraStats?: CameraQueryStats,
   ) {
-    if (!this.enabled || document.hidden) return;
+    if (!this.enabled || document.hidden) {
+      this.comparison?.endFrame(
+        this.renderer.info.render.calls,
+        this.renderer.info.render.triangles,
+      );
+      return;
+    }
     const info = this.renderer.info;
     const sample: FrameSample = {
       at: now,
@@ -310,9 +387,11 @@ export class PerformancePanel {
       if (this.capture.samples.length < 4096) this.capture.samples.push(sample);
       else this.capture.overflow++;
     }
+    this.comparison?.endFrame(info.render.calls, info.render.triangles);
   }
   private pulse() {
     if (!this.enabled || document.hidden) return;
+    const refreshStart = this.comparison ? performance.now() : 0;
     this.updateShadowButton();
     const now = performance.now();
     const snapshot = renderActivity.snapshot();
@@ -355,6 +434,7 @@ export class PerformancePanel {
           ? `${Math.ceil(left / 1000)}초 후 측정 시작`
           : `기록 중 · ${Math.max(0, Math.ceil((this.capture.end - performance.now()) / 1000))}초 남음`;
     }
+    this.comparison?.panelRefresh(refreshStart);
   }
   private finishCapture(status: string) {
     const capture = this.capture;
@@ -392,20 +472,24 @@ export class PerformancePanel {
     if (this.reports.length > 12) this.reports.shift();
     this.recordButton!.textContent = '15초 측정';
     this.scenario!.disabled = false;
-    this.updateShadowButton();
+    this.updateComparisonButtons();
     this.status!.textContent = `${capture.label} · ${status} · ${capture.samples.length} 프레임 기록`;
+    this.updateReportButtons();
+  }
+  private updateReportButtons() {
     this.reportsButton!.disabled = false;
-    this.reportsButton!.textContent = `결과 보기 (${this.reports.length})`;
+    this.reportsButton!.textContent = `결과 보기 (${this.reports.length + this.comparisonReports.length})`;
     this.root!.querySelector<HTMLButtonElement>('[data-action="download"]')!.disabled = false;
     this.updateReportText();
   }
   private reportJSON() {
     return JSON.stringify(
       {
-        schema: 3,
+        schema: 4,
         notes:
           'World frame stats cover real main callbacks only; no FPS when world is on demand. Activity counters independently measure actual world/preview frames, calls and CPU elapsed per wall second. CPU excludes layout/paint and GPU time. Calls include shadow passes. Counts are not bytes. Event times may overlap stages. No network transmission.',
         reports: this.reports,
+        panelComparisons: this.comparisonReports,
       },
       null,
       2,
@@ -417,6 +501,8 @@ export class PerformancePanel {
   dispose() {
     clearInterval(this.pulseTimer);
     this.longFrameObserver?.disconnect();
+    this.comparison?.dispose();
+    this.comparison = undefined;
     clearTimeout(this.prepareTimer);
     clearTimeout(this.finishTimer);
     renderActivity.setEnabled(false);

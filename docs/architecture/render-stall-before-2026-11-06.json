@@ -1,0 +1,3560 @@
+{
+  "schema": 4,
+  "notes": "World frame stats cover real main callbacks only; no FPS when world is on demand. Activity counters independently measure actual world/preview frames, calls and CPU elapsed per wall second. CPU excludes layout/paint and GPU time. Calls include shadow passes. Counts are not bytes. Event times may overlap stages. No network transmission.",
+  "reports": [],
+  "panelComparisons": [
+    {
+      "status": "complete",
+      "runs": [
+        {
+          "panel": true,
+          "durationMs": 15000,
+          "sameConditions": true,
+          "environment": {
+            "build": "production",
+            "asset": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+            "viewport": {
+              "width": 1440,
+              "height": 900
+            },
+            "drawingBuffer": {
+              "width": 1440,
+              "height": 900
+            },
+            "devicePixelRatio": 1,
+            "renderPixelRatio": 1,
+            "shadows": true,
+            "mainRendererOnly": true,
+            "worldScheduling": "continuous",
+            "camera": {
+              "position": [
+                -64.17221646664386,
+                29.55334932808494,
+                126.72177515807982
+              ],
+              "quaternion": [
+                -0.09882467285955798,
+                0.029848535500562993,
+                0.0029656299281530948,
+                0.9946526800857686
+              ]
+            },
+            "position": {
+              "x": -66.41403443027163,
+              "y": 18.75022553790357,
+              "z": 89.40298955466544
+            },
+            "time": 13.022365264001472,
+            "timeRate": 0,
+            "longAnimationFramesSupported": true
+          },
+          "environmentEnd": {
+            "build": "production",
+            "asset": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+            "viewport": {
+              "width": 1440,
+              "height": 900
+            },
+            "drawingBuffer": {
+              "width": 1440,
+              "height": 900
+            },
+            "devicePixelRatio": 1,
+            "renderPixelRatio": 1,
+            "shadows": true,
+            "mainRendererOnly": true,
+            "worldScheduling": "continuous",
+            "camera": {
+              "position": [
+                -64.17221646664552,
+                29.553349328084895,
+                126.72177515807748
+              ],
+              "quaternion": [
+                -0.09882467285956358,
+                0.029848535500542922,
+                0.0029656299281512685,
+                0.9946526800857688
+              ]
+            },
+            "position": {
+              "x": -66.41403443027163,
+              "y": 18.75022553790357,
+              "z": 89.40298955466544
+            },
+            "time": 13.022365264001472,
+            "timeRate": 0,
+            "longAnimationFramesSupported": true
+          },
+          "droppedFrames": 0,
+          "frames": 670,
+          "fps": 44.616656885237155,
+          "frameMs": {
+            "mean": 22.413153961136025,
+            "p50": 16.600000000002183,
+            "p95": 65.79999999999927,
+            "p99": 151.79999999999927,
+            "max": 290.90000000000146
+          },
+          "callbackMs": {
+            "mean": 18.645820881715462,
+            "p50": 12.799999713897705,
+            "p95": 51.19999980926514,
+            "p99": 123.5,
+            "max": 277.8999996185303
+          },
+          "renderMs": {
+            "mean": 11.751343290841401,
+            "p50": 7.800000190734863,
+            "p95": 30.09999990463257,
+            "p99": 103.30000019073486,
+            "max": 268.19999980926514
+          },
+          "calls": {
+            "mean": 385.6059701492537,
+            "p50": 386,
+            "p95": 388,
+            "p99": 388,
+            "max": 388
+          },
+          "triangles": {
+            "mean": 307039.0089552239,
+            "p50": 307048,
+            "p95": 307060,
+            "p99": 307060,
+            "max": 307060
+          },
+          "over100ms": 21,
+          "stalls": [
+            {
+              "offsetMs": 514.1999998092651,
+              "intervalMs": 290.90000000000146,
+              "previousCallbackMs": 277.8999996185303,
+              "previousRenderMs": 268.19999980926514,
+              "betweenCallbacksMs": 6.800000190734863,
+              "dispatchAfterRafMs": 14.99999980926441
+            },
+            {
+              "offsetMs": 697.1999998092651,
+              "intervalMs": 133,
+              "previousCallbackMs": 70.80000019073486,
+              "previousRenderMs": 15.5,
+              "betweenCallbacksMs": 2,
+              "dispatchAfterRafMs": 6.399999809265864
+            },
+            {
+              "offsetMs": 1373.3999996185303,
+              "intervalMs": 112.59999999999854,
+              "previousCallbackMs": 41.5,
+              "previousRenderMs": 11.300000190734863,
+              "betweenCallbacksMs": 89.39999961853027,
+              "dispatchAfterRafMs": 25.099999618531
+            },
+            {
+              "offsetMs": 1596,
+              "intervalMs": 221.60000000000036,
+              "previousCallbackMs": 163.2000002861023,
+              "previousRenderMs": 117,
+              "betweenCallbacksMs": 59.40000009536743,
+              "dispatchAfterRafMs": 26.100000000000364
+            },
+            {
+              "offsetMs": 2463.8999996185303,
+              "intervalMs": 165.89999999999964,
+              "previousCallbackMs": 138.69999980926514,
+              "previousRenderMs": 119.40000009536743,
+              "betweenCallbacksMs": 34,
+              "dispatchAfterRafMs": 14.599999618531001
+            },
+            {
+              "offsetMs": 3403.8999996185303,
+              "intervalMs": 116.89999999999964,
+              "previousCallbackMs": 105.40000009536743,
+              "previousRenderMs": 78.7000002861023,
+              "betweenCallbacksMs": 4.899999618530273,
+              "dispatchAfterRafMs": 8.599999618531001
+            },
+            {
+              "offsetMs": 4455.299999713898,
+              "intervalMs": 116.89999999999964,
+              "previousCallbackMs": 110.59999990463257,
+              "previousRenderMs": 81.7999997138977,
+              "betweenCallbacksMs": 16,
+              "dispatchAfterRafMs": 22.69999971389734
+            },
+            {
+              "offsetMs": 5402.89999961853,
+              "intervalMs": 151.79999999999927,
+              "previousCallbackMs": 157.09999990463257,
+              "previousRenderMs": 133.59999990463257,
+              "betweenCallbacksMs": 1.0999999046325684,
+              "dispatchAfterRafMs": 12.099999618531001
+            },
+            {
+              "offsetMs": 5521.599999904633,
+              "intervalMs": 108.5,
+              "previousCallbackMs": 100.7000002861023,
+              "previousRenderMs": 45.200000286102295,
+              "betweenCallbacksMs": 18,
+              "dispatchAfterRafMs": 22.299999904633296
+            },
+            {
+              "offsetMs": 5649.699999809265,
+              "intervalMs": 145.90000000000146,
+              "previousCallbackMs": 120.40000009536743,
+              "previousRenderMs": 103.30000019073486,
+              "betweenCallbacksMs": 7.699999809265137,
+              "dispatchAfterRafMs": 4.499999809264409
+            },
+            {
+              "offsetMs": 6468.099999904633,
+              "intervalMs": 225.10000000000218,
+              "previousCallbackMs": 221.2000002861023,
+              "previousRenderMs": 167.10000038146973,
+              "betweenCallbacksMs": 2.0999999046325684,
+              "dispatchAfterRafMs": 14.699999904631113
+            },
+            {
+              "offsetMs": 7503.199999809265,
+              "intervalMs": 184.10000000000218,
+              "previousCallbackMs": 174,
+              "previousRenderMs": 140.30000019073486,
+              "betweenCallbacksMs": 8.199999809265137,
+              "dispatchAfterRafMs": 8.299999809263682
+            },
+            {
+              "offsetMs": 11446.199999809265,
+              "intervalMs": 100.20000000000073,
+              "previousCallbackMs": 82.5,
+              "previousRenderMs": 39.89999961853027,
+              "betweenCallbacksMs": 13.900000095367432,
+              "dispatchAfterRafMs": 21.899999809265864
+            },
+            {
+              "offsetMs": 11600.699999809265,
+              "intervalMs": 141.60000000000218,
+              "previousCallbackMs": 69.5,
+              "previousRenderMs": 44.90000009536743,
+              "betweenCallbacksMs": 85,
+              "dispatchAfterRafMs": 34.79999980926368
+            },
+            {
+              "offsetMs": 11775.5,
+              "intervalMs": 191.59999999999854,
+              "previousCallbackMs": 123.19999980926514,
+              "previousRenderMs": 47.700000286102295,
+              "betweenCallbacksMs": 51.60000038146973,
+              "dispatchAfterRafMs": 18
+            },
+            {
+              "offsetMs": 11895.799999713898,
+              "intervalMs": 120.40000000000146,
+              "previousCallbackMs": 57.299999713897705,
+              "previousRenderMs": 4.299999713897705,
+              "betweenCallbacksMs": 63,
+              "dispatchAfterRafMs": 17.89999971389625
+            },
+            {
+              "offsetMs": 12062.199999809265,
+              "intervalMs": 140.1999999999971,
+              "previousCallbackMs": 121.2000002861023,
+              "previousRenderMs": 51.30000019073486,
+              "betweenCallbacksMs": 45.19999980926514,
+              "dispatchAfterRafMs": 44.09999980926659
+            },
+            {
+              "offsetMs": 12393.89999961853,
+              "intervalMs": 116.60000000000218,
+              "previousCallbackMs": 95.09999990463257,
+              "previousRenderMs": 25.699999809265137,
+              "betweenCallbacksMs": 9.699999809265137,
+              "dispatchAfterRafMs": 11.199999618529546
+            },
+            {
+              "offsetMs": 12638.5,
+              "intervalMs": 133.5,
+              "previousCallbackMs": 123.5,
+              "previousRenderMs": 72.80000019073486,
+              "betweenCallbacksMs": 4.300000190734863,
+              "dispatchAfterRafMs": 5.900000000001455
+            },
+            {
+              "offsetMs": 13451.5,
+              "intervalMs": 108.29999999999927,
+              "previousCallbackMs": 97,
+              "previousRenderMs": 25.5,
+              "betweenCallbacksMs": 9.5,
+              "dispatchAfterRafMs": 6.700000000000728
+            },
+            {
+              "offsetMs": 14527.599999904633,
+              "intervalMs": 145.6999999999971,
+              "previousCallbackMs": 114.7000002861023,
+              "previousRenderMs": 95.19999980926514,
+              "betweenCallbacksMs": 63.5,
+              "dispatchAfterRafMs": 40.99999990463402
+            }
+          ],
+          "gpu": {
+            "supported": true,
+            "samples": 84,
+            "durationMs": {
+              "mean": 2.0038814999999994,
+              "p50": 1.660875,
+              "p95": 3.883416,
+              "p99": 4.620667,
+              "max": 4.620667
+            },
+            "slowCpuSamples": [
+              {
+                "offsetMs": 14349.39999961853,
+                "gpuMs": 2.414041,
+                "renderMs": 95.19999980926514,
+                "callbackMs": 114.7000002861023
+              },
+              {
+                "offsetMs": 2236.5,
+                "gpuMs": 1.172249,
+                "renderMs": 48.59999990463257,
+                "callbackMs": 51.89999961853027
+              },
+              {
+                "offsetMs": 5944.799999713898,
+                "gpuMs": 4.290541,
+                "renderMs": 35.30000019073486,
+                "callbackMs": 53.30000019073486
+              },
+              {
+                "offsetMs": 12289.099999904633,
+                "gpuMs": 4.291625,
+                "renderMs": 25.699999809265137,
+                "callbackMs": 95.09999990463257
+              },
+              {
+                "offsetMs": 10950.5,
+                "gpuMs": 2.319541,
+                "renderMs": 22.700000286102295,
+                "callbackMs": 25
+              },
+              {
+                "offsetMs": 10069.39999961853,
+                "gpuMs": 1.660875,
+                "renderMs": 20.700000286102295,
+                "callbackMs": 23.700000286102295
+              },
+              {
+                "offsetMs": 125.09999990463257,
+                "gpuMs": 1.216124,
+                "renderMs": 17.699999809265137,
+                "callbackMs": 47.90000009536743
+              },
+              {
+                "offsetMs": 8895.39999961853,
+                "gpuMs": 1.343875,
+                "renderMs": 13.600000381469727,
+                "callbackMs": 16.100000381469727
+              }
+            ],
+            "unresolved": 0,
+            "disjoint": 0
+          },
+          "longFramesOver100ms": [
+            {
+              "offsetMs": 228.69999980926514,
+              "durationMs": 278.80000019073486,
+              "blockingMs": 228.6,
+              "renderOffsetMs": 0.3000001907348633,
+              "styleLayoutToEndMs": 0.10000038146972656,
+              "scripts": [
+                {
+                  "offsetMs": 229.2999997138977,
+                  "durationMs": 278.09999990463257,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 579,
+              "durationMs": 116.39999961853027,
+              "blockingMs": 48.5,
+              "renderOffsetMs": 29,
+              "styleLayoutToEndMs": 0,
+              "scripts": [
+                {
+                  "offsetMs": 608.1999998092651,
+                  "durationMs": 87.09999990463257,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 1356.6999998092651,
+              "durationMs": 185.59999990463257,
+              "blockingMs": 127.6,
+              "renderOffsetMs": 8.199999809265137,
+              "styleLayoutToEndMs": 5.5,
+              "scripts": [
+                {
+                  "offsetMs": 1365.7999997138977,
+                  "durationMs": 171,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 2288.699999809265,
+              "durationMs": 165.40000009536743,
+              "blockingMs": 115.2,
+              "renderOffsetMs": 2.4000000953674316,
+              "styleLayoutToEndMs": 24,
+              "scripts": [
+                {
+                  "offsetMs": 2291.0999999046326,
+                  "durationMs": 138.90000009536743,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 3288,
+              "durationMs": 111.09999990463257,
+              "blockingMs": 59.3,
+              "renderOffsetMs": 5.299999713897705,
+              "styleLayoutToEndMs": 0,
+              "scripts": [
+                {
+                  "offsetMs": 3293.5,
+                  "durationMs": 105.5,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 4327.599999904633,
+              "durationMs": 120.19999980926514,
+              "blockingMs": 69.1,
+              "renderOffsetMs": 1,
+              "styleLayoutToEndMs": 8.099999904632568,
+              "scripts": [
+                {
+                  "offsetMs": 4328.699999809265,
+                  "durationMs": 110.80000019073486,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 5237.89999961853,
+              "durationMs": 164.5,
+              "blockingMs": 107.9,
+              "renderOffsetMs": 6.800000190734863,
+              "styleLayoutToEndMs": 0.5,
+              "scripts": [
+                {
+                  "offsetMs": 5244.699999809265,
+                  "durationMs": 157.19999980926514,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 5402.5,
+              "durationMs": 115.2999997138977,
+              "blockingMs": 65,
+              "renderOffsetMs": 0.39999961853027344,
+              "styleLayoutToEndMs": 14,
+              "scripts": [
+                {
+                  "offsetMs": 5402.89999961853,
+                  "durationMs": 100.90000009536743,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 5519.199999809265,
+              "durationMs": 125,
+              "blockingMs": 73.7,
+              "renderOffsetMs": 2.1999998092651367,
+              "styleLayoutToEndMs": 2,
+              "scripts": [
+                {
+                  "offsetMs": 5521.599999904633,
+                  "durationMs": 120.59999990463257,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 6234,
+              "durationMs": 232.19999980926514,
+              "blockingMs": 171.7,
+              "renderOffsetMs": 10.599999904632568,
+              "styleLayoutToEndMs": 0,
+              "scripts": [
+                {
+                  "offsetMs": 6244.599999904633,
+                  "durationMs": 221.59999990463257,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 7312.39999961853,
+              "durationMs": 190.40000009536743,
+              "blockingMs": 132,
+              "renderOffsetMs": 8.600000381469727,
+              "styleLayoutToEndMs": 0.09999990463256836,
+              "scripts": [
+                {
+                  "offsetMs": 7321,
+                  "durationMs": 181.69999980926514,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 11328.699999809265,
+              "durationMs": 103.80000019073486,
+              "blockingMs": 45,
+              "renderOffsetMs": 12,
+              "styleLayoutToEndMs": 0.10000038146972656,
+              "scripts": [
+                {
+                  "offsetMs": 11340.799999713898,
+                  "durationMs": 91.59999990463257,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 11441.599999904633,
+              "durationMs": 132.90000009536743,
+              "blockingMs": 78.4,
+              "renderOffsetMs": 4.599999904632568,
+              "styleLayoutToEndMs": 58.40000009536743,
+              "scripts": [
+                {
+                  "offsetMs": 11446.199999809265,
+                  "durationMs": 69.80000019073486,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 11575.199999809265,
+              "durationMs": 183.40000009536743,
+              "blockingMs": 126,
+              "renderOffsetMs": 23.59999990463257,
+              "styleLayoutToEndMs": 25.40000009536743,
+              "scripts": [
+                {
+                  "offsetMs": 11600.599999904633,
+                  "durationMs": 132.59999990463257,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 11894.199999809265,
+              "durationMs": 130.19999980926514,
+              "blockingMs": 80,
+              "renderOffsetMs": 0.3000001907348633,
+              "styleLayoutToEndMs": 7.299999713897705,
+              "scripts": [
+                {
+                  "offsetMs": 11895.799999713898,
+                  "durationMs": 121.30000019073486,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 12282.89999961853,
+              "durationMs": 103.7000002861023,
+              "blockingMs": 48.9,
+              "renderOffsetMs": 5.100000381469727,
+              "styleLayoutToEndMs": 2.3000001907348633,
+              "scripts": [
+                {
+                  "offsetMs": 12288.099999904633,
+                  "durationMs": 96.19999980926514,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 12508.299999713898,
+              "durationMs": 128.30000019073486,
+              "blockingMs": 76,
+              "renderOffsetMs": 2.4000000953674316,
+              "styleLayoutToEndMs": 2.200000286102295,
+              "scripts": [
+                {
+                  "offsetMs": 12510.699999809265,
+                  "durationMs": 123.59999990463257,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 13343.799999713898,
+              "durationMs": 104.5,
+              "blockingMs": 53.3,
+              "renderOffsetMs": 1.200000286102295,
+              "styleLayoutToEndMs": 4.799999713897705,
+              "scripts": [
+                {
+                  "offsetMs": 13345,
+                  "durationMs": 98.5,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 14343.599999904633,
+              "durationMs": 123.09999990463257,
+              "blockingMs": 67.5,
+              "renderOffsetMs": 5.699999809265137,
+              "styleLayoutToEndMs": 2.5,
+              "scripts": [
+                {
+                  "offsetMs": 14349.39999961853,
+                  "durationMs": 114.80000019073486,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            }
+          ],
+          "longTasks": [
+            {
+              "offsetMs": 228.89999961853027,
+              "durationMs": 284,
+              "name": "self"
+            },
+            {
+              "offsetMs": 514.0999999046326,
+              "durationMs": 64,
+              "name": "self"
+            },
+            {
+              "offsetMs": 596.8999996185303,
+              "durationMs": 99,
+              "name": "self"
+            },
+            {
+              "offsetMs": 697.0999999046326,
+              "durationMs": 64,
+              "name": "self"
+            },
+            {
+              "offsetMs": 762,
+              "durationMs": 64,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1242.5,
+              "durationMs": 114,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1364.6999998092651,
+              "durationMs": 230,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1640.8999996185303,
+              "durationMs": 50,
+              "name": "self"
+            },
+            {
+              "offsetMs": 2236.2999997138977,
+              "durationMs": 52,
+              "name": "self"
+            },
+            {
+              "offsetMs": 2291.0999999046326,
+              "durationMs": 169,
+              "name": "self"
+            },
+            {
+              "offsetMs": 3227.8999996185303,
+              "durationMs": 60,
+              "name": "self"
+            },
+            {
+              "offsetMs": 3293.2999997138977,
+              "durationMs": 106,
+              "name": "self"
+            },
+            {
+              "offsetMs": 4273.599999904633,
+              "durationMs": 54,
+              "name": "self"
+            },
+            {
+              "offsetMs": 4328.599999904633,
+              "durationMs": 125,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5244.39999961853,
+              "durationMs": 158,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5402.799999713898,
+              "durationMs": 116,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5520.799999713898,
+              "durationMs": 127,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5944.799999713898,
+              "durationMs": 53,
+              "name": "self"
+            },
+            {
+              "offsetMs": 6244.599999904633,
+              "durationMs": 222,
+              "name": "self"
+            },
+            {
+              "offsetMs": 7240.89999961853,
+              "durationMs": 71,
+              "name": "self"
+            },
+            {
+              "offsetMs": 7320.89999961853,
+              "durationMs": 182,
+              "name": "self"
+            },
+            {
+              "offsetMs": 7503.099999904633,
+              "durationMs": 54,
+              "name": "self"
+            },
+            {
+              "offsetMs": 8233.199999809265,
+              "durationMs": 93,
+              "name": "self"
+            },
+            {
+              "offsetMs": 8336.89999961853,
+              "durationMs": 86,
+              "name": "self"
+            },
+            {
+              "offsetMs": 9265.89999961853,
+              "durationMs": 69,
+              "name": "self"
+            },
+            {
+              "offsetMs": 9335.5,
+              "durationMs": 99,
+              "name": "self"
+            },
+            {
+              "offsetMs": 10266.39999961853,
+              "durationMs": 66,
+              "name": "self"
+            },
+            {
+              "offsetMs": 10340.099999904633,
+              "durationMs": 59,
+              "name": "self"
+            },
+            {
+              "offsetMs": 11009.5,
+              "durationMs": 81,
+              "name": "self"
+            },
+            {
+              "offsetMs": 11249.89999961853,
+              "durationMs": 78,
+              "name": "self"
+            },
+            {
+              "offsetMs": 11340.699999809265,
+              "durationMs": 100,
+              "name": "self"
+            },
+            {
+              "offsetMs": 11446.099999904633,
+              "durationMs": 129,
+              "name": "self"
+            },
+            {
+              "offsetMs": 11582.699999809265,
+              "durationMs": 192,
+              "name": "self"
+            },
+            {
+              "offsetMs": 11775.299999713898,
+              "durationMs": 116,
+              "name": "self"
+            },
+            {
+              "offsetMs": 11894.5,
+              "durationMs": 132,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12060.89999961853,
+              "durationMs": 58,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12287.599999904633,
+              "durationMs": 100,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12391,
+              "durationMs": 50,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12510.599999904633,
+              "durationMs": 127,
+              "name": "self"
+            },
+            {
+              "offsetMs": 13215.39999961853,
+              "durationMs": 66,
+              "name": "self"
+            },
+            {
+              "offsetMs": 13282.89999961853,
+              "durationMs": 60,
+              "name": "self"
+            },
+            {
+              "offsetMs": 13345,
+              "durationMs": 105,
+              "name": "self"
+            },
+            {
+              "offsetMs": 14275.39999961853,
+              "durationMs": 68,
+              "name": "self"
+            },
+            {
+              "offsetMs": 14349.299999713898,
+              "durationMs": 154,
+              "name": "self"
+            },
+            {
+              "offsetMs": 14522.5,
+              "durationMs": 58,
+              "name": "self"
+            }
+          ],
+          "panelRefreshes": [
+            {
+              "offsetMs": 579.0999999046326,
+              "durationMs": 0.2999997138977051
+            },
+            {
+              "offsetMs": 994.5999999046326,
+              "durationMs": 3.299999713897705
+            },
+            {
+              "offsetMs": 1638.5,
+              "durationMs": 0.6999998092651367
+            },
+            {
+              "offsetMs": 1982.5999999046326,
+              "durationMs": 2
+            },
+            {
+              "offsetMs": 2516.699999809265,
+              "durationMs": 0.8000001907348633
+            },
+            {
+              "offsetMs": 2987.3999996185303,
+              "durationMs": 0.6000003814697266
+            },
+            {
+              "offsetMs": 3495.2999997138977,
+              "durationMs": 0.7000002861022949
+            },
+            {
+              "offsetMs": 3984.8999996185303,
+              "durationMs": 2.8000001907348633
+            },
+            {
+              "offsetMs": 4480.39999961853,
+              "durationMs": 5.400000095367432
+            },
+            {
+              "offsetMs": 4998.799999713898,
+              "durationMs": 5.200000286102295
+            },
+            {
+              "offsetMs": 5519.89999961853,
+              "durationMs": 0.9000000953674316
+            },
+            {
+              "offsetMs": 5998.599999904633,
+              "durationMs": 0.7999997138977051
+            },
+            {
+              "offsetMs": 6494.099999904633,
+              "durationMs": 0.5
+            },
+            {
+              "offsetMs": 6998,
+              "durationMs": 1.0999999046325684
+            },
+            {
+              "offsetMs": 7558.099999904633,
+              "durationMs": 0.7999997138977051
+            },
+            {
+              "offsetMs": 7974.199999809265,
+              "durationMs": 2.5999999046325684
+            },
+            {
+              "offsetMs": 8506.799999713898,
+              "durationMs": 5
+            },
+            {
+              "offsetMs": 8976.799999713898,
+              "durationMs": 2.0999999046325684
+            },
+            {
+              "offsetMs": 9485.89999961853,
+              "durationMs": 1.1000003814697266
+            },
+            {
+              "offsetMs": 9995.599999904633,
+              "durationMs": 0.6999998092651367
+            },
+            {
+              "offsetMs": 10484.5,
+              "durationMs": 2.0999999046325684
+            },
+            {
+              "offsetMs": 11006.699999809265,
+              "durationMs": 2.4000000953674316
+            },
+            {
+              "offsetMs": 11576.199999809265,
+              "durationMs": 0.8000001907348633
+            },
+            {
+              "offsetMs": 12026.89999961853,
+              "durationMs": 26.300000190734863
+            },
+            {
+              "offsetMs": 12483.199999809265,
+              "durationMs": 4.900000095367432
+            },
+            {
+              "offsetMs": 12998.299999713898,
+              "durationMs": 2.200000286102295
+            },
+            {
+              "offsetMs": 13485.39999961853,
+              "durationMs": 3.4000000953674316
+            },
+            {
+              "offsetMs": 13989.799999713898,
+              "durationMs": 1.0999999046325684
+            },
+            {
+              "offsetMs": 14508.199999809265,
+              "durationMs": 14.099999904632568
+            }
+          ]
+        },
+        {
+          "panel": false,
+          "durationMs": 15000,
+          "sameConditions": true,
+          "environment": {
+            "build": "production",
+            "asset": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+            "viewport": {
+              "width": 1440,
+              "height": 900
+            },
+            "drawingBuffer": {
+              "width": 1440,
+              "height": 900
+            },
+            "devicePixelRatio": 1,
+            "renderPixelRatio": 1,
+            "shadows": true,
+            "mainRendererOnly": true,
+            "worldScheduling": "continuous",
+            "camera": {
+              "position": [
+                -64.17221646664552,
+                29.553349328084895,
+                126.72177515807748
+              ],
+              "quaternion": [
+                -0.09882467285956358,
+                0.029848535500542922,
+                0.0029656299281512685,
+                0.9946526800857688
+              ]
+            },
+            "position": {
+              "x": -66.41403443027163,
+              "y": 18.75022553790357,
+              "z": 89.40298955466544
+            },
+            "time": 13.022365264001472,
+            "timeRate": 0,
+            "longAnimationFramesSupported": true
+          },
+          "environmentEnd": {
+            "build": "production",
+            "asset": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+            "viewport": {
+              "width": 1440,
+              "height": 900
+            },
+            "drawingBuffer": {
+              "width": 1440,
+              "height": 900
+            },
+            "devicePixelRatio": 1,
+            "renderPixelRatio": 1,
+            "shadows": true,
+            "mainRendererOnly": true,
+            "worldScheduling": "continuous",
+            "camera": {
+              "position": [
+                -64.17221646664552,
+                29.553349328084895,
+                126.72177515807748
+              ],
+              "quaternion": [
+                -0.09882467285956358,
+                0.029848535500542922,
+                0.0029656299281512685,
+                0.9946526800857688
+              ]
+            },
+            "position": {
+              "x": -66.41403443027163,
+              "y": 18.75022553790357,
+              "z": 89.40298955466544
+            },
+            "time": 13.022365264001472,
+            "timeRate": 0,
+            "longAnimationFramesSupported": true
+          },
+          "droppedFrames": 0,
+          "frames": 823,
+          "fps": 54.860712521857515,
+          "frameMs": {
+            "mean": 18.22798053527981,
+            "p50": 16.599999999998545,
+            "p95": 34.29999999999927,
+            "p99": 116.60000000000582,
+            "max": 224.90000000000146
+          },
+          "callbackMs": {
+            "mean": 15.636452010306524,
+            "p50": 12.300000190734863,
+            "p95": 32.80000019073486,
+            "p99": 91.2999997138977,
+            "max": 202.40000009536743
+          },
+          "renderMs": {
+            "mean": 10.214337791011806,
+            "p50": 7.700000286102295,
+            "p95": 19.40000009536743,
+            "p99": 71,
+            "max": 153.7999997138977
+          },
+          "calls": {
+            "mean": 387.9343863912515,
+            "p50": 388,
+            "p95": 389,
+            "p99": 389,
+            "max": 389
+          },
+          "triangles": {
+            "mean": 307127.1324422843,
+            "p50": 307128,
+            "p95": 307208,
+            "p99": 307288,
+            "max": 307288
+          },
+          "over100ms": 13,
+          "stalls": [
+            {
+              "offsetMs": 1002.4000000953674,
+              "intervalMs": 120.59999999999854,
+              "previousCallbackMs": 99.5,
+              "previousRenderMs": 48.90000009536743,
+              "betweenCallbacksMs": 20.5,
+              "dispatchAfterRafMs": 10.499999904634024
+            },
+            {
+              "offsetMs": 2363.699999809265,
+              "intervalMs": 107.39999999999782,
+              "previousCallbackMs": 76.19999980926514,
+              "previousRenderMs": 37.90000009536743,
+              "betweenCallbacksMs": 46.09999990463257,
+              "dispatchAfterRafMs": 30.79999961853173
+            },
+            {
+              "offsetMs": 3407.0999999046326,
+              "intervalMs": 110.5,
+              "previousCallbackMs": 80.69999980926514,
+              "previousRenderMs": 51.19999980926514,
+              "betweenCallbacksMs": 5,
+              "dispatchAfterRafMs": 0.19999971389916027
+            },
+            {
+              "offsetMs": 5400.900000095367,
+              "intervalMs": 116.60000000000582,
+              "previousCallbackMs": 98.69999980926514,
+              "previousRenderMs": 73.80000019073486,
+              "betweenCallbacksMs": 9.900000095367432,
+              "dispatchAfterRafMs": 8.799999904629658
+            },
+            {
+              "offsetMs": 6313.300000190735,
+              "intervalMs": 108.09999999999854,
+              "previousCallbackMs": 75.90000009536743,
+              "previousRenderMs": 66.30000019073486,
+              "betweenCallbacksMs": 41,
+              "dispatchAfterRafMs": 17.099999999998545
+            },
+            {
+              "offsetMs": 7398.099999904633,
+              "intervalMs": 162.59999999999854,
+              "previousCallbackMs": 142.5,
+              "previousRenderMs": 125.59999990463257,
+              "betweenCallbacksMs": 17,
+              "dispatchAfterRafMs": 14.19999971389916
+            },
+            {
+              "offsetMs": 8396,
+              "intervalMs": 142.09999999999854,
+              "previousCallbackMs": 124.40000009536743,
+              "previousRenderMs": 84,
+              "betweenCallbacksMs": 2.1999998092651367,
+              "dispatchAfterRafMs": 7.499999809268047
+            },
+            {
+              "offsetMs": 9413.900000095367,
+              "intervalMs": 124.39999999999418,
+              "previousCallbackMs": 87.80000019073486,
+              "previousRenderMs": 78.5,
+              "betweenCallbacksMs": 21.90000009536743,
+              "dispatchAfterRafMs": 5.399999904635479
+            },
+            {
+              "offsetMs": 10426.400000095367,
+              "intervalMs": 224.90000000000146,
+              "previousCallbackMs": 202.40000009536743,
+              "previousRenderMs": 153.7999997138977,
+              "betweenCallbacksMs": 25.800000190734863,
+              "dispatchAfterRafMs": 8.999999904634024
+            },
+            {
+              "offsetMs": 11376.099999904633,
+              "intervalMs": 112.90000000000146,
+              "previousCallbackMs": 107.59999990463257,
+              "previousRenderMs": 71,
+              "betweenCallbacksMs": 1.5999999046325684,
+              "dispatchAfterRafMs": 4.799999713897705
+            },
+            {
+              "offsetMs": 12351.800000190735,
+              "intervalMs": 117.5,
+              "previousCallbackMs": 78.59999990463257,
+              "previousRenderMs": 42.39999961853027,
+              "betweenCallbacksMs": 35.30000019073486,
+              "dispatchAfterRafMs": 14.099999999998545
+            },
+            {
+              "offsetMs": 13359.5,
+              "intervalMs": 142.40000000000146,
+              "previousCallbackMs": 136.90000009536743,
+              "previousRenderMs": 97.19999980926514,
+              "betweenCallbacksMs": 10.400000095367432,
+              "dispatchAfterRafMs": 12.899999809262226
+            },
+            {
+              "offsetMs": 14406.900000095367,
+              "intervalMs": 126.79999999999563,
+              "previousCallbackMs": 105.90000009536743,
+              "previousRenderMs": 49.90000009536743,
+              "betweenCallbacksMs": 2.4000000953674316,
+              "dispatchAfterRafMs": 6.399999904635479
+            }
+          ],
+          "gpu": {
+            "supported": true,
+            "samples": 103,
+            "durationMs": {
+              "mean": 1.9429743398058257,
+              "p50": 1.564541,
+              "p95": 3.618875,
+              "p99": 4.485083,
+              "max": 4.754249
+            },
+            "slowCpuSamples": [
+              {
+                "offsetMs": 247,
+                "gpuMs": 1.649583,
+                "renderMs": 50.90000009536743,
+                "callbackMs": 77
+              },
+              {
+                "offsetMs": 7190.900000095367,
+                "gpuMs": 1.580375,
+                "renderMs": 41.90000009536743,
+                "callbackMs": 45.5
+              },
+              {
+                "offsetMs": 1305.5999999046326,
+                "gpuMs": 1.580249,
+                "renderMs": 40.200000286102295,
+                "callbackMs": 54.200000286102295
+              },
+              {
+                "offsetMs": 14150,
+                "gpuMs": 1.450375,
+                "renderMs": 22,
+                "callbackMs": 24.199999809265137
+              },
+              {
+                "offsetMs": 12351.800000190735,
+                "gpuMs": 1.033833,
+                "renderMs": 18.59999990463257,
+                "callbackMs": 40.19999980926514
+              },
+              {
+                "offsetMs": 8052.800000190735,
+                "gpuMs": 3.557333,
+                "renderMs": 17.800000190734863,
+                "callbackMs": 21.399999618530273
+              },
+              {
+                "offsetMs": 2004.1999998092651,
+                "gpuMs": 4.149124,
+                "renderMs": 17.5,
+                "callbackMs": 42
+              },
+              {
+                "offsetMs": 859.8000001907349,
+                "gpuMs": 1.210333,
+                "renderMs": 16.5,
+                "callbackMs": 20.299999713897705
+              }
+            ],
+            "unresolved": 0,
+            "disjoint": 0
+          },
+          "longFramesOver100ms": [
+            {
+              "offsetMs": 880.3000001907349,
+              "durationMs": 115.89999961853027,
+              "blockingMs": 64,
+              "renderOffsetMs": 2,
+              "styleLayoutToEndMs": 14,
+              "scripts": [
+                {
+                  "offsetMs": 882.3000001907349,
+                  "durationMs": 99.7999997138977,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 3301.300000190735,
+              "durationMs": 101.39999961853027,
+              "blockingMs": 47.8,
+              "renderOffsetMs": 3.5999999046325684,
+              "styleLayoutToEndMs": 0.09999990463256836,
+              "scripts": [
+                {
+                  "offsetMs": 3313.199999809265,
+                  "durationMs": 88.90000009536743,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 5278.199999809265,
+              "durationMs": 114,
+              "blockingMs": 49.9,
+              "renderOffsetMs": 14.100000381469727,
+              "styleLayoutToEndMs": 1.0999999046325684,
+              "scripts": [
+                {
+                  "offsetMs": 5292.300000190735,
+                  "durationMs": 98.69999980926514,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 7236.900000095367,
+              "durationMs": 154.69999980926514,
+              "blockingMs": 103.9,
+              "renderOffsetMs": 1.5999999046325684,
+              "styleLayoutToEndMs": 7.599999904632568,
+              "scripts": [
+                {
+                  "offsetMs": 7238.599999904633,
+                  "durationMs": 142.5,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 8260.599999904633,
+              "durationMs": 133.30000019073486,
+              "blockingMs": 79.3,
+              "renderOffsetMs": 8.700000286102295,
+              "styleLayoutToEndMs": 0,
+              "scripts": [
+                {
+                  "offsetMs": 8269.400000095367,
+                  "durationMs": 124.5,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 9294.900000095367,
+              "durationMs": 116.19999980926514,
+              "blockingMs": 59.8,
+              "renderOffsetMs": 6.5,
+              "styleLayoutToEndMs": 18.5,
+              "scripts": [
+                {
+                  "offsetMs": 9301.400000095367,
+                  "durationMs": 91.09999990463257,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 10198.099999904633,
+              "durationMs": 219.40000009536743,
+              "blockingMs": 169.3,
+              "renderOffsetMs": 0.09999990463256836,
+              "styleLayoutToEndMs": 8.400000095367432,
+              "scripts": [
+                {
+                  "offsetMs": 10198.199999809265,
+                  "durationMs": 202.40000009536743,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 11265.699999809265,
+              "durationMs": 109.10000038146973,
+              "blockingMs": 57.9,
+              "renderOffsetMs": 1.200000286102295,
+              "styleLayoutToEndMs": 0.20000028610229492,
+              "scripts": [
+                {
+                  "offsetMs": 11266.900000095367,
+                  "durationMs": 107.59999990463257,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 12234.5,
+              "durationMs": 103.5,
+              "blockingMs": 50.9,
+              "renderOffsetMs": 3.1999998092651367,
+              "styleLayoutToEndMs": 21.300000190734863,
+              "scripts": [
+                {
+                  "offsetMs": 12237.699999809265,
+                  "durationMs": 78.90000009536743,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 13203.699999809265,
+              "durationMs": 145.60000038146973,
+              "blockingMs": 93.5,
+              "renderOffsetMs": 2,
+              "styleLayoutToEndMs": 0.20000028610229492,
+              "scripts": [
+                {
+                  "offsetMs": 13205.699999809265,
+                  "durationMs": 143.40000009536743,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 14288.599999904633,
+              "durationMs": 116.2000002861023,
+              "blockingMs": 62.3,
+              "renderOffsetMs": 9.700000286102295,
+              "styleLayoutToEndMs": 0.20000028610229492,
+              "scripts": [
+                {
+                  "offsetMs": 14291.5,
+                  "durationMs": 5.800000190734863,
+                  "invoker": "PerformanceObserverCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "",
+                  "sourceCharPosition": 154710,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                },
+                {
+                  "offsetMs": 14298.599999904633,
+                  "durationMs": 105.90000009536743,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            }
+          ],
+          "longTasks": [
+            {
+              "offsetMs": 246.90000009536743,
+              "durationMs": 79,
+              "name": "self"
+            },
+            {
+              "offsetMs": 327.19999980926514,
+              "durationMs": 96,
+              "name": "self"
+            },
+            {
+              "offsetMs": 882.3000001907349,
+              "durationMs": 118,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1200,
+              "durationMs": 84,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1297.9000000953674,
+              "durationMs": 72,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1820.8000001907349,
+              "durationMs": 74,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1916.9000000953674,
+              "durationMs": 74,
+              "name": "self"
+            },
+            {
+              "offsetMs": 2241.300000190735,
+              "durationMs": 104,
+              "name": "self"
+            },
+            {
+              "offsetMs": 2349.5999999046326,
+              "durationMs": 78,
+              "name": "self"
+            },
+            {
+              "offsetMs": 3236.0999999046326,
+              "durationMs": 65,
+              "name": "self"
+            },
+            {
+              "offsetMs": 3304.800000190735,
+              "durationMs": 101,
+              "name": "self"
+            },
+            {
+              "offsetMs": 4243.800000190735,
+              "durationMs": 91,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5082.800000190735,
+              "durationMs": 53,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5186,
+              "durationMs": 61,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5292.300000190735,
+              "durationMs": 105,
+              "name": "self"
+            },
+            {
+              "offsetMs": 6196.199999809265,
+              "durationMs": 107,
+              "name": "self"
+            },
+            {
+              "offsetMs": 6313.199999809265,
+              "durationMs": 107,
+              "name": "self"
+            },
+            {
+              "offsetMs": 7237.699999809265,
+              "durationMs": 158,
+              "name": "self"
+            },
+            {
+              "offsetMs": 8199.900000095367,
+              "durationMs": 60,
+              "name": "self"
+            },
+            {
+              "offsetMs": 8269.300000190735,
+              "durationMs": 124,
+              "name": "self"
+            },
+            {
+              "offsetMs": 9240.699999809265,
+              "durationMs": 54,
+              "name": "self"
+            },
+            {
+              "offsetMs": 9301.400000095367,
+              "durationMs": 112,
+              "name": "self"
+            },
+            {
+              "offsetMs": 10198.099999904633,
+              "durationMs": 226,
+              "name": "self"
+            },
+            {
+              "offsetMs": 11266.900000095367,
+              "durationMs": 108,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12237.699999809265,
+              "durationMs": 104,
+              "name": "self"
+            },
+            {
+              "offsetMs": 13205.599999904633,
+              "durationMs": 143,
+              "name": "self"
+            },
+            {
+              "offsetMs": 13355.099999904633,
+              "durationMs": 72,
+              "name": "self"
+            },
+            {
+              "offsetMs": 14203.300000190735,
+              "durationMs": 85,
+              "name": "self"
+            },
+            {
+              "offsetMs": 14298.300000190735,
+              "durationMs": 106,
+              "name": "self"
+            }
+          ],
+          "panelRefreshes": []
+        },
+        {
+          "panel": false,
+          "durationMs": 15000,
+          "sameConditions": true,
+          "environment": {
+            "build": "production",
+            "asset": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+            "viewport": {
+              "width": 1440,
+              "height": 900
+            },
+            "drawingBuffer": {
+              "width": 1440,
+              "height": 900
+            },
+            "devicePixelRatio": 1,
+            "renderPixelRatio": 1,
+            "shadows": true,
+            "mainRendererOnly": true,
+            "worldScheduling": "continuous",
+            "camera": {
+              "position": [
+                -64.17221646664552,
+                29.553349328084895,
+                126.72177515807748
+              ],
+              "quaternion": [
+                -0.09882467285956358,
+                0.029848535500542922,
+                0.0029656299281512685,
+                0.9946526800857688
+              ]
+            },
+            "position": {
+              "x": -66.41403443027163,
+              "y": 18.75022553790357,
+              "z": 89.40298955466544
+            },
+            "time": 13.022365264001472,
+            "timeRate": 0,
+            "longAnimationFramesSupported": true
+          },
+          "environmentEnd": {
+            "build": "production",
+            "asset": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+            "viewport": {
+              "width": 1440,
+              "height": 900
+            },
+            "drawingBuffer": {
+              "width": 1440,
+              "height": 900
+            },
+            "devicePixelRatio": 1,
+            "renderPixelRatio": 1,
+            "shadows": true,
+            "mainRendererOnly": true,
+            "worldScheduling": "continuous",
+            "camera": {
+              "position": [
+                -64.17221646664552,
+                29.553349328084895,
+                126.72177515807748
+              ],
+              "quaternion": [
+                -0.09882467285956358,
+                0.029848535500542922,
+                0.0029656299281512685,
+                0.9946526800857688
+              ]
+            },
+            "position": {
+              "x": -66.41403443027163,
+              "y": 18.75022553790357,
+              "z": 89.40298955466544
+            },
+            "time": 13.022365264001472,
+            "timeRate": 0,
+            "longAnimationFramesSupported": true
+          },
+          "droppedFrames": 0,
+          "frames": 743,
+          "fps": 49.54957962991405,
+          "frameMs": {
+            "mean": 20.18180592991914,
+            "p50": 16.599999999998545,
+            "p95": 58.299999999995634,
+            "p99": 150.59999999999854,
+            "max": 319
+          },
+          "callbackMs": {
+            "mean": 17.04454912247279,
+            "p50": 12.099999904632568,
+            "p95": 40.5,
+            "p99": 116.59999990463257,
+            "max": 303.59999990463257
+          },
+          "renderMs": {
+            "mean": 11.485060563478944,
+            "p50": 7.600000381469727,
+            "p95": 24.300000190734863,
+            "p99": 93,
+            "max": 290.30000019073486
+          },
+          "calls": {
+            "mean": 388.6581426648721,
+            "p50": 389,
+            "p95": 389,
+            "p99": 389,
+            "max": 389
+          },
+          "triangles": {
+            "mean": 307285.9488559892,
+            "p50": 307288,
+            "p95": 307288,
+            "p99": 307288,
+            "max": 307288
+          },
+          "over100ms": 16,
+          "stalls": [
+            {
+              "offsetMs": 338.40000009536743,
+              "intervalMs": 108.40000000000146,
+              "previousCallbackMs": 96.7000002861023,
+              "previousRenderMs": 71.80000019073486,
+              "betweenCallbacksMs": 3.1999998092651367,
+              "dispatchAfterRafMs": 16.79999980926368
+            },
+            {
+              "offsetMs": 1312.5,
+              "intervalMs": 141.59999999999854,
+              "previousCallbackMs": 149,
+              "previousRenderMs": 146.19999980926514,
+              "betweenCallbacksMs": 1.5999999046325684,
+              "dispatchAfterRafMs": 11.799999713897705
+            },
+            {
+              "offsetMs": 1600,
+              "intervalMs": 279.1999999999971,
+              "previousCallbackMs": 187.59999990463257,
+              "previousRenderMs": 119,
+              "betweenCallbacksMs": 99.90000009536743,
+              "dispatchAfterRafMs": 20.099999713900615
+            },
+            {
+              "offsetMs": 2374.4000000953674,
+              "intervalMs": 133.3000000000029,
+              "previousCallbackMs": 110.7999997138977,
+              "previousRenderMs": 80.40000009536743,
+              "betweenCallbacksMs": 11.800000190734863,
+              "dispatchAfterRafMs": 11.199999809265137
+            },
+            {
+              "offsetMs": 4361.599999904633,
+              "intervalMs": 141.70000000000437,
+              "previousCallbackMs": 111.59999990463257,
+              "previousRenderMs": 80.19999980926514,
+              "betweenCallbacksMs": 37.09999990463257,
+              "dispatchAfterRafMs": 10.999999618528818
+            },
+            {
+              "offsetMs": 5422.400000095367,
+              "intervalMs": 175,
+              "previousCallbackMs": 148.2999997138977,
+              "previousRenderMs": 124.89999961853027,
+              "betweenCallbacksMs": 39.40000009536743,
+              "dispatchAfterRafMs": 21.699999809265137
+            },
+            {
+              "offsetMs": 6402.099999904633,
+              "intervalMs": 116.5,
+              "previousCallbackMs": 109.30000019073486,
+              "previousRenderMs": 48.19999980926514,
+              "betweenCallbacksMs": 6.199999809265137,
+              "dispatchAfterRafMs": 5.699999618533184
+            },
+            {
+              "offsetMs": 7371.800000190735,
+              "intervalMs": 208.1999999999971,
+              "previousCallbackMs": 83.59999990463257,
+              "previousRenderMs": 72.40000009536743,
+              "betweenCallbacksMs": 124.90000009536743,
+              "dispatchAfterRafMs": 8.599999904632568
+            },
+            {
+              "offsetMs": 8373.900000095367,
+              "intervalMs": 145.8000000000029,
+              "previousCallbackMs": 99.59999990463257,
+              "previousRenderMs": 61.200000286102295,
+              "betweenCallbacksMs": 54.5,
+              "dispatchAfterRafMs": 10.899999809262226
+            },
+            {
+              "offsetMs": 9379.400000095367,
+              "intervalMs": 116.5,
+              "previousCallbackMs": 82.40000009536743,
+              "previousRenderMs": 32.40000009536743,
+              "betweenCallbacksMs": 16.90000009536743,
+              "dispatchAfterRafMs": 7.7999998092636815
+            },
+            {
+              "offsetMs": 10365.400000095367,
+              "intervalMs": 137.59999999999854,
+              "previousCallbackMs": 122,
+              "previousRenderMs": 111.19999980926514,
+              "betweenCallbacksMs": 12.300000190734863,
+              "dispatchAfterRafMs": 18.79999980926368
+            },
+            {
+              "offsetMs": 11378.900000095367,
+              "intervalMs": 158.5,
+              "previousCallbackMs": 86.09999990463257,
+              "previousRenderMs": 59.30000019073486,
+              "betweenCallbacksMs": 54.40000009536743,
+              "dispatchAfterRafMs": 7.2999998092636815
+            },
+            {
+              "offsetMs": 12496,
+              "intervalMs": 319,
+              "previousCallbackMs": 303.59999990463257,
+              "previousRenderMs": 290.30000019073486,
+              "betweenCallbacksMs": 28.5,
+              "dispatchAfterRafMs": 18.19999971389916
+            },
+            {
+              "offsetMs": 12791.099999904633,
+              "intervalMs": 289.5,
+              "previousCallbackMs": 252.80000019073486,
+              "previousRenderMs": 158.69999980926514,
+              "betweenCallbacksMs": 42.299999713897705,
+              "dispatchAfterRafMs": 23.79999961853173
+            },
+            {
+              "offsetMs": 13380.099999904633,
+              "intervalMs": 208.1999999999971,
+              "previousCallbackMs": 189.60000038146973,
+              "previousRenderMs": 161,
+              "betweenCallbacksMs": 22.399999618530273,
+              "dispatchAfterRafMs": 25.199999618533184
+            },
+            {
+              "offsetMs": 14389.800000190735,
+              "intervalMs": 150.59999999999854,
+              "previousCallbackMs": 105.69999980926514,
+              "previousRenderMs": 73.09999990463257,
+              "betweenCallbacksMs": 33.40000009536743,
+              "dispatchAfterRafMs": 14.199999904631113
+            }
+          ],
+          "gpu": {
+            "supported": true,
+            "samples": 93,
+            "durationMs": {
+              "mean": 1.6556115591397849,
+              "p50": 1.488083,
+              "p95": 2.64525,
+              "p99": 4.313166,
+              "max": 4.313166
+            },
+            "slowCpuSamples": [
+              {
+                "offsetMs": 5154,
+                "gpuMs": 2.5535,
+                "renderMs": 67.59999990463257,
+                "callbackMs": 80.30000019073486
+              },
+              {
+                "offsetMs": 2160.5,
+                "gpuMs": 2.08325,
+                "renderMs": 63.59999990463257,
+                "callbackMs": 71.5
+              },
+              {
+                "offsetMs": 8219.800000190735,
+                "gpuMs": 1.202249,
+                "renderMs": 61.200000286102295,
+                "callbackMs": 99.59999990463257
+              },
+              {
+                "offsetMs": 6286.599999904633,
+                "gpuMs": 2.001458,
+                "renderMs": 48.19999980926514,
+                "callbackMs": 109.30000019073486
+              },
+              {
+                "offsetMs": 13380.099999904633,
+                "gpuMs": 2.39675,
+                "renderMs": 22.59999990463257,
+                "callbackMs": 39.5
+              },
+              {
+                "offsetMs": 11926.800000190735,
+                "gpuMs": 1.341708,
+                "renderMs": 21.699999809265137,
+                "callbackMs": 56
+              },
+              {
+                "offsetMs": 9699.099999904633,
+                "gpuMs": 1.937749,
+                "renderMs": 20.200000286102295,
+                "callbackMs": 25.700000286102295
+              },
+              {
+                "offsetMs": 4136.200000286102,
+                "gpuMs": 1.181124,
+                "renderMs": 18.59999990463257,
+                "callbackMs": 21.199999809265137
+              }
+            ],
+            "unresolved": 0,
+            "disjoint": 0
+          },
+          "longFramesOver100ms": [
+            {
+              "offsetMs": 1161.2000002861023,
+              "durationMs": 150.09999990463257,
+              "blockingMs": 99.4,
+              "renderOffsetMs": 0.6999998092651367,
+              "styleLayoutToEndMs": 0.20000028610229492,
+              "scripts": [
+                {
+                  "offsetMs": 1161.9000000953674,
+                  "durationMs": 149.09999990463257,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 1311.5,
+              "durationMs": 252,
+              "blockingMs": 201.2,
+              "renderOffsetMs": 1,
+              "styleLayoutToEndMs": 62.5,
+              "scripts": [
+                {
+                  "offsetMs": 1312.5,
+                  "durationMs": 188.5,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 2232.300000190735,
+              "durationMs": 137.09999990463257,
+              "blockingMs": 67.8,
+              "renderOffsetMs": 19.5,
+              "styleLayoutToEndMs": 6.5,
+              "scripts": [
+                {
+                  "offsetMs": 2251.800000190735,
+                  "durationMs": 111.09999990463257,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 3222.800000190735,
+              "durationMs": 117.40000009536743,
+              "blockingMs": 66.8,
+              "renderOffsetMs": 0.5999999046325684,
+              "styleLayoutToEndMs": 0.10000038146972656,
+              "scripts": [
+                {
+                  "offsetMs": 3223.4000000953674,
+                  "durationMs": 116.59999990463257,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 4209.099999904633,
+              "durationMs": 148,
+              "blockingMs": 97.7,
+              "renderOffsetMs": 3.700000286102295,
+              "styleLayoutToEndMs": 32.299999713897705,
+              "scripts": [
+                {
+                  "offsetMs": 4212.900000095367,
+                  "durationMs": 111.90000009536743,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 5234.5,
+              "durationMs": 172.30000019073486,
+              "blockingMs": 122.2,
+              "renderOffsetMs": 0.20000028610229492,
+              "styleLayoutToEndMs": 14.300000190734863,
+              "scripts": [
+                {
+                  "offsetMs": 5234.700000286102,
+                  "durationMs": 149.39999961853027,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 6285.800000190735,
+              "durationMs": 113.5,
+              "blockingMs": 62.9,
+              "renderOffsetMs": 0.6999998092651367,
+              "styleLayoutToEndMs": 3.0999999046325684,
+              "scripts": [
+                {
+                  "offsetMs": 6286.599999904633,
+                  "durationMs": 109.5,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 7162.599999904633,
+              "durationMs": 167.40000009536743,
+              "blockingMs": 116.7,
+              "renderOffsetMs": 0.7000002861022949,
+              "styleLayoutToEndMs": 82.90000009536743,
+              "scripts": [
+                {
+                  "offsetMs": 7163.300000190735,
+                  "durationMs": 83.59999990463257,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 8217.700000286102,
+              "durationMs": 144.7999997138977,
+              "blockingMs": 94.6,
+              "renderOffsetMs": 2,
+              "styleLayoutToEndMs": 42.90000009536743,
+              "scripts": [
+                {
+                  "offsetMs": 8219.800000190735,
+                  "durationMs": 99.7999997138977,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 9270.300000190735,
+              "durationMs": 105.7999997138977,
+              "blockingMs": 54.3,
+              "renderOffsetMs": 9.699999809265137,
+              "styleLayoutToEndMs": 13.399999618530273,
+              "scripts": [
+                {
+                  "offsetMs": 9280.099999904633,
+                  "durationMs": 82.60000038146973,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 10221.900000095367,
+              "durationMs": 131.40000009536743,
+              "blockingMs": 72.9,
+              "renderOffsetMs": 8.699999809265137,
+              "styleLayoutToEndMs": 0.09999990463256836,
+              "scripts": [
+                {
+                  "offsetMs": 10231.099999904633,
+                  "durationMs": 122,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 11230,
+              "durationMs": 145.40000009536743,
+              "blockingMs": 89.3,
+              "renderOffsetMs": 6.099999904632568,
+              "styleLayoutToEndMs": 50.69999980926514,
+              "scripts": [
+                {
+                  "offsetMs": 11236.599999904633,
+                  "durationMs": 88,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 12163.200000286102,
+              "durationMs": 314.7999997138977,
+              "blockingMs": 264.3,
+              "renderOffsetMs": 0.5999999046325684,
+              "styleLayoutToEndMs": 10.5,
+              "scripts": [
+                {
+                  "offsetMs": 12163.900000095367,
+                  "durationMs": 303.59999990463257,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 12487.300000190735,
+              "durationMs": 279.19999980926514,
+              "blockingMs": 229.2,
+              "renderOffsetMs": 0,
+              "styleLayoutToEndMs": 17.40000009536743,
+              "scripts": [
+                {
+                  "offsetMs": 12487.300000190735,
+                  "durationMs": 261.7999997138977,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 13162.599999904633,
+              "durationMs": 195.30000019073486,
+              "blockingMs": 144.7,
+              "renderOffsetMs": 0.6000003814697266,
+              "styleLayoutToEndMs": 0.09999990463256836,
+              "scripts": [
+                {
+                  "offsetMs": 13168.099999904633,
+                  "durationMs": 189.60000038146973,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 14250.700000286102,
+              "durationMs": 114.19999980926514,
+              "blockingMs": 64.1,
+              "renderOffsetMs": 0,
+              "styleLayoutToEndMs": 5.800000190734863,
+              "scripts": [
+                {
+                  "offsetMs": 14250.700000286102,
+                  "durationMs": 108.39999961853027,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            }
+          ],
+          "longTasks": [
+            {
+              "offsetMs": 238.5,
+              "durationMs": 97,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1161.9000000953674,
+              "durationMs": 149,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1312.4000000953674,
+              "durationMs": 275,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1588.4000000953674,
+              "durationMs": 71,
+              "name": "self"
+            },
+            {
+              "offsetMs": 2160.4000000953674,
+              "durationMs": 71,
+              "name": "self"
+            },
+            {
+              "offsetMs": 2251.7000002861023,
+              "durationMs": 119,
+              "name": "self"
+            },
+            {
+              "offsetMs": 3223.300000190735,
+              "durationMs": 117,
+              "name": "self"
+            },
+            {
+              "offsetMs": 3346.5999999046326,
+              "durationMs": 57,
+              "name": "self"
+            },
+            {
+              "offsetMs": 4158.5,
+              "durationMs": 50,
+              "name": "self"
+            },
+            {
+              "offsetMs": 4212.800000190735,
+              "durationMs": 146,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5153.599999904633,
+              "durationMs": 80,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5234.700000286102,
+              "durationMs": 187,
+              "name": "self"
+            },
+            {
+              "offsetMs": 6148.5,
+              "durationMs": 67,
+              "name": "self"
+            },
+            {
+              "offsetMs": 6216.5,
+              "durationMs": 69,
+              "name": "self"
+            },
+            {
+              "offsetMs": 6286.5,
+              "durationMs": 114,
+              "name": "self"
+            },
+            {
+              "offsetMs": 7163.200000286102,
+              "durationMs": 206,
+              "name": "self"
+            },
+            {
+              "offsetMs": 8162.300000190735,
+              "durationMs": 55,
+              "name": "self"
+            },
+            {
+              "offsetMs": 8219.700000286102,
+              "durationMs": 150,
+              "name": "self"
+            },
+            {
+              "offsetMs": 9179.200000286102,
+              "durationMs": 91,
+              "name": "self"
+            },
+            {
+              "offsetMs": 9271.800000190735,
+              "durationMs": 107,
+              "name": "self"
+            },
+            {
+              "offsetMs": 10157.400000095367,
+              "durationMs": 64,
+              "name": "self"
+            },
+            {
+              "offsetMs": 10230.400000095367,
+              "durationMs": 123,
+              "name": "self"
+            },
+            {
+              "offsetMs": 10354.800000190735,
+              "durationMs": 59,
+              "name": "self"
+            },
+            {
+              "offsetMs": 11236.099999904633,
+              "durationMs": 141,
+              "name": "self"
+            },
+            {
+              "offsetMs": 11692.200000286102,
+              "durationMs": 65,
+              "name": "self"
+            },
+            {
+              "offsetMs": 11828.200000286102,
+              "durationMs": 98,
+              "name": "self"
+            },
+            {
+              "offsetMs": 11926.800000190735,
+              "durationMs": 62,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12163.599999904633,
+              "durationMs": 323,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12487.300000190735,
+              "durationMs": 289,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12783.599999904633,
+              "durationMs": 72,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12856.200000286102,
+              "durationMs": 67,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12925.599999904633,
+              "durationMs": 87,
+              "name": "self"
+            },
+            {
+              "offsetMs": 13163.099999904633,
+              "durationMs": 200,
+              "name": "self"
+            },
+            {
+              "offsetMs": 13371.700000286102,
+              "durationMs": 66,
+              "name": "self"
+            },
+            {
+              "offsetMs": 14156.700000286102,
+              "durationMs": 50,
+              "name": "self"
+            },
+            {
+              "offsetMs": 14250.700000286102,
+              "durationMs": 130,
+              "name": "self"
+            },
+            {
+              "offsetMs": 14803.800000190735,
+              "durationMs": 57,
+              "name": "self"
+            }
+          ],
+          "panelRefreshes": []
+        },
+        {
+          "panel": true,
+          "durationMs": 15000,
+          "sameConditions": true,
+          "environment": {
+            "build": "production",
+            "asset": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+            "viewport": {
+              "width": 1440,
+              "height": 900
+            },
+            "drawingBuffer": {
+              "width": 1440,
+              "height": 900
+            },
+            "devicePixelRatio": 1,
+            "renderPixelRatio": 1,
+            "shadows": true,
+            "mainRendererOnly": true,
+            "worldScheduling": "continuous",
+            "camera": {
+              "position": [
+                -64.17221646664552,
+                29.553349328084895,
+                126.72177515807748
+              ],
+              "quaternion": [
+                -0.09882467285956358,
+                0.029848535500542922,
+                0.0029656299281512685,
+                0.9946526800857688
+              ]
+            },
+            "position": {
+              "x": -66.41403443027163,
+              "y": 18.75022553790357,
+              "z": 89.40298955466544
+            },
+            "time": 13.022365264001472,
+            "timeRate": 0,
+            "longAnimationFramesSupported": true
+          },
+          "environmentEnd": {
+            "build": "production",
+            "asset": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+            "viewport": {
+              "width": 1440,
+              "height": 900
+            },
+            "drawingBuffer": {
+              "width": 1440,
+              "height": 900
+            },
+            "devicePixelRatio": 1,
+            "renderPixelRatio": 1,
+            "shadows": true,
+            "mainRendererOnly": true,
+            "worldScheduling": "continuous",
+            "camera": {
+              "position": [
+                -64.17221646664552,
+                29.553349328084895,
+                126.72177515807748
+              ],
+              "quaternion": [
+                -0.09882467285956358,
+                0.029848535500542922,
+                0.0029656299281512685,
+                0.9946526800857688
+              ]
+            },
+            "position": {
+              "x": -66.41403443027163,
+              "y": 18.75022553790357,
+              "z": 89.40298955466544
+            },
+            "time": 13.022365264001472,
+            "timeRate": 0,
+            "longAnimationFramesSupported": true
+          },
+          "droppedFrames": 0,
+          "frames": 714,
+          "fps": 47.53428401901372,
+          "frameMs": {
+            "mean": 21.03744740532959,
+            "p50": 16.59999999999127,
+            "p95": 66.59999999999127,
+            "p99": 141.60000000000582,
+            "max": 528.3999999999942
+          },
+          "callbackMs": {
+            "mean": 17.648879542070276,
+            "p50": 11.599999904632568,
+            "p95": 55.80000019073486,
+            "p99": 127.19999980926514,
+            "max": 380.69999980926514
+          },
+          "renderMs": {
+            "mean": 11.40196078832076,
+            "p50": 7.300000190734863,
+            "p95": 29.5,
+            "p99": 89,
+            "max": 324.59999990463257
+          },
+          "calls": {
+            "mean": 386.11344537815125,
+            "p50": 387,
+            "p95": 387,
+            "p99": 387,
+            "max": 387
+          },
+          "triangles": {
+            "mean": 307270.6806722689,
+            "p50": 307276,
+            "p95": 307276,
+            "p99": 307276,
+            "max": 307276
+          },
+          "over100ms": 17,
+          "stalls": [
+            {
+              "offsetMs": 381.40000009536743,
+              "intervalMs": 116.80000000000291,
+              "previousCallbackMs": 99.60000038146973,
+              "previousRenderMs": 57.09999990463257,
+              "betweenCallbacksMs": 6.599999904632568,
+              "dispatchAfterRafMs": 6.299999904629658
+            },
+            {
+              "offsetMs": 1928.4000000953674,
+              "intervalMs": 118.80000000000291,
+              "previousCallbackMs": 103.5,
+              "previousRenderMs": 80,
+              "betweenCallbacksMs": 9.400000095367432,
+              "dispatchAfterRafMs": 17.89999990463548
+            },
+            {
+              "offsetMs": 2337.699999809265,
+              "intervalMs": 224.90000000000873,
+              "previousCallbackMs": 232.09999990463257,
+              "previousRenderMs": 191.40000009536743,
+              "betweenCallbacksMs": 1.1999998092651367,
+              "dispatchAfterRafMs": 16.799999618524453
+            },
+            {
+              "offsetMs": 5348.599999904633,
+              "intervalMs": 141.60000000000582,
+              "previousCallbackMs": 133.30000019073486,
+              "previousRenderMs": 89,
+              "betweenCallbacksMs": 1.799999713897705,
+              "dispatchAfterRafMs": 2.799999713897705
+            },
+            {
+              "offsetMs": 6403.699999809265,
+              "intervalMs": 101.69999999999709,
+              "previousCallbackMs": 98.59999990463257,
+              "previousRenderMs": 63.5,
+              "betweenCallbacksMs": 3.0999999046325684,
+              "dispatchAfterRafMs": 6.199999618533184
+            },
+            {
+              "offsetMs": 6524,
+              "intervalMs": 115,
+              "previousCallbackMs": 98.7000002861023,
+              "previousRenderMs": 11.099999904632568,
+              "betweenCallbacksMs": 21.59999990463257,
+              "dispatchAfterRafMs": 11.499999809268047
+            },
+            {
+              "offsetMs": 7327.900000095367,
+              "intervalMs": 132.89999999999418,
+              "previousCallbackMs": 78.09999990463257,
+              "previousRenderMs": 37.80000019073486,
+              "betweenCallbacksMs": 63.200000286102295,
+              "dispatchAfterRafMs": 19.59999990463257
+            },
+            {
+              "offsetMs": 9279.400000095367,
+              "intervalMs": 116,
+              "previousCallbackMs": 93.59999990463257,
+              "previousRenderMs": 65.5,
+              "betweenCallbacksMs": 4.200000286102295,
+              "dispatchAfterRafMs": 9.499999904626748
+            },
+            {
+              "offsetMs": 10331.400000095367,
+              "intervalMs": 163.40000000000873,
+              "previousCallbackMs": 134.59999990463257,
+              "previousRenderMs": 85.60000038146973,
+              "betweenCallbacksMs": 13.700000286102295,
+              "dispatchAfterRafMs": 10.499999904626748
+            },
+            {
+              "offsetMs": 11278.800000190735,
+              "intervalMs": 125,
+              "previousCallbackMs": 121.10000038146973,
+              "previousRenderMs": 90.80000019073486,
+              "betweenCallbacksMs": 2.5,
+              "dispatchAfterRafMs": 8
+            },
+            {
+              "offsetMs": 11740.900000095367,
+              "intervalMs": 133.20000000001164,
+              "previousCallbackMs": 102.40000009536743,
+              "previousRenderMs": 36.30000019073486,
+              "betweenCallbacksMs": 17.40000009536743,
+              "dispatchAfterRafMs": 19.999999904626748
+            },
+            {
+              "offsetMs": 11879.300000190735,
+              "intervalMs": 149.79999999998836,
+              "previousCallbackMs": 127.19999980926514,
+              "previousRenderMs": 80.09999990463257,
+              "betweenCallbacksMs": 11.200000286102295,
+              "dispatchAfterRafMs": 8.60000000000582
+            },
+            {
+              "offsetMs": 12114.800000190735,
+              "intervalMs": 162,
+              "previousCallbackMs": 145.40000009536743,
+              "previousRenderMs": 91.40000009536743,
+              "betweenCallbacksMs": 2.9000000953674316,
+              "dispatchAfterRafMs": 6.80000000000291
+            },
+            {
+              "offsetMs": 12548.400000095367,
+              "intervalMs": 366.8000000000029,
+              "previousCallbackMs": 242.39999961853027,
+              "previousRenderMs": 186.59999990463257,
+              "betweenCallbacksMs": 191.2000002861023,
+              "dispatchAfterRafMs": 73.59999990463257
+            },
+            {
+              "offsetMs": 13061.699999809265,
+              "intervalMs": 528.3999999999942,
+              "previousCallbackMs": 380.69999980926514,
+              "previousRenderMs": 324.59999990463257,
+              "betweenCallbacksMs": 132.59999990463257,
+              "dispatchAfterRafMs": 58.499999618536094
+            },
+            {
+              "offsetMs": 13407.599999904633,
+              "intervalMs": 283.1999999999971,
+              "previousCallbackMs": 267.2999997138977,
+              "previousRenderMs": 210.7000002861023,
+              "betweenCallbacksMs": 24,
+              "dispatchAfterRafMs": 11.899999713903526
+            },
+            {
+              "offsetMs": 14301.900000095367,
+              "intervalMs": 136.8000000000029,
+              "previousCallbackMs": 106.2000002861023,
+              "previousRenderMs": 92.7000002861023,
+              "betweenCallbacksMs": 12.5,
+              "dispatchAfterRafMs": 22.89999990463548
+            }
+          ],
+          "gpu": {
+            "supported": true,
+            "samples": 90,
+            "durationMs": {
+              "mean": 1.8847189111111124,
+              "p50": 1.531041,
+              "p95": 4.063666,
+              "p99": 5.877374,
+              "max": 5.877374
+            },
+            "slowCpuSamples": [
+              {
+                "offsetMs": 12114.800000190735,
+                "gpuMs": 2.372249,
+                "renderMs": 186.59999990463257,
+                "callbackMs": 242.39999961853027
+              },
+              {
+                "offsetMs": 1141.6999998092651,
+                "gpuMs": 2.137916,
+                "renderMs": 54.90000009536743,
+                "callbackMs": 71.5
+              },
+              {
+                "offsetMs": 112.40000009536743,
+                "gpuMs": 1.20275,
+                "renderMs": 50.09999990463257,
+                "callbackMs": 66.90000009536743
+              },
+              {
+                "offsetMs": 7186.599999904633,
+                "gpuMs": 4.712999,
+                "renderMs": 37.80000019073486,
+                "callbackMs": 78.09999990463257
+              },
+              {
+                "offsetMs": 8118.099999904633,
+                "gpuMs": 2.457375,
+                "renderMs": 37.200000286102295,
+                "callbackMs": 60.80000019073486
+              },
+              {
+                "offsetMs": 13645.900000095367,
+                "gpuMs": 1.367666,
+                "renderMs": 21.09999990463257,
+                "callbackMs": 25
+              },
+              {
+                "offsetMs": 478.80000019073486,
+                "gpuMs": 4.4275,
+                "renderMs": 16.90000009536743,
+                "callbackMs": 20.299999713897705
+              },
+              {
+                "offsetMs": 2575.0999999046326,
+                "gpuMs": 1.761083,
+                "renderMs": 15.400000095367432,
+                "callbackMs": 20.300000190734863
+              }
+            ],
+            "unresolved": 0,
+            "disjoint": 0
+          },
+          "longFramesOver100ms": [
+            {
+              "offsetMs": 258.5,
+              "durationMs": 120.40000009536743,
+              "blockingMs": 62.2,
+              "renderOffsetMs": 16.59999990463257,
+              "styleLayoutToEndMs": 3.700000286102295,
+              "scripts": [
+                {
+                  "offsetMs": 258.59999990463257,
+                  "durationMs": 7,
+                  "invoker": "PerformanceObserverCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "",
+                  "sourceCharPosition": 154710,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                },
+                {
+                  "offsetMs": 275.19999980926514,
+                  "durationMs": 100,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 1808.5,
+              "durationMs": 116.59999990463257,
+              "blockingMs": 59.8,
+              "renderOffsetMs": 6.800000190734863,
+              "styleLayoutToEndMs": 6,
+              "scripts": [
+                {
+                  "offsetMs": 1815.4000000953674,
+                  "durationMs": 103.59999990463257,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 2102.699999809265,
+              "durationMs": 234,
+              "blockingMs": 182.5,
+              "renderOffsetMs": 1.700000286102295,
+              "styleLayoutToEndMs": 0,
+              "scripts": [
+                {
+                  "offsetMs": 2104.4000000953674,
+                  "durationMs": 232.19999980926514,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 5213.199999809265,
+              "durationMs": 133.90000009536743,
+              "blockingMs": 83.9,
+              "renderOffsetMs": 0.10000038146972656,
+              "styleLayoutToEndMs": 0.09999990463256836,
+              "scripts": [
+                {
+                  "offsetMs": 5213.5,
+                  "durationMs": 133.30000019073486,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 6403.5,
+              "durationMs": 111.80000019073486,
+              "blockingMs": 61.8,
+              "renderOffsetMs": 0.09999990463256836,
+              "styleLayoutToEndMs": 11.300000190734863,
+              "scripts": [
+                {
+                  "offsetMs": 6403.699999809265,
+                  "durationMs": 98.90000009536743,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 7185.599999904633,
+              "durationMs": 120.2000002861023,
+              "blockingMs": 69.3,
+              "renderOffsetMs": 0.9000000953674316,
+              "styleLayoutToEndMs": 40.80000019073486,
+              "scripts": [
+                {
+                  "offsetMs": 7186.599999904633,
+                  "durationMs": 78.30000019073486,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 10179.5,
+              "durationMs": 146.40000009536743,
+              "blockingMs": 93,
+              "renderOffsetMs": 3.5,
+              "styleLayoutToEndMs": 7.900000095367432,
+              "scripts": [
+                {
+                  "offsetMs": 10183.099999904633,
+                  "durationMs": 134.90000009536743,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 11153.599999904633,
+              "durationMs": 122.90000009536743,
+              "blockingMs": 72.2,
+              "renderOffsetMs": 1.5,
+              "styleLayoutToEndMs": 0.09999990463256836,
+              "scripts": [
+                {
+                  "offsetMs": 11155.099999904633,
+                  "durationMs": 121.2000002861023,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 11614.400000095367,
+              "durationMs": 109.19999980926514,
+              "blockingMs": 52.7,
+              "renderOffsetMs": 6.599999904632568,
+              "styleLayoutToEndMs": 0.09999990463256836,
+              "scripts": [
+                {
+                  "offsetMs": 11621.099999904633,
+                  "durationMs": 102.40000009536743,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 11731.599999904633,
+              "durationMs": 138.90000009536743,
+              "blockingMs": 88.9,
+              "renderOffsetMs": 0.09999990463256836,
+              "styleLayoutToEndMs": 2.1999998092651367,
+              "scripts": [
+                {
+                  "offsetMs": 11731.699999809265,
+                  "durationMs": 136.60000038146973,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 11964.400000095367,
+              "durationMs": 147.69999980926514,
+              "blockingMs": 96.9,
+              "renderOffsetMs": 1.9000000953674316,
+              "styleLayoutToEndMs": 0.09999990463256836,
+              "scripts": [
+                {
+                  "offsetMs": 11966.400000095367,
+                  "durationMs": 145.5,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 12112.300000190735,
+              "durationMs": 330.7999997138977,
+              "blockingMs": 279.9,
+              "renderOffsetMs": 2,
+              "styleLayoutToEndMs": 85.5,
+              "scripts": [
+                {
+                  "offsetMs": 12114.800000190735,
+                  "durationMs": 242.69999980926514,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 12539.800000190735,
+              "durationMs": 470.5,
+              "blockingMs": 420.3,
+              "renderOffsetMs": 0.39999961853027344,
+              "styleLayoutToEndMs": 64.5,
+              "scripts": [
+                {
+                  "offsetMs": 12541.099999904633,
+                  "durationMs": 396.40000009536743,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 13116,
+              "durationMs": 269.09999990463257,
+              "blockingMs": 219,
+              "renderOffsetMs": 0.19999980926513672,
+              "styleLayoutToEndMs": 1.299999713897705,
+              "scripts": [
+                {
+                  "offsetMs": 13116.199999809265,
+                  "durationMs": 267.6000003814697,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 14150.800000190735,
+              "durationMs": 139.2999997138977,
+              "blockingMs": 65.2,
+              "renderOffsetMs": 32.39999961853027,
+              "styleLayoutToEndMs": 0.5999999046325684,
+              "scripts": [
+                {
+                  "offsetMs": 14183.199999809265,
+                  "durationMs": 106.30000019073486,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-DULmuqzU.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133474,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            }
+          ],
+          "longTasks": [
+            {
+              "offsetMs": 112.30000019073486,
+              "durationMs": 80,
+              "name": "self"
+            },
+            {
+              "offsetMs": 200.19999980926514,
+              "durationMs": 58,
+              "name": "self"
+            },
+            {
+              "offsetMs": 266.80000019073486,
+              "durationMs": 113,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1141.5999999046326,
+              "durationMs": 108,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1815.3000001907349,
+              "durationMs": 110,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1961.9000000953674,
+              "durationMs": 73,
+              "name": "self"
+            },
+            {
+              "offsetMs": 2104.300000190735,
+              "durationMs": 232,
+              "name": "self"
+            },
+            {
+              "offsetMs": 2337.5,
+              "durationMs": 62,
+              "name": "self"
+            },
+            {
+              "offsetMs": 3117.5999999046326,
+              "durationMs": 61,
+              "name": "self"
+            },
+            {
+              "offsetMs": 3179.5,
+              "durationMs": 85,
+              "name": "self"
+            },
+            {
+              "offsetMs": 4117.900000095367,
+              "durationMs": 76,
+              "name": "self"
+            },
+            {
+              "offsetMs": 4196.099999904633,
+              "durationMs": 62,
+              "name": "self"
+            },
+            {
+              "offsetMs": 4262.699999809265,
+              "durationMs": 78,
+              "name": "self"
+            },
+            {
+              "offsetMs": 4346,
+              "durationMs": 60,
+              "name": "self"
+            },
+            {
+              "offsetMs": 4406.800000190735,
+              "durationMs": 87,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5115.199999809265,
+              "durationMs": 98,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5213.199999809265,
+              "durationMs": 134,
+              "name": "self"
+            },
+            {
+              "offsetMs": 6235,
+              "durationMs": 66,
+              "name": "self"
+            },
+            {
+              "offsetMs": 6301.800000190735,
+              "durationMs": 101,
+              "name": "self"
+            },
+            {
+              "offsetMs": 6403.599999904633,
+              "durationMs": 114,
+              "name": "self"
+            },
+            {
+              "offsetMs": 7120.300000190735,
+              "durationMs": 65,
+              "name": "self"
+            },
+            {
+              "offsetMs": 7186.400000095367,
+              "durationMs": 129,
+              "name": "self"
+            },
+            {
+              "offsetMs": 7325,
+              "durationMs": 56,
+              "name": "self"
+            },
+            {
+              "offsetMs": 8118,
+              "durationMs": 67,
+              "name": "self"
+            },
+            {
+              "offsetMs": 8191.699999809265,
+              "durationMs": 116,
+              "name": "self"
+            },
+            {
+              "offsetMs": 9114.599999904633,
+              "durationMs": 61,
+              "name": "self"
+            },
+            {
+              "offsetMs": 9178.599999904633,
+              "durationMs": 96,
+              "name": "self"
+            },
+            {
+              "offsetMs": 10114,
+              "durationMs": 65,
+              "name": "self"
+            },
+            {
+              "offsetMs": 10182.900000095367,
+              "durationMs": 146,
+              "name": "self"
+            },
+            {
+              "offsetMs": 11154.199999809265,
+              "durationMs": 122,
+              "name": "self"
+            },
+            {
+              "offsetMs": 11278.699999809265,
+              "durationMs": 70,
+              "name": "self"
+            },
+            {
+              "offsetMs": 11620.900000095367,
+              "durationMs": 110,
+              "name": "self"
+            },
+            {
+              "offsetMs": 11731.699999809265,
+              "durationMs": 146,
+              "name": "self"
+            },
+            {
+              "offsetMs": 11878.900000095367,
+              "durationMs": 85,
+              "name": "self"
+            },
+            {
+              "offsetMs": 11966,
+              "durationMs": 146,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12113.699999809265,
+              "durationMs": 420,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12540.099999904633,
+              "durationMs": 471,
+              "name": "self"
+            },
+            {
+              "offsetMs": 13011.900000095367,
+              "durationMs": 94,
+              "name": "self"
+            },
+            {
+              "offsetMs": 13116.199999809265,
+              "durationMs": 281,
+              "name": "self"
+            },
+            {
+              "offsetMs": 13404.199999809265,
+              "durationMs": 71,
+              "name": "self"
+            },
+            {
+              "offsetMs": 14174.900000095367,
+              "durationMs": 115,
+              "name": "self"
+            },
+            {
+              "offsetMs": 14411.5,
+              "durationMs": 72,
+              "name": "self"
+            }
+          ],
+          "panelRefreshes": [
+            {
+              "offsetMs": 499.5,
+              "durationMs": 0.5999999046325684
+            },
+            {
+              "offsetMs": 988.6999998092651,
+              "durationMs": 1
+            },
+            {
+              "offsetMs": 1503.9000000953674,
+              "durationMs": 3.6999998092651367
+            },
+            {
+              "offsetMs": 2036,
+              "durationMs": 7.599999904632568
+            },
+            {
+              "offsetMs": 2486.0999999046326,
+              "durationMs": 1.700000286102295
+            },
+            {
+              "offsetMs": 2992.800000190735,
+              "durationMs": 9.199999809265137
+            },
+            {
+              "offsetMs": 3485.4000000953674,
+              "durationMs": 1.1999998092651367
+            },
+            {
+              "offsetMs": 3991.699999809265,
+              "durationMs": 1.6000003814697266
+            },
+            {
+              "offsetMs": 4494.400000095367,
+              "durationMs": 15.099999904632568
+            },
+            {
+              "offsetMs": 4986.699999809265,
+              "durationMs": 2
+            },
+            {
+              "offsetMs": 5486.599999904633,
+              "durationMs": 1.8000001907348633
+            },
+            {
+              "offsetMs": 5992.5,
+              "durationMs": 0.9000000953674316
+            },
+            {
+              "offsetMs": 6521.699999809265,
+              "durationMs": 1.3000001907348633
+            },
+            {
+              "offsetMs": 6987.199999809265,
+              "durationMs": 2.5
+            },
+            {
+              "offsetMs": 7490,
+              "durationMs": 1.5
+            },
+            {
+              "offsetMs": 7995.900000095367,
+              "durationMs": 1.4000000953674316
+            },
+            {
+              "offsetMs": 8486,
+              "durationMs": 2.0999999046325684
+            },
+            {
+              "offsetMs": 8978.199999809265,
+              "durationMs": 4.600000381469727
+            },
+            {
+              "offsetMs": 9483.099999904633,
+              "durationMs": 1.0999999046325684
+            },
+            {
+              "offsetMs": 9986.199999809265,
+              "durationMs": 0.9000000953674316
+            },
+            {
+              "offsetMs": 10485.5,
+              "durationMs": 1
+            },
+            {
+              "offsetMs": 10981.5,
+              "durationMs": 1.4000000953674316
+            },
+            {
+              "offsetMs": 11473.699999809265,
+              "durationMs": 8
+            },
+            {
+              "offsetMs": 12112.5,
+              "durationMs": 1.1999998092651367
+            },
+            {
+              "offsetMs": 13011.300000190735,
+              "durationMs": 0.5
+            },
+            {
+              "offsetMs": 13494.300000190735,
+              "durationMs": 2.5
+            },
+            {
+              "offsetMs": 13994.800000190735,
+              "durationMs": 5.899999618530273
+            },
+            {
+              "offsetMs": 14492.300000190735,
+              "durationMs": 0.39999961853027344
+            },
+            {
+              "offsetMs": 14981.699999809265,
+              "durationMs": 2.1000003814697266
+            }
+          ]
+        }
+      ],
+      "loafSupported": true,
+      "longTaskSupported": true,
+      "recordedAt": "2026-11-06T12:34:39.352Z"
+    }
+  ]
+}

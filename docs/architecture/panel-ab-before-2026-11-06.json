@@ -1,0 +1,1397 @@
+{
+  "schema": 4,
+  "notes": "World frame stats cover real main callbacks only; no FPS when world is on demand. Activity counters independently measure actual world/preview frames, calls and CPU elapsed per wall second. CPU excludes layout/paint and GPU time. Calls include shadow passes. Counts are not bytes. Event times may overlap stages. No network transmission.",
+  "reports": [],
+  "panelComparisons": [
+    {
+      "status": "complete",
+      "runs": [
+        {
+          "panel": true,
+          "durationMs": 15000,
+          "sameConditions": true,
+          "environment": {
+            "build": "production",
+            "asset": "http://127.0.0.1:4175/assets/index-B3WkpvlW.js",
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+            "viewport": {
+              "width": 1440,
+              "height": 900
+            },
+            "drawingBuffer": {
+              "width": 1440,
+              "height": 900
+            },
+            "devicePixelRatio": 1,
+            "renderPixelRatio": 1,
+            "shadows": true,
+            "mainRendererOnly": true,
+            "worldScheduling": "continuous",
+            "camera": {
+              "position": [
+                -64.17221646664532,
+                29.5533493280849,
+                126.72177515807776
+              ],
+              "quaternion": [
+                -0.09882467285956284,
+                0.029848535500545163,
+                0.002965629928151469,
+                0.9946526800857686
+              ]
+            },
+            "position": {
+              "x": -66.41403443027163,
+              "y": 18.75022553790357,
+              "z": 89.40298955466544
+            },
+            "time": 13.022365264001472,
+            "timeRate": 0,
+            "longAnimationFramesSupported": true
+          },
+          "environmentEnd": {
+            "build": "production",
+            "asset": "http://127.0.0.1:4175/assets/index-B3WkpvlW.js",
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+            "viewport": {
+              "width": 1440,
+              "height": 900
+            },
+            "drawingBuffer": {
+              "width": 1440,
+              "height": 900
+            },
+            "devicePixelRatio": 1,
+            "renderPixelRatio": 1,
+            "shadows": true,
+            "mainRendererOnly": true,
+            "worldScheduling": "continuous",
+            "camera": {
+              "position": [
+                -64.17221646664552,
+                29.553349328084895,
+                126.72177515807748
+              ],
+              "quaternion": [
+                -0.09882467285956358,
+                0.029848535500542922,
+                0.0029656299281512685,
+                0.9946526800857688
+              ]
+            },
+            "position": {
+              "x": -66.41403443027163,
+              "y": 18.75022553790357,
+              "z": 89.40298955466544
+            },
+            "time": 13.022365264001472,
+            "timeRate": 0,
+            "longAnimationFramesSupported": true
+          },
+          "droppedFrames": 0,
+          "frames": 1196,
+          "fps": 79.75599337925142,
+          "frameMs": {
+            "mean": 12.538242677824268,
+            "p50": 8.399999999999636,
+            "p95": 25,
+            "p99": 66.70000000000073,
+            "max": 116.29999999999927
+          },
+          "callbackMs": {
+            "mean": 10.663712379127043,
+            "p50": 9.099999904632568,
+            "p95": 16.299999713897705,
+            "p99": 51.5,
+            "max": 100.59999990463257
+          },
+          "renderMs": {
+            "mean": 6.789966555343423,
+            "p50": 5.600000381469727,
+            "p95": 11.5,
+            "p99": 34.5,
+            "max": 68.30000019073486
+          },
+          "calls": {
+            "mean": 385.70986622073576,
+            "p50": 386,
+            "p95": 388,
+            "p99": 388,
+            "max": 388
+          },
+          "over100ms": 1,
+          "stalls": [
+            {
+              "offsetMs": 2209,
+              "intervalMs": 116.29999999999927,
+              "previousCallbackMs": 100.59999990463257,
+              "previousRenderMs": 67.5,
+              "betweenCallbacksMs": 15.800000190734863,
+              "dispatchAfterRafMs": 25.500000095367795
+            }
+          ],
+          "longFramesOver100ms": [
+            {
+              "offsetMs": 2077.2999997138977,
+              "durationMs": 116.10000038146973,
+              "blockingMs": 59.3,
+              "renderOffsetMs": 6.900000095367432,
+              "styleLayoutToEndMs": 0.10000038146972656,
+              "scripts": [
+                {
+                  "offsetMs": 2084.199999809265,
+                  "durationMs": 109,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-B3WkpvlW.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133477,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            }
+          ],
+          "longTasks": [
+            {
+              "offsetMs": 2084.0999999046326,
+              "durationMs": 109,
+              "name": "self"
+            },
+            {
+              "offsetMs": 2200.699999809265,
+              "durationMs": 59,
+              "name": "self"
+            },
+            {
+              "offsetMs": 3012.699999809265,
+              "durationMs": 57,
+              "name": "self"
+            },
+            {
+              "offsetMs": 3075.5999999046326,
+              "durationMs": 87,
+              "name": "self"
+            },
+            {
+              "offsetMs": 4050.9000000953674,
+              "durationMs": 76,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5020.199999809265,
+              "durationMs": 101,
+              "name": "self"
+            },
+            {
+              "offsetMs": 6005.900000095367,
+              "durationMs": 53,
+              "name": "self"
+            },
+            {
+              "offsetMs": 7019.400000095367,
+              "durationMs": 56,
+              "name": "self"
+            },
+            {
+              "offsetMs": 7078,
+              "durationMs": 62,
+              "name": "self"
+            },
+            {
+              "offsetMs": 8067.099999904633,
+              "durationMs": 92,
+              "name": "self"
+            },
+            {
+              "offsetMs": 9061.099999904633,
+              "durationMs": 81,
+              "name": "self"
+            },
+            {
+              "offsetMs": 10109,
+              "durationMs": 65,
+              "name": "self"
+            },
+            {
+              "offsetMs": 11045.799999713898,
+              "durationMs": 68,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12015.599999904633,
+              "durationMs": 80,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12101.099999904633,
+              "durationMs": 52,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12153.799999713898,
+              "durationMs": 97,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12264.799999713898,
+              "durationMs": 77,
+              "name": "self"
+            },
+            {
+              "offsetMs": 13076.299999713898,
+              "durationMs": 64,
+              "name": "self"
+            },
+            {
+              "offsetMs": 14050.199999809265,
+              "durationMs": 93,
+              "name": "self"
+            }
+          ],
+          "panelRefreshes": [
+            {
+              "offsetMs": 498.40000009536743,
+              "durationMs": 0.7999997138977051
+            },
+            {
+              "offsetMs": 1007,
+              "durationMs": 1
+            },
+            {
+              "offsetMs": 1501.5,
+              "durationMs": 0.7999997138977051
+            },
+            {
+              "offsetMs": 2007.4000000953674,
+              "durationMs": 1.8999996185302734
+            },
+            {
+              "offsetMs": 2508,
+              "durationMs": 1.5
+            },
+            {
+              "offsetMs": 3002.5,
+              "durationMs": 1.1999998092651367
+            },
+            {
+              "offsetMs": 3503.9000000953674,
+              "durationMs": 1.5
+            },
+            {
+              "offsetMs": 4002.5999999046326,
+              "durationMs": 1.0999999046325684
+            },
+            {
+              "offsetMs": 4491.799999713898,
+              "durationMs": 1.200000286102295
+            },
+            {
+              "offsetMs": 5006.299999713898,
+              "durationMs": 1.1000003814697266
+            },
+            {
+              "offsetMs": 5506.299999713898,
+              "durationMs": 1.6000003814697266
+            },
+            {
+              "offsetMs": 6004.5,
+              "durationMs": 1.299999713897705
+            },
+            {
+              "offsetMs": 6513.799999713898,
+              "durationMs": 1.6000003814697266
+            },
+            {
+              "offsetMs": 6995.699999809265,
+              "durationMs": 1.3000001907348633
+            },
+            {
+              "offsetMs": 7515.099999904633,
+              "durationMs": 1.5
+            },
+            {
+              "offsetMs": 7992.099999904633,
+              "durationMs": 2.9000000953674316
+            },
+            {
+              "offsetMs": 8497.699999809265,
+              "durationMs": 1.3000001907348633
+            },
+            {
+              "offsetMs": 8998.599999904633,
+              "durationMs": 1.1999998092651367
+            },
+            {
+              "offsetMs": 9506.799999713898,
+              "durationMs": 1.4000000953674316
+            },
+            {
+              "offsetMs": 9998.900000095367,
+              "durationMs": 1.3999996185302734
+            },
+            {
+              "offsetMs": 10505.799999713898,
+              "durationMs": 6.200000286102295
+            },
+            {
+              "offsetMs": 11005.199999809265,
+              "durationMs": 1.3000001907348633
+            },
+            {
+              "offsetMs": 11517,
+              "durationMs": 2.799999713897705
+            },
+            {
+              "offsetMs": 12003.599999904633,
+              "durationMs": 1.1999998092651367
+            },
+            {
+              "offsetMs": 12504.199999809265,
+              "durationMs": 3.5999999046325684
+            },
+            {
+              "offsetMs": 12991.900000095367,
+              "durationMs": 6.5
+            },
+            {
+              "offsetMs": 13525.599999904633,
+              "durationMs": 2
+            },
+            {
+              "offsetMs": 14003.599999904633,
+              "durationMs": 1.9000000953674316
+            },
+            {
+              "offsetMs": 14505.299999713898,
+              "durationMs": 1.200000286102295
+            }
+          ]
+        },
+        {
+          "panel": false,
+          "durationMs": 15000,
+          "sameConditions": true,
+          "environment": {
+            "build": "production",
+            "asset": "http://127.0.0.1:4175/assets/index-B3WkpvlW.js",
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+            "viewport": {
+              "width": 1440,
+              "height": 900
+            },
+            "drawingBuffer": {
+              "width": 1440,
+              "height": 900
+            },
+            "devicePixelRatio": 1,
+            "renderPixelRatio": 1,
+            "shadows": true,
+            "mainRendererOnly": true,
+            "worldScheduling": "continuous",
+            "camera": {
+              "position": [
+                -64.17221646664552,
+                29.553349328084895,
+                126.72177515807748
+              ],
+              "quaternion": [
+                -0.09882467285956358,
+                0.029848535500542922,
+                0.0029656299281512685,
+                0.9946526800857688
+              ]
+            },
+            "position": {
+              "x": -66.41403443027163,
+              "y": 18.75022553790357,
+              "z": 89.40298955466544
+            },
+            "time": 13.022365264001472,
+            "timeRate": 0,
+            "longAnimationFramesSupported": true
+          },
+          "environmentEnd": {
+            "build": "production",
+            "asset": "http://127.0.0.1:4175/assets/index-B3WkpvlW.js",
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+            "viewport": {
+              "width": 1440,
+              "height": 900
+            },
+            "drawingBuffer": {
+              "width": 1440,
+              "height": 900
+            },
+            "devicePixelRatio": 1,
+            "renderPixelRatio": 1,
+            "shadows": true,
+            "mainRendererOnly": true,
+            "worldScheduling": "continuous",
+            "camera": {
+              "position": [
+                -64.17221646664552,
+                29.553349328084895,
+                126.72177515807748
+              ],
+              "quaternion": [
+                -0.09882467285956358,
+                0.029848535500542922,
+                0.0029656299281512685,
+                0.9946526800857688
+              ]
+            },
+            "position": {
+              "x": -66.41403443027163,
+              "y": 18.75022553790357,
+              "z": 89.40298955466544
+            },
+            "time": 13.022365264001472,
+            "timeRate": 0,
+            "longAnimationFramesSupported": true
+          },
+          "droppedFrames": 0,
+          "frames": 1097,
+          "fps": 73.86888273314867,
+          "frameMs": {
+            "mean": 13.537499999999998,
+            "p50": 8.400000000001455,
+            "p95": 25.10000000000582,
+            "p99": 74.5,
+            "max": 150.10000000000218
+          },
+          "callbackMs": {
+            "mean": 11.500364636114323,
+            "p50": 9.300000190734863,
+            "p95": 21.09999990463257,
+            "p99": 64.19999980926514,
+            "max": 151.59999990463257
+          },
+          "renderMs": {
+            "mean": 7.594986334864182,
+            "p50": 6,
+            "p95": 14.099999904632568,
+            "p99": 50.90000009536743,
+            "max": 141.7999997138977
+          },
+          "calls": {
+            "mean": 388.26435733819505,
+            "p50": 389,
+            "p95": 389,
+            "p99": 389,
+            "max": 389
+          },
+          "over100ms": 7,
+          "stalls": [
+            {
+              "offsetMs": 1149.5999999046326,
+              "intervalMs": 116.59999999999854,
+              "previousCallbackMs": 81.39999961853027,
+              "previousRenderMs": 31.299999713897705,
+              "betweenCallbacksMs": 1.200000286102295,
+              "dispatchAfterRafMs": 7.800000095368887
+            },
+            {
+              "offsetMs": 1358.6999998092651,
+              "intervalMs": 150.10000000000218,
+              "previousCallbackMs": 151.59999990463257,
+              "previousRenderMs": 141.7999997138977,
+              "betweenCallbacksMs": 9.800000190734863,
+              "dispatchAfterRafMs": 16.799999999999272
+            },
+            {
+              "offsetMs": 1949.5999999046326,
+              "intervalMs": 141.59999999999854,
+              "previousCallbackMs": 139.5,
+              "previousRenderMs": 55.700000286102295,
+              "betweenCallbacksMs": 1.5999999046325684,
+              "dispatchAfterRafMs": 7.800000095368887
+            },
+            {
+              "offsetMs": 2117.199999809265,
+              "intervalMs": 124.59999999999854,
+              "previousCallbackMs": 78.40000009536743,
+              "previousRenderMs": 69.5,
+              "betweenCallbacksMs": 56.19999980926514,
+              "dispatchAfterRafMs": 17.400000000001455
+            },
+            {
+              "offsetMs": 3127.2999997138977,
+              "intervalMs": 108.40000000000146,
+              "previousCallbackMs": 101.5,
+              "previousRenderMs": 76.5,
+              "betweenCallbacksMs": 8.799999713897705,
+              "dispatchAfterRafMs": 27.09999990463257
+            },
+            {
+              "offsetMs": 7140.599999904633,
+              "intervalMs": 100.5,
+              "previousCallbackMs": 54.19999980926514,
+              "previousRenderMs": 50.90000009536743,
+              "betweenCallbacksMs": 55.200000286102295,
+              "dispatchAfterRafMs": 15.400000095367432
+            },
+            {
+              "offsetMs": 14239.199999809265,
+              "intervalMs": 133.5,
+              "previousCallbackMs": 99.7999997138977,
+              "previousRenderMs": 56.200000286102295,
+              "betweenCallbacksMs": 34.80000019073486,
+              "dispatchAfterRafMs": 18.099999999998545
+            }
+          ],
+          "longFramesOver100ms": [
+            {
+              "offsetMs": 6.299999713897705,
+              "durationMs": 159.7000002861023,
+              "blockingMs": 107.4,
+              "renderOffsetMs": 2.4000000953674316,
+              "styleLayoutToEndMs": 0.20000028610229492,
+              "scripts": [
+                {
+                  "offsetMs": 8.699999809265137,
+                  "durationMs": 157.09999990463257,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-B3WkpvlW.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133477,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 1033.0999999046326,
+              "durationMs": 115.5,
+              "blockingMs": 64.8,
+              "renderOffsetMs": 8.900000095367432,
+              "styleLayoutToEndMs": 0.09999990463256836,
+              "scripts": [
+                {
+                  "offsetMs": 1058.6999998092651,
+                  "durationMs": 89.80000019073486,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-B3WkpvlW.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133477,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 1196.7999997138977,
+              "durationMs": 152.40000009536743,
+              "blockingMs": 101.9,
+              "renderOffsetMs": 0.5,
+              "styleLayoutToEndMs": 0.19999980926513672,
+              "scripts": [
+                {
+                  "offsetMs": 1197.2999997138977,
+                  "durationMs": 151.7000002861023,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-B3WkpvlW.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133477,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 1808.1999998092651,
+              "durationMs": 139.90000009536743,
+              "blockingMs": 89.7,
+              "renderOffsetMs": 0.3000001907348633,
+              "styleLayoutToEndMs": 0,
+              "scripts": [
+                {
+                  "offsetMs": 1808.5,
+                  "durationMs": 139.5,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-B3WkpvlW.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133477,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 1982.1999998092651,
+              "durationMs": 100.80000019073486,
+              "blockingMs": 50.7,
+              "renderOffsetMs": 0.09999990463256836,
+              "styleLayoutToEndMs": 16,
+              "scripts": [
+                {
+                  "offsetMs": 1982.5999999046326,
+                  "durationMs": 78.40000009536743,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-B3WkpvlW.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133477,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 3016.8999996185303,
+              "durationMs": 101.80000019073486,
+              "blockingMs": 51.7,
+              "renderOffsetMs": 0.10000038146972656,
+              "styleLayoutToEndMs": 0.09999990463256836,
+              "scripts": [
+                {
+                  "offsetMs": 3017,
+                  "durationMs": 101.59999990463257,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-B3WkpvlW.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133477,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 13994.39999961853,
+              "durationMs": 107.5,
+              "blockingMs": 57.3,
+              "renderOffsetMs": 0.10000038146972656,
+              "styleLayoutToEndMs": 0.09999990463256836,
+              "scripts": [
+                {
+                  "offsetMs": 13994.5,
+                  "durationMs": 107.09999990463257,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-B3WkpvlW.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133477,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            },
+            {
+              "offsetMs": 14102.799999713898,
+              "durationMs": 118,
+              "blockingMs": 66.3,
+              "renderOffsetMs": 1.8000001907348633,
+              "styleLayoutToEndMs": 6.5,
+              "scripts": [
+                {
+                  "offsetMs": 14104.599999904633,
+                  "durationMs": 107.69999980926514,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-B3WkpvlW.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133477,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            }
+          ],
+          "longTasks": [
+            {
+              "offsetMs": 8.699999809265137,
+              "durationMs": 157,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1033.7999997138977,
+              "durationMs": 115,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1197.1999998092651,
+              "durationMs": 152,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1808.5,
+              "durationMs": 139,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1982.1999998092651,
+              "durationMs": 117,
+              "name": "self"
+            },
+            {
+              "offsetMs": 2117.0999999046326,
+              "durationMs": 55,
+              "name": "self"
+            },
+            {
+              "offsetMs": 3017,
+              "durationMs": 102,
+              "name": "self"
+            },
+            {
+              "offsetMs": 4994.39999961853,
+              "durationMs": 51,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5046.699999809265,
+              "durationMs": 78,
+              "name": "self"
+            },
+            {
+              "offsetMs": 6042.699999809265,
+              "durationMs": 66,
+              "name": "self"
+            },
+            {
+              "offsetMs": 7031.099999904633,
+              "durationMs": 99,
+              "name": "self"
+            },
+            {
+              "offsetMs": 8033.799999713898,
+              "durationMs": 66,
+              "name": "self"
+            },
+            {
+              "offsetMs": 8998.099999904633,
+              "durationMs": 67,
+              "name": "self"
+            },
+            {
+              "offsetMs": 9066.89999961853,
+              "durationMs": 73,
+              "name": "self"
+            },
+            {
+              "offsetMs": 9984.39999961853,
+              "durationMs": 76,
+              "name": "self"
+            },
+            {
+              "offsetMs": 10066.89999961853,
+              "durationMs": 93,
+              "name": "self"
+            },
+            {
+              "offsetMs": 11037.599999904633,
+              "durationMs": 56,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12082.39999961853,
+              "durationMs": 62,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12992.89999961853,
+              "durationMs": 63,
+              "name": "self"
+            },
+            {
+              "offsetMs": 13063.39999961853,
+              "durationMs": 58,
+              "name": "self"
+            },
+            {
+              "offsetMs": 13994.5,
+              "durationMs": 108,
+              "name": "self"
+            },
+            {
+              "offsetMs": 14104.5,
+              "durationMs": 129,
+              "name": "self"
+            },
+            {
+              "offsetMs": 14551.599999904633,
+              "durationMs": 58,
+              "name": "self"
+            },
+            {
+              "offsetMs": 14652.39999961853,
+              "durationMs": 72,
+              "name": "self"
+            }
+          ],
+          "panelRefreshes": []
+        },
+        {
+          "panel": false,
+          "durationMs": 15000,
+          "sameConditions": true,
+          "environment": {
+            "build": "production",
+            "asset": "http://127.0.0.1:4175/assets/index-B3WkpvlW.js",
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+            "viewport": {
+              "width": 1440,
+              "height": 900
+            },
+            "drawingBuffer": {
+              "width": 1440,
+              "height": 900
+            },
+            "devicePixelRatio": 1,
+            "renderPixelRatio": 1,
+            "shadows": true,
+            "mainRendererOnly": true,
+            "worldScheduling": "continuous",
+            "camera": {
+              "position": [
+                -64.17221646664552,
+                29.553349328084895,
+                126.72177515807748
+              ],
+              "quaternion": [
+                -0.09882467285956358,
+                0.029848535500542922,
+                0.0029656299281512685,
+                0.9946526800857688
+              ]
+            },
+            "position": {
+              "x": -66.41403443027163,
+              "y": 18.75022553790357,
+              "z": 89.40298955466544
+            },
+            "time": 13.022365264001472,
+            "timeRate": 0,
+            "longAnimationFramesSupported": true
+          },
+          "environmentEnd": {
+            "build": "production",
+            "asset": "http://127.0.0.1:4175/assets/index-B3WkpvlW.js",
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+            "viewport": {
+              "width": 1440,
+              "height": 900
+            },
+            "drawingBuffer": {
+              "width": 1440,
+              "height": 900
+            },
+            "devicePixelRatio": 1,
+            "renderPixelRatio": 1,
+            "shadows": true,
+            "mainRendererOnly": true,
+            "worldScheduling": "continuous",
+            "camera": {
+              "position": [
+                -64.17221646664552,
+                29.553349328084895,
+                126.72177515807748
+              ],
+              "quaternion": [
+                -0.09882467285956358,
+                0.029848535500542922,
+                0.0029656299281512685,
+                0.9946526800857688
+              ]
+            },
+            "position": {
+              "x": -66.41403443027163,
+              "y": 18.75022553790357,
+              "z": 89.40298955466544
+            },
+            "time": 13.022365264001472,
+            "timeRate": 0,
+            "longAnimationFramesSupported": true
+          },
+          "droppedFrames": 0,
+          "frames": 1277,
+          "fps": 85.30495183211772,
+          "frameMs": {
+            "mean": 11.722648902821316,
+            "p50": 8.400000000001455,
+            "p95": 24.700000000004366,
+            "p99": 50.80000000000291,
+            "max": 99.19999999999709
+          },
+          "callbackMs": {
+            "mean": 10.085747848382292,
+            "p50": 8.5,
+            "p95": 16.799999713897705,
+            "p99": 42.80000019073486,
+            "max": 97.80000019073486
+          },
+          "renderMs": {
+            "mean": 6.554894280414985,
+            "p50": 5.400000095367432,
+            "p95": 11.400000095367432,
+            "p99": 32.5,
+            "max": 83.30000019073486
+          },
+          "calls": {
+            "mean": 387.9608457321848,
+            "p50": 389,
+            "p95": 389,
+            "p99": 389,
+            "max": 389
+          },
+          "over100ms": 0,
+          "stalls": [],
+          "longFramesOver100ms": [
+            {
+              "offsetMs": 13041.199999809265,
+              "durationMs": 100.7000002861023,
+              "blockingMs": 50.4,
+              "renderOffsetMs": 0.40000009536743164,
+              "styleLayoutToEndMs": 2.4000000953674316,
+              "scripts": [
+                {
+                  "offsetMs": 13041.599999904633,
+                  "durationMs": 97.90000009536743,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-B3WkpvlW.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133477,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            }
+          ],
+          "longTasks": [
+            {
+              "offsetMs": 29,
+              "durationMs": 51,
+              "name": "self"
+            },
+            {
+              "offsetMs": 991.8000001907349,
+              "durationMs": 53,
+              "name": "self"
+            },
+            {
+              "offsetMs": 1942.1999998092651,
+              "durationMs": 58,
+              "name": "self"
+            },
+            {
+              "offsetMs": 2000.5999999046326,
+              "durationMs": 59,
+              "name": "self"
+            },
+            {
+              "offsetMs": 3980,
+              "durationMs": 61,
+              "name": "self"
+            },
+            {
+              "offsetMs": 4987.400000095367,
+              "durationMs": 54,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5945,
+              "durationMs": 58,
+              "name": "self"
+            },
+            {
+              "offsetMs": 6008,
+              "durationMs": 58,
+              "name": "self"
+            },
+            {
+              "offsetMs": 7943.5,
+              "durationMs": 56,
+              "name": "self"
+            },
+            {
+              "offsetMs": 8007.900000095367,
+              "durationMs": 53,
+              "name": "self"
+            },
+            {
+              "offsetMs": 10025.099999904633,
+              "durationMs": 52,
+              "name": "self"
+            },
+            {
+              "offsetMs": 10943.300000190735,
+              "durationMs": 57,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12000.099999904633,
+              "durationMs": 86,
+              "name": "self"
+            },
+            {
+              "offsetMs": 13041.599999904633,
+              "durationMs": 104,
+              "name": "self"
+            },
+            {
+              "offsetMs": 14629.300000190735,
+              "durationMs": 59,
+              "name": "self"
+            },
+            {
+              "offsetMs": 14690.800000190735,
+              "durationMs": 56,
+              "name": "self"
+            }
+          ],
+          "panelRefreshes": []
+        },
+        {
+          "panel": true,
+          "durationMs": 15000,
+          "sameConditions": true,
+          "environment": {
+            "build": "production",
+            "asset": "http://127.0.0.1:4175/assets/index-B3WkpvlW.js",
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+            "viewport": {
+              "width": 1440,
+              "height": 900
+            },
+            "drawingBuffer": {
+              "width": 1440,
+              "height": 900
+            },
+            "devicePixelRatio": 1,
+            "renderPixelRatio": 1,
+            "shadows": true,
+            "mainRendererOnly": true,
+            "worldScheduling": "continuous",
+            "camera": {
+              "position": [
+                -64.17221646664552,
+                29.553349328084895,
+                126.72177515807748
+              ],
+              "quaternion": [
+                -0.09882467285956358,
+                0.029848535500542922,
+                0.0029656299281512685,
+                0.9946526800857688
+              ]
+            },
+            "position": {
+              "x": -66.41403443027163,
+              "y": 18.75022553790357,
+              "z": 89.40298955466544
+            },
+            "time": 13.022365264001472,
+            "timeRate": 0,
+            "longAnimationFramesSupported": true
+          },
+          "environmentEnd": {
+            "build": "production",
+            "asset": "http://127.0.0.1:4175/assets/index-B3WkpvlW.js",
+            "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+            "viewport": {
+              "width": 1440,
+              "height": 900
+            },
+            "drawingBuffer": {
+              "width": 1440,
+              "height": 900
+            },
+            "devicePixelRatio": 1,
+            "renderPixelRatio": 1,
+            "shadows": true,
+            "mainRendererOnly": true,
+            "worldScheduling": "continuous",
+            "camera": {
+              "position": [
+                -64.17221646664552,
+                29.553349328084895,
+                126.72177515807748
+              ],
+              "quaternion": [
+                -0.09882467285956358,
+                0.029848535500542922,
+                0.0029656299281512685,
+                0.9946526800857688
+              ]
+            },
+            "position": {
+              "x": -66.41403443027163,
+              "y": 18.75022553790357,
+              "z": 89.40298955466544
+            },
+            "time": 13.022365264001472,
+            "timeRate": 0,
+            "longAnimationFramesSupported": true
+          },
+          "droppedFrames": 0,
+          "frames": 1255,
+          "fps": 83.8582835132207,
+          "frameMs": {
+            "mean": 11.924880382775122,
+            "p50": 8.39999999999418,
+            "p95": 24.89999999999418,
+            "p99": 57.40000000000873,
+            "max": 175.10000000000582
+          },
+          "callbackMs": {
+            "mean": 10.22215140331314,
+            "p50": 8.599999904632568,
+            "p95": 16.5,
+            "p99": 47.80000019073486,
+            "max": 148.59999990463257
+          },
+          "renderMs": {
+            "mean": 6.652430272577293,
+            "p50": 5.5,
+            "p95": 12.5,
+            "p99": 32.5,
+            "max": 98.90000009536743
+          },
+          "calls": {
+            "mean": 386.0741035856574,
+            "p50": 386,
+            "p95": 388,
+            "p99": 389,
+            "max": 389
+          },
+          "over100ms": 1,
+          "stalls": [
+            {
+              "offsetMs": 8095.400000095367,
+              "intervalMs": 175.10000000000582,
+              "previousCallbackMs": 148.59999990463257,
+              "previousRenderMs": 98.90000009536743,
+              "betweenCallbacksMs": 29.40000009536743,
+              "dispatchAfterRafMs": 14.39999999999418
+            }
+          ],
+          "longFramesOver100ms": [
+            {
+              "offsetMs": 7916.599999904633,
+              "durationMs": 163.40000009536743,
+              "blockingMs": 112.8,
+              "renderOffsetMs": 0.8000001907348633,
+              "styleLayoutToEndMs": 13.799999713897705,
+              "scripts": [
+                {
+                  "offsetMs": 7917.400000095367,
+                  "durationMs": 148.80000019073486,
+                  "invoker": "FrameRequestCallback",
+                  "invokerType": "user-callback",
+                  "sourceURL": "http://127.0.0.1:4175/assets/index-B3WkpvlW.js",
+                  "sourceFunctionName": "frame",
+                  "sourceCharPosition": 133477,
+                  "forcedStyleLayoutMs": 0,
+                  "pauseMs": 0
+                }
+              ]
+            }
+          ],
+          "longTasks": [
+            {
+              "offsetMs": 921.2000002861023,
+              "durationMs": 64,
+              "name": "self"
+            },
+            {
+              "offsetMs": 2935.800000190735,
+              "durationMs": 56,
+              "name": "self"
+            },
+            {
+              "offsetMs": 5905.200000286102,
+              "durationMs": 59,
+              "name": "self"
+            },
+            {
+              "offsetMs": 7854.700000286102,
+              "durationMs": 61,
+              "name": "self"
+            },
+            {
+              "offsetMs": 7917.300000190735,
+              "durationMs": 170,
+              "name": "self"
+            },
+            {
+              "offsetMs": 8860.400000095367,
+              "durationMs": 53,
+              "name": "self"
+            },
+            {
+              "offsetMs": 9951.599999904633,
+              "durationMs": 59,
+              "name": "self"
+            },
+            {
+              "offsetMs": 10863.800000190735,
+              "durationMs": 93,
+              "name": "self"
+            },
+            {
+              "offsetMs": 10966.200000286102,
+              "durationMs": 51,
+              "name": "self"
+            },
+            {
+              "offsetMs": 11862.900000095367,
+              "durationMs": 87,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12862.599999904633,
+              "durationMs": 51,
+              "name": "self"
+            },
+            {
+              "offsetMs": 12960.200000286102,
+              "durationMs": 55,
+              "name": "self"
+            },
+            {
+              "offsetMs": 13891.5,
+              "durationMs": 58,
+              "name": "self"
+            },
+            {
+              "offsetMs": 14885.300000190735,
+              "durationMs": 51,
+              "name": "self"
+            }
+          ],
+          "panelRefreshes": [
+            {
+              "offsetMs": 483.7000002861023,
+              "durationMs": 0.8999996185302734
+            },
+            {
+              "offsetMs": 985.5999999046326,
+              "durationMs": 0.9000000953674316
+            },
+            {
+              "offsetMs": 1491,
+              "durationMs": 1.5
+            },
+            {
+              "offsetMs": 1995.8000001907349,
+              "durationMs": 3.299999713897705
+            },
+            {
+              "offsetMs": 2492.5,
+              "durationMs": 1.4000000953674316
+            },
+            {
+              "offsetMs": 3001.4000000953674,
+              "durationMs": 1.0999999046325684
+            },
+            {
+              "offsetMs": 3481.800000190735,
+              "durationMs": 1.5
+            },
+            {
+              "offsetMs": 3990.9000000953674,
+              "durationMs": 2
+            },
+            {
+              "offsetMs": 4490.099999904633,
+              "durationMs": 4.200000286102295
+            },
+            {
+              "offsetMs": 4979.900000095367,
+              "durationMs": 1.8000001907348633
+            },
+            {
+              "offsetMs": 5485.200000286102,
+              "durationMs": 1.3999996185302734
+            },
+            {
+              "offsetMs": 5995.200000286102,
+              "durationMs": 1.6999998092651367
+            },
+            {
+              "offsetMs": 6483.700000286102,
+              "durationMs": 1.5
+            },
+            {
+              "offsetMs": 6989,
+              "durationMs": 8.099999904632568
+            },
+            {
+              "offsetMs": 7487.700000286102,
+              "durationMs": 3.299999713897705
+            },
+            {
+              "offsetMs": 8087.800000190735,
+              "durationMs": 5.799999713897705
+            },
+            {
+              "offsetMs": 8494.599999904633,
+              "durationMs": 1.6000003814697266
+            },
+            {
+              "offsetMs": 9007.599999904633,
+              "durationMs": 1.6000003814697266
+            },
+            {
+              "offsetMs": 9475.200000286102,
+              "durationMs": 1.799999713897705
+            },
+            {
+              "offsetMs": 10011.300000190735,
+              "durationMs": 5.599999904632568
+            },
+            {
+              "offsetMs": 10478.400000095367,
+              "durationMs": 3.4000000953674316
+            },
+            {
+              "offsetMs": 11017.5,
+              "durationMs": 7.099999904632568
+            },
+            {
+              "offsetMs": 11490.400000095367,
+              "durationMs": 1.4000000953674316
+            },
+            {
+              "offsetMs": 11997.5,
+              "durationMs": 1.3000001907348633
+            },
+            {
+              "offsetMs": 12485,
+              "durationMs": 2.200000286102295
+            },
+            {
+              "offsetMs": 13016.099999904633,
+              "durationMs": 1.6000003814697266
+            },
+            {
+              "offsetMs": 13488.099999904633,
+              "durationMs": 1.200000286102295
+            },
+            {
+              "offsetMs": 13991.900000095367,
+              "durationMs": 5.5
+            },
+            {
+              "offsetMs": 14506.5,
+              "durationMs": 5.800000190734863
+            },
+            {
+              "offsetMs": 14987.400000095367,
+              "durationMs": 11
+            }
+          ]
+        }
+      ],
+      "loafSupported": true,
+      "longTaskSupported": true,
+      "recordedAt": "2026-11-06T12:21:44.602Z"
+    }
+  ]
+}
