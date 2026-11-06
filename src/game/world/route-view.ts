@@ -4,6 +4,7 @@ import { WORLD_ROUTES, ROUTE_SEGMENTS, landSurface, type RouteSegment } from './
 import { terrainHeight } from './terrain';
 import { LAUNCH } from './landmarks';
 import { DOCK_APRON_RADIUS } from './ground-surface';
+import { batchStaticMeshes } from '../shared/static-batch';
 function bar(
   parent: THREE.Object3D,
   material: THREE.Material,
@@ -19,6 +20,8 @@ function bar(
   );
   object.position.copy(a).add(b).multiplyScalar(0.5);
   object.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), direction.normalize());
+  // Thin rope/cross braces contribute little at the 180 m shadow-map coverage.
+  if (radius <= 0.12) object.castShadow = false;
 }
 function stripGeometry(segments: RouteSegment[]) {
   const positions: number[] = [],
@@ -107,6 +110,7 @@ export class RouteView {
         group,
       );
       deck.name = `route-deck-${route.id}`;
+      if (route.kind !== 'bridge') deck.castShadow = false;
       if (route.kind !== 'bridge') continue;
       for (const s of segments.filter((_, i) => i % 2 === 0)) {
         const dx = (s.b.x - s.a.x) / s.length,
@@ -251,5 +255,10 @@ export class RouteView {
       );
       arrow.rotation.z = -Math.PI / 2;
     }
+    const staticParts: THREE.Mesh[] = [];
+    this.root.traverse((o) => {
+      if (o instanceof THREE.Mesh && !o.name) staticParts.push(o);
+    });
+    batchStaticMeshes(this.root, staticParts);
   }
 }

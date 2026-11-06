@@ -4,6 +4,10 @@
 # Production
 /build
 /dist
+
+# Keep browser chrome and full trace metadata local; publish the scoped analysis instead.
+/docs/architecture/artifacts/chrome-performance-trace.png
+/docs/architecture/artifacts/chrome-stairs-2026-11-04.json.gz
 /.vite
 
 # Generated files

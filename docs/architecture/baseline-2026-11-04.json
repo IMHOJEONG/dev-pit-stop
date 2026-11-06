@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "measuredAt": "2026-11-04T02:22:20.702Z",
+  "commit": "1d17f4ac5fecf3aec130731ded121e6c71c3a8fe",
+  "environment": {
+    "runtime": "Bun 1.3.14",
+    "platform": "darwin",
+    "arch": "arm64",
+    "cpu": "Apple M1 Pro"
+  },
+  "methodology": {
+    "kind": "headless CPU and scene inventory",
+    "gpu": false,
+    "renderer": false,
+    "canvasMapPainting": false,
+    "hud": false,
+    "storage": false,
+    "note": "Not browser FPS, draw-call counts, GPU timings, GPU memory or an end-to-end startup benchmark. Scene counts include hidden/zero-scaled meshes and instance slots. Timings include 12 warm-up ticks per scenario; no scenario reuses a user save."
+  },
+  "resourceCount": 909,
+  "timings": {
+    "resourceGenerationMs": 16.546,
+    "worldConstructionMs": 189.319,
+    "mapHeightSamplingMs": 249.268
+  },
+  "mapSampling": {
+    "heightQueries": 524288,
+    "includes": "height math only; excludes Color, ImageData and canvas",
+    "checksum": 1645461.095
+  },
+  "scene": {
+    "meshes": 1279,
+    "uniqueGeometries": 1276,
+    "uniqueMaterials": 433,
+    "instancedMeshes": 10,
+    "instanceSlots": 7359,
+    "declaredTriangleInstances": 270816,
+    "shadowCastingMeshes": 1181,
+    "declaredCpuBufferBytes": 7999684
+  },
+  "owners": {
+    "routes": {
+      "meshes": 227,
+      "uniqueGeometries": 227,
+      "uniqueMaterials": 20,
+      "instancedMeshes": 0,
+      "instanceSlots": 0,
+      "declaredTriangleInstances": 9580,
+      "shadowCastingMeshes": 227,
+      "declaredCpuBufferBytes": 647080
+    },
+    "structures": {
+      "meshes": 128,
+      "uniqueGeometries": 128,
+      "uniqueMaterials": 29,
+      "instancedMeshes": 0,
+      "instanceSlots": 0,
+      "declaredTriangleInstances": 4122,
+      "shadowCastingMeshes": 125,
+      "declaredCpuBufferBytes": 218436
+    },
+    "places": {
+      "meshes": 55,
+      "uniqueGeometries": 55,
+      "uniqueMaterials": 5,
+      "instancedMeshes": 0,
+      "instanceSlots": 0,
+      "declaredTriangleInstances": 976,
+      "shadowCastingMeshes": 55,
+      "declaredCpuBufferBytes": 72264
+    },
+    "player": {
+      "meshes": 139,
+      "uniqueGeometries": 139,
+      "uniqueMaterials": 28,
+      "instancedMeshes": 0,
+      "instanceSlots": 0,
+      "declaredTriangleInstances": 6708,
+      "shadowCastingMeshes": 139,
+      "declaredCpuBufferBytes": 286280
+    },
+    "vehicle": {
+      "meshes": 171,
+      "uniqueGeometries": 171,
+      "uniqueMaterials": 36,
+      "instancedMeshes": 0,
+      "instanceSlots": 0,
+      "declaredTriangleInstances": 7528,
+      "shadowCastingMeshes": 171,
+      "declaredCpuBufferBytes": 330592
+    },
+    "sky": {
+      "meshes": 343,
+      "uniqueGeometries": 343,
+      "uniqueMaterials": 257,
+      "instancedMeshes": 0,
+      "instanceSlots": 0,
+      "declaredTriangleInstances": 9488,
+      "shadowCastingMeshes": 343,
+      "declaredCpuBufferBytes": 470656
+    }
+  },
+  "cameraMeshProxyCandidates": 745,
+  "cpuScenarios": {
+    "pausedViewAndCamera": {
+      "iterations": 180,
+      "meanMs": 0.585,
+      "p50Ms": 0.529,
+      "p95Ms": 0.838,
+      "maxMs": 2.31
+    },
+    "walkingSimulationViewAndCamera": {
+      "iterations": 180,
+      "meanMs": 0.63,
+      "p50Ms": 0.606,
+      "p95Ms": 0.817,
+      "maxMs": 0.944
+    },
+    "drivingSimulationViewAndCamera": {
+      "iterations": 180,
+      "meanMs": 0.853,
+      "p50Ms": 0.782,
+      "p95Ms": 1.142,
+      "maxMs": 2.356
+    }
+  },
+  "config": {
+    "terrainSegments": [
+      260,
+      260
+    ],
+    "terrainTriangles": 135200,
+    "defaultMaxDpr": 1.7,
+    "shadowMap": [
+      2048,
+      2048
+    ],
+    "simulationSubstepHz": 120
+  }
+}

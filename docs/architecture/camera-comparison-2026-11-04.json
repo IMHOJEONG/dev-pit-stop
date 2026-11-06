@@ -1,0 +1,584 @@
+{
+  "date": "2026-11-04",
+  "conditions": "Apple M1 Pro, Chrome 156, CSS/drawing buffer 1440x900, DPR1, shadows on, time 12:21 frozen, camera default yaw .06 pitch .18 zoom38, 3s preparation + ~15s capture; same exact saved position for camp and stairs. Walking uses same W hold but displacement differs because dt caps during slow frames.",
+  "beforeBuild": {
+    "file": "index-C4nJf_Kz.js",
+    "sha256": "32141f354590f45a96f8409032c8388a374323948b47136797f39da0d46429ec"
+  },
+  "measuredAfterBuild": "index-DS5aa5C6.js",
+  "finalBuild": {
+    "file": "index-LXxHJE1y.js",
+    "sha256": "0b283a426a89c311b022a768eb6c9671d4af266d6659910e5418851648e1b697"
+  },
+  "finalDifference": "After measuring, render-only menu frames omit stale camera counters; camera algorithm unchanged.",
+  "browser": [
+    {
+      "scenario": "idle",
+      "beforeCameraMs": {
+        "mean": 4.99798657056736,
+        "p50": 3.5,
+        "p95": 11.400000095367432,
+        "p99": 28.90000009536743,
+        "max": 69.19999980926514
+      },
+      "afterCameraMs": {
+        "mean": 2.595390779460838,
+        "p50": 1.5,
+        "p95": 7.699999809265137,
+        "p99": 14.099999904632568,
+        "max": 42.40000009536743
+      },
+      "beforeFrameMs": {
+        "mean": 33.61297539149888,
+        "p50": 24.900000000001455,
+        "p95": 83.10000000000218,
+        "p99": 182.89999999999782,
+        "max": 433.6999999999971
+      },
+      "afterFrameMs": {
+        "mean": 30.00921843687376,
+        "p50": 24.10000000000582,
+        "p95": 67.19999999998254,
+        "p99": 216.59999999997672,
+        "max": 624.5
+      },
+      "beforeFPS": 29.750415973377706,
+      "afterFPS": 33.32309377212078,
+      "beforeQueries": {
+        "registered": {
+          "mean": 745,
+          "p50": 745,
+          "p95": 745,
+          "p99": 745,
+          "max": 745
+        },
+        "queries": {
+          "mean": 2,
+          "p50": 2,
+          "p95": 2,
+          "p99": 2,
+          "max": 2
+        },
+        "matrixUpdates": {
+          "mean": 1490,
+          "p50": 1490,
+          "p95": 1490,
+          "p99": 1490,
+          "max": 1490
+        },
+        "meshCandidates": {
+          "mean": 1490,
+          "p50": 1490,
+          "p95": 1490,
+          "p99": 1490,
+          "max": 1490
+        },
+        "resourceCandidates": {
+          "mean": 909,
+          "p50": 909,
+          "p95": 909,
+          "p99": 909,
+          "max": 909
+        },
+        "resourceTotal": {
+          "mean": 909,
+          "p50": 909,
+          "p95": 909,
+          "p99": 909,
+          "max": 909
+        }
+      },
+      "afterQueries": {
+        "registered": {
+          "mean": 745,
+          "p50": 745,
+          "p95": 745,
+          "p99": 745,
+          "max": 745
+        },
+        "queries": {
+          "mean": 2,
+          "p50": 2,
+          "p95": 2,
+          "p99": 2,
+          "max": 2
+        },
+        "matrixUpdates": {
+          "mean": 745,
+          "p50": 745,
+          "p95": 745,
+          "p99": 745,
+          "max": 745
+        },
+        "meshCandidates": {
+          "mean": 0,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0,
+          "max": 0
+        },
+        "resourceCandidates": {
+          "mean": 9,
+          "p50": 9,
+          "p95": 9,
+          "p99": 9,
+          "max": 9
+        },
+        "resourceTotal": {
+          "mean": 909,
+          "p50": 909,
+          "p95": 909,
+          "p99": 909,
+          "max": 909
+        }
+      },
+      "beforePosition": {
+        "first": {
+          "x": 0,
+          "y": 23.10688413073135,
+          "z": 195
+        },
+        "last": {
+          "x": 0,
+          "y": 23.10688413073135,
+          "z": 195
+        }
+      },
+      "afterPosition": {
+        "first": {
+          "x": 0,
+          "y": 23.10688413073135,
+          "z": 195
+        },
+        "last": {
+          "x": 0,
+          "y": 23.10688413073135,
+          "z": 195
+        }
+      }
+    },
+    {
+      "scenario": "stairs",
+      "beforeCameraMs": {
+        "mean": 6.224380953652518,
+        "p50": 4.700000286102295,
+        "p95": 14.599999904632568,
+        "p99": 30.699999809265137,
+        "max": 40.40000009536743
+      },
+      "afterCameraMs": {
+        "mean": 4.609677406087998,
+        "p50": 3,
+        "p95": 12.700000286102295,
+        "p99": 26.5,
+        "max": 123
+      },
+      "beforeFrameMs": {
+        "mean": 28.555238095238096,
+        "p50": 24.89999999999418,
+        "p95": 66.70000000001164,
+        "p99": 166.60000000000582,
+        "max": 275.8999999999942
+      },
+      "afterFrameMs": {
+        "mean": 30.209072580645163,
+        "p50": 24.69999999999709,
+        "p95": 66.69999999999709,
+        "p99": 191.60000000000036,
+        "max": 550
+      },
+      "beforeFPS": 35.01984457859454,
+      "afterFPS": 33.10263820017752,
+      "beforeQueries": {
+        "registered": {
+          "mean": 745,
+          "p50": 745,
+          "p95": 745,
+          "p99": 745,
+          "max": 745
+        },
+        "queries": {
+          "mean": 2,
+          "p50": 2,
+          "p95": 2,
+          "p99": 2,
+          "max": 2
+        },
+        "matrixUpdates": {
+          "mean": 1490,
+          "p50": 1490,
+          "p95": 1490,
+          "p99": 1490,
+          "max": 1490
+        },
+        "meshCandidates": {
+          "mean": 1490,
+          "p50": 1490,
+          "p95": 1490,
+          "p99": 1490,
+          "max": 1490
+        },
+        "resourceCandidates": {
+          "mean": 909,
+          "p50": 909,
+          "p95": 909,
+          "p99": 909,
+          "max": 909
+        },
+        "resourceTotal": {
+          "mean": 909,
+          "p50": 909,
+          "p95": 909,
+          "p99": 909,
+          "max": 909
+        }
+      },
+      "afterQueries": {
+        "registered": {
+          "mean": 745,
+          "p50": 745,
+          "p95": 745,
+          "p99": 745,
+          "max": 745
+        },
+        "queries": {
+          "mean": 2,
+          "p50": 2,
+          "p95": 2,
+          "p99": 2,
+          "max": 2
+        },
+        "matrixUpdates": {
+          "mean": 745,
+          "p50": 745,
+          "p95": 745,
+          "p99": 745,
+          "max": 745
+        },
+        "meshCandidates": {
+          "mean": 8,
+          "p50": 8,
+          "p95": 8,
+          "p99": 8,
+          "max": 8
+        },
+        "resourceCandidates": {
+          "mean": 9,
+          "p50": 9,
+          "p95": 9,
+          "p99": 9,
+          "max": 9
+        },
+        "resourceTotal": {
+          "mean": 909,
+          "p50": 909,
+          "p95": 909,
+          "p99": 909,
+          "max": 909
+        }
+      },
+      "beforePosition": {
+        "first": {
+          "x": -65.44689224083457,
+          "y": 18.75022553790357,
+          "z": 89.5204080535702
+        },
+        "last": {
+          "x": -65.44689224083457,
+          "y": 18.75022553790357,
+          "z": 89.5204080535702
+        }
+      },
+      "afterPosition": {
+        "first": {
+          "x": -65.44689224083457,
+          "y": 18.75022553790357,
+          "z": 89.5204080535702
+        },
+        "last": {
+          "x": -65.44689224083457,
+          "y": 18.75022553790357,
+          "z": 89.5204080535702
+        }
+      }
+    },
+    {
+      "scenario": "walk",
+      "beforeCameraMs": {
+        "mean": 6.453598018911281,
+        "p50": 4.5,
+        "p95": 16.59999990463257,
+        "p99": 37.09999990463257,
+        "max": 67.09999990463257
+      },
+      "afterCameraMs": {
+        "mean": 2.964605539846522,
+        "p50": 2.0999999046325684,
+        "p95": 7.099999904632568,
+        "p99": 12,
+        "max": 25.199999809265137
+      },
+      "beforeFrameMs": {
+        "mean": 36.95186104218364,
+        "p50": 25.10000000000582,
+        "p95": 100.10000000000582,
+        "p99": 200,
+        "max": 266
+      },
+      "afterFrameMs": {
+        "mean": 31.9471215351812,
+        "p50": 25,
+        "p95": 74.89999999999418,
+        "p99": 200,
+        "max": 266.69999999998254
+      },
+      "beforeFPS": 27.062236428590605,
+      "afterFPS": 31.301724598216705,
+      "beforeQueries": {
+        "registered": {
+          "mean": 745,
+          "p50": 745,
+          "p95": 745,
+          "p99": 745,
+          "max": 745
+        },
+        "queries": {
+          "mean": 2,
+          "p50": 2,
+          "p95": 2,
+          "p99": 2,
+          "max": 2
+        },
+        "matrixUpdates": {
+          "mean": 1490,
+          "p50": 1490,
+          "p95": 1490,
+          "p99": 1490,
+          "max": 1490
+        },
+        "meshCandidates": {
+          "mean": 1490,
+          "p50": 1490,
+          "p95": 1490,
+          "p99": 1490,
+          "max": 1490
+        },
+        "resourceCandidates": {
+          "mean": 909,
+          "p50": 909,
+          "p95": 909,
+          "p99": 909,
+          "max": 909
+        },
+        "resourceTotal": {
+          "mean": 909,
+          "p50": 909,
+          "p95": 909,
+          "p99": 909,
+          "max": 909
+        }
+      },
+      "afterQueries": {
+        "registered": {
+          "mean": 745,
+          "p50": 745,
+          "p95": 745,
+          "p99": 745,
+          "max": 745
+        },
+        "queries": {
+          "mean": 2,
+          "p50": 2,
+          "p95": 2,
+          "p99": 2,
+          "max": 2
+        },
+        "matrixUpdates": {
+          "mean": 745,
+          "p50": 745,
+          "p95": 745,
+          "p99": 745,
+          "max": 745
+        },
+        "meshCandidates": {
+          "mean": 0.8869936034115139,
+          "p50": 0,
+          "p95": 2,
+          "p99": 2,
+          "max": 2
+        },
+        "resourceCandidates": {
+          "mean": 11.422174840085288,
+          "p50": 11,
+          "p95": 15,
+          "p99": 15,
+          "max": 15
+        },
+        "resourceTotal": {
+          "mean": 909,
+          "p50": 909,
+          "p95": 909,
+          "p99": 909,
+          "max": 909
+        }
+      },
+      "beforePosition": {
+        "first": {
+          "x": -0.5842792406708349,
+          "y": 22.984552141845516,
+          "z": 185.27370104580194
+        },
+        "last": {
+          "x": -3.8667561374703388,
+          "y": 20.707604647396018,
+          "z": 130.63141806503592
+        }
+      },
+      "afterPosition": {
+        "first": {
+          "x": -0.6851920859836138,
+          "y": 22.983306560744722,
+          "z": 183.59383903204318
+        },
+        "last": {
+          "x": -4.257690307998798,
+          "y": 20.135525148132103,
+          "z": 124.12366911676723
+        }
+      }
+    }
+  ],
+  "headlessCPU": [
+    {
+      "scenario": "camp",
+      "frames": 600,
+      "legacyMs": {
+        "mean": 0.32994700000000177,
+        "p50": 0.3153750000000173,
+        "p95": 0.429916999999989,
+        "p99": 0.5793750000000273,
+        "max": 1.7490000000000236
+      },
+      "optimizedMs": {
+        "mean": 0.13789956166666562,
+        "p50": 0.12258300000007694,
+        "p95": 0.2182909999999083,
+        "p99": 0.30741699999998673,
+        "max": 0.45470799999998235
+      },
+      "counters": {
+        "legacyMesh": 1490,
+        "optimizedMesh": 0,
+        "legacyMatrix": 1490,
+        "optimizedMatrix": 745,
+        "resourceCandidates": 9
+      },
+      "maxPositionError": 0
+    },
+    {
+      "scenario": "stairs-turns",
+      "frames": 600,
+      "legacyMs": {
+        "mean": 0.47678542500000143,
+        "p50": 0.4543749999999136,
+        "p95": 0.641791000000012,
+        "p99": 0.7416670000000067,
+        "max": 1.4360000000001492
+      },
+      "optimizedMs": {
+        "mean": 0.273583050000002,
+        "p50": 0.2562089999998989,
+        "p95": 0.39799999999991087,
+        "p99": 0.5212500000000091,
+        "max": 0.6017919999999322
+      },
+      "counters": {
+        "legacyMesh": 1490,
+        "optimizedMesh": 2.6966666666666668,
+        "legacyMatrix": 1490,
+        "optimizedMatrix": 745,
+        "resourceCandidates": 10.23
+      },
+      "maxPositionError": 0
+    },
+    {
+      "scenario": "mill-walls",
+      "frames": 600,
+      "legacyMs": {
+        "mean": 0.3766273016666632,
+        "p50": 0.38675000000012005,
+        "p95": 0.5160419999999704,
+        "p99": 0.6488339999998516,
+        "max": 1.335832999999866
+      },
+      "optimizedMs": {
+        "mean": 0.1888812566666661,
+        "p50": 0.20445900000004258,
+        "p95": 0.2939579999999751,
+        "p99": 0.3846249999999145,
+        "max": 0.4650840000001608
+      },
+      "counters": {
+        "legacyMesh": 1490,
+        "optimizedMesh": 2.9966666666666666,
+        "legacyMatrix": 1490,
+        "optimizedMatrix": 745,
+        "resourceCandidates": 10.545
+      },
+      "maxPositionError": 0
+    },
+    {
+      "scenario": "bridge",
+      "frames": 600,
+      "legacyMs": {
+        "mean": 0.4547231349999974,
+        "p50": 0.4318750000002183,
+        "p95": 0.5540000000000873,
+        "p99": 0.6866660000000593,
+        "max": 2.5639169999999467
+      },
+      "optimizedMs": {
+        "mean": 0.289898690000003,
+        "p50": 0.27254199999970297,
+        "p95": 0.38095799999996416,
+        "p99": 0.45841599999994287,
+        "max": 1.246791999999914
+      },
+      "counters": {
+        "legacyMesh": 1490,
+        "optimizedMesh": 6,
+        "legacyMatrix": 1490,
+        "optimizedMatrix": 745,
+        "resourceCandidates": 3.8333333333333335
+      },
+      "maxPositionError": 0
+    },
+    {
+      "scenario": "moving-lift",
+      "frames": 600,
+      "legacyMs": {
+        "mean": 0.4445357333333262,
+        "p50": 0.412166999999954,
+        "p95": 0.5947920000003251,
+        "p99": 0.9229999999997744,
+        "max": 1.6239580000001297
+      },
+      "optimizedMs": {
+        "mean": 0.24736845999999105,
+        "p50": 0.2237079999999878,
+        "p95": 0.3888339999998607,
+        "p99": 0.527625000000171,
+        "max": 1.312832999999955
+      },
+      "counters": {
+        "legacyMesh": 1490,
+        "optimizedMesh": 1.64,
+        "legacyMatrix": 1490,
+        "optimizedMatrix": 745,
+        "resourceCandidates": 9
+      },
+      "maxPositionError": 0
+    }
+  ],
+  "limitations": "Sequential single-device browser timing, CPU wall elapsed not GPU/process CPU; no guarantee of FPS gains; stair FPS declined in this session. Full-scan equality and deterministic headless comparisons separately recorded."
+}

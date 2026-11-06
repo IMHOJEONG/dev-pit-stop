@@ -4,6 +4,8 @@ import { clamp } from '../shared/math';
 import { MeshCameraCollision } from './mesh-camera-collision';
 import { cameraClearance } from './camera-collision';
 import type { Resource } from '../resources/catalog';
+import type { CameraQueryStats } from '../diagnostics/camera-query-stats';
+import { ResourceCameraIndex } from './resource-camera-index';
 export class CameraController {
   yaw = 0.06;
   private pitch = 0.18;
@@ -12,6 +14,16 @@ export class CameraController {
   private previousPlayerY: number;
   private cameraTarget = new THREE.Vector3();
   private cameraPosition = new THREE.Vector3();
+  private target = new THREE.Vector3();
+  private resourceIndex: ResourceCameraIndex;
+  private resourceCandidates = 0;
+  get queryStats(): CameraQueryStats {
+    return {
+      ...this.meshCollision.stats,
+      resourceCandidates: this.resourceCandidates,
+      resourceTotal: this.resources.length,
+    };
+  }
   constructor(
     private camera: THREE.PerspectiveCamera,
     private resources: Resource[],
@@ -20,6 +32,7 @@ export class CameraController {
     obstacles: THREE.Object3D[] = [],
   ) {
     this.meshCollision = new MeshCameraCollision(obstacles);
+    this.resourceIndex = new ResourceCameraIndex(resources);
     this.previousPlayerY = position.y;
     this.cameraTarget.copy(position).add(new THREE.Vector3(0, 3.3, 0));
     this.update(position, 1);
@@ -36,12 +49,14 @@ export class CameraController {
     this.zoom = clamp(this.zoom + delta * 0.025, 12, 65);
   }
   update(player: THREE.Vector3, dt: number, riding = false) {
+    this.meshCollision.beginFrame();
     const fov = THREE.MathUtils.lerp(this.camera.fov, riding ? 75 : 55, 1 - Math.exp(-dt * 8));
     if (Math.abs(fov - this.camera.fov) > 0.001) {
       this.camera.fov = fov;
       this.camera.updateProjectionMatrix();
     }
-    const target = player.clone().add(new THREE.Vector3(0, riding ? 2.2 : 3.3, 0));
+    const target = this.target.copy(player);
+    target.y += riding ? 2.2 : 3.3;
     if (riding) {
       // Carry the camera with the platform instead of lagging into the island.
       this.camera.position.y += player.y - this.previousPlayerY;
@@ -65,8 +80,10 @@ export class CameraController {
         Math.hypot(1, this.camera.aspect) +
         0.2,
     );
+    const nearby = this.resourceIndex.query(target, this.cameraPosition);
+    this.resourceCandidates = nearby.length;
     const clearance = Math.min(
-      cameraClearance(target, this.cameraPosition, this.resources, this.collected),
+      cameraClearance(target, this.cameraPosition, nearby, this.collected),
       this.meshCollision.clearance(target, this.cameraPosition, padding),
     );
     this.cameraPosition.lerpVectors(target, this.cameraPosition, clearance);
@@ -75,5 +92,10 @@ export class CameraController {
     const safe = this.meshCollision.clearance(target, this.camera.position, padding);
     this.camera.position.lerpVectors(target, this.camera.position, safe);
     this.camera.lookAt(this.cameraTarget);
+    this.meshCollision.endFrame();
+  }
+  dispose() {
+    this.meshCollision.dispose();
+    this.resourceIndex.dispose();
   }
 }

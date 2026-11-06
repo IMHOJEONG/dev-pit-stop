@@ -26,6 +26,9 @@ import { Hud } from '../ui/hud';
 import { Panels } from '../ui/panels';
 import type { Panel } from '../ui/panels';
 import { GameRenderer } from './renderer';
+import { PerformancePanel } from '../diagnostics/performance-panel';
+import { FrameLoop } from './frame-loop';
+import type { FrameTick } from './frame-loop';
 
 /** Application coordinator: domains own their rules, views own their animation. */
 export class Game {
@@ -55,6 +58,10 @@ export class Game {
   );
   private audio = new AmbientAudio((message) => this.hud.showToast(message));
   private renderer: GameRenderer;
+  private performance: PerformancePanel;
+  private loop: FrameLoop;
+  private viewsDirty = true;
+  private contextLost = false;
   private panels: Panels;
   private input: InputController;
   private abort = new AbortController();
@@ -62,7 +69,6 @@ export class Game {
   private disposed = false;
   private resumed = false;
   private elapsed = 0;
-  private lastFrame = 0;
   private lastUI = 0;
   private lastSave = 0;
   private lastInteraction = -10;
@@ -70,7 +76,6 @@ export class Game {
   private vehicleTransition?: VehicleTransition;
   private storageAvailable = true;
   private nearby: InteractionTarget = null;
-  private raf = 0;
   private loadingTimer: ReturnType<typeof setTimeout>;
   private completionTimer: ReturnType<typeof setTimeout> | null = null;
   constructor() {
@@ -79,11 +84,29 @@ export class Game {
       this.world.scene,
       this.world.camera,
     );
+    this.performance = new PerformancePanel(
+      this.renderer.renderer,
+      () => ({
+        mode: this.panels?.active ? `panel:${this.panels.active}` : this.started ? 'play' : 'intro',
+        position: this.player.position,
+        cameraStats: this.camera.queryStats,
+        camera: {
+          position: this.world.camera.position.toArray(),
+          quaternion: this.world.camera.quaternion.toArray(),
+        },
+      }),
+      (enabled) => {
+        this.renderer.setShadows(enabled);
+        this.invalidateWorld();
+      },
+    );
+    this.loop = new FrameLoop(this.frame);
     this.panels = new Panels({
       appearance: (value) => {
         this.state.appearance = { ...value };
         this.world.player.setAppearance(value);
         this.world.vehicle.setAppearance(value);
+        this.invalidateWorld(true);
         const saved = this.characterPreferences.save(value);
         this.save(false);
         this.hud.showToast(
@@ -94,8 +117,10 @@ export class Game {
       },
       changed: () => {
         this.input?.clear();
+        this.performance.attach(this.panels.active ? $<HTMLDialogElement>('modal') : undefined);
         this.syncAudio();
         this.updateUI();
+        this.syncFrameLoop();
       },
       resume: () => {
         if (!this.started) this.start();
@@ -122,16 +147,23 @@ export class Game {
       recoverVehicle: () => {
         if (this.state.vehicle.riding) return;
         this.state.vehicle.reset();
+        this.invalidateWorld(true);
         this.save(false);
         this.hud.showToast('탐험 버기를 베이스캠프로 회수했습니다');
       },
       clearTrack: () => {
         this.state.navigation = null;
       },
-      drawMap: (canvas, options) =>
-        this.map.draw(canvas, true, this.player.position, this.camera.yaw, options),
+      drawMap: (canvas, options) => {
+        const stamp = this.performance.eventStart();
+        this.map.draw(canvas, true, this.player.position, this.camera.yaw, options);
+        this.performance.eventEnd('map.draw', stamp);
+      },
       position: () => this.player.position,
-      quality: (high) => this.renderer.setQuality(high),
+      quality: (high) => {
+        this.renderer.setQuality(high);
+        this.invalidateWorld();
+      },
       toggleAudio: () => this.toggleAudio(),
       save: () => this.save(true),
       returnCamp: () => {
@@ -141,6 +173,7 @@ export class Game {
         this.state.vehicle.speed = 0;
         this.vehicleTransition = undefined;
         this.player.reset();
+        this.invalidateWorld(true);
         this.save(false);
         this.hud.showToast('베이스캠프로 돌아왔습니다.');
       },
@@ -159,12 +192,14 @@ export class Game {
       paused: () => this.paused,
       action: (action) => this.handleAction(action),
       rotate: (dx, dy) => {
-        if (!this.panels.active) {
+        if (!this.paused) {
           this.camera.rotate(dx, dy);
           this.lastCameraDrag = this.elapsed;
         }
       },
-      zoom: (delta) => this.camera.zoomBy(delta),
+      zoom: (delta) => {
+        if (!this.paused) this.camera.zoomBy(delta);
+      },
     });
     const saved = this.storage.load();
     if (saved) {
@@ -195,7 +230,8 @@ export class Game {
     this.camera.update(this.player.position, 1);
     this.bindUI();
     this.updateUI();
-    this.raf = requestAnimationFrame(this.frame);
+    this.syncFrameLoop();
+    this.invalidateWorld(true);
     this.loadingTimer = setTimeout(() => {
       $('loading').style.opacity = '0';
       this.loadingTimer = setTimeout(() => {
@@ -204,7 +240,18 @@ export class Game {
     }, 100);
   }
   private get paused() {
-    return !this.started || this.panels.active !== null || document.hidden;
+    return !this.started || this.panels.active !== null || document.hidden || this.contextLost;
+  }
+  private syncFrameLoop() {
+    const mode = document.hidden || this.contextLost ? 'blocked' : this.paused ? 'idle' : 'play';
+    this.performance.setScheduling(
+      mode === 'play' ? 'continuous' : mode === 'idle' ? 'on-demand' : 'blocked',
+    );
+    this.loop.setMode(mode);
+  }
+  private invalidateWorld(syncViews = false) {
+    this.viewsDirty ||= syncViews;
+    this.loop.invalidate();
   }
   private bindUI() {
     const signal = this.abort.signal;
@@ -222,7 +269,15 @@ export class Game {
     };
     for (const [id, action] of Object.entries(buttons))
       $(id).addEventListener('click', action, { signal });
-    window.addEventListener('resize', () => this.renderer.resize(), { signal });
+    window.addEventListener(
+      'resize',
+      () => {
+        this.renderer.resize();
+        this.updateUI();
+        this.invalidateWorld();
+      },
+      { signal },
+    );
     window.addEventListener('pagehide', () => this.save(false), { signal });
     document.addEventListener(
       'visibilitychange',
@@ -230,6 +285,8 @@ export class Game {
         this.input.clear();
         if (document.hidden) this.save(false);
         this.syncAudio();
+        this.syncFrameLoop();
+        if (!document.hidden) this.invalidateWorld();
       },
       { signal },
     );
@@ -237,14 +294,23 @@ export class Game {
       'webglcontextlost',
       (event) => {
         event.preventDefault();
+        this.contextLost = true;
         this.input.clear();
+        this.syncFrameLoop();
+        this.syncAudio();
         this.hud.showToast('그래픽 연결이 끊어졌어요. 복구를 기다리는 중입니다.');
       },
       { signal },
     );
     $('world').addEventListener(
       'webglcontextrestored',
-      () => this.hud.showToast('그래픽 연결이 복구되었습니다.'),
+      () => {
+        this.contextLost = false;
+        this.syncFrameLoop();
+        this.invalidateWorld();
+        this.syncAudio();
+        this.hud.showToast('그래픽 연결이 복구되었습니다.');
+      },
       { signal },
     );
   }
@@ -274,8 +340,10 @@ export class Game {
     this.started = true;
     this.hud.start(this.resumed);
     this.syncAudio();
+    this.syncFrameLoop();
   }
   private openPanel(panel: Panel) {
+    const stamp = this.performance.eventStart();
     this.panels.open(panel, {
       expedition: this.state,
       started: this.started,
@@ -283,11 +351,11 @@ export class Game {
       audioEnabled: this.audio.enabled,
       stamina: this.player.stamina,
     });
+    this.performance.eventEnd(`panel.${panel}`, stamp);
   }
-  private frame = (now: number) => {
+  private frame = ({ now, dt, continuous }: FrameTick) => {
     if (this.disposed) return;
-    const dt = Math.min((now - (this.lastFrame || now)) / 1000, 0.045);
-    this.lastFrame = now;
+    this.performance.beginFrame();
     let moving = false,
       speed = WALK_SPEED;
     if (!this.paused) {
@@ -386,36 +454,65 @@ export class Game {
         this.lastSave = this.elapsed;
       }
     }
-    if (
-      this.state.vehicle.riding &&
-      Math.abs(this.state.vehicle.speed) > 1 &&
-      this.elapsed - this.lastCameraDrag > 1.5
-    )
-      this.camera.followHeading(this.state.vehicle.heading, dt);
-    this.camera.update(this.player.position, dt, this.state.sky.ride !== null);
-    this.world.update(
-      this.elapsed,
-      this.paused ? 0 : dt,
-      this.state.time,
-      this.player.position,
-      moving,
-      speed,
-      this.player.heading,
-      this.player.elevated,
-      this.player.isGrounded || this.state.sky.ride !== null,
-      this.state.sky.ride ? this.player.position.y : undefined,
-      this.state.items.drops,
-    );
-    this.world.player.group.visible =
-      !!this.vehicleTransition?.walking || (!this.state.vehicle.riding && !this.vehicleTransition);
-    this.world.vehicle.update(this.state.vehicle, this.paused ? 0 : dt, this.vehicleTransition);
-    this.world.sky.update(this.elapsed, this.state.sky, this.player.position.y);
+    this.performance.mark('simulation');
+    const updateViews = continuous || this.viewsDirty;
+    if (updateViews) {
+      if (
+        this.state.vehicle.riding &&
+        Math.abs(this.state.vehicle.speed) > 1 &&
+        this.elapsed - this.lastCameraDrag > 1.5
+      )
+        this.camera.followHeading(this.state.vehicle.heading, dt);
+      this.camera.update(this.player.position, dt, this.state.sky.ride !== null);
+      this.performance.mark('camera');
+      this.world.update(
+        this.elapsed,
+        this.paused ? 0 : dt,
+        this.state.time,
+        this.player.position,
+        moving,
+        speed,
+        this.player.heading,
+        this.player.elevated,
+        this.player.isGrounded || this.state.sky.ride !== null,
+        this.state.sky.ride ? this.player.position.y : undefined,
+        this.state.items.drops,
+      );
+      this.performance.mark('world');
+      this.world.player.group.visible =
+        !!this.vehicleTransition?.walking ||
+        (!this.state.vehicle.riding && !this.vehicleTransition);
+      this.world.vehicle.update(this.state.vehicle, this.paused ? 0 : dt, this.vehicleTransition);
+      this.performance.mark('vehicle');
+      this.world.sky.update(this.elapsed, this.state.sky, this.player.position.y);
+      this.performance.mark('sky');
+      this.viewsDirty = false;
+    }
     this.renderer.render();
-    if (now - this.lastUI > 100) {
+    this.performance.mark('render');
+    if (continuous && now - this.lastUI > 100) {
       this.updateUI();
       this.lastUI = now;
     }
-    this.raf = requestAnimationFrame(this.frame);
+    this.performance.mark('hud');
+    this.performance.endFrame(
+      now,
+      this.panels.active
+        ? `panel:${this.panels.active}`
+        : !this.started
+          ? 'intro'
+          : this.state.vehicle.riding
+            ? 'drive'
+            : !this.player.isGrounded
+              ? 'air'
+              : moving
+                ? speed > WALK_SPEED
+                  ? 'run'
+                  : 'walk'
+                : 'idle',
+      this.player.position,
+      this.performance.enabled && updateViews ? this.camera.queryStats : undefined,
+    );
   };
   private toggleVehicle() {
     const vehicle = this.state.vehicle;
@@ -617,6 +714,7 @@ export class Game {
       if (feedback) this.hud.showToast('탐험을 시작하면 저장할 수 있어요.');
       return;
     }
+    const stamp = this.performance.eventStart();
     if (
       this.storage.save(
         this.state.snapshot(
@@ -632,6 +730,7 @@ export class Game {
         this.hud.showToast('브라우저 저장소를 사용할 수 없어 이번 탐험은 자동 저장되지 않아요.');
       this.storageAvailable = false;
     }
+    this.performance.eventEnd('save', stamp);
   }
   private reset() {
     if (this.completionTimer) clearTimeout(this.completionTimer);
@@ -643,6 +742,7 @@ export class Game {
     this.world.drops.reset();
     STATIONS.forEach((_, index) => this.world.structures.activateStation(index, false));
     this.state.explore(this.player.position);
+    this.invalidateWorld(true);
     this.lastInteraction = -10;
     this.resumed = false;
     if (!this.started) this.start();
@@ -662,14 +762,16 @@ export class Game {
   dispose() {
     this.save(false);
     this.disposed = true;
-    cancelAnimationFrame(this.raf);
+    this.loop.dispose();
     clearTimeout(this.loadingTimer);
     if (this.completionTimer) clearTimeout(this.completionTimer);
     this.abort.abort();
     this.input.dispose();
+    this.performance.dispose();
     this.panels.dispose();
     this.hud.dispose();
     this.audio.dispose();
+    this.camera.dispose();
     this.renderer.dispose();
     this.world.dispose();
   }

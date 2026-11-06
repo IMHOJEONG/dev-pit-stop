@@ -8,6 +8,7 @@ import {
   STATION_STEP_WIDTH,
 } from './station-layout';
 import { STATIONS } from './landmarks';
+import { batchStaticMeshes } from '../shared/static-batch';
 export class StructuresView {
   readonly root = new THREE.Group();
   private stationGroups: THREE.Group[] = [];
@@ -138,6 +139,13 @@ export class StructuresView {
       g.userData.index = index;
       this.stationGroups.push(g);
       this.root.add(g);
+      batchStaticMeshes(
+        g,
+        g.children.filter(
+          (o): o is THREE.Mesh =>
+            o instanceof THREE.Mesh && (o.material === stone || o.material === lightStone),
+        ),
+      );
     });
   }
   private makeCamp() {

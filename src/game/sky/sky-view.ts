@@ -14,6 +14,7 @@ import {
   DOCK_APRON_RADIUS,
 } from './sky-world';
 import type { SkyJourney } from './sky-journey';
+import { batchStaticMeshes } from '../shared/static-batch';
 export class SkyView {
   readonly root = new THREE.Group();
   private lift = new THREE.Group();
@@ -26,7 +27,9 @@ export class SkyView {
     scene.add(root);
     const rock = mat(0x7e8b99),
       grass = mat(0xa0c6ae),
-      gold = mat(0xe6c180);
+      gold = mat(0xe6c180),
+      plankMaterial = mat(0xb7b6a1);
+    const staticPlanks: THREE.Mesh[] = [];
     ISLANDS.forEach((island, index) => {
       const group = new THREE.Group();
       group.position.set(island.x, island.y, island.z);
@@ -105,7 +108,7 @@ export class SkyView {
         const length = Math.hypot(end.x - start.x, end.z - start.z);
         const plank = mesh(
           new THREE.BoxGeometry(BRIDGE_WIDTH, 0.6, length),
-          mat(0xb7b6a1),
+          plankMaterial,
           root,
           (start.x + end.x) / 2,
           height - 0.3,
@@ -113,6 +116,7 @@ export class SkyView {
         );
         plank.name = `sky-step-${i}-${j}`;
         plank.rotation.y = Math.atan2(end.x - start.x, end.z - start.z);
+        staticPlanks.push(plank);
         if (j % 7 === 0) {
           for (const side of [-1, 1]) {
             const dx = Math.cos(plank.rotation.y) * (BRIDGE_WIDTH / 2 - 0.2) * side;
@@ -195,11 +199,13 @@ export class SkyView {
         LAUNCH.z,
       );
       ring.rotation.x = Math.PI / 2;
+      ring.castShadow = false;
       this.rings.push(ring);
     }
     this.lift.name = 'sky-lift';
     root.add(this.lift);
     this.lift.position.set(LAUNCH.x, launchHeight(), LAUNCH.z);
+    batchStaticMeshes(root, staticPlanks);
   }
   update(t: number, journey: SkyJourney, playerY: number) {
     this.lift.position.y = journey.ride ? playerY : journey.inSky ? ISLANDS[0].y : launchHeight();

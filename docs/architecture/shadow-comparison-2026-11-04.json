@@ -1,0 +1,130 @@
+{
+  "methodology": {
+    "scenario": "Fixed stair pose, idle; not a moving staircase average",
+    "viewport": [
+      1440,
+      900
+    ],
+    "DPR": 1,
+    "shadows": true,
+    "time": "12:21 frozen",
+    "durationSecondsPerRun": 15,
+    "runs": 3,
+    "beforeReportIndices": [
+      7,
+      8,
+      9
+    ],
+    "afterReportIndices": [
+      1,
+      2,
+      3
+    ],
+    "aggregation": "Arithmetic mean of per-run means/percentiles; not a pooled percentile",
+    "beforeBuild": "index-Cx-OnP6q.js",
+    "afterBuild": "index-jqSeQg-7.js",
+    "note": "Earlier exploratory shadow captures overlapped build/test activity and are retained separately in the before file. These six comparison captures did not overlap build/tests. Live overlay reduction was made afterwards and has a separate final smoke capture."
+  },
+  "comparison": {
+    "fps": {
+      "beforeRuns": [
+        58.73724914994333,
+        55.66234182284175,
+        55.06703378022512
+      ],
+      "afterRuns": [
+        78.423794992071,
+        80.8224837089058,
+        82.93388622590813
+      ],
+      "beforeMean": 56.48887491767007,
+      "afterMean": 80.72672164229498,
+      "changePercent": 42.907292382704476
+    },
+    "renderCpuMs": {
+      "beforeRuns": [
+        9.954937570076119,
+        10.621702636746194,
+        10.528208227480873
+      ],
+      "afterRuns": [
+        6.998385725936955,
+        6.620032976799923,
+        6.658842447103028
+      ],
+      "beforeMean": 10.368282811434396,
+      "afterMean": 6.759087049946635,
+      "changePercent": -34.80996638621249
+    },
+    "calls": {
+      "beforeRuns": [
+        600.0068104426788,
+        602.8093525179856,
+        599.2033898305085
+      ],
+      "afterRuns": [
+        387.67289719626166,
+        390.7188788128607,
+        390.37299035369773
+      ],
+      "beforeMean": 600.6731842637244,
+      "afterMean": 389.58825545427334,
+      "changePercent": -35.14139374611646
+    },
+    "frameP95Ms": {
+      "beforeRuns": [
+        41.5,
+        41.70000000001164,
+        41.70000000001164
+      ],
+      "afterRuns": [
+        25.30000000000109,
+        25,
+        24.90000000000873
+      ],
+      "beforeMean": 41.63333333334109,
+      "afterMean": 25.066666666669942,
+      "changePercent": -39.79183346677677
+    },
+    "frameP99Ms": {
+      "beforeRuns": [
+        108.29999999998836,
+        100.20000000001164,
+        91.70000000001164
+      ],
+      "afterRuns": [
+        75.59999999999854,
+        74.80000000000291,
+        59.30000000000291
+      ],
+      "beforeMean": 100.06666666667054,
+      "afterMean": 69.90000000000146,
+      "changePercent": -30.146568954031892
+    },
+    "cameraCpuMs": {
+      "beforeRuns": [
+        3.0745743503635508,
+        3.1863309370813897,
+        3.3015738439906306
+      ],
+      "afterRuns": [
+        2.244774845969201,
+        2.217807100316462,
+        2.1811093229956184
+      ],
+      "beforeMean": 3.187493043811857,
+      "afterMean": 2.214563756427094,
+      "changePercent": -30.523338373195543
+    }
+  },
+  "positionsIdentical": true,
+  "settledCamerasIdentical": true,
+  "longFrames": {
+    "loafOver100msBefore": 22,
+    "loafOver100msAfter": 9,
+    "wallSecondsPerSide": 45,
+    "slowMainSampleBefore": 39,
+    "slowMainSampleAfter": 11,
+    "note": "LoAF browser entries differ from intervals between game callbacks. Slow main samples include either >100ms callback interval or >100ms callback elapsed, so do not count them as unique browser frames."
+  }
+}

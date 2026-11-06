@@ -1,0 +1,352 @@
+{
+  "source": "docs/architecture/artifacts/chrome-stairs-2026-11-04.json.gz",
+  "url": "http://127.0.0.1:4175/?perf=1",
+  "rendererPid": 29543,
+  "notes": "Separate visible Chrome recording; not the fixed-viewport A/B capture. Nested timings must not be added. GPUTask is a trace task, not a per-frame GPU timer. Sampled JS self times are statistical attribution, not exact elapsed spans.",
+  "mainThread": {
+    "RunTask": {
+      "count": 27212,
+      "totalMs": 11892.087,
+      "meanMs": 0.43701627958253714,
+      "p95Ms": 2.769,
+      "maxMs": 96.621,
+      "over100ms": 0
+    },
+    "FireAnimationFrame": {
+      "count": 4139,
+      "totalMs": 9913.334,
+      "meanMs": 2.3951036482242087,
+      "p95Ms": 2.91,
+      "maxMs": 93.07,
+      "over100ms": 0
+    },
+    "MinorGC": {
+      "count": 408,
+      "totalMs": 91.673,
+      "meanMs": 0.22468872549019608,
+      "p95Ms": 0.363,
+      "maxMs": 0.601,
+      "over100ms": 0
+    },
+    "MajorGC": {
+      "count": 4,
+      "totalMs": 14.773,
+      "meanMs": 3.69325,
+      "p95Ms": 5.436,
+      "maxMs": 5.436,
+      "over100ms": 0
+    },
+    "UpdateLayoutTree": {
+      "count": 328,
+      "totalMs": 42.559,
+      "meanMs": 0.1297530487804878,
+      "p95Ms": 0.198,
+      "maxMs": 0.497,
+      "over100ms": 0
+    },
+    "Layout": {
+      "count": 328,
+      "totalMs": 184.543,
+      "meanMs": 0.5626310975609756,
+      "p95Ms": 0.733,
+      "maxMs": 0.907,
+      "over100ms": 0
+    },
+    "Paint": {
+      "count": 3608,
+      "totalMs": 157.269,
+      "meanMs": 0.0435889689578714,
+      "p95Ms": 0.267,
+      "maxMs": 0.579,
+      "over100ms": 0
+    },
+    "FunctionCall": {
+      "count": 4624,
+      "totalMs": 9742.934,
+      "meanMs": 2.107035899653979,
+      "p95Ms": 2.826,
+      "maxMs": 90.397,
+      "over100ms": 0
+    }
+  },
+  "gpuTasks": {
+    "count": 14757,
+    "totalMs": 5806.415,
+    "meanMs": 0.39346852341261773,
+    "p95Ms": 0.669,
+    "maxMs": 3.361,
+    "over100ms": 0
+  },
+  "shaderCompileEvents": {
+    "count": 0,
+    "totalMs": 0,
+    "meanMs": 0,
+    "p95Ms": 0,
+    "maxMs": 0,
+    "over100ms": 0
+  },
+  "topSampledFunctions": [
+    {
+      "sampledSelfMs": 22017.935000007055,
+      "functionName": "(idle)",
+      "url": null,
+      "lineNumber": null,
+      "columnNumber": null
+    },
+    {
+      "sampledSelfMs": 2874.1259999999147,
+      "functionName": "(program)",
+      "url": null,
+      "lineNumber": null,
+      "columnNumber": null
+    },
+    {
+      "sampledSelfMs": 995.1949999999914,
+      "functionName": "requestAnimationFrame",
+      "url": null,
+      "lineNumber": null,
+      "columnNumber": null
+    },
+    {
+      "sampledSelfMs": 181.07099999999988,
+      "functionName": "renderBufferDirect",
+      "url": "http://127.0.0.1:4175/assets/three-EUNOoXRR.js",
+      "lineNumber": 3831,
+      "columnNumber": 24728
+    },
+    {
+      "sampledSelfMs": 157.8330000000002,
+      "functionName": "bindVertexArray",
+      "url": null,
+      "lineNumber": null,
+      "columnNumber": null
+    },
+    {
+      "sampledSelfMs": 155.691,
+      "functionName": "sync",
+      "url": "http://127.0.0.1:4175/assets/index-jqSeQg-7.js",
+      "lineNumber": 30,
+      "columnNumber": 37182
+    },
+    {
+      "sampledSelfMs": 153.91299999999993,
+      "functionName": "n",
+      "url": "http://127.0.0.1:4175/assets/index-jqSeQg-7.js",
+      "lineNumber": 30,
+      "columnNumber": 33793
+    },
+    {
+      "sampledSelfMs": 153.52199999999996,
+      "functionName": "Zo",
+      "url": "http://127.0.0.1:4175/assets/three-EUNOoXRR.js",
+      "lineNumber": 3728,
+      "columnNumber": 7289
+    },
+    {
+      "sampledSelfMs": 152.548,
+      "functionName": "Qe",
+      "url": "http://127.0.0.1:4175/assets/three-EUNOoXRR.js",
+      "lineNumber": 3831,
+      "columnNumber": 29580
+    },
+    {
+      "sampledSelfMs": 131.3980000000001,
+      "functionName": "(garbage collector)",
+      "url": null,
+      "lineNumber": null,
+      "columnNumber": null
+    },
+    {
+      "sampledSelfMs": 127.76900000000012,
+      "functionName": "multiplyMatrices",
+      "url": "http://127.0.0.1:4175/assets/three-EUNOoXRR.js",
+      "lineNumber": 0,
+      "columnNumber": 55493
+    },
+    {
+      "sampledSelfMs": 124.16200000000026,
+      "functionName": "getVertexPosition",
+      "url": "http://127.0.0.1:4175/assets/three-EUNOoXRR.js",
+      "lineNumber": 0,
+      "columnNumber": 113318
+    },
+    {
+      "sampledSelfMs": 123.32600000000036,
+      "functionName": "update",
+      "url": "http://127.0.0.1:4175/assets/index-jqSeQg-7.js",
+      "lineNumber": 30,
+      "columnNumber": 47197
+    },
+    {
+      "sampledSelfMs": 113.09800000000006,
+      "functionName": "intersectTriangle",
+      "url": "http://127.0.0.1:4175/assets/three-EUNOoXRR.js",
+      "lineNumber": 0,
+      "columnNumber": 51800
+    },
+    {
+      "sampledSelfMs": 106.70500000000023,
+      "functionName": "Qe",
+      "url": "http://127.0.0.1:4175/assets/three-EUNOoXRR.js",
+      "lineNumber": 3831,
+      "columnNumber": 29580
+    },
+    {
+      "sampledSelfMs": 104.61600000000014,
+      "functionName": "ot",
+      "url": "http://127.0.0.1:4175/assets/three-EUNOoXRR.js",
+      "lineNumber": 3831,
+      "columnNumber": 35504
+    },
+    {
+      "sampledSelfMs": 96.67700000000015,
+      "functionName": "l",
+      "url": "http://127.0.0.1:4175/assets/three-EUNOoXRR.js",
+      "lineNumber": 3578,
+      "columnNumber": 10872
+    },
+    {
+      "sampledSelfMs": 95.17000000000019,
+      "functionName": "uniformMatrix4fv",
+      "url": null,
+      "lineNumber": null,
+      "columnNumber": null
+    },
+    {
+      "sampledSelfMs": 90.73000000000009,
+      "functionName": "frame",
+      "url": "http://127.0.0.1:4175/assets/index-jqSeQg-7.js",
+      "lineNumber": 30,
+      "columnNumber": 62175
+    },
+    {
+      "sampledSelfMs": 86.57300000000012,
+      "functionName": "H",
+      "url": "http://127.0.0.1:4175/assets/index-jqSeQg-7.js",
+      "lineNumber": 22,
+      "columnNumber": 6462
+    },
+    {
+      "sampledSelfMs": 86.15800000000013,
+      "functionName": "l",
+      "url": "http://127.0.0.1:4175/assets/three-EUNOoXRR.js",
+      "lineNumber": 3779,
+      "columnNumber": 13082
+    },
+    {
+      "sampledSelfMs": 85.31500000000011,
+      "functionName": "multiplyMatrices",
+      "url": "http://127.0.0.1:4175/assets/three-EUNOoXRR.js",
+      "lineNumber": 0,
+      "columnNumber": 55493
+    },
+    {
+      "sampledSelfMs": 83.85800000000008,
+      "functionName": "getX",
+      "url": "http://127.0.0.1:4175/assets/three-EUNOoXRR.js",
+      "lineNumber": 0,
+      "columnNumber": 100389
+    },
+    {
+      "sampledSelfMs": 82.92700000000004,
+      "functionName": "s",
+      "url": "http://127.0.0.1:4175/assets/three-EUNOoXRR.js",
+      "lineNumber": 3578,
+      "columnNumber": 10602
+    },
+    {
+      "sampledSelfMs": 79.65300000000018,
+      "functionName": "Yo",
+      "url": "http://127.0.0.1:4175/assets/three-EUNOoXRR.js",
+      "lineNumber": 3728,
+      "columnNumber": 6979
+    },
+    {
+      "sampledSelfMs": 73.52700000000006,
+      "functionName": "subVectors",
+      "url": "http://127.0.0.1:4175/assets/three-EUNOoXRR.js",
+      "lineNumber": 0,
+      "columnNumber": 14661
+    },
+    {
+      "sampledSelfMs": 72.77400000000011,
+      "functionName": "upload",
+      "url": "http://127.0.0.1:4175/assets/three-EUNOoXRR.js",
+      "lineNumber": 3728,
+      "columnNumber": 14644
+    },
+    {
+      "sampledSelfMs": 71.937,
+      "functionName": "beginFrame",
+      "url": "http://127.0.0.1:4175/assets/index-jqSeQg-7.js",
+      "lineNumber": 30,
+      "columnNumber": 37083
+    },
+    {
+      "sampledSelfMs": 70.17900000000003,
+      "functionName": "getY",
+      "url": "http://127.0.0.1:4175/assets/three-EUNOoXRR.js",
+      "lineNumber": 0,
+      "columnNumber": 100567
+    },
+    {
+      "sampledSelfMs": 70.08400000000006,
+      "functionName": "Qe",
+      "url": "http://127.0.0.1:4175/assets/three-EUNOoXRR.js",
+      "lineNumber": 3831,
+      "columnNumber": 29580
+    }
+  ],
+  "longestMainTasks": [
+    {
+      "name": "RunTask",
+      "ts": 2347323544267,
+      "dur": 96621
+    },
+    {
+      "name": "RunTask",
+      "ts": 2347324503591,
+      "dur": 7277
+    },
+    {
+      "name": "RunTask",
+      "ts": 2347323640929,
+      "dur": 6778
+    },
+    {
+      "name": "RunTask",
+      "ts": 2347324478455,
+      "dur": 6518
+    },
+    {
+      "name": "RunTask",
+      "ts": 2347323647722,
+      "dur": 6355
+    },
+    {
+      "name": "RunTask",
+      "ts": 2347334836795,
+      "dur": 6218
+    },
+    {
+      "name": "RunTask",
+      "ts": 2347328603502,
+      "dur": 5953
+    },
+    {
+      "name": "RunTask",
+      "ts": 2347351379000,
+      "dur": 5617
+    },
+    {
+      "name": "RunTask",
+      "ts": 2347346002511,
+      "dur": 5578
+    },
+    {
+      "name": "RunTask",
+      "ts": 2347347270012,
+      "dur": 5512
+    }
+  ]
+}

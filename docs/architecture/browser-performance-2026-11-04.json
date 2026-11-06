@@ -1,0 +1,1991 @@
+{
+  "schema": 1,
+  "notes": "RAF intervals; CPU stages exclude browser layout/paint, GPU time and preview work. Calls include main renderer shadow passes. Resource counts are not bytes. Event times may overlap frame stages. No network transmission.",
+  "reports": [
+    {
+      "label": "idle",
+      "status": "complete",
+      "recordedAt": "2026-11-04T05:12:37.147Z",
+      "durationMs": 15000,
+      "environment": {
+        "build": "production",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "drawingBuffer": {
+          "width": 2448,
+          "height": 1530
+        },
+        "devicePixelRatio": 1,
+        "renderPixelRatio": 1.7,
+        "shadows": true,
+        "mainRendererOnly": true
+      },
+      "environmentEnd": {
+        "build": "production",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "drawingBuffer": {
+          "width": 2448,
+          "height": 1530
+        },
+        "devicePixelRatio": 1,
+        "renderPixelRatio": 1.7,
+        "shadows": true,
+        "mainRendererOnly": true
+      },
+      "droppedSamples": 0,
+      "samples": 729,
+      "intervalSamples": 729,
+      "fps": 48.546275455162956,
+      "frameMs": {
+        "mean": 20.598902606310013,
+        "p50": 16.700000000000728,
+        "p95": 41.5,
+        "p99": 83.40000000000146,
+        "max": 116.60000000000218
+      },
+      "over33ms": 51,
+      "over50ms": 28,
+      "cpuMs": {
+        "mean": 18.282167360779354,
+        "p50": 15.800000190734863,
+        "p95": 33,
+        "p99": 75.59999990463257,
+        "max": 111.90000009536743
+      },
+      "stagesMs": {
+        "simulation": {
+          "mean": 0.9698216715630844,
+          "p50": 0.5999999046325684,
+          "p95": 2.8000001907348633,
+          "p99": 7.300000190734863,
+          "max": 24.09999990463257
+        },
+        "camera": {
+          "mean": 3.852537728140874,
+          "p50": 2.8000001907348633,
+          "p95": 8.799999713897705,
+          "p99": 16.299999713897705,
+          "max": 38.5
+        },
+        "world": {
+          "mean": 0.5748971277140132,
+          "p50": 0.39999961853027344,
+          "p95": 1.5,
+          "p99": 4.799999713897705,
+          "max": 11.699999809265137
+        },
+        "vehicle": {
+          "mean": 0.1255144046003763,
+          "p50": 0.09999990463256836,
+          "p95": 0.20000028610229492,
+          "p99": 1.0999999046325684,
+          "max": 13.299999713897705
+        },
+        "sky": {
+          "mean": 0.021399175515717767,
+          "p50": 0,
+          "p95": 0.09999990463256836,
+          "p99": 0.10000038146972656,
+          "max": 1.3000001907348633
+        },
+        "render": {
+          "mean": 12.499314126981465,
+          "p50": 10.699999809265137,
+          "p95": 23.40000009536743,
+          "p99": 55,
+          "max": 75.80000019073486
+        },
+        "hud": {
+          "mean": 0.2264746193696115,
+          "p50": 0,
+          "p95": 1,
+          "p99": 2.8000001907348633,
+          "max": 15.399999618530273
+        }
+      },
+      "modes": {
+        "idle": 729
+      },
+      "position": {
+        "first": {
+          "x": 0,
+          "y": 23.10688413073135,
+          "z": 195
+        },
+        "last": {
+          "x": 0,
+          "y": 23.10688413073135,
+          "z": 195
+        }
+      },
+      "calls": {
+        "first": 816,
+        "last": 819,
+        "min": 816,
+        "max": 820,
+        "mean": 817.4663923182442
+      },
+      "triangles": {
+        "first": 305614,
+        "last": 305706,
+        "min": 305614,
+        "max": 305712,
+        "mean": 305653.4540466392
+      },
+      "geometries": {
+        "first": 621,
+        "last": 625,
+        "min": 621,
+        "max": 625,
+        "mean": 622.7846364883402
+      },
+      "textures": {
+        "first": 1,
+        "last": 1,
+        "min": 1,
+        "max": 1,
+        "mean": 1
+      },
+      "programs": {
+        "first": 15,
+        "last": 15,
+        "min": 15,
+        "max": 15,
+        "mean": 15
+      },
+      "events": [
+        {
+          "name": "save",
+          "ms": 0.40000009536743164,
+          "offsetMs": 4934
+        }
+      ]
+    },
+    {
+      "label": "walk",
+      "status": "complete",
+      "recordedAt": "2026-11-04T05:13:09.021Z",
+      "durationMs": 15000,
+      "environment": {
+        "build": "production",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "drawingBuffer": {
+          "width": 2448,
+          "height": 1530
+        },
+        "devicePixelRatio": 1,
+        "renderPixelRatio": 1.7,
+        "shadows": true,
+        "mainRendererOnly": true
+      },
+      "environmentEnd": {
+        "build": "production",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "drawingBuffer": {
+          "width": 2448,
+          "height": 1530
+        },
+        "devicePixelRatio": 1,
+        "renderPixelRatio": 1.7,
+        "shadows": true,
+        "mainRendererOnly": true
+      },
+      "droppedSamples": 0,
+      "samples": 703,
+      "intervalSamples": 703,
+      "fps": 46.86666666666664,
+      "frameMs": {
+        "mean": 21.337126600284506,
+        "p50": 16.700000000004366,
+        "p95": 41.700000000004366,
+        "p99": 91.69999999999709,
+        "max": 125
+      },
+      "over33ms": 51,
+      "over50ms": 28,
+      "cpuMs": {
+        "mean": 18.876386922589408,
+        "p50": 16.09999990463257,
+        "p95": 41.5,
+        "p99": 70.60000038146973,
+        "max": 89.59999990463257
+      },
+      "stagesMs": {
+        "simulation": {
+          "mean": 1.1600284589981795,
+          "p50": 0.6999998092651367,
+          "p95": 3.8000001907348633,
+          "p99": 9.400000095367432,
+          "max": 20.299999713897705
+        },
+        "camera": {
+          "mean": 4.627738260103663,
+          "p50": 3.4000000953674316,
+          "p95": 10.400000095367432,
+          "p99": 21.5,
+          "max": 37
+        },
+        "world": {
+          "mean": 0.5561877694272385,
+          "p50": 0.3000001907348633,
+          "p95": 1.4000000953674316,
+          "p99": 6.400000095367432,
+          "max": 18.700000286102295
+        },
+        "vehicle": {
+          "mean": 0.09118065352460229,
+          "p50": 0.09999990463256836,
+          "p95": 0.19999980926513672,
+          "p99": 0.7000002861022949,
+          "max": 7.799999713897705
+        },
+        "sky": {
+          "mean": 0.027453765760614385,
+          "p50": 0,
+          "p95": 0.09999990463256836,
+          "p99": 0.20000028610229492,
+          "max": 2.4000000953674316
+        },
+        "render": {
+          "mean": 12.07396871368712,
+          "p50": 10.199999809265137,
+          "p95": 20.59999990463257,
+          "p99": 47.5,
+          "max": 63.700000286102295
+        },
+        "hud": {
+          "mean": 0.33015647144778865,
+          "p50": 0,
+          "p95": 1.4000000953674316,
+          "p99": 4.300000190734863,
+          "max": 25.09999990463257
+        }
+      },
+      "modes": {
+        "walk": 703
+      },
+      "position": {
+        "first": {
+          "x": -1.0026268179818516,
+          "y": 22.988342036472176,
+          "z": 178.30961038425482
+        },
+        "last": {
+          "x": -4.986463727172905,
+          "y": 19.28443452130864,
+          "z": 111.99202443156301
+        }
+      },
+      "calls": {
+        "first": 825,
+        "last": 772,
+        "min": 728,
+        "max": 825,
+        "mean": 780.6657183499289
+      },
+      "triangles": {
+        "first": 306780,
+        "last": 321356,
+        "min": 303742,
+        "max": 322204,
+        "mean": 306985.30583214795
+      },
+      "geometries": {
+        "first": 634,
+        "last": 708,
+        "min": 634,
+        "max": 708,
+        "mean": 670.2688477951635
+      },
+      "textures": {
+        "first": 1,
+        "last": 1,
+        "min": 1,
+        "max": 1,
+        "mean": 1
+      },
+      "programs": {
+        "first": 15,
+        "last": 16,
+        "min": 15,
+        "max": 16,
+        "mean": 15.076813655761024
+      },
+      "events": [
+        {
+          "name": "save",
+          "ms": 0.19999980926513672,
+          "offsetMs": 12341.89999961853
+        }
+      ]
+    },
+    {
+      "label": "stairs",
+      "status": "complete",
+      "recordedAt": "2026-11-04T05:14:25.167Z",
+      "durationMs": 15000,
+      "environment": {
+        "build": "production",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "drawingBuffer": {
+          "width": 2448,
+          "height": 1530
+        },
+        "devicePixelRatio": 1,
+        "renderPixelRatio": 1.7,
+        "shadows": true,
+        "mainRendererOnly": true
+      },
+      "environmentEnd": {
+        "build": "production",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "drawingBuffer": {
+          "width": 2448,
+          "height": 1530
+        },
+        "devicePixelRatio": 1,
+        "renderPixelRatio": 1.7,
+        "shadows": true,
+        "mainRendererOnly": true
+      },
+      "droppedSamples": 0,
+      "samples": 684,
+      "intervalSamples": 684,
+      "fps": 45.57781879485312,
+      "frameMs": {
+        "mean": 21.940497076023416,
+        "p50": 16.699999999982538,
+        "p95": 50.10000000000582,
+        "p99": 116.69999999998254,
+        "max": 331.69999999998254
+      },
+      "over33ms": 70,
+      "over50ms": 36,
+      "cpuMs": {
+        "mean": 19.130116961155718,
+        "p50": 14.600000381469727,
+        "p95": 43.90000009536743,
+        "p99": 105.2000002861023,
+        "max": 267.40000009536743
+      },
+      "stagesMs": {
+        "simulation": {
+          "mean": 0.9520467833468789,
+          "p50": 0.5999999046325684,
+          "p95": 2.799999713897705,
+          "p99": 8,
+          "max": 17.700000286102295
+        },
+        "camera": {
+          "mean": 6.183771923968666,
+          "p50": 4.300000190734863,
+          "p95": 13.5,
+          "p99": 43.90000009536743,
+          "max": 59.60000038146973
+        },
+        "world": {
+          "mean": 0.3498538070254856,
+          "p50": 0.19999980926513672,
+          "p95": 0.5999999046325684,
+          "p99": 4.5,
+          "max": 14
+        },
+        "vehicle": {
+          "mean": 0.12514620426802608,
+          "p50": 0.09999990463256836,
+          "p95": 0.20000028610229492,
+          "p99": 1.8999996185302734,
+          "max": 8.400000095367432
+        },
+        "sky": {
+          "mean": 0.019736839316741764,
+          "p50": 0,
+          "p95": 0.09999990463256836,
+          "p99": 0.20000028610229492,
+          "max": 1.0999999046325684
+        },
+        "render": {
+          "mean": 11.196783621408786,
+          "p50": 8.100000381469727,
+          "p95": 26.09999990463257,
+          "p99": 69.7000002861023,
+          "max": 190.80000019073486
+        },
+        "hud": {
+          "mean": 0.29619883584697343,
+          "p50": 0,
+          "p95": 1.200000286102295,
+          "p99": 5.599999904632568,
+          "max": 17.800000190734863
+        }
+      },
+      "modes": {
+        "walk": 683,
+        "idle": 1
+      },
+      "position": {
+        "first": {
+          "x": -65.37487790301685,
+          "y": 19.630225537903573,
+          "z": 84.31177990748577
+        },
+        "last": {
+          "x": -65.27076359358455,
+          "y": 19.41022553790357,
+          "z": 86.044935611916
+        }
+      },
+      "calls": {
+        "first": 611,
+        "last": 607,
+        "min": 594,
+        "max": 613,
+        "mean": 606.2763157894736
+      },
+      "triangles": {
+        "first": 314892,
+        "last": 314816,
+        "min": 314816,
+        "max": 315528,
+        "mean": 315204.76608187135
+      },
+      "geometries": {
+        "first": 735,
+        "last": 735,
+        "min": 735,
+        "max": 735,
+        "mean": 735
+      },
+      "textures": {
+        "first": 1,
+        "last": 1,
+        "min": 1,
+        "max": 1,
+        "mean": 1
+      },
+      "programs": {
+        "first": 16,
+        "last": 16,
+        "min": 16,
+        "max": 16,
+        "mean": 16
+      },
+      "events": [
+        {
+          "name": "save",
+          "ms": 0.2999997138977051,
+          "offsetMs": 5459.400000095367
+        }
+      ]
+    },
+    {
+      "label": "pause",
+      "status": "complete",
+      "recordedAt": "2026-11-04T05:14:57.437Z",
+      "durationMs": 15000,
+      "environment": {
+        "build": "production",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "drawingBuffer": {
+          "width": 2448,
+          "height": 1530
+        },
+        "devicePixelRatio": 1,
+        "renderPixelRatio": 1.7,
+        "shadows": true,
+        "mainRendererOnly": true
+      },
+      "environmentEnd": {
+        "build": "production",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "drawingBuffer": {
+          "width": 2448,
+          "height": 1530
+        },
+        "devicePixelRatio": 1,
+        "renderPixelRatio": 1.7,
+        "shadows": true,
+        "mainRendererOnly": true
+      },
+      "droppedSamples": 0,
+      "samples": 825,
+      "intervalSamples": 825,
+      "fps": 55.04623884062615,
+      "frameMs": {
+        "mean": 18.166545454545446,
+        "p50": 16.60000000000582,
+        "p95": 41.60000000000582,
+        "p99": 92,
+        "max": 150.20000000001164
+      },
+      "over33ms": 53,
+      "over50ms": 27,
+      "cpuMs": {
+        "mean": 15.922303028684674,
+        "p50": 13.200000286102295,
+        "p95": 30.800000190734863,
+        "p99": 75.90000009536743,
+        "max": 137
+      },
+      "stagesMs": {
+        "simulation": {
+          "mean": 0.0023030292626583216,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0.09999990463256836,
+          "max": 0.10000038146972656
+        },
+        "camera": {
+          "mean": 5.44012120738174,
+          "p50": 4,
+          "p95": 11.299999713897705,
+          "p99": 24.59999990463257,
+          "max": 48
+        },
+        "world": {
+          "mean": 0.331030313318426,
+          "p50": 0.20000028610229492,
+          "p95": 0.6999998092651367,
+          "p99": 4.099999904632568,
+          "max": 10
+        },
+        "vehicle": {
+          "mean": 0.11357575214270389,
+          "p50": 0.09999990463256836,
+          "p95": 0.20000028610229492,
+          "p99": 1,
+          "max": 8.300000190734863
+        },
+        "sky": {
+          "mean": 0.020848486351244377,
+          "p50": 0,
+          "p95": 0.09999990463256836,
+          "p99": 0.10000038146972656,
+          "max": 2.9000000953674316
+        },
+        "render": {
+          "mean": 9.80775757298325,
+          "p50": 7.699999809265137,
+          "p95": 20.90000009536743,
+          "p99": 55.5,
+          "max": 88.59999990463257
+        },
+        "hud": {
+          "mean": 0.20193939382379705,
+          "p50": 0,
+          "p95": 0.9000000953674316,
+          "p99": 3.5,
+          "max": 9
+        }
+      },
+      "modes": {
+        "panel:settings": 825
+      },
+      "position": {
+        "first": {
+          "x": -65.53447491097698,
+          "y": 20.07022553790357,
+          "z": 81.65502248130446
+        },
+        "last": {
+          "x": -65.53447491097698,
+          "y": 20.07022553790357,
+          "z": 81.65502248130446
+        }
+      },
+      "calls": {
+        "first": 611,
+        "last": 611,
+        "min": 611,
+        "max": 611,
+        "mean": 611
+      },
+      "triangles": {
+        "first": 314932,
+        "last": 314932,
+        "min": 314932,
+        "max": 314932,
+        "mean": 314932
+      },
+      "geometries": {
+        "first": 735,
+        "last": 735,
+        "min": 735,
+        "max": 735,
+        "mean": 735
+      },
+      "textures": {
+        "first": 1,
+        "last": 1,
+        "min": 1,
+        "max": 1,
+        "mean": 1
+      },
+      "programs": {
+        "first": 16,
+        "last": 16,
+        "min": 16,
+        "max": 16,
+        "mean": 16
+      },
+      "events": []
+    },
+    {
+      "label": "map",
+      "status": "complete",
+      "recordedAt": "2026-11-04T05:15:32.329Z",
+      "durationMs": 15000,
+      "environment": {
+        "build": "production",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "drawingBuffer": {
+          "width": 2448,
+          "height": 1530
+        },
+        "devicePixelRatio": 1,
+        "renderPixelRatio": 1.7,
+        "shadows": true,
+        "mainRendererOnly": true
+      },
+      "environmentEnd": {
+        "build": "production",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "drawingBuffer": {
+          "width": 2448,
+          "height": 1530
+        },
+        "devicePixelRatio": 1,
+        "renderPixelRatio": 1.7,
+        "shadows": true,
+        "mainRendererOnly": true
+      },
+      "droppedSamples": 0,
+      "samples": 778,
+      "intervalSamples": 778,
+      "fps": 51.768651353437505,
+      "frameMs": {
+        "mean": 19.316709511568117,
+        "p50": 16.60000000000582,
+        "p95": 49.5,
+        "p99": 116.69999999998254,
+        "max": 191.79999999998836
+      },
+      "over33ms": 55,
+      "over50ms": 35,
+      "cpuMs": {
+        "mean": 16.62326478529099,
+        "p50": 13,
+        "p95": 36.90000009536743,
+        "p99": 93.59999990463257,
+        "max": 133.39999961853027
+      },
+      "stagesMs": {
+        "simulation": {
+          "mean": 0.0032133682221557303,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0.09999990463256836,
+          "max": 0.20000028610229492
+        },
+        "camera": {
+          "mean": 5.859511575233047,
+          "p50": 4,
+          "p95": 12.799999713897705,
+          "p99": 36.90000009536743,
+          "max": 104.2999997138977
+        },
+        "world": {
+          "mean": 0.344472991163749,
+          "p50": 0.19999980926513672,
+          "p95": 0.6999998092651367,
+          "p99": 5.300000190734863,
+          "max": 9.299999713897705
+        },
+        "vehicle": {
+          "mean": 0.19408741585699635,
+          "p50": 0.09999990463256836,
+          "p95": 0.3000001907348633,
+          "p99": 4,
+          "max": 16.40000009536743
+        },
+        "sky": {
+          "mean": 0.03547558686420666,
+          "p50": 0,
+          "p95": 0.10000038146972656,
+          "p99": 0.20000028610229492,
+          "max": 9.100000381469727
+        },
+        "render": {
+          "mean": 9.937275060344785,
+          "p50": 7.700000286102295,
+          "p95": 21.09999990463257,
+          "p99": 56.59999990463257,
+          "max": 83.90000009536743
+        },
+        "hud": {
+          "mean": 0.245115679150069,
+          "p50": 0,
+          "p95": 1.0999999046325684,
+          "p99": 5.300000190734863,
+          "max": 15.5
+        }
+      },
+      "modes": {
+        "panel:map": 778
+      },
+      "position": {
+        "first": {
+          "x": -65.53447491097698,
+          "y": 20.07022553790357,
+          "z": 81.65502248130446
+        },
+        "last": {
+          "x": -65.53447491097698,
+          "y": 20.07022553790357,
+          "z": 81.65502248130446
+        }
+      },
+      "calls": {
+        "first": 611,
+        "last": 611,
+        "min": 611,
+        "max": 611,
+        "mean": 611
+      },
+      "triangles": {
+        "first": 314932,
+        "last": 314932,
+        "min": 314932,
+        "max": 314932,
+        "mean": 314932
+      },
+      "geometries": {
+        "first": 735,
+        "last": 735,
+        "min": 735,
+        "max": 735,
+        "mean": 735
+      },
+      "textures": {
+        "first": 1,
+        "last": 1,
+        "min": 1,
+        "max": 1,
+        "mean": 1
+      },
+      "programs": {
+        "first": 16,
+        "last": 16,
+        "min": 16,
+        "max": 16,
+        "mean": 16
+      },
+      "events": []
+    },
+    {
+      "label": "drive",
+      "status": "complete",
+      "recordedAt": "2026-11-04T05:16:51.323Z",
+      "durationMs": 15000,
+      "environment": {
+        "build": "production",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "drawingBuffer": {
+          "width": 2448,
+          "height": 1530
+        },
+        "devicePixelRatio": 1,
+        "renderPixelRatio": 1.7,
+        "shadows": true,
+        "mainRendererOnly": true
+      },
+      "environmentEnd": {
+        "build": "production",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "drawingBuffer": {
+          "width": 2448,
+          "height": 1530
+        },
+        "devicePixelRatio": 1,
+        "renderPixelRatio": 1.7,
+        "shadows": true,
+        "mainRendererOnly": true
+      },
+      "droppedSamples": 0,
+      "samples": 679,
+      "intervalSamples": 679,
+      "fps": 45.217229162782125,
+      "frameMs": {
+        "mean": 22.115463917525723,
+        "p50": 16.70000000001164,
+        "p95": 50,
+        "p99": 100,
+        "max": 133.40000000002328
+      },
+      "over33ms": 68,
+      "over50ms": 33,
+      "cpuMs": {
+        "mean": 19.666863035558777,
+        "p50": 16.40000009536743,
+        "p95": 46,
+        "p99": 85,
+        "max": 118.69999980926514
+      },
+      "stagesMs": {
+        "simulation": {
+          "mean": 2.0916052889929255,
+          "p50": 0.7000002861022949,
+          "p95": 7.099999904632568,
+          "p99": 19.699999809265137,
+          "max": 68.09999990463257
+        },
+        "camera": {
+          "mean": 4.38468337234587,
+          "p50": 3.0999999046325684,
+          "p95": 10.5,
+          "p99": 23.09999990463257,
+          "max": 36.59999990463257
+        },
+        "world": {
+          "mean": 0.6013254712010694,
+          "p50": 0.3000001907348633,
+          "p95": 1.3000001907348633,
+          "p99": 8,
+          "max": 18.90000009536743
+        },
+        "vehicle": {
+          "mean": 0.14477173463936582,
+          "p50": 0.09999990463256836,
+          "p95": 0.20000028610229492,
+          "p99": 1.8000001907348633,
+          "max": 8.300000190734863
+        },
+        "sky": {
+          "mean": 0.02989691100871967,
+          "p50": 0,
+          "p95": 0.10000038146972656,
+          "p99": 0.10000038146972656,
+          "max": 3.0999999046325684
+        },
+        "render": {
+          "mean": 12.144624443222742,
+          "p50": 9.900000095367432,
+          "p95": 26.40000009536743,
+          "p99": 53.5,
+          "max": 79.5
+        },
+        "hud": {
+          "mean": 0.2599410898379971,
+          "p50": 0,
+          "p95": 1,
+          "p99": 4.099999904632568,
+          "max": 15.5
+        }
+      },
+      "modes": {
+        "drive": 679
+      },
+      "position": {
+        "first": {
+          "x": 22.966667759919442,
+          "y": 20.731571250248948,
+          "z": 173.95101230250256
+        },
+        "last": {
+          "x": 15.827958955308073,
+          "y": 22.05091243090905,
+          "z": 185.5277259749374
+        }
+      },
+      "calls": {
+        "first": 828,
+        "last": 790,
+        "min": 790,
+        "max": 869,
+        "mean": 858.5243004418262
+      },
+      "triangles": {
+        "first": 302318,
+        "last": 302416,
+        "min": 301740,
+        "max": 303954,
+        "mean": 303637.7790868925
+      },
+      "geometries": {
+        "first": 909,
+        "last": 911,
+        "min": 909,
+        "max": 911,
+        "mean": 909.120765832106
+      },
+      "textures": {
+        "first": 1,
+        "last": 1,
+        "min": 1,
+        "max": 1,
+        "mean": 1
+      },
+      "programs": {
+        "first": 16,
+        "last": 16,
+        "min": 16,
+        "max": 16,
+        "mean": 16
+      },
+      "events": [
+        {
+          "name": "save",
+          "ms": 0.3000001907348633,
+          "offsetMs": 3382.9000000953674
+        }
+      ]
+    },
+    {
+      "label": "idle",
+      "status": "complete",
+      "recordedAt": "2026-11-04T05:17:39.109Z",
+      "durationMs": 15000,
+      "environment": {
+        "build": "production",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "drawingBuffer": {
+          "width": 2448,
+          "height": 1530
+        },
+        "devicePixelRatio": 1,
+        "renderPixelRatio": 1.7,
+        "shadows": true,
+        "mainRendererOnly": true
+      },
+      "environmentEnd": {
+        "build": "production",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "drawingBuffer": {
+          "width": 2448,
+          "height": 1530
+        },
+        "devicePixelRatio": 1,
+        "renderPixelRatio": 1.7,
+        "shadows": true,
+        "mainRendererOnly": true
+      },
+      "droppedSamples": 0,
+      "samples": 702,
+      "intervalSamples": 702,
+      "fps": 46.787523327112766,
+      "frameMs": {
+        "mean": 21.373219373219374,
+        "p50": 16.70000000001164,
+        "p95": 58.40000000002328,
+        "p99": 100.09999999997672,
+        "max": 158.10000000003492
+      },
+      "over33ms": 76,
+      "over50ms": 43,
+      "cpuMs": {
+        "mean": 18.8105413091828,
+        "p50": 14,
+        "p95": 48.59999990463257,
+        "p99": 96.7999997138977,
+        "max": 139.59999990463257
+      },
+      "stagesMs": {
+        "simulation": {
+          "mean": 0.8930199411180284,
+          "p50": 0.5,
+          "p95": 2.5,
+          "p99": 8.400000095367432,
+          "max": 16.5
+        },
+        "camera": {
+          "mean": 4.72293447904777,
+          "p50": 2.9000000953674316,
+          "p95": 11.900000095367432,
+          "p99": 32.299999713897705,
+          "max": 73.19999980926514
+        },
+        "world": {
+          "mean": 0.6455840358027706,
+          "p50": 0.3000001907348633,
+          "p95": 1.8999996185302734,
+          "p99": 7.599999904632568,
+          "max": 22.700000286102295
+        },
+        "vehicle": {
+          "mean": 0.10669516430281506,
+          "p50": 0.09999990463256836,
+          "p95": 0.20000028610229492,
+          "p99": 0.7999997138977051,
+          "max": 5.300000190734863
+        },
+        "sky": {
+          "mean": 0.023789178951513393,
+          "p50": 0,
+          "p95": 0.09999990463256836,
+          "p99": 0.19999980926513672,
+          "max": 4.200000286102295
+        },
+        "render": {
+          "mean": 12.169515660006097,
+          "p50": 9,
+          "p95": 31.59999990463257,
+          "p99": 68.10000038146973,
+          "max": 90.7000002861023
+        },
+        "hud": {
+          "mean": 0.2443019943019943,
+          "p50": 0,
+          "p95": 1,
+          "p99": 4.099999904632568,
+          "max": 17.59999990463257
+        }
+      },
+      "modes": {
+        "idle": 702
+      },
+      "position": {
+        "first": {
+          "x": 0,
+          "y": 23.10688413073135,
+          "z": 195
+        },
+        "last": {
+          "x": 0,
+          "y": 23.10688413073135,
+          "z": 195
+        }
+      },
+      "calls": {
+        "first": 792,
+        "last": 788,
+        "min": 788,
+        "max": 792,
+        "mean": 789.0299145299145
+      },
+      "triangles": {
+        "first": 304718,
+        "last": 304694,
+        "min": 304626,
+        "max": 304718,
+        "mean": 304675.82905982906
+      },
+      "geometries": {
+        "first": 913,
+        "last": 913,
+        "min": 913,
+        "max": 913,
+        "mean": 913
+      },
+      "textures": {
+        "first": 1,
+        "last": 1,
+        "min": 1,
+        "max": 1,
+        "mean": 1
+      },
+      "programs": {
+        "first": 17,
+        "last": 17,
+        "min": 17,
+        "max": 17,
+        "mean": 17
+      },
+      "events": [
+        {
+          "name": "save",
+          "ms": 0.3000001907348633,
+          "offsetMs": 9794.800000190735
+        }
+      ]
+    },
+    {
+      "label": "idle",
+      "status": "complete",
+      "recordedAt": "2026-11-04T05:18:15.273Z",
+      "durationMs": 15000,
+      "environment": {
+        "build": "production",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "drawingBuffer": {
+          "width": 1440,
+          "height": 900
+        },
+        "devicePixelRatio": 1,
+        "renderPixelRatio": 1,
+        "shadows": false,
+        "mainRendererOnly": true
+      },
+      "environmentEnd": {
+        "build": "production",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "drawingBuffer": {
+          "width": 1440,
+          "height": 900
+        },
+        "devicePixelRatio": 1,
+        "renderPixelRatio": 1,
+        "shadows": false,
+        "mainRendererOnly": true
+      },
+      "droppedSamples": 0,
+      "samples": 773,
+      "intervalSamples": 773,
+      "fps": 51.562552112863955,
+      "frameMs": {
+        "mean": 19.39391979301423,
+        "p50": 16.599999999976717,
+        "p95": 58.300000000046566,
+        "p99": 116.79999999998836,
+        "max": 183.60000000003492
+      },
+      "over33ms": 68,
+      "over50ms": 44,
+      "cpuMs": {
+        "mean": 16.53014230049597,
+        "p50": 12.199999809265137,
+        "p95": 42.799999713897705,
+        "p99": 90,
+        "max": 155.19999980926514
+      },
+      "stagesMs": {
+        "simulation": {
+          "mean": 1.0115135891163025,
+          "p50": 0.5,
+          "p95": 3,
+          "p99": 12.299999713897705,
+          "max": 37.69999980926514
+        },
+        "camera": {
+          "mean": 4.702716681812282,
+          "p50": 3.0999999046325684,
+          "p95": 12.300000190734863,
+          "p99": 30.699999809265137,
+          "max": 58
+        },
+        "world": {
+          "mean": 0.523415261992816,
+          "p50": 0.3000001907348633,
+          "p95": 1,
+          "p99": 5.799999713897705,
+          "max": 12.400000095367432
+        },
+        "vehicle": {
+          "mean": 0.12276843355975824,
+          "p50": 0.09999990463256836,
+          "p95": 0.20000028610229492,
+          "p99": 0.8000001907348633,
+          "max": 10.5
+        },
+        "sky": {
+          "mean": 0.022897804230644355,
+          "p50": 0,
+          "p95": 0.09999990463256836,
+          "p99": 0.2999997138977051,
+          "max": 2.8999996185302734
+        },
+        "render": {
+          "mean": 9.884476070724823,
+          "p50": 7,
+          "p95": 27,
+          "p99": 59.19999980926514,
+          "max": 127.80000019073486
+        },
+        "hud": {
+          "mean": 0.24734799026054985,
+          "p50": 0,
+          "p95": 1.1999998092651367,
+          "p99": 3.6999998092651367,
+          "max": 11.599999904632568
+        }
+      },
+      "modes": {
+        "idle": 773
+      },
+      "position": {
+        "first": {
+          "x": 0,
+          "y": 23.10688413073135,
+          "z": 195
+        },
+        "last": {
+          "x": 0,
+          "y": 23.10688413073135,
+          "z": 195
+        }
+      },
+      "calls": {
+        "first": 565,
+        "last": 570,
+        "min": 565,
+        "max": 570,
+        "mean": 568.2147477360932
+      },
+      "triangles": {
+        "first": 248096,
+        "last": 248200,
+        "min": 248096,
+        "max": 248200,
+        "mean": 248146.40103492886
+      },
+      "geometries": {
+        "first": 914,
+        "last": 914,
+        "min": 914,
+        "max": 914,
+        "mean": 914
+      },
+      "textures": {
+        "first": 1,
+        "last": 1,
+        "min": 1,
+        "max": 1,
+        "mean": 1
+      },
+      "programs": {
+        "first": 28,
+        "last": 28,
+        "min": 28,
+        "max": 28,
+        "mean": 28
+      },
+      "events": [
+        {
+          "name": "save",
+          "ms": 0.09999990463256836,
+          "offsetMs": 2203.9000000953674
+        }
+      ]
+    },
+    {
+      "label": "appearance",
+      "status": "complete",
+      "recordedAt": "2026-11-04T05:20:11.542Z",
+      "durationMs": 15000,
+      "environment": {
+        "build": "production",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "drawingBuffer": {
+          "width": 1440,
+          "height": 900
+        },
+        "devicePixelRatio": 1,
+        "renderPixelRatio": 1,
+        "shadows": true,
+        "mainRendererOnly": true
+      },
+      "environmentEnd": {
+        "build": "production",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "drawingBuffer": {
+          "width": 1440,
+          "height": 900
+        },
+        "devicePixelRatio": 1,
+        "renderPixelRatio": 1,
+        "shadows": true,
+        "mainRendererOnly": true
+      },
+      "droppedSamples": 0,
+      "samples": 479,
+      "intervalSamples": 479,
+      "fps": 31.968712041325684,
+      "frameMs": {
+        "mean": 31.280584551148273,
+        "p50": 25,
+        "p95": 66.79999999998836,
+        "p99": 166.79999999998836,
+        "max": 250
+      },
+      "over33ms": 135,
+      "over50ms": 46,
+      "cpuMs": {
+        "mean": 21.949478068779804,
+        "p50": 17.700000286102295,
+        "p95": 49,
+        "p99": 93.69999980926514,
+        "max": 116
+      },
+      "stagesMs": {
+        "simulation": {
+          "mean": 0.02609603439840743,
+          "p50": 0,
+          "p95": 0.09999990463256836,
+          "p99": 0.7999997138977051,
+          "max": 3.0999999046325684
+        },
+        "camera": {
+          "mean": 5.490605433947856,
+          "p50": 4.099999904632568,
+          "p95": 12.199999809265137,
+          "p99": 23.40000009536743,
+          "max": 38.40000009536743
+        },
+        "world": {
+          "mean": 0.6939457174631648,
+          "p50": 0.40000009536743164,
+          "p95": 2.200000286102295,
+          "p99": 6.5,
+          "max": 9.600000381469727
+        },
+        "vehicle": {
+          "mean": 0.18183715657053015,
+          "p50": 0.09999990463256836,
+          "p95": 0.3000001907348633,
+          "p99": 2.8000001907348633,
+          "max": 15.599999904632568
+        },
+        "sky": {
+          "mean": 0.02860125519786349,
+          "p50": 0,
+          "p95": 0.10000038146972656,
+          "p99": 0.3000001907348633,
+          "max": 2.4000000953674316
+        },
+        "render": {
+          "mean": 15.090605419214683,
+          "p50": 11.5,
+          "p95": 35.5,
+          "p99": 74.19999980926514,
+          "max": 100.7999997138977
+        },
+        "hud": {
+          "mean": 0.41732776637863767,
+          "p50": 0,
+          "p95": 1.6999998092651367,
+          "p99": 7.699999809265137,
+          "max": 20
+        }
+      },
+      "modes": {
+        "panel:character": 479
+      },
+      "position": {
+        "first": {
+          "x": 0,
+          "y": 23.10688413073135,
+          "z": 195
+        },
+        "last": {
+          "x": 0,
+          "y": 23.10688413073135,
+          "z": 195
+        }
+      },
+      "calls": {
+        "first": 798,
+        "last": 798,
+        "min": 798,
+        "max": 798,
+        "mean": 798
+      },
+      "triangles": {
+        "first": 305198,
+        "last": 305198,
+        "min": 305198,
+        "max": 305198,
+        "mean": 305198
+      },
+      "geometries": {
+        "first": 914,
+        "last": 914,
+        "min": 914,
+        "max": 914,
+        "mean": 914
+      },
+      "textures": {
+        "first": 1,
+        "last": 1,
+        "min": 1,
+        "max": 1,
+        "mean": 1
+      },
+      "programs": {
+        "first": 28,
+        "last": 28,
+        "min": 28,
+        "max": 28,
+        "mean": 28
+      },
+      "events": []
+    },
+    {
+      "label": "idle",
+      "status": "complete",
+      "recordedAt": "2026-11-04T05:21:54.318Z",
+      "durationMs": 15000,
+      "environment": {
+        "build": "production",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "drawingBuffer": {
+          "width": 1440,
+          "height": 900
+        },
+        "devicePixelRatio": 1,
+        "renderPixelRatio": 1,
+        "shadows": true,
+        "mainRendererOnly": true
+      },
+      "environmentEnd": {
+        "build": "production",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "drawingBuffer": {
+          "width": 1440,
+          "height": 900
+        },
+        "devicePixelRatio": 1,
+        "renderPixelRatio": 1,
+        "shadows": true,
+        "mainRendererOnly": true
+      },
+      "droppedSamples": 0,
+      "samples": 717,
+      "intervalSamples": 717,
+      "fps": 47.90699228276484,
+      "frameMs": {
+        "mean": 20.873779637377964,
+        "p50": 16.699999999953434,
+        "p95": 42.699999999953434,
+        "p99": 99.70000000006985,
+        "max": 166.59999999997672
+      },
+      "over33ms": 53,
+      "over50ms": 27,
+      "cpuMs": {
+        "mean": 18.678521614526936,
+        "p50": 15.600000381469727,
+        "p95": 37,
+        "p99": 80.5,
+        "max": 153.69999980926514
+      },
+      "stagesMs": {
+        "simulation": {
+          "mean": 0.8877266347823948,
+          "p50": 0.5999999046325684,
+          "p95": 2.799999713897705,
+          "p99": 6.900000095367432,
+          "max": 21.299999713897705
+        },
+        "camera": {
+          "mean": 4.36778242584718,
+          "p50": 3.0999999046325684,
+          "p95": 8.899999618530273,
+          "p99": 24.5,
+          "max": 84.40000009536743
+        },
+        "world": {
+          "mean": 0.5588563489448409,
+          "p50": 0.3000001907348633,
+          "p95": 1.299999713897705,
+          "p99": 5.400000095367432,
+          "max": 20.300000190734863
+        },
+        "vehicle": {
+          "mean": 0.12147838068473954,
+          "p50": 0.09999990463256836,
+          "p95": 0.20000028610229492,
+          "p99": 1,
+          "max": 9.300000190734863
+        },
+        "sky": {
+          "mean": 0.02831241176716952,
+          "p50": 0,
+          "p95": 0.09999990463256836,
+          "p99": 0.20000028610229492,
+          "max": 6.800000190734863
+        },
+        "render": {
+          "mean": 12.479776844652461,
+          "p50": 10.200000286102295,
+          "p95": 25.5,
+          "p99": 56.39999961853027,
+          "max": 95.5
+        },
+        "hud": {
+          "mean": 0.23040446809478718,
+          "p50": 0,
+          "p95": 1,
+          "p99": 4.100000381469727,
+          "max": 7.800000190734863
+        }
+      },
+      "modes": {
+        "idle": 717
+      },
+      "position": {
+        "first": {
+          "x": 0,
+          "y": 23.10688413073135,
+          "z": 195
+        },
+        "last": {
+          "x": 0,
+          "y": 23.10688413073135,
+          "z": 195
+        }
+      },
+      "calls": {
+        "first": 794,
+        "last": 789,
+        "min": 788,
+        "max": 796,
+        "mean": 793.3933054393306
+      },
+      "triangles": {
+        "first": 305174,
+        "last": 305180,
+        "min": 305100,
+        "max": 305186,
+        "mean": 305166.57740585774
+      },
+      "geometries": {
+        "first": 779,
+        "last": 779,
+        "min": 779,
+        "max": 779,
+        "mean": 779
+      },
+      "textures": {
+        "first": 1,
+        "last": 1,
+        "min": 1,
+        "max": 1,
+        "mean": 1
+      },
+      "programs": {
+        "first": 27,
+        "last": 27,
+        "min": 27,
+        "max": 27,
+        "mean": 27
+      },
+      "events": [
+        {
+          "name": "save",
+          "ms": 0.19999980926513672,
+          "offsetMs": 3403.699999809265
+        }
+      ]
+    },
+    {
+      "label": "map",
+      "status": "complete",
+      "recordedAt": "2026-11-04T05:22:29.385Z",
+      "durationMs": 15000,
+      "environment": {
+        "build": "production",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "drawingBuffer": {
+          "width": 1440,
+          "height": 900
+        },
+        "devicePixelRatio": 1,
+        "renderPixelRatio": 1,
+        "shadows": true,
+        "mainRendererOnly": true
+      },
+      "environmentEnd": {
+        "build": "production",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "drawingBuffer": {
+          "width": 1440,
+          "height": 900
+        },
+        "devicePixelRatio": 1,
+        "renderPixelRatio": 1,
+        "shadows": true,
+        "mainRendererOnly": true
+      },
+      "droppedSamples": 0,
+      "samples": 602,
+      "intervalSamples": 602,
+      "fps": 40.16680567139283,
+      "frameMs": {
+        "mean": 24.896179401993354,
+        "p50": 16.79999999993015,
+        "p95": 58.699999999953434,
+        "p99": 124.80000000004657,
+        "max": 233.29999999993015
+      },
+      "over33ms": 97,
+      "over50ms": 43,
+      "cpuMs": {
+        "mean": 21.22342192611821,
+        "p50": 16.199999809265137,
+        "p95": 53.09999990463257,
+        "p99": 87.59999990463257,
+        "max": 170.40000009536743
+      },
+      "stagesMs": {
+        "simulation": {
+          "mean": 0.42541529332284517,
+          "p50": 0,
+          "p95": 1.3000001907348633,
+          "p99": 5.399999618530273,
+          "max": 18.200000286102295
+        },
+        "camera": {
+          "mean": 5.057475077353443,
+          "p50": 3.299999713897705,
+          "p95": 12.799999713897705,
+          "p99": 32.90000009536743,
+          "max": 48.40000009536743
+        },
+        "world": {
+          "mean": 0.7237541517149967,
+          "p50": 0.39999961853027344,
+          "p95": 1.6999998092651367,
+          "p99": 8.400000095367432,
+          "max": 29.300000190734863
+        },
+        "vehicle": {
+          "mean": 0.19385382265743623,
+          "p50": 0.09999990463256836,
+          "p95": 0.2999997138977051,
+          "p99": 3.4000000953674316,
+          "max": 16.5
+        },
+        "sky": {
+          "mean": 0.058970099667774084,
+          "p50": 0,
+          "p95": 0.09999990463256836,
+          "p99": 0.5,
+          "max": 8.199999809265137
+        },
+        "render": {
+          "mean": 14.486212624267882,
+          "p50": 11,
+          "p95": 40.30000019073486,
+          "p99": 65.59999990463257,
+          "max": 116.80000019073486
+        },
+        "hud": {
+          "mean": 0.27275746842951476,
+          "p50": 0,
+          "p95": 1.0999999046325684,
+          "p99": 4.699999809265137,
+          "max": 15
+        }
+      },
+      "modes": {
+        "idle": 240,
+        "panel:map": 362
+      },
+      "position": {
+        "first": {
+          "x": 0,
+          "y": 23.10688413073135,
+          "z": 195
+        },
+        "last": {
+          "x": 0,
+          "y": 23.10688413073135,
+          "z": 195
+        }
+      },
+      "calls": {
+        "first": 788,
+        "last": 790,
+        "min": 788,
+        "max": 790,
+        "mean": 789.4950166112957
+      },
+      "triangles": {
+        "first": 305024,
+        "last": 305036,
+        "min": 305024,
+        "max": 305036,
+        "mean": 305032.9700996678
+      },
+      "geometries": {
+        "first": 779,
+        "last": 779,
+        "min": 779,
+        "max": 779,
+        "mean": 779
+      },
+      "textures": {
+        "first": 1,
+        "last": 1,
+        "min": 1,
+        "max": 1,
+        "mean": 1
+      },
+      "programs": {
+        "first": 27,
+        "last": 27,
+        "min": 27,
+        "max": 27,
+        "mean": 27
+      },
+      "events": [
+        {
+          "name": "map.draw",
+          "ms": 3.3000001907348633,
+          "offsetMs": 5818.200000286102
+        },
+        {
+          "name": "panel.map",
+          "ms": 37.40000009536743,
+          "offsetMs": 5841.200000286102
+        },
+        {
+          "name": "map.draw",
+          "ms": 3,
+          "offsetMs": 9945.400000095367
+        },
+        {
+          "name": "map.draw",
+          "ms": 8.700000286102295,
+          "offsetMs": 10711.800000190735
+        }
+      ]
+    },
+    {
+      "label": "map",
+      "status": "complete",
+      "recordedAt": "2026-11-04T05:23:01.413Z",
+      "durationMs": 15000,
+      "environment": {
+        "build": "production",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "drawingBuffer": {
+          "width": 1440,
+          "height": 900
+        },
+        "devicePixelRatio": 1,
+        "renderPixelRatio": 1,
+        "shadows": true,
+        "mainRendererOnly": true
+      },
+      "environmentEnd": {
+        "build": "production",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "drawingBuffer": {
+          "width": 1440,
+          "height": 900
+        },
+        "devicePixelRatio": 1,
+        "renderPixelRatio": 1,
+        "shadows": true,
+        "mainRendererOnly": true
+      },
+      "droppedSamples": 0,
+      "samples": 717,
+      "intervalSamples": 717,
+      "fps": 47.72395982401367,
+      "frameMs": {
+        "mean": 20.953835425383573,
+        "p50": 16.699999999953434,
+        "p95": 58.300000000046566,
+        "p99": 108.39999999990687,
+        "max": 150
+      },
+      "over33ms": 71,
+      "over50ms": 39,
+      "cpuMs": {
+        "mean": 18.12928870532303,
+        "p50": 14.099999904632568,
+        "p95": 41.90000009536743,
+        "p99": 91.69999980926514,
+        "max": 115
+      },
+      "stagesMs": {
+        "simulation": {
+          "mean": 0.011157601780804962,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0.09999990463256836,
+          "max": 7
+        },
+        "camera": {
+          "mean": 4.344909346087042,
+          "p50": 3,
+          "p95": 9.200000286102295,
+          "p99": 26.90000009536743,
+          "max": 58.5
+        },
+        "world": {
+          "mean": 0.5188284445673518,
+          "p50": 0.3000001907348633,
+          "p95": 1.3999996185302734,
+          "p99": 4.799999713897705,
+          "max": 15.599999904632568
+        },
+        "vehicle": {
+          "mean": 0.12552302186292916,
+          "p50": 0.09999990463256836,
+          "p95": 0.20000028610229492,
+          "p99": 0.8000001907348633,
+          "max": 16.800000190734863
+        },
+        "sky": {
+          "mean": 0.027057178183413282,
+          "p50": 0,
+          "p95": 0.09999990463256836,
+          "p99": 0.3000001907348633,
+          "max": 2.4000000953674316
+        },
+        "render": {
+          "mean": 12.74170153443617,
+          "p50": 9.400000095367432,
+          "p95": 27.300000190734863,
+          "p99": 76.19999980926514,
+          "max": 99.59999990463257
+        },
+        "hud": {
+          "mean": 0.356485358175706,
+          "p50": 0,
+          "p95": 0.9000000953674316,
+          "p99": 5,
+          "max": 59.69999980926514
+        }
+      },
+      "modes": {
+        "panel:map": 717
+      },
+      "position": {
+        "first": {
+          "x": 0,
+          "y": 23.10688413073135,
+          "z": 195
+        },
+        "last": {
+          "x": 0,
+          "y": 23.10688413073135,
+          "z": 195
+        }
+      },
+      "calls": {
+        "first": 790,
+        "last": 790,
+        "min": 790,
+        "max": 790,
+        "mean": 790
+      },
+      "triangles": {
+        "first": 305036,
+        "last": 305036,
+        "min": 305036,
+        "max": 305036,
+        "mean": 305036
+      },
+      "geometries": {
+        "first": 779,
+        "last": 779,
+        "min": 779,
+        "max": 779,
+        "mean": 779
+      },
+      "textures": {
+        "first": 1,
+        "last": 1,
+        "min": 1,
+        "max": 1,
+        "mean": 1
+      },
+      "programs": {
+        "first": 27,
+        "last": 27,
+        "min": 27,
+        "max": 27,
+        "mean": 27
+      },
+      "events": []
+    }
+  ]
+}

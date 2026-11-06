@@ -16,7 +16,12 @@ export class InputController {
       'keydown',
       (e) => {
         if (e.ctrlKey || e.metaKey || e.altKey) return;
-        if (e.target instanceof HTMLInputElement || e.target instanceof HTMLSelectElement) return;
+        if (
+          e.target instanceof HTMLInputElement ||
+          e.target instanceof HTMLSelectElement ||
+          e.target instanceof HTMLTextAreaElement
+        )
+          return;
         if (
           ['Space', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.code) &&
           document.activeElement === canvas

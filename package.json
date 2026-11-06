@@ -11,7 +11,9 @@
     "typecheck": "tsc --noEmit",
     "check": "vp check",
     "test": "vp test run",
-    "fmt": "vp fmt"
+    "fmt": "vp fmt",
+    "audit:game": "bun scripts/audit-game.ts",
+    "benchmark:camera": "bun scripts/benchmark-camera.ts"
   },
   "dependencies": {
     "three": "^0.180.0"

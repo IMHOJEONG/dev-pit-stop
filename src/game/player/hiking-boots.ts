@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { mat, mesh } from '../shared/meshes';
+import { batchStaticMeshes } from '../shared/static-batch';
 /** Rounded footprint, narrower at the heel and slightly fuller along the outside edge. */
 const outline = [
   [0, -0.443],
@@ -224,6 +225,15 @@ export function createHikingBoot(width: number, side: number) {
         -0.29 + i * 0.1,
       );
   }
+  // Laces, eyelets, stitching and tread details move rigidly with the boot.
+  // Their sub-pixel shadows add many passes without changing its silhouette.
+  const details = boot.children.filter(
+    (o): o is THREE.Mesh => o instanceof THREE.Mesh && (!o.name || o.name === 'boot-lace'),
+  );
+  details.forEach((o) => {
+    o.castShadow = false;
+  });
+  batchStaticMeshes(boot, details);
   // Keep the sole dimensions stable across presets so the ankle/contact rig remains valid.
   return boot;
 }

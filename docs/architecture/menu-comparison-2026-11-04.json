@@ -1,0 +1,290 @@
+{
+  "date": "2026-11-04",
+  "device": "Apple M1 Pro / macOS arm64 / Chrome 156",
+  "beforeBuild": {
+    "app": "index-DG03I71F.js",
+    "sha256": "697825560861338f7880d9a13cb3ef92721e97b90636b1585e4b6482cb38f2ae"
+  },
+  "afterBuild": {
+    "app": "index-dv2ZRLlC.js",
+    "sha256": "8d10ecc525735352dedd737258a8a4f5d0c577dfa1c4b80f8d6ced1e5e6c058a"
+  },
+  "conditions": "1440x900 CSS and drawing buffer, render DPR 1.0, shadows on, seed 2704, camp (0,23.1069,195), time 09:40 frozen; 3s preparation, ~15s actual wall time per capture; no parallel builds/tests during captures",
+  "rows": [
+    {
+      "scenario": "pause",
+      "before": {
+        "durationMs": 15005.700000286102,
+        "world": {
+          "frames": 739,
+          "calls": 602285,
+          "triangles": 225898998,
+          "cpuMs": 13247.499993801117,
+          "framesPerSecond": 49.24795244379869,
+          "callsPerSecond": 40137.08124169593,
+          "cpuMsPerSecond": 882.8311903842231,
+          "cpuMsPerFrame": 17.92625168308676,
+          "stagesMs": {
+            "simulation": 3.999997615814209,
+            "camera": 2669.9999990463257,
+            "world": 446.79999923706055,
+            "vehicle": 92.39999294281006,
+            "sky": 25.40000295639038,
+            "render": 9840.300006389618,
+            "hud": 161.9999966621399
+          }
+        },
+        "preview": {
+          "frames": 0,
+          "calls": 0,
+          "triangles": 0,
+          "cpuMs": 0,
+          "framesPerSecond": 0,
+          "callsPerSecond": 0,
+          "cpuMsPerSecond": 0,
+          "cpuMsPerFrame": 0,
+          "stagesMs": {
+            "simulation": 0,
+            "camera": 0,
+            "world": 0,
+            "vehicle": 0,
+            "sky": 0,
+            "render": 0,
+            "hud": 0
+          }
+        }
+      },
+      "after": {
+        "durationMs": 15001.5,
+        "world": {
+          "frames": 0,
+          "calls": 0,
+          "triangles": 0,
+          "cpuMs": 0,
+          "framesPerSecond": 0,
+          "callsPerSecond": 0,
+          "cpuMsPerSecond": 0,
+          "cpuMsPerFrame": 0,
+          "stagesMs": {
+            "simulation": 0,
+            "camera": 0,
+            "world": 0,
+            "vehicle": 0,
+            "sky": 0,
+            "render": 0,
+            "hud": 0
+          }
+        },
+        "preview": {
+          "frames": 0,
+          "calls": 0,
+          "triangles": 0,
+          "cpuMs": 0,
+          "framesPerSecond": 0,
+          "callsPerSecond": 0,
+          "cpuMsPerSecond": 0,
+          "cpuMsPerFrame": 0,
+          "stagesMs": {
+            "simulation": 0,
+            "camera": 0,
+            "world": 0,
+            "vehicle": 0,
+            "sky": 0,
+            "render": 0,
+            "hud": 0
+          }
+        }
+      }
+    },
+    {
+      "scenario": "map",
+      "before": {
+        "durationMs": 15035.300000190735,
+        "world": {
+          "frames": 755,
+          "calls": 615325,
+          "triangles": 230789910,
+          "cpuMs": 13181.39999628067,
+          "framesPerSecond": 50.21516032207021,
+          "callsPerSecond": 40925.35566248722,
+          "cpuMsPerSecond": 876.6968398444629,
+          "cpuMsPerFrame": 17.458807942093603,
+          "stagesMs": {
+            "simulation": 4.500000953674316,
+            "camera": 2809.399998188019,
+            "world": 425.19999408721924,
+            "vehicle": 63.20000123977661,
+            "sky": 16.600000858306885,
+            "render": 9704.100002288818,
+            "hud": 152.7999997138977
+          }
+        },
+        "preview": {
+          "frames": 0,
+          "calls": 0,
+          "triangles": 0,
+          "cpuMs": 0,
+          "framesPerSecond": 0,
+          "callsPerSecond": 0,
+          "cpuMsPerSecond": 0,
+          "cpuMsPerFrame": 0,
+          "stagesMs": {
+            "simulation": 0,
+            "camera": 0,
+            "world": 0,
+            "vehicle": 0,
+            "sky": 0,
+            "render": 0,
+            "hud": 0
+          }
+        }
+      },
+      "after": {
+        "durationMs": 15000.699999809265,
+        "world": {
+          "frames": 0,
+          "calls": 0,
+          "triangles": 0,
+          "cpuMs": 0,
+          "framesPerSecond": 0,
+          "callsPerSecond": 0,
+          "cpuMsPerSecond": 0,
+          "cpuMsPerFrame": 0,
+          "stagesMs": {
+            "simulation": 0,
+            "camera": 0,
+            "world": 0,
+            "vehicle": 0,
+            "sky": 0,
+            "render": 0,
+            "hud": 0
+          }
+        },
+        "preview": {
+          "frames": 0,
+          "calls": 0,
+          "triangles": 0,
+          "cpuMs": 0,
+          "framesPerSecond": 0,
+          "callsPerSecond": 0,
+          "cpuMsPerSecond": 0,
+          "cpuMsPerFrame": 0,
+          "stagesMs": {
+            "simulation": 0,
+            "camera": 0,
+            "world": 0,
+            "vehicle": 0,
+            "sky": 0,
+            "render": 0,
+            "hud": 0
+          }
+        }
+      }
+    },
+    {
+      "scenario": "appearance",
+      "before": {
+        "durationMs": 15030.599999904633,
+        "world": {
+          "frames": 693,
+          "calls": 564795,
+          "triangles": 211837626,
+          "cpuMs": 11301.599995136261,
+          "framesPerSecond": 46.105943874788565,
+          "callsPerSecond": 37576.34425795268,
+          "cpuMsPerSecond": 751.9061112136553,
+          "cpuMsPerFrame": 16.308225101206727,
+          "stagesMs": {
+            "simulation": 6.500000476837158,
+            "camera": 2455.9999947547913,
+            "world": 327.10000371932983,
+            "vehicle": 74.19999885559082,
+            "sky": 12.699999332427979,
+            "render": 8269.300000667572,
+            "hud": 151.4999976158142
+          }
+        },
+        "preview": {
+          "frames": 693,
+          "calls": 187803,
+          "triangles": 9155916,
+          "cpuMs": 1978.0000019073486,
+          "framesPerSecond": 46.105943874788565,
+          "callsPerSecond": 12494.710790067702,
+          "cpuMsPerSecond": 131.59820645349478,
+          "cpuMsPerFrame": 2.854256857009161,
+          "stagesMs": {
+            "simulation": 0,
+            "camera": 0,
+            "world": 0,
+            "vehicle": 0,
+            "sky": 0,
+            "render": 0,
+            "hud": 0
+          }
+        }
+      },
+      "after": {
+        "durationMs": 15001.5,
+        "world": {
+          "frames": 0,
+          "calls": 0,
+          "triangles": 0,
+          "cpuMs": 0,
+          "framesPerSecond": 0,
+          "callsPerSecond": 0,
+          "cpuMsPerSecond": 0,
+          "cpuMsPerFrame": 0,
+          "stagesMs": {
+            "simulation": 0,
+            "camera": 0,
+            "world": 0,
+            "vehicle": 0,
+            "sky": 0,
+            "render": 0,
+            "hud": 0
+          }
+        },
+        "preview": {
+          "frames": 1762,
+          "calls": 477502,
+          "triangles": 23279544,
+          "cpuMs": 5070.89999294281,
+          "framesPerSecond": 117.45492117454921,
+          "callsPerSecond": 31830.283638302837,
+          "cpuMsPerSecond": 338.0261969098297,
+          "cpuMsPerFrame": 2.877922810977758,
+          "stagesMs": {
+            "simulation": 0,
+            "camera": 0,
+            "world": 0,
+            "vehicle": 0,
+            "sky": 0,
+            "render": 0,
+            "hud": 0
+          }
+        }
+      }
+    }
+  ],
+  "invalidationCheck": {
+    "frames": 4,
+    "calls": 3049,
+    "triangles": 1165872,
+    "cpuMs": 482,
+    "framesPerSecond": 0.26663111585121985,
+    "callsPerSecond": 203.23956805759232,
+    "cpuMsPerSecond": 32.12904946007199,
+    "cpuMsPerFrame": 120.5,
+    "stagesMs": {
+      "simulation": 0,
+      "camera": 0,
+      "world": 0,
+      "vehicle": 0,
+      "sky": 0,
+      "render": 482,
+      "hud": 0
+    }
+  },
+  "limits": "CPU metrics are callback wall elapsed, not process CPU utilization or GPU time. Static main FPS is not a target. Rates vary across sessions. Preview workload remains 271 calls/render. Independent 500ms diagnostic timer is excluded from renderer CPU counters."
+}

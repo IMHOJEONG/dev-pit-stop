@@ -1,0 +1,2135 @@
+{
+  "schema": 3,
+  "notes": "World frame stats cover real main callbacks only; no FPS when world is on demand. Activity counters independently measure actual world/preview frames, calls and CPU elapsed per wall second. CPU excludes layout/paint and GPU time. Calls include shadow passes. Counts are not bytes. Event times may overlap stages. No network transmission.",
+  "reports": [
+    {
+      "label": "stairs",
+      "status": "complete",
+      "recordedAt": "2026-11-04T12:42:20.606Z",
+      "durationMs": 15006.799999713898,
+      "environment": {
+        "build": "production",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "drawingBuffer": {
+          "width": 1440,
+          "height": 900
+        },
+        "devicePixelRatio": 1,
+        "renderPixelRatio": 1,
+        "shadows": true,
+        "mainRendererOnly": true,
+        "worldScheduling": "continuous",
+        "camera": {
+          "position": [
+            -61.89036131569318,
+            29.553401932579444,
+            127.03263685853491
+          ],
+          "quaternion": [
+            -0.09882009497791139,
+            0.029864092690554504,
+            0.002967038227213782,
+            0.9946526637376915
+          ]
+        },
+        "longAnimationFramesSupported": true
+      },
+      "environmentEnd": {
+        "build": "production",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "drawingBuffer": {
+          "width": 1440,
+          "height": 900
+        },
+        "devicePixelRatio": 1,
+        "renderPixelRatio": 1,
+        "shadows": true,
+        "mainRendererOnly": true,
+        "worldScheduling": "continuous",
+        "camera": {
+          "position": [
+            -61.89211839172143,
+            29.553349328084895,
+            127.03005843372976
+          ],
+          "quaternion": [
+            -0.0988246728595636,
+            0.029848535500542832,
+            0.0029656299281512594,
+            0.9946526800857686
+          ]
+        },
+        "longAnimationFramesSupported": true
+      },
+      "droppedSamples": 0,
+      "longFramesOver100ms": [
+        {
+          "offsetMs": 11485.5,
+          "durationMs": 120,
+          "blockingMs": 45.4,
+          "renderOffsetMs": 65.39999961853027,
+          "styleLayoutToEndMs": 21.200000286102295,
+          "scripts": [
+            {
+              "offsetMs": 11485.5,
+              "durationMs": 40.799999713897705,
+              "invoker": "TimerHandler:setInterval",
+              "invokerType": "user-callback",
+              "sourceURL": "http://127.0.0.1:4175/assets/index-jqSeQg-7.js",
+              "sourceFunctionName": "",
+              "sourceCharPosition": 153651,
+              "forcedStyleLayoutMs": 0,
+              "pauseMs": 0
+            },
+            {
+              "offsetMs": 11551.199999809265,
+              "durationMs": 33,
+              "invoker": "FrameRequestCallback",
+              "invokerType": "user-callback",
+              "sourceURL": "http://127.0.0.1:4175/assets/index-jqSeQg-7.js",
+              "sourceFunctionName": "frame",
+              "sourceCharPosition": 133175,
+              "forcedStyleLayoutMs": 0,
+              "pauseMs": 0
+            }
+          ]
+        },
+        {
+          "offsetMs": 13467.299999713898,
+          "durationMs": 106,
+          "blockingMs": 53.9,
+          "renderOffsetMs": 34.09999990463257,
+          "styleLayoutToEndMs": 2,
+          "scripts": [
+            {
+              "offsetMs": 13467.599999904633,
+              "durationMs": 32.09999990463257,
+              "invoker": "TimerHandler:setInterval",
+              "invokerType": "user-callback",
+              "sourceURL": "http://127.0.0.1:4175/assets/index-jqSeQg-7.js",
+              "sourceFunctionName": "",
+              "sourceCharPosition": 153651,
+              "forcedStyleLayoutMs": 0,
+              "pauseMs": 0
+            },
+            {
+              "offsetMs": 13501.699999809265,
+              "durationMs": 69.5,
+              "invoker": "FrameRequestCallback",
+              "invokerType": "user-callback",
+              "sourceURL": "http://127.0.0.1:4175/assets/index-jqSeQg-7.js",
+              "sourceFunctionName": "frame",
+              "sourceCharPosition": 133175,
+              "forcedStyleLayoutMs": 0,
+              "pauseMs": 0
+            }
+          ]
+        },
+        {
+          "offsetMs": 14363.299999713898,
+          "durationMs": 105.5,
+          "blockingMs": 52.2,
+          "renderOffsetMs": 3.3000001907348633,
+          "styleLayoutToEndMs": 0.19999980926513672,
+          "scripts": [
+            {
+              "offsetMs": 14366.599999904633,
+              "durationMs": 102,
+              "invoker": "FrameRequestCallback",
+              "invokerType": "user-callback",
+              "sourceURL": "http://127.0.0.1:4175/assets/index-jqSeQg-7.js",
+              "sourceFunctionName": "frame",
+              "sourceCharPosition": 133175,
+              "forcedStyleLayoutMs": 0,
+              "pauseMs": 0
+            }
+          ]
+        },
+        {
+          "offsetMs": 14468.89999961853,
+          "durationMs": 115.5,
+          "blockingMs": 56.4,
+          "renderOffsetMs": 22.5,
+          "styleLayoutToEndMs": 31.5,
+          "scripts": [
+            {
+              "offsetMs": 14469,
+              "durationMs": 13.399999618530273,
+              "invoker": "TimerHandler:setInterval",
+              "invokerType": "user-callback",
+              "sourceURL": "http://127.0.0.1:4175/assets/index-jqSeQg-7.js",
+              "sourceFunctionName": "",
+              "sourceCharPosition": 153651,
+              "forcedStyleLayoutMs": 0,
+              "pauseMs": 0
+            },
+            {
+              "offsetMs": 14492.299999713898,
+              "durationMs": 60.5,
+              "invoker": "FrameRequestCallback",
+              "invokerType": "user-callback",
+              "sourceURL": "http://127.0.0.1:4175/assets/index-jqSeQg-7.js",
+              "sourceFunctionName": "frame",
+              "sourceCharPosition": 133175,
+              "forcedStyleLayoutMs": 0,
+              "pauseMs": 0
+            }
+          ]
+        }
+      ],
+      "droppedLongFrames": 0,
+      "slowMainFrames": [
+        {
+          "at": 11600.799999809264,
+          "interval": 125.5,
+          "cpu": 19,
+          "stages": {
+            "simulation": 2.9000000953674316,
+            "camera": 6.900000095367432,
+            "world": 0.19999980926513672,
+            "vehicle": 0.10000038146972656,
+            "sky": 0,
+            "render": 6.5,
+            "hud": 2
+          },
+          "mode": "idle",
+          "x": -64.13393635534753,
+          "y": 18.75022553790357,
+          "z": 89.71127283031772,
+          "calls": 390,
+          "triangles": 307080,
+          "geometries": 285,
+          "textures": 1,
+          "programs": 16,
+          "cameraStats": {
+            "registered": 321,
+            "queries": 2,
+            "matrixUpdates": 321,
+            "meshCandidates": 10,
+            "resourceCandidates": 9,
+            "resourceTotal": 909
+          }
+        },
+        {
+          "at": 13567.399999809266,
+          "interval": 116.70000000000073,
+          "cpu": 25.799999713897705,
+          "stages": {
+            "simulation": 1.299999713897705,
+            "camera": 5.5,
+            "world": 0.20000028610229492,
+            "vehicle": 0,
+            "sky": 0,
+            "render": 18,
+            "hud": 0.7999997138977051
+          },
+          "mode": "idle",
+          "x": -64.13393635534753,
+          "y": 18.75022553790357,
+          "z": 89.71127283031772,
+          "calls": 388,
+          "triangles": 307068,
+          "geometries": 285,
+          "textures": 1,
+          "programs": 16,
+          "cameraStats": {
+            "registered": 321,
+            "queries": 2,
+            "matrixUpdates": 321,
+            "meshCandidates": 10,
+            "resourceCandidates": 9,
+            "resourceTotal": 909
+          }
+        },
+        {
+          "at": 14359.099999809267,
+          "interval": 8.30000000000291,
+          "cpu": 102,
+          "stages": {
+            "simulation": 0.19999980926513672,
+            "camera": 1.8000001907348633,
+            "world": 0.19999980926513672,
+            "vehicle": 0.09999990463256836,
+            "sky": 0,
+            "render": 99.7000002861023,
+            "hud": 0
+          },
+          "mode": "idle",
+          "x": -64.13393635534753,
+          "y": 18.75022553790357,
+          "z": 89.71127283031772,
+          "calls": 388,
+          "triangles": 307068,
+          "geometries": 285,
+          "textures": 1,
+          "programs": 16,
+          "cameraStats": {
+            "registered": 321,
+            "queries": 2,
+            "matrixUpdates": 321,
+            "meshCandidates": 10,
+            "resourceCandidates": 9,
+            "resourceTotal": 909
+          }
+        },
+        {
+          "at": 14583.999999809264,
+          "interval": 124.89999999999782,
+          "cpu": 56.39999961853027,
+          "stages": {
+            "simulation": 0.8999996185302734,
+            "camera": 1.5,
+            "world": 0.3000001907348633,
+            "vehicle": 0.09999990463256836,
+            "sky": 0.09999990463256836,
+            "render": 52.10000038146973,
+            "hud": 1.3999996185302734
+          },
+          "mode": "idle",
+          "x": -64.13393635534753,
+          "y": 18.75022553790357,
+          "z": 89.71127283031772,
+          "calls": 388,
+          "triangles": 307068,
+          "geometries": 285,
+          "textures": 1,
+          "programs": 16,
+          "cameraStats": {
+            "registered": 321,
+            "queries": 2,
+            "matrixUpdates": 321,
+            "meshCandidates": 10,
+            "resourceCandidates": 9,
+            "resourceTotal": 909
+          }
+        }
+      ],
+      "samples": 1177,
+      "intervalSamples": 1177,
+      "fps": 78.423794992071,
+      "frameMs": {
+        "mean": 12.75123194562447,
+        "p50": 8.399999999999636,
+        "p95": 25.30000000000109,
+        "p99": 75.59999999999854,
+        "max": 125.5
+      },
+      "over33ms": 42,
+      "over50ms": 30,
+      "cpuMs": {
+        "mean": 10.587935438780027,
+        "p50": 8.299999713897705,
+        "p95": 20,
+        "p99": 58.5,
+        "max": 102
+      },
+      "stagesMs": {
+        "simulation": {
+          "mean": 0.6915887947698316,
+          "p50": 0.5,
+          "p95": 1.3000001907348633,
+          "p99": 5.599999904632568,
+          "max": 18.199999809265137
+        },
+        "camera": {
+          "mean": 2.244774845969201,
+          "p50": 1.799999713897705,
+          "p95": 4.5,
+          "p99": 10.600000381469727,
+          "max": 35.799999713897705
+        },
+        "world": {
+          "mean": 0.3104503055497966,
+          "p50": 0.20000028610229492,
+          "p95": 0.5999999046325684,
+          "p99": 2.4000000953674316,
+          "max": 10.599999904632568
+        },
+        "vehicle": {
+          "mean": 0.10900594343446328,
+          "p50": 0.09999990463256836,
+          "p95": 0.20000028610229492,
+          "p99": 0.9000000953674316,
+          "max": 10.5
+        },
+        "sky": {
+          "mean": 0.030161428573076868,
+          "p50": 0,
+          "p95": 0.09999990463256836,
+          "p99": 0.20000028610229492,
+          "max": 9
+        },
+        "render": {
+          "mean": 6.998385725936955,
+          "p50": 5.299999713897705,
+          "p95": 13.100000381469727,
+          "p99": 43.19999980926514,
+          "max": 99.7000002861023
+        },
+        "hud": {
+          "mean": 0.18751062086910744,
+          "p50": 0,
+          "p95": 1,
+          "p99": 3,
+          "max": 12.799999713897705
+        }
+      },
+      "modes": {
+        "idle": 1177
+      },
+      "position": {
+        "first": {
+          "x": -64.13393635534753,
+          "y": 18.75022553790357,
+          "z": 89.71127283031772
+        },
+        "last": {
+          "x": -64.13393635534753,
+          "y": 18.75022553790357,
+          "z": 89.71127283031772
+        }
+      },
+      "calls": {
+        "first": 383,
+        "last": 388,
+        "min": 383,
+        "max": 390,
+        "mean": 387.67289719626166
+      },
+      "triangles": {
+        "first": 306964,
+        "last": 307068,
+        "min": 306964,
+        "max": 307080,
+        "mean": 307052.9600679694
+      },
+      "geometries": {
+        "first": 278,
+        "last": 285,
+        "min": 278,
+        "max": 285,
+        "mean": 283.2659303313509
+      },
+      "textures": {
+        "first": 1,
+        "last": 1,
+        "min": 1,
+        "max": 1,
+        "mean": 1
+      },
+      "programs": {
+        "first": 16,
+        "last": 16,
+        "min": 16,
+        "max": 16,
+        "mean": 16
+      },
+      "cameraQueries": {
+        "registered": {
+          "mean": 321,
+          "p50": 321,
+          "p95": 321,
+          "p99": 321,
+          "max": 321
+        },
+        "queries": {
+          "mean": 2,
+          "p50": 2,
+          "p95": 2,
+          "p99": 2,
+          "max": 2
+        },
+        "matrixUpdates": {
+          "mean": 321,
+          "p50": 321,
+          "p95": 321,
+          "p99": 321,
+          "max": 321
+        },
+        "meshCandidates": {
+          "mean": 10,
+          "p50": 10,
+          "p95": 10,
+          "p99": 10,
+          "max": 10
+        },
+        "resourceCandidates": {
+          "mean": 9,
+          "p50": 9,
+          "p95": 9,
+          "p99": 9,
+          "max": 9
+        },
+        "resourceTotal": {
+          "mean": 909,
+          "p50": 909,
+          "p95": 909,
+          "p99": 909,
+          "max": 909
+        }
+      },
+      "activity": {
+        "durationMs": 15006.799999713898,
+        "world": {
+          "frames": 1177,
+          "calls": 456291,
+          "triangles": 361401334,
+          "cpuMs": 12462.000011444092,
+          "framesPerSecond": 78.4311112310712,
+          "callsPerSecond": 30405.61612127163,
+          "cpuMsPerSecond": 830.423542106357,
+          "cpuMsPerFrame": 10.587935438780027,
+          "stagesMs": {
+            "simulation": 814.0000114440918,
+            "camera": 2642.0999937057495,
+            "world": 365.4000096321106,
+            "vehicle": 128.29999542236328,
+            "sky": 35.500001430511475,
+            "render": 8237.099999427795,
+            "hud": 220.70000076293945
+          }
+        },
+        "preview": {
+          "frames": 0,
+          "calls": 0,
+          "triangles": 0,
+          "cpuMs": 0,
+          "framesPerSecond": 0,
+          "callsPerSecond": 0,
+          "cpuMsPerSecond": 0,
+          "cpuMsPerFrame": 0,
+          "stagesMs": {
+            "simulation": 0,
+            "camera": 0,
+            "world": 0,
+            "vehicle": 0,
+            "sky": 0,
+            "render": 0,
+            "hud": 0
+          }
+        }
+      },
+      "events": [
+        {
+          "name": "save",
+          "ms": 12.199999809265137,
+          "offsetMs": 9550.89999961853
+        }
+      ]
+    },
+    {
+      "label": "stairs",
+      "status": "complete",
+      "recordedAt": "2026-11-04T12:42:51.273Z",
+      "durationMs": 15006.400000095367,
+      "environment": {
+        "build": "production",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "drawingBuffer": {
+          "width": 1440,
+          "height": 900
+        },
+        "devicePixelRatio": 1,
+        "renderPixelRatio": 1,
+        "shadows": true,
+        "mainRendererOnly": true,
+        "worldScheduling": "continuous",
+        "camera": {
+          "position": [
+            -61.89211839172143,
+            29.553349328084895,
+            127.03005843372976
+          ],
+          "quaternion": [
+            -0.0988246728595636,
+            0.029848535500542832,
+            0.0029656299281512594,
+            0.9946526800857686
+          ]
+        },
+        "longAnimationFramesSupported": true
+      },
+      "environmentEnd": {
+        "build": "production",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "drawingBuffer": {
+          "width": 1440,
+          "height": 900
+        },
+        "devicePixelRatio": 1,
+        "renderPixelRatio": 1,
+        "shadows": true,
+        "mainRendererOnly": true,
+        "worldScheduling": "continuous",
+        "camera": {
+          "position": [
+            -61.89211839172143,
+            29.553349328084895,
+            127.03005843372976
+          ],
+          "quaternion": [
+            -0.0988246728595636,
+            0.029848535500542832,
+            0.0029656299281512594,
+            0.9946526800857686
+          ]
+        },
+        "longAnimationFramesSupported": true
+      },
+      "droppedSamples": 0,
+      "longFramesOver100ms": [
+        {
+          "offsetMs": 854,
+          "durationMs": 104,
+          "blockingMs": 52.9,
+          "renderOffsetMs": 24.300000190734863,
+          "styleLayoutToEndMs": 9.5,
+          "scripts": [
+            {
+              "offsetMs": 854.2000002861023,
+              "durationMs": 23.199999809265137,
+              "invoker": "TimerHandler:setInterval",
+              "invokerType": "user-callback",
+              "sourceURL": "http://127.0.0.1:4175/assets/index-jqSeQg-7.js",
+              "sourceFunctionName": "",
+              "sourceCharPosition": 153651,
+              "forcedStyleLayoutMs": 0,
+              "pauseMs": 0
+            },
+            {
+              "offsetMs": 891.5,
+              "durationMs": 57,
+              "invoker": "FrameRequestCallback",
+              "invokerType": "user-callback",
+              "sourceURL": "http://127.0.0.1:4175/assets/index-jqSeQg-7.js",
+              "sourceFunctionName": "frame",
+              "sourceCharPosition": 133175,
+              "forcedStyleLayoutMs": 0,
+              "pauseMs": 0
+            }
+          ]
+        },
+        {
+          "offsetMs": 7813.800000190735,
+          "durationMs": 119.59999990463257,
+          "blockingMs": 63.6,
+          "renderOffsetMs": 43.80000019073486,
+          "styleLayoutToEndMs": 8.099999904632568,
+          "scripts": [
+            {
+              "offsetMs": 7815.900000095367,
+              "durationMs": 37.90000009536743,
+              "invoker": "TimerHandler:setInterval",
+              "invokerType": "user-callback",
+              "sourceURL": "http://127.0.0.1:4175/assets/index-jqSeQg-7.js",
+              "sourceFunctionName": "",
+              "sourceCharPosition": 153651,
+              "forcedStyleLayoutMs": 0,
+              "pauseMs": 0
+            },
+            {
+              "offsetMs": 7857.900000095367,
+              "durationMs": 67.40000009536743,
+              "invoker": "FrameRequestCallback",
+              "invokerType": "user-callback",
+              "sourceURL": "http://127.0.0.1:4175/assets/index-jqSeQg-7.js",
+              "sourceFunctionName": "frame",
+              "sourceCharPosition": 133175,
+              "forcedStyleLayoutMs": 0,
+              "pauseMs": 0
+            }
+          ]
+        },
+        {
+          "offsetMs": 10785.10000038147,
+          "durationMs": 152.09999990463257,
+          "blockingMs": 77.1,
+          "renderOffsetMs": 90.09999990463257,
+          "styleLayoutToEndMs": 6.900000095367432,
+          "scripts": [
+            {
+              "offsetMs": 10785.200000286102,
+              "durationMs": 65,
+              "invoker": "TimerHandler:setInterval",
+              "invokerType": "user-callback",
+              "sourceURL": "http://127.0.0.1:4175/assets/index-jqSeQg-7.js",
+              "sourceFunctionName": "",
+              "sourceCharPosition": 153651,
+              "forcedStyleLayoutMs": 0,
+              "pauseMs": 0
+            },
+            {
+              "offsetMs": 10883.60000038147,
+              "durationMs": 46.69999980926514,
+              "invoker": "FrameRequestCallback",
+              "invokerType": "user-callback",
+              "sourceURL": "http://127.0.0.1:4175/assets/index-jqSeQg-7.js",
+              "sourceFunctionName": "frame",
+              "sourceCharPosition": 133175,
+              "forcedStyleLayoutMs": 0,
+              "pauseMs": 0
+            }
+          ]
+        }
+      ],
+      "droppedLongFrames": 0,
+      "slowMainFrames": [
+        {
+          "at": 949.9000001907334,
+          "interval": 108.29999999999563,
+          "cpu": 35.40000009536743,
+          "stages": {
+            "simulation": 9.199999809265137,
+            "camera": 12.599999904632568,
+            "world": 0.40000009536743164,
+            "vehicle": 0.09999990463256836,
+            "sky": 0,
+            "render": 12.300000190734863,
+            "hud": 0.8000001907348633
+          },
+          "mode": "idle",
+          "x": -64.13393635534753,
+          "y": 18.75022553790357,
+          "z": 89.71127283031772,
+          "calls": 391,
+          "triangles": 307308,
+          "geometries": 290,
+          "textures": 1,
+          "programs": 16,
+          "cameraStats": {
+            "registered": 321,
+            "queries": 2,
+            "matrixUpdates": 321,
+            "meshCandidates": 10,
+            "resourceCandidates": 9,
+            "resourceTotal": 909
+          }
+        },
+        {
+          "at": 7933.200000190736,
+          "interval": 125.09999999999854,
+          "cpu": 12.599999904632568,
+          "stages": {
+            "simulation": 0.9000000953674316,
+            "camera": 3.1999998092651367,
+            "world": 0.40000009536743164,
+            "vehicle": 0.09999990463256836,
+            "sky": 0,
+            "render": 7.400000095367432,
+            "hud": 0.5999999046325684
+          },
+          "mode": "idle",
+          "x": -64.13393635534753,
+          "y": 18.75022553790357,
+          "z": 89.71127283031772,
+          "calls": 391,
+          "triangles": 307308,
+          "geometries": 290,
+          "textures": 1,
+          "programs": 16,
+          "cameraStats": {
+            "registered": 321,
+            "queries": 2,
+            "matrixUpdates": 321,
+            "meshCandidates": 10,
+            "resourceCandidates": 9,
+            "resourceTotal": 909
+          }
+        },
+        {
+          "at": 10933.200000190736,
+          "interval": 158.3000000000029,
+          "cpu": 14.299999713897705,
+          "stages": {
+            "simulation": 3.1999998092651367,
+            "camera": 3.5,
+            "world": 0.40000009536743164,
+            "vehicle": 0.09999990463256836,
+            "sky": 0,
+            "render": 6.199999809265137,
+            "hud": 0.8000001907348633
+          },
+          "mode": "idle",
+          "x": -64.13393635534753,
+          "y": 18.75022553790357,
+          "z": 89.71127283031772,
+          "calls": 389,
+          "triangles": 307296,
+          "geometries": 290,
+          "textures": 1,
+          "programs": 16,
+          "cameraStats": {
+            "registered": 321,
+            "queries": 2,
+            "matrixUpdates": 321,
+            "meshCandidates": 10,
+            "resourceCandidates": 9,
+            "resourceTotal": 909
+          }
+        }
+      ],
+      "samples": 1213,
+      "intervalSamples": 1213,
+      "fps": 80.8224837089058,
+      "frameMs": {
+        "mean": 12.372794723825224,
+        "p50": 8.400000000001455,
+        "p95": 25,
+        "p99": 74.80000000000291,
+        "max": 158.3000000000029
+      },
+      "over33ms": 46,
+      "over50ms": 28,
+      "cpuMs": {
+        "mean": 10.11269579499788,
+        "p50": 8.199999809265137,
+        "p95": 17.5,
+        "p99": 47.69999980926514,
+        "max": 93.89999961853027
+      },
+      "stagesMs": {
+        "simulation": {
+          "mean": 0.6943116191980373,
+          "p50": 0.5,
+          "p95": 1.4000000953674316,
+          "p99": 5.599999904632568,
+          "max": 19.40000009536743
+        },
+        "camera": {
+          "mean": 2.217807100316462,
+          "p50": 1.700000286102295,
+          "p95": 4.600000381469727,
+          "p99": 8.900000095367432,
+          "max": 27.5
+        },
+        "world": {
+          "mean": 0.2952184508088592,
+          "p50": 0.19999980926513672,
+          "p95": 0.5999999046325684,
+          "p99": 3.5999999046325684,
+          "max": 8.399999618530273
+        },
+        "vehicle": {
+          "mean": 0.08606760421274913,
+          "p50": 0.09999990463256836,
+          "p95": 0.20000028610229492,
+          "p99": 0.5,
+          "max": 8.200000286102295
+        },
+        "sky": {
+          "mean": 0.023907669693207012,
+          "p50": 0,
+          "p95": 0.09999990463256836,
+          "p99": 0.10000038146972656,
+          "max": 6.799999713897705
+        },
+        "render": {
+          "mean": 6.620032976799923,
+          "p50": 5.299999713897705,
+          "p95": 12.300000190734863,
+          "p99": 32.59999990463257,
+          "max": 73.59999990463257
+        },
+        "hud": {
+          "mean": 0.1660346269410991,
+          "p50": 0,
+          "p95": 0.9000000953674316,
+          "p99": 2.4000000953674316,
+          "max": 20.5
+        }
+      },
+      "modes": {
+        "idle": 1213
+      },
+      "position": {
+        "first": {
+          "x": -64.13393635534753,
+          "y": 18.75022553790357,
+          "z": 89.71127283031772
+        },
+        "last": {
+          "x": -64.13393635534753,
+          "y": 18.75022553790357,
+          "z": 89.71127283031772
+        }
+      },
+      "calls": {
+        "first": 389,
+        "last": 391,
+        "min": 389,
+        "max": 391,
+        "mean": 390.7188788128607
+      },
+      "triangles": {
+        "first": 307222,
+        "last": 307308,
+        "min": 307222,
+        "max": 307308,
+        "mean": 307303.8120362737
+      },
+      "geometries": {
+        "first": 289,
+        "last": 290,
+        "min": 289,
+        "max": 290,
+        "mean": 289.9661995053586
+      },
+      "textures": {
+        "first": 1,
+        "last": 1,
+        "min": 1,
+        "max": 1,
+        "mean": 1
+      },
+      "programs": {
+        "first": 16,
+        "last": 16,
+        "min": 16,
+        "max": 16,
+        "mean": 16
+      },
+      "cameraQueries": {
+        "registered": {
+          "mean": 321,
+          "p50": 321,
+          "p95": 321,
+          "p99": 321,
+          "max": 321
+        },
+        "queries": {
+          "mean": 2,
+          "p50": 2,
+          "p95": 2,
+          "p99": 2,
+          "max": 2
+        },
+        "matrixUpdates": {
+          "mean": 321,
+          "p50": 321,
+          "p95": 321,
+          "p99": 321,
+          "max": 321
+        },
+        "meshCandidates": {
+          "mean": 10,
+          "p50": 10,
+          "p95": 10,
+          "p99": 10,
+          "max": 10
+        },
+        "resourceCandidates": {
+          "mean": 9,
+          "p50": 9,
+          "p95": 9,
+          "p99": 9,
+          "max": 9
+        },
+        "resourceTotal": {
+          "mean": 909,
+          "p50": 909,
+          "p95": 909,
+          "p99": 909,
+          "max": 909
+        }
+      },
+      "activity": {
+        "durationMs": 15006.400000095367,
+        "world": {
+          "frames": 1214,
+          "calls": 474331,
+          "triangles": 373066746,
+          "cpuMs": 12273.199999332428,
+          "framesPerSecond": 80.89881650444377,
+          "callsPerSecond": 31608.580338854463,
+          "cpuMsPerSecond": 817.8643778157607,
+          "cpuMsPerFrame": 10.109719933552247,
+          "stagesMs": {
+            "simulation": 842.6999940872192,
+            "camera": 2691.800012588501,
+            "world": 358.1999807357788,
+            "vehicle": 104.4000039100647,
+            "sky": 29.000003337860107,
+            "render": 8034.400001049042,
+            "hud": 201.40000247955322
+          }
+        },
+        "preview": {
+          "frames": 0,
+          "calls": 0,
+          "triangles": 0,
+          "cpuMs": 0,
+          "framesPerSecond": 0,
+          "callsPerSecond": 0,
+          "cpuMsPerSecond": 0,
+          "cpuMsPerFrame": 0,
+          "stagesMs": {
+            "simulation": 0,
+            "camera": 0,
+            "world": 0,
+            "vehicle": 0,
+            "sky": 0,
+            "render": 0,
+            "hud": 0
+          }
+        }
+      },
+      "events": [
+        {
+          "name": "save",
+          "ms": 0.19999980926513672,
+          "offsetMs": 4616.5
+        }
+      ]
+    },
+    {
+      "label": "stairs",
+      "status": "complete",
+      "recordedAt": "2026-11-04T12:43:32.690Z",
+      "durationMs": 15025.39999961853,
+      "environment": {
+        "build": "production",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "drawingBuffer": {
+          "width": 1440,
+          "height": 900
+        },
+        "devicePixelRatio": 1,
+        "renderPixelRatio": 1,
+        "shadows": true,
+        "mainRendererOnly": true,
+        "worldScheduling": "continuous",
+        "camera": {
+          "position": [
+            -61.89211839172143,
+            29.553349328084895,
+            127.03005843372976
+          ],
+          "quaternion": [
+            -0.0988246728595636,
+            0.029848535500542832,
+            0.0029656299281512594,
+            0.9946526800857686
+          ]
+        },
+        "longAnimationFramesSupported": true
+      },
+      "environmentEnd": {
+        "build": "production",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "drawingBuffer": {
+          "width": 1440,
+          "height": 900
+        },
+        "devicePixelRatio": 1,
+        "renderPixelRatio": 1,
+        "shadows": true,
+        "mainRendererOnly": true,
+        "worldScheduling": "continuous",
+        "camera": {
+          "position": [
+            -61.89211839172143,
+            29.553349328084895,
+            127.03005843372976
+          ],
+          "quaternion": [
+            -0.0988246728595636,
+            0.029848535500542832,
+            0.0029656299281512594,
+            0.9946526800857686
+          ]
+        },
+        "longAnimationFramesSupported": true
+      },
+      "droppedSamples": 0,
+      "longFramesOver100ms": [
+        {
+          "offsetMs": 6305,
+          "durationMs": 112.39999961853027,
+          "blockingMs": 62.3,
+          "renderOffsetMs": 0.09999990463256836,
+          "styleLayoutToEndMs": 0.09999990463256836,
+          "scripts": [
+            {
+              "offsetMs": 6305.099999904633,
+              "durationMs": 112.19999980926514,
+              "invoker": "FrameRequestCallback",
+              "invokerType": "user-callback",
+              "sourceURL": "http://127.0.0.1:4175/assets/index-jqSeQg-7.js",
+              "sourceFunctionName": "frame",
+              "sourceCharPosition": 133175,
+              "forcedStyleLayoutMs": 0,
+              "pauseMs": 0
+            }
+          ]
+        },
+        {
+          "offsetMs": 14375.89999961853,
+          "durationMs": 100.80000019073486,
+          "blockingMs": 32.4,
+          "renderOffsetMs": 46.700000286102295,
+          "styleLayoutToEndMs": 10,
+          "scripts": [
+            {
+              "offsetMs": 14376.099999904633,
+              "durationMs": 28.299999713897705,
+              "invoker": "TimerHandler:setInterval",
+              "invokerType": "user-callback",
+              "sourceURL": "http://127.0.0.1:4175/assets/index-jqSeQg-7.js",
+              "sourceFunctionName": "",
+              "sourceCharPosition": 153651,
+              "forcedStyleLayoutMs": 0,
+              "pauseMs": 0
+            },
+            {
+              "offsetMs": 14422.89999961853,
+              "durationMs": 43.700000286102295,
+              "invoker": "FrameRequestCallback",
+              "invokerType": "user-callback",
+              "sourceURL": "http://127.0.0.1:4175/assets/index-jqSeQg-7.js",
+              "sourceFunctionName": "frame",
+              "sourceCharPosition": 133175,
+              "forcedStyleLayoutMs": 0,
+              "pauseMs": 0
+            }
+          ]
+        }
+      ],
+      "droppedLongFrames": 0,
+      "slowMainFrames": [
+        {
+          "at": 1460.299999809271,
+          "interval": 108.30000000000291,
+          "cpu": 22.300000190734863,
+          "stages": {
+            "simulation": 7.099999904632568,
+            "camera": 3.3000001907348633,
+            "world": 0.09999990463256836,
+            "vehicle": 0,
+            "sky": 0,
+            "render": 10.700000286102295,
+            "hud": 1.0999999046325684
+          },
+          "mode": "idle",
+          "x": -64.13393635534753,
+          "y": 18.75022553790357,
+          "z": 89.71127283031772,
+          "calls": 389,
+          "triangles": 307296,
+          "geometries": 290,
+          "textures": 1,
+          "programs": 16,
+          "cameraStats": {
+            "registered": 321,
+            "queries": 2,
+            "matrixUpdates": 321,
+            "meshCandidates": 10,
+            "resourceCandidates": 9,
+            "resourceTotal": 909
+          }
+        },
+        {
+          "at": 6301.899999809262,
+          "interval": 8.30000000000291,
+          "cpu": 112.09999990463257,
+          "stages": {
+            "simulation": 0.2999997138977051,
+            "camera": 2.200000286102295,
+            "world": 0.19999980926513672,
+            "vehicle": 0.09999990463256836,
+            "sky": 0,
+            "render": 109.30000019073486,
+            "hud": 0
+          },
+          "mode": "idle",
+          "x": -64.13393635534753,
+          "y": 18.75022553790357,
+          "z": 89.71127283031772,
+          "calls": 391,
+          "triangles": 307308,
+          "geometries": 290,
+          "textures": 1,
+          "programs": 16,
+          "cameraStats": {
+            "registered": 321,
+            "queries": 2,
+            "matrixUpdates": 321,
+            "meshCandidates": 10,
+            "resourceCandidates": 9,
+            "resourceTotal": 909
+          }
+        },
+        {
+          "at": 6410.299999809271,
+          "interval": 108.40000000000873,
+          "cpu": 17.90000009536743,
+          "stages": {
+            "simulation": 5,
+            "camera": 1.9000000953674316,
+            "world": 0.09999990463256836,
+            "vehicle": 0.10000038146972656,
+            "sky": 0,
+            "render": 10.199999809265137,
+            "hud": 0.5999999046325684
+          },
+          "mode": "idle",
+          "x": -64.13393635534753,
+          "y": 18.75022553790357,
+          "z": 89.71127283031772,
+          "calls": 391,
+          "triangles": 307308,
+          "geometries": 290,
+          "textures": 1,
+          "programs": 16,
+          "cameraStats": {
+            "registered": 321,
+            "queries": 2,
+            "matrixUpdates": 321,
+            "meshCandidates": 10,
+            "resourceCandidates": 9,
+            "resourceTotal": 909
+          }
+        },
+        {
+          "at": 14476.899999809262,
+          "interval": 108.39999999999418,
+          "cpu": 9.100000381469727,
+          "stages": {
+            "simulation": 1.200000286102295,
+            "camera": 3.1999998092651367,
+            "world": 0.20000028610229492,
+            "vehicle": 0.09999990463256836,
+            "sky": 0,
+            "render": 3.5999999046325684,
+            "hud": 0.8000001907348633
+          },
+          "mode": "idle",
+          "x": -64.13393635534753,
+          "y": 18.75022553790357,
+          "z": 89.71127283031772,
+          "calls": 391,
+          "triangles": 307308,
+          "geometries": 290,
+          "textures": 1,
+          "programs": 16,
+          "cameraStats": {
+            "registered": 321,
+            "queries": 2,
+            "matrixUpdates": 321,
+            "meshCandidates": 10,
+            "resourceCandidates": 9,
+            "resourceTotal": 909
+          }
+        }
+      ],
+      "samples": 1244,
+      "intervalSamples": 1244,
+      "fps": 82.93388622590813,
+      "frameMs": {
+        "mean": 12.05779742765274,
+        "p50": 8.39999999999418,
+        "p95": 24.90000000000873,
+        "p99": 59.30000000000291,
+        "max": 108.40000000000873
+      },
+      "over33ms": 39,
+      "over50ms": 24,
+      "cpuMs": {
+        "mean": 10.080546627473984,
+        "p50": 8.399999618530273,
+        "p95": 17.700000286102295,
+        "p99": 45.89999961853027,
+        "max": 112.09999990463257
+      },
+      "stagesMs": {
+        "simulation": {
+          "mean": 0.7262861774665367,
+          "p50": 0.5,
+          "p95": 1.5999999046325684,
+          "p99": 6.799999713897705,
+          "max": 25.40000009536743
+        },
+        "camera": {
+          "mean": 2.1811093229956184,
+          "p50": 1.6999998092651367,
+          "p95": 4.799999713897705,
+          "p99": 9.900000095367432,
+          "max": 33
+        },
+        "world": {
+          "mean": 0.2655948507824128,
+          "p50": 0.19999980926513672,
+          "p95": 0.40000009536743164,
+          "p99": 2.6000003814697266,
+          "max": 18.09999990463257
+        },
+        "vehicle": {
+          "mean": 0.08585209325195509,
+          "p50": 0.09999990463256836,
+          "p95": 0.19999980926513672,
+          "p99": 0.5,
+          "max": 6
+        },
+        "sky": {
+          "mean": 0.016800643930097867,
+          "p50": 0,
+          "p95": 0.09999990463256836,
+          "p99": 0.10000038146972656,
+          "max": 2.1999998092651367
+        },
+        "render": {
+          "mean": 6.658842447103028,
+          "p50": 5.399999618530273,
+          "p95": 12.699999809265137,
+          "p99": 34.59999990463257,
+          "max": 109.30000019073486
+        },
+        "hud": {
+          "mean": 0.136334404684723,
+          "p50": 0,
+          "p95": 0.9000000953674316,
+          "p99": 1.5999999046325684,
+          "max": 10.400000095367432
+        }
+      },
+      "modes": {
+        "idle": 1244
+      },
+      "position": {
+        "first": {
+          "x": -64.13393635534753,
+          "y": 18.75022553790357,
+          "z": 89.71127283031772
+        },
+        "last": {
+          "x": -64.13393635534753,
+          "y": 18.75022553790357,
+          "z": 89.71127283031772
+        }
+      },
+      "calls": {
+        "first": 389,
+        "last": 391,
+        "min": 387,
+        "max": 393,
+        "mean": 390.37299035369773
+      },
+      "triangles": {
+        "first": 307296,
+        "last": 307308,
+        "min": 307284,
+        "max": 307320,
+        "mean": 307304.2379421222
+      },
+      "geometries": {
+        "first": 290,
+        "last": 290,
+        "min": 290,
+        "max": 290,
+        "mean": 290
+      },
+      "textures": {
+        "first": 1,
+        "last": 1,
+        "min": 1,
+        "max": 1,
+        "mean": 1
+      },
+      "programs": {
+        "first": 16,
+        "last": 16,
+        "min": 16,
+        "max": 16,
+        "mean": 16
+      },
+      "cameraQueries": {
+        "registered": {
+          "mean": 321,
+          "p50": 321,
+          "p95": 321,
+          "p99": 321,
+          "max": 321
+        },
+        "queries": {
+          "mean": 2,
+          "p50": 2,
+          "p95": 2,
+          "p99": 2,
+          "max": 2
+        },
+        "matrixUpdates": {
+          "mean": 321,
+          "p50": 321,
+          "p95": 321,
+          "p99": 321,
+          "max": 321
+        },
+        "meshCandidates": {
+          "mean": 10,
+          "p50": 10,
+          "p95": 10,
+          "p99": 10,
+          "max": 10
+        },
+        "resourceCandidates": {
+          "mean": 9,
+          "p50": 9,
+          "p95": 9,
+          "p99": 9,
+          "max": 9
+        },
+        "resourceTotal": {
+          "mean": 909,
+          "p50": 909,
+          "p95": 909,
+          "p99": 909,
+          "max": 909
+        }
+      },
+      "activity": {
+        "durationMs": 15025.39999961853,
+        "world": {
+          "frames": 1246,
+          "calls": 486404,
+          "triangles": 382901076,
+          "cpuMs": 12570.100004673004,
+          "framesPerSecond": 82.92624489408827,
+          "callsPerSecond": 32372.11655013171,
+          "cpuMsPerSecond": 836.5900411963834,
+          "cpuMsPerFrame": 10.088362764585076,
+          "stagesMs": {
+            "simulation": 905.4000043869019,
+            "camera": 2724.1999979019165,
+            "world": 330.8999948501587,
+            "vehicle": 106.9000039100647,
+            "sky": 20.900001049041748,
+            "render": 8300.100004196167,
+            "hud": 169.5999994277954
+          }
+        },
+        "preview": {
+          "frames": 0,
+          "calls": 0,
+          "triangles": 0,
+          "cpuMs": 0,
+          "framesPerSecond": 0,
+          "callsPerSecond": 0,
+          "cpuMsPerSecond": 0,
+          "cpuMsPerFrame": 0,
+          "stagesMs": {
+            "simulation": 0,
+            "camera": 0,
+            "world": 0,
+            "vehicle": 0,
+            "sky": 0,
+            "render": 0,
+            "hud": 0
+          }
+        }
+      },
+      "events": [
+        {
+          "name": "save",
+          "ms": 0.20000028610229492,
+          "offsetMs": 1981.5
+        },
+        {
+          "name": "save",
+          "ms": 0.3000001907348633,
+          "offsetMs": 14534.099999904633
+        }
+      ]
+    },
+    {
+      "label": "mixed",
+      "status": "complete",
+      "recordedAt": "2026-11-04T12:44:32.324Z",
+      "durationMs": 15008.400000095367,
+      "environment": {
+        "build": "production",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "drawingBuffer": {
+          "width": 1440,
+          "height": 900
+        },
+        "devicePixelRatio": 1,
+        "renderPixelRatio": 1,
+        "shadows": true,
+        "mainRendererOnly": true,
+        "worldScheduling": "continuous",
+        "camera": {
+          "position": [
+            -61.89211839172143,
+            29.553349328084895,
+            127.03005843372976
+          ],
+          "quaternion": [
+            -0.0988246728595636,
+            0.029848535500542832,
+            0.0029656299281512594,
+            0.9946526800857686
+          ]
+        },
+        "longAnimationFramesSupported": true
+      },
+      "environmentEnd": {
+        "build": "production",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "drawingBuffer": {
+          "width": 1440,
+          "height": 900
+        },
+        "devicePixelRatio": 1,
+        "renderPixelRatio": 1,
+        "shadows": true,
+        "mainRendererOnly": true,
+        "worldScheduling": "continuous",
+        "camera": {
+          "position": [
+            -62.14196788589863,
+            30.213349328084885,
+            122.87089838701544
+          ],
+          "quaternion": [
+            -0.09882467285956356,
+            0.029848535500542832,
+            0.002965629928151258,
+            0.9946526800857686
+          ]
+        },
+        "longAnimationFramesSupported": true
+      },
+      "droppedSamples": 0,
+      "longFramesOver100ms": [
+        {
+          "offsetMs": 3741.2000002861023,
+          "durationMs": 123.19999980926514,
+          "blockingMs": 72.2,
+          "renderOffsetMs": 55.40000009536743,
+          "styleLayoutToEndMs": 1.799999713897705,
+          "scripts": [
+            {
+              "offsetMs": 3741.2000002861023,
+              "durationMs": 54.40000009536743,
+              "invoker": "TimerHandler:setInterval",
+              "invokerType": "user-callback",
+              "sourceURL": "http://127.0.0.1:4175/assets/index-jqSeQg-7.js",
+              "sourceFunctionName": "",
+              "sourceCharPosition": 153651,
+              "forcedStyleLayoutMs": 0,
+              "pauseMs": 0
+            },
+            {
+              "offsetMs": 3801,
+              "durationMs": 61.30000019073486,
+              "invoker": "FrameRequestCallback",
+              "invokerType": "user-callback",
+              "sourceURL": "http://127.0.0.1:4175/assets/index-jqSeQg-7.js",
+              "sourceFunctionName": "frame",
+              "sourceCharPosition": 133175,
+              "forcedStyleLayoutMs": 0,
+              "pauseMs": 0
+            }
+          ]
+        },
+        {
+          "offsetMs": 4726.10000038147,
+          "durationMs": 119.39999961853027,
+          "blockingMs": 67.7,
+          "renderOffsetMs": 35.5,
+          "styleLayoutToEndMs": 12,
+          "scripts": [
+            {
+              "offsetMs": 4726.200000286102,
+              "durationMs": 33.59999990463257,
+              "invoker": "TimerHandler:setInterval",
+              "invokerType": "user-callback",
+              "sourceURL": "http://127.0.0.1:4175/assets/index-jqSeQg-7.js",
+              "sourceFunctionName": "",
+              "sourceCharPosition": 153651,
+              "forcedStyleLayoutMs": 0,
+              "pauseMs": 0
+            },
+            {
+              "offsetMs": 4762,
+              "durationMs": 71.5,
+              "invoker": "FrameRequestCallback",
+              "invokerType": "user-callback",
+              "sourceURL": "http://127.0.0.1:4175/assets/index-jqSeQg-7.js",
+              "sourceFunctionName": "frame",
+              "sourceCharPosition": 133175,
+              "forcedStyleLayoutMs": 0,
+              "pauseMs": 0
+            }
+          ]
+        },
+        {
+          "offsetMs": 8484.200000286102,
+          "durationMs": 121.7999997138977,
+          "blockingMs": 62.9,
+          "renderOffsetMs": 8.799999713897705,
+          "styleLayoutToEndMs": 0.19999980926513672,
+          "scripts": [
+            {
+              "offsetMs": 8500.5,
+              "durationMs": 105.30000019073486,
+              "invoker": "FrameRequestCallback",
+              "invokerType": "user-callback",
+              "sourceURL": "http://127.0.0.1:4175/assets/index-jqSeQg-7.js",
+              "sourceFunctionName": "frame",
+              "sourceCharPosition": 133175,
+              "forcedStyleLayoutMs": 0,
+              "pauseMs": 0
+            }
+          ]
+        },
+        {
+          "offsetMs": 9767.400000095367,
+          "durationMs": 133.40000009536743,
+          "blockingMs": 72.2,
+          "renderOffsetMs": 25.700000286102295,
+          "styleLayoutToEndMs": 17.800000190734863,
+          "scripts": [
+            {
+              "offsetMs": 9767.5,
+              "durationMs": 14.400000095367432,
+              "invoker": "TimerHandler:setInterval",
+              "invokerType": "user-callback",
+              "sourceURL": "http://127.0.0.1:4175/assets/index-jqSeQg-7.js",
+              "sourceFunctionName": "",
+              "sourceCharPosition": 153651,
+              "forcedStyleLayoutMs": 0,
+              "pauseMs": 0
+            },
+            {
+              "offsetMs": 9817.10000038147,
+              "durationMs": 65.89999961853027,
+              "invoker": "FrameRequestCallback",
+              "invokerType": "user-callback",
+              "sourceURL": "http://127.0.0.1:4175/assets/index-jqSeQg-7.js",
+              "sourceFunctionName": "frame",
+              "sourceCharPosition": 133175,
+              "forcedStyleLayoutMs": 0,
+              "pauseMs": 0
+            }
+          ]
+        },
+        {
+          "offsetMs": 10685.5,
+          "durationMs": 143.90000009536743,
+          "blockingMs": 86.5,
+          "renderOffsetMs": 7.400000095367432,
+          "styleLayoutToEndMs": 28.5,
+          "scripts": [
+            {
+              "offsetMs": 10692.900000095367,
+              "durationMs": 108,
+              "invoker": "FrameRequestCallback",
+              "invokerType": "user-callback",
+              "sourceURL": "http://127.0.0.1:4175/assets/index-jqSeQg-7.js",
+              "sourceFunctionName": "frame",
+              "sourceCharPosition": 133175,
+              "forcedStyleLayoutMs": 0,
+              "pauseMs": 0
+            }
+          ]
+        }
+      ],
+      "droppedLongFrames": 0,
+      "slowMainFrames": [
+        {
+          "at": 809.6000001907232,
+          "interval": 100.09999999997672,
+          "cpu": 10.699999809265137,
+          "stages": {
+            "simulation": 3.799999713897705,
+            "camera": 2.1000003814697266,
+            "world": 0.09999990463256836,
+            "vehicle": 0,
+            "sky": 0,
+            "render": 4.099999904632568,
+            "hud": 0.5999999046325684
+          },
+          "mode": "idle",
+          "x": -64.13393635534753,
+          "y": 18.75022553790357,
+          "z": 89.71127283031772,
+          "calls": 389,
+          "triangles": 307296,
+          "geometries": 290,
+          "textures": 1,
+          "programs": 16,
+          "cameraStats": {
+            "registered": 321,
+            "queries": 2,
+            "matrixUpdates": 321,
+            "meshCandidates": 10,
+            "resourceCandidates": 9,
+            "resourceTotal": 909
+          }
+        },
+        {
+          "at": 3859.5000001907465,
+          "interval": 125,
+          "cpu": 10.199999809265137,
+          "stages": {
+            "simulation": 0.7999997138977051,
+            "camera": 3.3000001907348633,
+            "world": 0.19999980926513672,
+            "vehicle": 0.09999990463256836,
+            "sky": 0,
+            "render": 4.200000286102295,
+            "hud": 1.5999999046325684
+          },
+          "mode": "idle",
+          "x": -64.13393635534753,
+          "y": 18.75022553790357,
+          "z": 89.71127283031772,
+          "calls": 387,
+          "triangles": 307284,
+          "geometries": 290,
+          "textures": 1,
+          "programs": 16,
+          "cameraStats": {
+            "registered": 321,
+            "queries": 2,
+            "matrixUpdates": 321,
+            "meshCandidates": 10,
+            "resourceCandidates": 9,
+            "resourceTotal": 909
+          }
+        },
+        {
+          "at": 4842.0000001907465,
+          "interval": 124.80000000001746,
+          "cpu": 16.40000009536743,
+          "stages": {
+            "simulation": 0.9000000953674316,
+            "camera": 4.300000190734863,
+            "world": 0.19999980926513672,
+            "vehicle": 0,
+            "sky": 0,
+            "render": 10.199999809265137,
+            "hud": 0.8000001907348633
+          },
+          "mode": "idle",
+          "x": -64.13393635534753,
+          "y": 18.75022553790357,
+          "z": 89.71127283031772,
+          "calls": 389,
+          "triangles": 307296,
+          "geometries": 290,
+          "textures": 1,
+          "programs": 16,
+          "cameraStats": {
+            "registered": 321,
+            "queries": 2,
+            "matrixUpdates": 321,
+            "meshCandidates": 10,
+            "resourceCandidates": 9,
+            "resourceTotal": 909
+          }
+        },
+        {
+          "at": 8484.000000190747,
+          "interval": 7.900000000023283,
+          "cpu": 105.09999990463257,
+          "stages": {
+            "simulation": 8.5,
+            "camera": 55.59999990463257,
+            "world": 2.299999713897705,
+            "vehicle": 9.300000190734863,
+            "sky": 0,
+            "render": 29.40000009536743,
+            "hud": 0
+          },
+          "mode": "walk",
+          "x": -64.14992007216493,
+          "y": 18.75022553790357,
+          "z": 89.44519730111236,
+          "calls": 389,
+          "triangles": 307296,
+          "geometries": 290,
+          "textures": 1,
+          "programs": 16,
+          "cameraStats": {
+            "registered": 321,
+            "queries": 2,
+            "matrixUpdates": 321,
+            "meshCandidates": 10,
+            "resourceCandidates": 9,
+            "resourceTotal": 909
+          }
+        },
+        {
+          "at": 8601.100000190723,
+          "interval": 117.09999999997672,
+          "cpu": 12.5,
+          "stages": {
+            "simulation": 2.6999998092651367,
+            "camera": 1.700000286102295,
+            "world": 0.2999997138977051,
+            "vehicle": 0,
+            "sky": 0,
+            "render": 6.600000381469727,
+            "hud": 1.0999999046325684
+          },
+          "mode": "walk",
+          "x": -64.15687908586851,
+          "y": 18.75022553790357,
+          "z": 89.32935295307479,
+          "calls": 389,
+          "triangles": 307296,
+          "geometries": 290,
+          "textures": 1,
+          "programs": 16,
+          "cameraStats": {
+            "registered": 321,
+            "queries": 2,
+            "matrixUpdates": 321,
+            "meshCandidates": 10,
+            "resourceCandidates": 9,
+            "resourceTotal": 909
+          }
+        },
+        {
+          "at": 9759.500000190747,
+          "interval": 108.40000000002328,
+          "cpu": 65.59999990463257,
+          "stages": {
+            "simulation": 1.5999999046325684,
+            "camera": 1.6999998092651367,
+            "world": 0.10000038146972656,
+            "vehicle": 0.09999990463256836,
+            "sky": 0,
+            "render": 48,
+            "hud": 14.099999904632568
+          },
+          "mode": "walk",
+          "x": -64.36778649711293,
+          "y": 19.41022553790357,
+          "z": 85.81844859326243,
+          "calls": 390,
+          "triangles": 307320,
+          "geometries": 291,
+          "textures": 1,
+          "programs": 16,
+          "cameraStats": {
+            "registered": 321,
+            "queries": 2,
+            "matrixUpdates": 321,
+            "meshCandidates": 8,
+            "resourceCandidates": 9,
+            "resourceTotal": 909
+          }
+        },
+        {
+          "at": 9900.300000190735,
+          "interval": 140.79999999998836,
+          "cpu": 26.40000009536743,
+          "stages": {
+            "simulation": 1,
+            "camera": 4.299999713897705,
+            "world": 6.5,
+            "vehicle": 0.10000038146972656,
+            "sky": 0,
+            "render": 13.799999713897705,
+            "hud": 0.7000002861022949
+          },
+          "mode": "walk",
+          "x": -64.37444536945603,
+          "y": 19.41022553790357,
+          "z": 85.70760059696447,
+          "calls": 390,
+          "triangles": 307320,
+          "geometries": 291,
+          "textures": 1,
+          "programs": 16,
+          "cameraStats": {
+            "registered": 321,
+            "queries": 2,
+            "matrixUpdates": 321,
+            "meshCandidates": 8,
+            "resourceCandidates": 9,
+            "resourceTotal": 909
+          }
+        },
+        {
+          "at": 10834.500000190747,
+          "interval": 158.80000000001746,
+          "cpu": 7.5,
+          "stages": {
+            "simulation": 1.9000000953674316,
+            "camera": 1.4000000953674316,
+            "world": 0.19999980926513672,
+            "vehicle": 0.10000038146972656,
+            "sky": 0,
+            "render": 3.1999998092651367,
+            "hud": 0.6999998092651367
+          },
+          "mode": "idle",
+          "x": -64.3837853568039,
+          "y": 19.41022553790357,
+          "z": 85.55212098576114,
+          "calls": 391,
+          "triangles": 307332,
+          "geometries": 292,
+          "textures": 1,
+          "programs": 16,
+          "cameraStats": {
+            "registered": 321,
+            "queries": 2,
+            "matrixUpdates": 321,
+            "meshCandidates": 8,
+            "resourceCandidates": 9,
+            "resourceTotal": 909
+          }
+        }
+      ],
+      "samples": 1150,
+      "intervalSamples": 1150,
+      "fps": 76.70962405613807,
+      "frameMs": {
+        "mean": 13.036173913043484,
+        "p50": 8.39999999999418,
+        "p95": 32.79999999998836,
+        "p99": 91.5,
+        "max": 158.80000000001746
+      },
+      "over33ms": 54,
+      "over50ms": 31,
+      "cpuMs": {
+        "mean": 10.671043480168219,
+        "p50": 7.799999713897705,
+        "p95": 26.09999990463257,
+        "p99": 69.2999997138977,
+        "max": 105.09999990463257
+      },
+      "stagesMs": {
+        "simulation": {
+          "mean": 0.79391304721003,
+          "p50": 0.5,
+          "p95": 1.6999998092651367,
+          "p99": 9.199999809265137,
+          "max": 28.5
+        },
+        "camera": {
+          "mean": 2.3412173922165582,
+          "p50": 1.700000286102295,
+          "p95": 4.900000095367432,
+          "p99": 12.799999713897705,
+          "max": 55.59999990463257
+        },
+        "world": {
+          "mean": 0.35782608985900877,
+          "p50": 0.20000028610229492,
+          "p95": 0.8000001907348633,
+          "p99": 4.400000095367432,
+          "max": 12.800000190734863
+        },
+        "vehicle": {
+          "mean": 0.11721739147020423,
+          "p50": 0.09999990463256836,
+          "p95": 0.20000028610229492,
+          "p99": 0.5,
+          "max": 12.400000095367432
+        },
+        "sky": {
+          "mean": 0.017130431299624237,
+          "p50": 0,
+          "p95": 0.09999990463256836,
+          "p99": 0.10000038146972656,
+          "max": 3.5
+        },
+        "render": {
+          "mean": 6.811391298874565,
+          "p50": 4.900000095367432,
+          "p95": 14.599999904632568,
+          "p99": 45.30000019073486,
+          "max": 83.7000002861023
+        },
+        "hud": {
+          "mean": 0.2176521757374639,
+          "p50": 0,
+          "p95": 0.9000000953674316,
+          "p99": 2.5,
+          "max": 22.59999990463257
+        }
+      },
+      "modes": {
+        "idle": 1036,
+        "walk": 114
+      },
+      "position": {
+        "first": {
+          "x": -64.13393635534753,
+          "y": 18.75022553790357,
+          "z": 89.71127283031772
+        },
+        "last": {
+          "x": -64.38378584952473,
+          "y": 19.41022553790357,
+          "z": 85.5521127836034
+        }
+      },
+      "calls": {
+        "first": 389,
+        "last": 391,
+        "min": 387,
+        "max": 391,
+        "mean": 388.68434782608693
+      },
+      "triangles": {
+        "first": 307296,
+        "last": 307332,
+        "min": 307284,
+        "max": 307332,
+        "mean": 307303.3460869565
+      },
+      "geometries": {
+        "first": 290,
+        "last": 292,
+        "min": 290,
+        "max": 292,
+        "mean": 290.7365217391304
+      },
+      "textures": {
+        "first": 1,
+        "last": 1,
+        "min": 1,
+        "max": 1,
+        "mean": 1
+      },
+      "programs": {
+        "first": 16,
+        "last": 16,
+        "min": 16,
+        "max": 16,
+        "mean": 16
+      },
+      "cameraQueries": {
+        "registered": {
+          "mean": 321,
+          "p50": 321,
+          "p95": 321,
+          "p99": 321,
+          "max": 321
+        },
+        "queries": {
+          "mean": 2,
+          "p50": 2,
+          "p95": 2,
+          "p99": 2,
+          "max": 2
+        },
+        "matrixUpdates": {
+          "mean": 321,
+          "p50": 321,
+          "p95": 321,
+          "p99": 321,
+          "max": 321
+        },
+        "meshCandidates": {
+          "mean": 9.243478260869566,
+          "p50": 10,
+          "p95": 10,
+          "p99": 10,
+          "max": 10
+        },
+        "resourceCandidates": {
+          "mean": 9,
+          "p50": 9,
+          "p95": 9,
+          "p99": 9,
+          "max": 9
+        },
+        "resourceTotal": {
+          "mean": 909,
+          "p50": 909,
+          "p95": 909,
+          "p99": 909,
+          "max": 909
+        }
+      },
+      "activity": {
+        "durationMs": 15008.400000095367,
+        "world": {
+          "frames": 1151,
+          "calls": 447376,
+          "triangles": 353706144,
+          "cpuMs": 12282.700002193451,
+          "framesPerSecond": 76.69038671628464,
+          "callsPerSecond": 29808.373977050003,
+          "cpuMsPerSecond": 818.3883693208738,
+          "cpuMsPerFrame": 10.671329280793614,
+          "stagesMs": {
+            "simulation": 913.600004196167,
+            "camera": 2695.0000009536743,
+            "world": 411.6000032424927,
+            "vehicle": 134.90000009536743,
+            "sky": 19.69999599456787,
+            "render": 7840.699994087219,
+            "hud": 250.3000020980835
+          }
+        },
+        "preview": {
+          "frames": 0,
+          "calls": 0,
+          "triangles": 0,
+          "cpuMs": 0,
+          "framesPerSecond": 0,
+          "callsPerSecond": 0,
+          "cpuMsPerSecond": 0,
+          "cpuMsPerFrame": 0,
+          "stagesMs": {
+            "simulation": 0,
+            "camera": 0,
+            "world": 0,
+            "vehicle": 0,
+            "sky": 0,
+            "render": 0,
+            "hud": 0
+          }
+        }
+      },
+      "events": [
+        {
+          "name": "save",
+          "ms": 0.40000009536743164,
+          "offsetMs": 9242.60000038147
+        }
+      ]
+    }
+  ]
+}

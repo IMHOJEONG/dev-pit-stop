@@ -4,6 +4,9 @@ import { PlayerView } from '../player/player-view';
 import type { Appearance } from '../player/appearance';
 import { mesh, mat } from '../shared/meshes';
 import { disposeScene } from '../shared/dispose';
+import { renderActivity } from '../diagnostics/render-activity';
+import { FrameLoop } from '../app/frame-loop';
+import type { FrameTick } from '../app/frame-loop';
 export type PreviewMotion = 'idle' | 'walk' | 'run' | 'up' | 'down' | 'jump';
 export class CharacterPreview {
   private scene = new THREE.Scene();
@@ -15,11 +18,14 @@ export class CharacterPreview {
   private stairs = new THREE.Group();
   private ground: THREE.Mesh;
   private observer: ResizeObserver;
-  private raf = 0;
-  private last = 0;
+  private loop: FrameLoop;
+  private abort = new AbortController();
+  private contextLost = false;
+  private disposed = false;
   private time = 0;
   private motion: PreviewMotion = 'idle';
   private angle = -0.4;
+  private closeActivity: () => void;
   constructor(
     private canvas: HTMLCanvasElement,
     appearance: Appearance,
@@ -29,6 +35,7 @@ export class CharacterPreview {
     this.renderer.shadowMap.enabled = true;
     this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    this.renderer.info.autoReset = false;
     this.scene.add(new THREE.HemisphereLight(0xfff7e5, 0x5a7062, 2.5));
     const sun = this.sun;
     sun.position.set(-4, 12, -7);
@@ -62,10 +69,35 @@ export class CharacterPreview {
       step.name = String(i);
     }
     this.actor.setAppearance(appearance);
+    this.loop = new FrameLoop(this.frame);
     this.observer = new ResizeObserver(() => this.resize());
     this.observer.observe(canvas);
     this.resize();
-    this.raf = requestAnimationFrame(this.frame);
+    this.closeActivity = renderActivity.openPreview();
+    const signal = this.abort.signal;
+    document.addEventListener('visibilitychange', () => this.syncLoop(), { signal });
+    canvas.addEventListener(
+      'webglcontextlost',
+      (event) => {
+        event.preventDefault();
+        this.contextLost = true;
+        this.syncLoop();
+      },
+      { signal },
+    );
+    canvas.addEventListener(
+      'webglcontextrestored',
+      () => {
+        this.contextLost = false;
+        this.syncLoop();
+        this.loop.invalidate();
+      },
+      { signal },
+    );
+    this.syncLoop();
+  }
+  private syncLoop() {
+    this.loop.setMode(document.hidden || this.contextLost ? 'blocked' : 'play');
   }
   setAppearance(value: Appearance) {
     this.actor.setAppearance(value);
@@ -89,10 +121,10 @@ export class CharacterPreview {
     this.renderer.setSize(width, height, false);
     this.camera.aspect = width / height;
     this.camera.updateProjectionMatrix();
+    this.loop.invalidate();
   }
-  private frame = (now: number) => {
-    const dt = Math.min((now - (this.last || now)) / 1000, 0.045);
-    this.last = now;
+  private frame = ({ dt }: FrameTick) => {
+    const stamp = renderActivity.enabled ? performance.now() : 0;
     this.time += dt;
     const moving = ['walk', 'run', 'up', 'down'].includes(this.motion);
     const speed = this.motion === 'run' ? RUN_SPEED : WALK_SPEED;
@@ -129,11 +161,22 @@ export class CharacterPreview {
       target.z - Math.cos(this.angle) * 9.3,
     );
     this.camera.lookAt(target);
+    this.renderer.info.reset();
     this.renderer.render(this.scene, this.camera);
-    this.raf = requestAnimationFrame(this.frame);
+    if (stamp)
+      renderActivity.record(
+        'preview',
+        performance.now() - stamp,
+        this.renderer.info.render.calls,
+        this.renderer.info.render.triangles,
+      );
   };
   dispose() {
-    cancelAnimationFrame(this.raf);
+    if (this.disposed) return;
+    this.disposed = true;
+    this.loop.dispose();
+    this.abort.abort();
+    this.closeActivity();
     this.observer.disconnect();
     this.scene.traverse((obj) => {
       if (obj instanceof THREE.DirectionalLight) obj.shadow.dispose();

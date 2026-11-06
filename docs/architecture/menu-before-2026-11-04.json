@@ -1,0 +1,615 @@
+{
+  "schema": 2,
+  "notes": "World frame stats cover real main callbacks only; no FPS when world is on demand. Activity counters independently measure actual world/preview frames, calls and CPU elapsed per wall second. CPU excludes layout/paint and GPU time. Calls include shadow passes. Counts are not bytes. Event times may overlap stages. No network transmission.",
+  "reports": [
+    {
+      "label": "pause",
+      "status": "complete",
+      "recordedAt": "2026-11-04T05:52:05.551Z",
+      "durationMs": 15005.700000286102,
+      "environment": {
+        "build": "production",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "drawingBuffer": {
+          "width": 1440,
+          "height": 900
+        },
+        "devicePixelRatio": 1,
+        "renderPixelRatio": 1,
+        "shadows": true,
+        "mainRendererOnly": true,
+        "worldScheduling": "continuous"
+      },
+      "environmentEnd": {
+        "build": "production",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "drawingBuffer": {
+          "width": 1440,
+          "height": 900
+        },
+        "devicePixelRatio": 1,
+        "renderPixelRatio": 1,
+        "shadows": true,
+        "mainRendererOnly": true,
+        "worldScheduling": "continuous"
+      },
+      "droppedSamples": 0,
+      "samples": 739,
+      "intervalSamples": 739,
+      "fps": 49.29427145868352,
+      "frameMs": {
+        "mean": 20.286332882273346,
+        "p50": 16.69999999999709,
+        "p95": 41.69999999999709,
+        "p99": 84.19999999999709,
+        "max": 183.20000000000073
+      },
+      "over33ms": 47,
+      "over50ms": 28,
+      "cpuMs": {
+        "mean": 17.92625168308676,
+        "p50": 15.200000286102295,
+        "p95": 34,
+        "p99": 74,
+        "max": 142.89999961853027
+      },
+      "stagesMs": {
+        "simulation": {
+          "mean": 0.005412716665513138,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0.09999990463256836,
+          "max": 1.5999999046325684
+        },
+        "camera": {
+          "mean": 3.6129905264496966,
+          "p50": 2.5999999046325684,
+          "p95": 7.400000095367432,
+          "p99": 16.09999990463257,
+          "max": 34.40000009536743
+        },
+        "world": {
+          "mean": 0.6046008108755894,
+          "p50": 0.40000009536743164,
+          "p95": 1.5999999046325684,
+          "p99": 5.099999904632568,
+          "max": 17.90000009536743
+        },
+        "vehicle": {
+          "mean": 0.12503381994967533,
+          "p50": 0.09999990463256836,
+          "p95": 0.20000028610229492,
+          "p99": 2.299999713897705,
+          "max": 5.5
+        },
+        "sky": {
+          "mean": 0.03437077531311283,
+          "p50": 0,
+          "p95": 0.10000038146972656,
+          "p99": 0.3000001907348633,
+          "max": 4.5
+        },
+        "render": {
+          "mean": 13.315696896332366,
+          "p50": 11,
+          "p95": 24.800000190734863,
+          "p99": 55.30000019073486,
+          "max": 127.2999997138977
+        },
+        "hud": {
+          "mean": 0.21921515109897144,
+          "p50": 0,
+          "p95": 1,
+          "p99": 3.0999999046325684,
+          "max": 12.299999713897705
+        }
+      },
+      "modes": {
+        "panel:settings": 739
+      },
+      "position": {
+        "first": {
+          "x": 0,
+          "y": 23.10688413073135,
+          "z": 195
+        },
+        "last": {
+          "x": 0,
+          "y": 23.10688413073135,
+          "z": 195
+        }
+      },
+      "calls": {
+        "first": 815,
+        "last": 815,
+        "min": 815,
+        "max": 815,
+        "mean": 815
+      },
+      "triangles": {
+        "first": 305682,
+        "last": 305682,
+        "min": 305682,
+        "max": 305682,
+        "mean": 305682
+      },
+      "geometries": {
+        "first": 616,
+        "last": 616,
+        "min": 616,
+        "max": 616,
+        "mean": 616
+      },
+      "textures": {
+        "first": 1,
+        "last": 1,
+        "min": 1,
+        "max": 1,
+        "mean": 1
+      },
+      "programs": {
+        "first": 15,
+        "last": 15,
+        "min": 15,
+        "max": 15,
+        "mean": 15
+      },
+      "activity": {
+        "durationMs": 15005.700000286102,
+        "world": {
+          "frames": 739,
+          "calls": 602285,
+          "triangles": 225898998,
+          "cpuMs": 13247.499993801117,
+          "framesPerSecond": 49.24795244379869,
+          "callsPerSecond": 40137.08124169593,
+          "cpuMsPerSecond": 882.8311903842231,
+          "cpuMsPerFrame": 17.92625168308676,
+          "stagesMs": {
+            "simulation": 3.999997615814209,
+            "camera": 2669.9999990463257,
+            "world": 446.79999923706055,
+            "vehicle": 92.39999294281006,
+            "sky": 25.40000295639038,
+            "render": 9840.300006389618,
+            "hud": 161.9999966621399
+          }
+        },
+        "preview": {
+          "frames": 0,
+          "calls": 0,
+          "triangles": 0,
+          "cpuMs": 0,
+          "framesPerSecond": 0,
+          "callsPerSecond": 0,
+          "cpuMsPerSecond": 0,
+          "cpuMsPerFrame": 0,
+          "stagesMs": {
+            "simulation": 0,
+            "camera": 0,
+            "world": 0,
+            "vehicle": 0,
+            "sky": 0,
+            "render": 0,
+            "hud": 0
+          }
+        }
+      },
+      "events": []
+    },
+    {
+      "label": "map",
+      "status": "complete",
+      "recordedAt": "2026-11-04T05:53:11.493Z",
+      "durationMs": 15035.300000190735,
+      "environment": {
+        "build": "production",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "drawingBuffer": {
+          "width": 1440,
+          "height": 900
+        },
+        "devicePixelRatio": 1,
+        "renderPixelRatio": 1,
+        "shadows": true,
+        "mainRendererOnly": true,
+        "worldScheduling": "continuous"
+      },
+      "environmentEnd": {
+        "build": "production",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "drawingBuffer": {
+          "width": 1440,
+          "height": 900
+        },
+        "devicePixelRatio": 1,
+        "renderPixelRatio": 1,
+        "shadows": true,
+        "mainRendererOnly": true,
+        "worldScheduling": "continuous"
+      },
+      "droppedSamples": 0,
+      "samples": 753,
+      "intervalSamples": 753,
+      "fps": 50.228462795584164,
+      "frameMs": {
+        "mean": 19.90903054448871,
+        "p50": 16.69999999999709,
+        "p95": 41.60000000000582,
+        "p99": 91.69999999999709,
+        "max": 125
+      },
+      "over33ms": 49,
+      "over50ms": 26,
+      "cpuMs": {
+        "mean": 17.45405046050134,
+        "p50": 14.599999904632568,
+        "p95": 36.30000019073486,
+        "p99": 85.09999990463257,
+        "max": 98.09999990463257
+      },
+      "stagesMs": {
+        "simulation": {
+          "mean": 0.005976096884029637,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0.10000038146972656,
+          "max": 1.299999713897705
+        },
+        "camera": {
+          "mean": 3.7232403698195498,
+          "p50": 2.5999999046325684,
+          "p95": 8,
+          "p99": 25,
+          "max": 42.89999961853027
+        },
+        "world": {
+          "mean": 0.5638778143195042,
+          "p50": 0.3000001907348633,
+          "p95": 1.5,
+          "p99": 5.900000095367432,
+          "max": 13.300000190734863
+        },
+        "vehicle": {
+          "mean": 0.08379814254335198,
+          "p50": 0,
+          "p95": 0.19999980926513672,
+          "p99": 0.9000000953674316,
+          "max": 5.900000095367432
+        },
+        "sky": {
+          "mean": 0.02204515386229334,
+          "p50": 0,
+          "p95": 0.09999990463256836,
+          "p99": 0.3000001907348633,
+          "max": 1.299999713897705
+        },
+        "render": {
+          "mean": 12.844754319108656,
+          "p50": 10.800000190734863,
+          "p95": 23.59999990463257,
+          "p99": 60.30000019073486,
+          "max": 80.69999980926514
+        },
+        "hud": {
+          "mean": 0.202921646366398,
+          "p50": 0,
+          "p95": 0.9000000953674316,
+          "p99": 2.4000000953674316,
+          "max": 15.599999904632568
+        }
+      },
+      "modes": {
+        "panel:map": 753
+      },
+      "position": {
+        "first": {
+          "x": 0,
+          "y": 23.10688413073135,
+          "z": 195
+        },
+        "last": {
+          "x": 0,
+          "y": 23.10688413073135,
+          "z": 195
+        }
+      },
+      "calls": {
+        "first": 815,
+        "last": 815,
+        "min": 815,
+        "max": 815,
+        "mean": 815
+      },
+      "triangles": {
+        "first": 305682,
+        "last": 305682,
+        "min": 305682,
+        "max": 305682,
+        "mean": 305682
+      },
+      "geometries": {
+        "first": 616,
+        "last": 616,
+        "min": 616,
+        "max": 616,
+        "mean": 616
+      },
+      "textures": {
+        "first": 1,
+        "last": 1,
+        "min": 1,
+        "max": 1,
+        "mean": 1
+      },
+      "programs": {
+        "first": 15,
+        "last": 15,
+        "min": 15,
+        "max": 15,
+        "mean": 15
+      },
+      "activity": {
+        "durationMs": 15035.300000190735,
+        "world": {
+          "frames": 755,
+          "calls": 615325,
+          "triangles": 230789910,
+          "cpuMs": 13181.39999628067,
+          "framesPerSecond": 50.21516032207021,
+          "callsPerSecond": 40925.35566248722,
+          "cpuMsPerSecond": 876.6968398444629,
+          "cpuMsPerFrame": 17.458807942093603,
+          "stagesMs": {
+            "simulation": 4.500000953674316,
+            "camera": 2809.399998188019,
+            "world": 425.19999408721924,
+            "vehicle": 63.20000123977661,
+            "sky": 16.600000858306885,
+            "render": 9704.100002288818,
+            "hud": 152.7999997138977
+          }
+        },
+        "preview": {
+          "frames": 0,
+          "calls": 0,
+          "triangles": 0,
+          "cpuMs": 0,
+          "framesPerSecond": 0,
+          "callsPerSecond": 0,
+          "cpuMsPerSecond": 0,
+          "cpuMsPerFrame": 0,
+          "stagesMs": {
+            "simulation": 0,
+            "camera": 0,
+            "world": 0,
+            "vehicle": 0,
+            "sky": 0,
+            "render": 0,
+            "hud": 0
+          }
+        }
+      },
+      "events": []
+    },
+    {
+      "label": "appearance",
+      "status": "complete",
+      "recordedAt": "2026-11-04T05:53:54.502Z",
+      "durationMs": 15030.599999904633,
+      "environment": {
+        "build": "production",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "drawingBuffer": {
+          "width": 1440,
+          "height": 900
+        },
+        "devicePixelRatio": 1,
+        "renderPixelRatio": 1,
+        "shadows": true,
+        "mainRendererOnly": true,
+        "worldScheduling": "continuous"
+      },
+      "environmentEnd": {
+        "build": "production",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "drawingBuffer": {
+          "width": 1440,
+          "height": 900
+        },
+        "devicePixelRatio": 1,
+        "renderPixelRatio": 1,
+        "shadows": true,
+        "mainRendererOnly": true,
+        "worldScheduling": "continuous"
+      },
+      "droppedSamples": 0,
+      "samples": 691,
+      "intervalSamples": 691,
+      "fps": 46.13094244647541,
+      "frameMs": {
+        "mean": 21.677424023154856,
+        "p50": 16.70000000001164,
+        "p95": 42.10000000000582,
+        "p99": 83,
+        "max": 175
+      },
+      "over33ms": 53,
+      "over50ms": 28,
+      "cpuMs": {
+        "mean": 16.309261932731882,
+        "p50": 13.700000286102295,
+        "p95": 33.5,
+        "p99": 59.09999990463257,
+        "max": 135.5
+      },
+      "stagesMs": {
+        "simulation": {
+          "mean": 0.00940665770888156,
+          "p50": 0,
+          "p95": 0,
+          "p99": 0.10000038146972656,
+          "max": 4.199999809265137
+        },
+        "camera": {
+          "mean": 3.5450072288513184,
+          "p50": 2.5,
+          "p95": 8.400000095367432,
+          "p99": 18.100000381469727,
+          "max": 49.59999990463257
+        },
+        "world": {
+          "mean": 0.47250362277548497,
+          "p50": 0.3000001907348633,
+          "p95": 1,
+          "p99": 3.5,
+          "max": 8.400000095367432
+        },
+        "vehicle": {
+          "mean": 0.10738060615859743,
+          "p50": 0.09999990463256836,
+          "p95": 0.20000028610229492,
+          "p99": 1.6000003814697266,
+          "max": 8.199999809265137
+        },
+        "sky": {
+          "mean": 0.018379159670662778,
+          "p50": 0,
+          "p95": 0.09999990463256836,
+          "p99": 0.10000038146972656,
+          "max": 1.5999999046325684
+        },
+        "render": {
+          "mean": 11.932272070568652,
+          "p50": 10.099999904632568,
+          "p95": 20.40000009536743,
+          "p99": 48.19999980926514,
+          "max": 102.30000019073486
+        },
+        "hud": {
+          "mean": 0.21808972199987917,
+          "p50": 0,
+          "p95": 0.8000001907348633,
+          "p99": 4.599999904632568,
+          "max": 15.299999713897705
+        }
+      },
+      "modes": {
+        "panel:character": 691
+      },
+      "position": {
+        "first": {
+          "x": 0,
+          "y": 23.10688413073135,
+          "z": 195
+        },
+        "last": {
+          "x": 0,
+          "y": 23.10688413073135,
+          "z": 195
+        }
+      },
+      "calls": {
+        "first": 815,
+        "last": 815,
+        "min": 815,
+        "max": 815,
+        "mean": 815
+      },
+      "triangles": {
+        "first": 305682,
+        "last": 305682,
+        "min": 305682,
+        "max": 305682,
+        "mean": 305682
+      },
+      "geometries": {
+        "first": 616,
+        "last": 616,
+        "min": 616,
+        "max": 616,
+        "mean": 616
+      },
+      "textures": {
+        "first": 1,
+        "last": 1,
+        "min": 1,
+        "max": 1,
+        "mean": 1
+      },
+      "programs": {
+        "first": 15,
+        "last": 15,
+        "min": 15,
+        "max": 15,
+        "mean": 15
+      },
+      "activity": {
+        "durationMs": 15030.599999904633,
+        "world": {
+          "frames": 693,
+          "calls": 564795,
+          "triangles": 211837626,
+          "cpuMs": 11301.599995136261,
+          "framesPerSecond": 46.105943874788565,
+          "callsPerSecond": 37576.34425795268,
+          "cpuMsPerSecond": 751.9061112136553,
+          "cpuMsPerFrame": 16.308225101206727,
+          "stagesMs": {
+            "simulation": 6.500000476837158,
+            "camera": 2455.9999947547913,
+            "world": 327.10000371932983,
+            "vehicle": 74.19999885559082,
+            "sky": 12.699999332427979,
+            "render": 8269.300000667572,
+            "hud": 151.4999976158142
+          }
+        },
+        "preview": {
+          "frames": 693,
+          "calls": 187803,
+          "triangles": 9155916,
+          "cpuMs": 1978.0000019073486,
+          "framesPerSecond": 46.105943874788565,
+          "callsPerSecond": 12494.710790067702,
+          "cpuMsPerSecond": 131.59820645349478,
+          "cpuMsPerFrame": 2.854256857009161,
+          "stagesMs": {
+            "simulation": 0,
+            "camera": 0,
+            "world": 0,
+            "vehicle": 0,
+            "sky": 0,
+            "render": 0,
+            "hud": 0
+          }
+        }
+      },
+      "events": []
+    }
+  ]
+}
