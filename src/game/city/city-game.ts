@@ -81,6 +81,7 @@ class CityGame {
   private elapsed = 0;
   private nextHudUpdate = 0;
   private contextLost = false;
+  private disposed = false;
 
   constructor() {
     this.renderer = new GameRenderer(this.canvas, this.scene, this.camera);
@@ -129,7 +130,14 @@ class CityGame {
       },
       { signal },
     );
-    window.addEventListener('pagehide', () => this.save(), { signal });
+    window.addEventListener(
+      'pagehide',
+      (event) => {
+        if (event.persisted) this.save();
+        else this.dispose();
+      },
+      { signal },
+    );
     document.addEventListener(
       'visibilitychange',
       () => {
@@ -326,6 +334,9 @@ class CityGame {
   }
 
   dispose() {
+    if (this.disposed) return;
+    this.disposed = true;
+    this.save();
     this.abort.abort();
     this.loop.dispose();
     this.input.dispose();

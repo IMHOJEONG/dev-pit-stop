@@ -280,7 +280,14 @@ export class Game {
       },
       { signal },
     );
-    window.addEventListener('pagehide', () => this.save(false), { signal });
+    window.addEventListener(
+      'pagehide',
+      (event) => {
+        if (event.persisted) this.save(false);
+        else this.dispose();
+      },
+      { signal },
+    );
     document.addEventListener(
       'visibilitychange',
       () => {
@@ -764,8 +771,9 @@ export class Game {
     this.audio.sync(this.paused, document.hidden);
   }
   dispose() {
-    this.save(false);
+    if (this.disposed) return;
     this.disposed = true;
+    this.save(false);
     this.loop.dispose();
     clearTimeout(this.loadingTimer);
     if (this.completionTimer) clearTimeout(this.completionTimer);
@@ -776,7 +784,7 @@ export class Game {
     this.hud.dispose();
     this.audio.dispose();
     this.camera.dispose();
-    this.renderer.dispose();
     this.world.dispose();
+    this.renderer.dispose();
   }
 }

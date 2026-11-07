@@ -4,6 +4,12 @@ export function disposeScene(scene: THREE.Scene) {
     materials = new Set<THREE.Material>();
   scene.traverse((obj) => {
     if (obj instanceof THREE.InstancedMesh) obj.dispose();
+    if (
+      obj instanceof THREE.DirectionalLight ||
+      obj instanceof THREE.PointLight ||
+      obj instanceof THREE.SpotLight
+    )
+      obj.shadow.dispose();
     if (obj instanceof THREE.Mesh) {
       geometries.add(obj.geometry);
       for (const m of Array.isArray(obj.material) ? obj.material : [obj.material]) materials.add(m);

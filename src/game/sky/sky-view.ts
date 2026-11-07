@@ -29,6 +29,10 @@ export class SkyView {
       grass = mat(0xa0c6ae),
       gold = mat(0xe6c180),
       plankMaterial = mat(0xb7b6a1);
+    const pillarMaterial = mat(0xb7c4bd);
+    const pillarGeometry = new THREE.BoxGeometry(1.6, 10, 1.6);
+    const pillarCapGeometry = new THREE.BoxGeometry(2.5, 0.7, 2.5);
+    const postGeometry = new THREE.CylinderGeometry(0.15, 0.15, 2.5, 5);
     const staticPlanks: THREE.Mesh[] = [];
     ISLANDS.forEach((island, index) => {
       const group = new THREE.Group();
@@ -92,14 +96,14 @@ export class SkyView {
       }
       for (let i = 0; i < 3; i++) {
         const pillar = mesh(
-          new THREE.BoxGeometry(1.6, 10, 1.6),
-          mat(0xb7c4bd),
+          pillarGeometry,
+          pillarMaterial,
           group,
           -island.radius + 6 + i * 4,
           5,
           -8,
         );
-        mesh(new THREE.BoxGeometry(2.5, 0.7, 2.5), gold, group, pillar.position.x, 10, -8);
+        mesh(pillarCapGeometry, gold, group, pillar.position.x, 10, -8);
       }
     });
     for (let i = 0; i < ISLANDS.length - 1; i++) {
@@ -122,7 +126,7 @@ export class SkyView {
             const dx = Math.cos(plank.rotation.y) * (BRIDGE_WIDTH / 2 - 0.2) * side;
             const dz = -Math.sin(plank.rotation.y) * (BRIDGE_WIDTH / 2 - 0.2) * side;
             mesh(
-              new THREE.CylinderGeometry(0.15, 0.15, 2.5, 5),
+              postGeometry,
               gold,
               root,
               plank.position.x + dx,

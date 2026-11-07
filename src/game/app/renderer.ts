@@ -49,5 +49,6 @@ export class GameRenderer {
   }
   dispose() {
     this.renderer.dispose();
+    this.renderer.forceContextLoss();
   }
 }

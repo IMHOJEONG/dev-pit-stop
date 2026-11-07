@@ -57,10 +57,12 @@ export class CharacterPreview {
     );
     this.ground.castShadow = false;
     this.scene.add(this.stairs);
+    const stepGeometry = new THREE.BoxGeometry(5, 0.9, 0.9);
+    const stepMaterials = [mat(0xbac4ae), mat(0xb3bea8)];
     for (let i = -4; i < 36; i++) {
       const step = mesh(
-        new THREE.BoxGeometry(5, 0.9, 0.9),
-        mat(i % 2 ? 0xb3bea8 : 0xbac4ae),
+        stepGeometry,
+        stepMaterials[Math.abs(i % 2)],
         this.stairs,
         0,
         i * 0.24 - 0.45,
@@ -178,9 +180,6 @@ export class CharacterPreview {
     this.abort.abort();
     this.closeActivity();
     this.observer.disconnect();
-    this.scene.traverse((obj) => {
-      if (obj instanceof THREE.DirectionalLight) obj.shadow.dispose();
-    });
     disposeScene(this.scene);
     this.renderer.dispose();
     this.renderer.forceContextLoss();
