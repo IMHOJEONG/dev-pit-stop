@@ -196,11 +196,16 @@ export class VehicleController {
   }
   update(dt: number, throttle: number, steer: number, brake: boolean) {
     if (!this.riding) return 0;
+    const steeringInput = clamp(steer, -1, 1);
+    const limits = this.flatMap?.vehicleSpeed;
+    const forwardLimit = limits
+      ? THREE.MathUtils.lerp(limits.straight, limits.cornering, Math.abs(steeringInput))
+      : 24;
     let distance = 0;
     const steps = Math.max(1, Math.ceil(dt / (1 / 120))),
       delta = dt / steps;
     for (let i = 0; i < steps; i++) {
-      this.steering += (clamp(steer, -1, 1) - this.steering) * (1 - Math.exp(-delta * 8));
+      this.steering += (steeringInput - this.steering) * (1 - Math.exp(-delta * 8));
       const opposite =
         throttle !== 0 &&
         Math.sign(throttle) !== Math.sign(this.speed) &&
@@ -208,8 +213,10 @@ export class VehicleController {
       if (brake || opposite)
         this.speed =
           Math.sign(this.speed) * Math.max(0, Math.abs(this.speed) - (brake ? 24 : 18) * delta);
+      else if (this.speed > forwardLimit)
+        this.speed = Math.max(forwardLimit, this.speed - 18 * delta);
       else if (throttle)
-        this.speed = clamp(this.speed + clamp(throttle, -1, 1) * 10 * delta, -8, 24);
+        this.speed = clamp(this.speed + clamp(throttle, -1, 1) * 10 * delta, -8, forwardLimit);
       else this.speed = Math.sign(this.speed) * Math.max(0, Math.abs(this.speed) - 5 * delta);
       let heading = this.heading - (this.speed / 3.6) * Math.tan(this.steeringAngle) * delta;
       const bridge = this.flatMap ? null : nearestRoute(this.position.x, this.position.z, 'bridge');

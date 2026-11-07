@@ -52,6 +52,7 @@ export const CITY_LAYOUT: FlatMap = {
   height: 0,
   spawn: { x: -7, z: 24 },
   garage: { x: -2.8, z: 24, heading: 0 },
+  vehicleSpeed: { straight: 12, cornering: 6 },
   blocked(x, z, clearance) {
     const limit = CITY_SIZE / 2 - clearance;
     if (Math.abs(x) >= limit || Math.abs(z) >= limit) return true;

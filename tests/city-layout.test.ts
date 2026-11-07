@@ -1,7 +1,13 @@
 import { describe, expect, it } from 'vitest';
 import * as THREE from 'three';
 import { buildCity } from '../src/game/city/city-view';
-import { CITY_BUILDINGS, CITY_LAYOUT, CITY_SIZE, ROAD_AXES } from '../src/game/city/layout';
+import {
+  CITY_BUILDINGS,
+  CITY_LAYOUT,
+  CITY_SIZE,
+  ROAD_AXES,
+  ROAD_WIDTH,
+} from '../src/game/city/layout';
 import { CameraController } from '../src/game/player/camera-controller';
 import { PlayerController } from '../src/game/player/player-controller';
 import { disposeScene } from '../src/game/shared/dispose';
@@ -65,6 +71,24 @@ describe('City View play area', () => {
     const exit = vehicle.exit();
     expect(exit).not.toBeNull();
     expect(CITY_LAYOUT.blocked(exit!.x, exit!.z, 0.65)).toBe(false);
+  });
+
+  it.each([-1, 1])('turns into the cross street under throttle with steer %s', (steer) => {
+    const vehicle = new VehicleController([], new Set(), CITY_LAYOUT);
+    vehicle.restore({ ...CITY_LAYOUT.garage, riding: true });
+    for (let frame = 0; frame < 240 && vehicle.position.z > 5; frame++)
+      vehicle.update(1 / 60, 1, 0, false);
+    expect(vehicle.position.z).toBeCloseTo(5, 0);
+    const approachSpeed = vehicle.speed;
+    for (let frame = 0; frame < 120 && Math.abs(vehicle.heading) < Math.PI / 2; frame++)
+      vehicle.update(1 / 60, 1, steer, false);
+    expect(-steer * vehicle.heading).toBeGreaterThanOrEqual(Math.PI / 2);
+    expect(vehicle.speed).toBeLessThan(approachSpeed);
+    for (let frame = 0; frame < 60; frame++) vehicle.update(1 / 60, 1, 0, false);
+    expect(steer * (vehicle.position.x - CITY_LAYOUT.garage.x)).toBeGreaterThan(12);
+    expect(Math.abs(vehicle.position.z)).toBeLessThan(ROAD_WIDTH / 2);
+    expect(vehicle.blocked).toBe(false);
+    expect(vehicle.speed).toBeCloseTo(approachSpeed);
   });
 
   it('keeps the camera and its near plane outside the buggy and buildings while reversing at a wall', () => {

@@ -4,5 +4,6 @@ export interface FlatMap {
   height: number;
   spawn: Point;
   garage: Point & { heading: number };
+  vehicleSpeed?: { straight: number; cornering: number };
   blocked(x: number, z: number, clearance: number): boolean;
 }
