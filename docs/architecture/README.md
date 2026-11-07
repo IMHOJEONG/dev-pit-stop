@@ -11,6 +11,7 @@
 - 렌더 최적화: [그림자 비용 분리·고정 부품 병합·긴 프레임 추적](./shadow-rendering-2026-11-04.md)
 - 후속 진단: [성능 패널 켬/끔 비교·GPU 샘플·지형 구역별 렌더링](./panel-stall-2026-11-06.md)
 - Chrome 추적: [계단 장면의 실제 스레드 CPU 시간과 경과 시간 비교](./chrome-thread-trace-2026-11-06.md)
+- 대기 원인 추적: [Chrome 컴포지터와 macOS 스레드 상태 동시 계측](./chrome-macos-stalls-2026-11-07.md)
 
 ## 1. 결정 요약
 
