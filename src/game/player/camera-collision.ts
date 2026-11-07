@@ -1,5 +1,5 @@
 import { clamp } from '../shared/math';
-import { landSurface as terrainHeight } from '../world/routes';
+import { landSurface } from '../world/routes';
 import type { Resource } from '../resources/catalog';
 /** Conservative canopy/rock bounds keep the third-person camera out of scenery. */
 export function cameraClearance(
@@ -7,6 +7,7 @@ export function cameraClearance(
   to: { x: number; y: number; z: number },
   resources: Resource[],
   collected: Set<number>,
+  groundAt = landSurface,
 ): number {
   const dx = to.x - from.x,
     dz = to.z - from.z;
@@ -22,7 +23,7 @@ export function cameraClearance(
     if (perpendicular >= radius ** 2) continue;
     const entry = clamp((along - Math.sqrt(radius ** 2 - perpendicular)) / length, 0, 1);
     const height = from.y + (to.y - from.y) * entry;
-    const ground = terrainHeight(r.x, r.z);
+    const ground = groundAt(r.x, r.z);
     if (height > ground - 1 && height < ground + (r.kind === 'wood' ? 17 : 5) * r.scale + 1)
       fraction = Math.min(fraction, Math.max(0.18, entry - 2 / length));
   }
@@ -30,7 +31,7 @@ export function cameraClearance(
     const t = step / 20;
     if (t > fraction) break;
     const h = from.y + (to.y - from.y) * t;
-    if (h < terrainHeight(from.x + dx * t, from.z + dz * t) + 1.5) {
+    if (h < groundAt(from.x + dx * t, from.z + dz * t) + 1.5) {
       fraction = Math.max(0.18, t - 0.08);
       break;
     }

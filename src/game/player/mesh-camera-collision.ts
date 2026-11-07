@@ -22,6 +22,7 @@ export class MeshCameraCollision {
   private direction = new THREE.Vector3();
   private boxHit = new THREE.Vector3();
   private queryBounds = new THREE.Box3();
+  private paddedBounds = new THREE.Box3();
   private hits: THREE.Intersection[] = [];
   private prepared = false;
   private disposed = false;
@@ -112,7 +113,7 @@ export class MeshCameraCollision {
     }
     return attached;
   }
-  clearance(from: THREE.Vector3, to: THREE.Vector3, padding = 0.65) {
+  clearance(from: THREE.Vector3, to: THREE.Vector3, padding = 0.65, padBounds = false) {
     if (this.disposed) return 1;
     this.direction.subVectors(to, from);
     const distance = this.direction.length();
@@ -133,6 +134,14 @@ export class MeshCameraCollision {
         !box.intersectsBox(entry.bounds)
       )
         continue;
+      // Expanded bounds reserve space for the near plane even along a grazing wall.
+      if (padBounds) {
+        const bounds = this.paddedBounds.copy(entry.bounds).expandByScalar(padding);
+        if (bounds.containsPoint(from)) return 0;
+        const hit = this.ray.ray.intersectBox(bounds, this.boxHit);
+        if (hit) nearest = Math.min(nearest, hit.distanceTo(from));
+        continue;
+      }
       if (!entry.bounds.containsPoint(from)) {
         const hit = this.ray.ray.intersectBox(entry.bounds, this.boxHit);
         if (!hit || hit.distanceToSquared(from) > far * far) continue;
@@ -144,7 +153,7 @@ export class MeshCameraCollision {
       for (const hit of this.hits) nearest = Math.min(nearest, hit.distance);
     }
     return Number.isFinite(nearest)
-      ? THREE.MathUtils.clamp((nearest - padding) / distance, 0, 1)
+      ? THREE.MathUtils.clamp((nearest - (padBounds ? 0 : padding)) / distance, 0, 1)
       : 1;
   }
   dispose() {

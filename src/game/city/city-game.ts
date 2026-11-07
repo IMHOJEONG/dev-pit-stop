@@ -93,7 +93,7 @@ class CityGame {
       this.collected,
       this.player.position,
       obstacles,
-      groundAt,
+      { groundAt, zoom: 17, ridingEyeHeight: 9.5 },
     );
     this.playerView = new PlayerView(this.scene);
     this.vehicleView = new VehicleView(this.scene);

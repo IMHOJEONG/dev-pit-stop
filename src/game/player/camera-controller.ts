@@ -6,15 +6,23 @@ import { cameraClearance } from './camera-collision';
 import type { Resource } from '../resources/catalog';
 import type { CameraQueryStats } from '../diagnostics/camera-query-stats';
 import { ResourceCameraIndex } from './resource-camera-index';
+
+interface CameraOptions {
+  groundAt?: (x: number, z: number) => number;
+  zoom?: number;
+  ridingEyeHeight?: number;
+}
+
 export class CameraController {
   yaw = 0.06;
   private pitch = 0.18;
-  private zoom = 38;
+  private zoom: number;
   private meshCollision: MeshCameraCollision;
   private previousPlayerY: number;
   private cameraTarget = new THREE.Vector3();
   private cameraPosition = new THREE.Vector3();
   private target = new THREE.Vector3();
+  private ridingAnchor = new THREE.Vector3();
   private resourceIndex: ResourceCameraIndex;
   private resourceCandidates = 0;
   get queryStats(): CameraQueryStats {
@@ -30,8 +38,9 @@ export class CameraController {
     private collected: Set<number>,
     position: THREE.Vector3,
     obstacles: THREE.Object3D[] = [],
-    private groundAt = terrainHeight,
+    private options: CameraOptions = {},
   ) {
+    this.zoom = options.zoom ?? 38;
     this.meshCollision = new MeshCameraCollision(obstacles);
     this.resourceIndex = new ResourceCameraIndex(resources);
     this.previousPlayerY = position.y;
@@ -72,8 +81,15 @@ export class CameraController {
     );
     this.cameraPosition.y = Math.max(
       this.cameraPosition.y,
-      this.groundAt(this.cameraPosition.x, this.cameraPosition.z) + 3,
+      (this.options.groundAt ?? terrainHeight)(this.cameraPosition.x, this.cameraPosition.z) + 3,
     );
+    const ridingEyeHeight = riding ? this.options.ridingEyeHeight : undefined;
+    const aboveVehicle = ridingEyeHeight !== undefined;
+    const anchor = aboveVehicle
+      ? this.ridingAnchor.set(player.x, player.y + ridingEyeHeight, player.z)
+      : target;
+    // A wall can shorten the orbit all the way to this anchor. Keep it above the roof.
+    if (aboveVehicle) this.cameraPosition.y = Math.max(this.cameraPosition.y, anchor.y);
     const padding = Math.max(
       0.65,
       this.camera.near *
@@ -81,17 +97,18 @@ export class CameraController {
         Math.hypot(1, this.camera.aspect) +
         0.2,
     );
-    const nearby = this.resourceIndex.query(target, this.cameraPosition);
+    const nearby = this.resourceIndex.query(anchor, this.cameraPosition);
     this.resourceCandidates = nearby.length;
     const clearance = Math.min(
-      cameraClearance(target, this.cameraPosition, nearby, this.collected),
-      this.meshCollision.clearance(target, this.cameraPosition, padding),
+      cameraClearance(anchor, this.cameraPosition, nearby, this.collected, this.options.groundAt),
+      this.meshCollision.clearance(anchor, this.cameraPosition, padding, aboveVehicle),
     );
-    this.cameraPosition.lerpVectors(target, this.cameraPosition, clearance);
+    this.cameraPosition.lerpVectors(anchor, this.cameraPosition, clearance);
     this.camera.position.lerp(this.cameraPosition, 1 - Math.exp(-dt * 8));
     // Smoothing can otherwise leave the actual camera on the far side of a wall.
-    const safe = this.meshCollision.clearance(target, this.camera.position, padding);
-    this.camera.position.lerpVectors(target, this.camera.position, safe);
+    if (aboveVehicle) this.camera.position.y = Math.max(this.camera.position.y, anchor.y);
+    const safe = this.meshCollision.clearance(anchor, this.camera.position, padding, aboveVehicle);
+    this.camera.position.lerpVectors(anchor, this.camera.position, safe);
     this.camera.lookAt(this.cameraTarget);
     this.meshCollision.endFrame();
   }
