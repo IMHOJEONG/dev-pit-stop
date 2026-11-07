@@ -1,0 +1,2596 @@
+[
+  {
+    "source": "wild-atlas-trace-before-2026-11-06.json.gz",
+    "windowSeconds": [
+      3,
+      28.0
+    ],
+    "firstCallbackSeconds": -0.004496,
+    "lastCallbackSeconds": 78.828224,
+    "callbacksPer5Seconds": {
+      "0": 599,
+      "1": 601,
+      "2": 602,
+      "3": 601,
+      "4": 598,
+      "5": 523,
+      "15": 148
+    },
+    "fps": 120.11707773955665,
+    "intervalMs": {
+      "count": 3002,
+      "mean": 8.325210859427049,
+      "p95": 9.378,
+      "max": 26.132
+    },
+    "callbackWallMs": {
+      "count": 3003,
+      "mean": 2.4366153846153846,
+      "p95": 3.921,
+      "max": 8.709
+    },
+    "callbackCpuMs": {
+      "count": 3003,
+      "mean": 2.3091262071262073,
+      "p95": 3.57,
+      "max": 11.748
+    },
+    "over100ms": 0,
+    "over100msMainCpuUpperBelowHalf": 0,
+    "spikes": []
+  },
+  {
+    "source": "wild-atlas-trace-after-2026-11-06.json.gz",
+    "windowSeconds": [
+      3,
+      28.0
+    ],
+    "firstCallbackSeconds": 0.060802,
+    "lastCallbackSeconds": 63.041192,
+    "callbacksPer5Seconds": {
+      "0": 593,
+      "1": 601,
+      "2": 598,
+      "3": 601,
+      "4": 599,
+      "5": 600,
+      "6": 601,
+      "7": 599,
+      "8": 599,
+      "9": 601,
+      "10": 600,
+      "11": 599,
+      "12": 365
+    },
+    "fps": 119.94585027179922,
+    "intervalMs": {
+      "count": 2997,
+      "mean": 8.337095428762096,
+      "p95": 9.306,
+      "max": 13.671
+    },
+    "callbackWallMs": {
+      "count": 2998,
+      "mean": 2.554592394929953,
+      "p95": 3.838,
+      "max": 6.079
+    },
+    "callbackCpuMs": {
+      "count": 2998,
+      "mean": 2.491910607071381,
+      "p95": 3.797,
+      "max": 6.009
+    },
+    "over100ms": 0,
+    "over100msMainCpuUpperBelowHalf": 0,
+    "spikes": []
+  },
+  {
+    "source": "wild-atlas-managed-before-2026-11-06.json.gz",
+    "windowSeconds": [
+      3,
+      28.0
+    ],
+    "firstCallbackSeconds": 0.083083,
+    "lastCallbackSeconds": 50.793183,
+    "callbacksPer5Seconds": {
+      "0": 258,
+      "1": 270,
+      "2": 274,
+      "3": 233,
+      "4": 226,
+      "5": 262,
+      "6": 265,
+      "7": 252,
+      "8": 248,
+      "9": 270,
+      "10": 40
+    },
+    "fps": 51.0236223752121,
+    "intervalMs": {
+      "count": 1274,
+      "mean": 19.59876530612245,
+      "p95": 46.516,
+      "max": 275.91
+    },
+    "callbackWallMs": {
+      "count": 1275,
+      "mean": 16.511722352941177,
+      "p95": 36.758,
+      "max": 237.996
+    },
+    "callbackCpuMs": {
+      "count": 1275,
+      "mean": 7.501370980392156,
+      "p95": 9.309,
+      "max": 21.077
+    },
+    "over100ms": 24,
+    "over100msMainCpuUpperBelowHalf": 23,
+    "spikes": [
+      {
+        "offsetMs": 3475.945,
+        "intervalMs": 104.734,
+        "callbackWallMs": 89.605,
+        "callbackCpuMs": 7.407,
+        "afterCallbackMs": 15.129,
+        "cpuLowerMs": 8.012,
+        "cpuUpperMs": 8.192,
+        "outsideTracedTasksMs": 0.021,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 89.622,
+            "wallMs": 89.664,
+            "cpuMs": 7.458
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 89.605,
+            "wallMs": 89.605,
+            "cpuMs": 7.407
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 89.589,
+            "wallMs": 89.589,
+            "cpuMs": 7.393
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 89.57,
+            "wallMs": 89.57,
+            "cpuMs": 7.376
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 89.477,
+            "wallMs": 89.477,
+            "cpuMs": 7.283
+          }
+        ]
+      },
+      {
+        "offsetMs": 4435.094,
+        "intervalMs": 108.175,
+        "callbackWallMs": 60.983,
+        "callbackCpuMs": 7.97,
+        "afterCallbackMs": 47.192,
+        "cpuLowerMs": 11.825,
+        "cpuUpperMs": 20.82,
+        "outsideTracedTasksMs": 0.092,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 60.989,
+            "wallMs": 60.998,
+            "cpuMs": 7.983
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 60.983,
+            "wallMs": 60.983,
+            "cpuMs": 7.97
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 60.975,
+            "wallMs": 60.975,
+            "cpuMs": 7.963
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 60.959,
+            "wallMs": 60.959,
+            "cpuMs": 7.949
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 55.824,
+            "wallMs": 55.824,
+            "cpuMs": 7.589
+          },
+          {
+            "name": "Commit",
+            "overlapMs": 19.444,
+            "wallMs": 19.444,
+            "cpuMs": 0.886
+          }
+        ]
+      },
+      {
+        "offsetMs": 5496.584,
+        "intervalMs": 108.24,
+        "callbackWallMs": 84.781,
+        "callbackCpuMs": 7.35,
+        "afterCallbackMs": 23.459,
+        "cpuLowerMs": 8.821,
+        "cpuUpperMs": 11.763,
+        "outsideTracedTasksMs": 2.846,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 84.796,
+            "wallMs": 84.81,
+            "cpuMs": 7.379
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 84.781,
+            "wallMs": 84.781,
+            "cpuMs": 7.35
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 84.764,
+            "wallMs": 84.764,
+            "cpuMs": 7.336
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 84.739,
+            "wallMs": 84.739,
+            "cpuMs": 7.313
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 84.659,
+            "wallMs": 84.659,
+            "cpuMs": 7.234
+          },
+          {
+            "name": "TimerFire",
+            "overlapMs": 8.424,
+            "wallMs": 8.424,
+            "cpuMs": 0.227
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 8.415,
+            "wallMs": 8.415,
+            "cpuMs": 0.219
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 7.897,
+            "wallMs": 7.897,
+            "cpuMs": 0.179
+          }
+        ]
+      },
+      {
+        "offsetMs": 6428.189,
+        "intervalMs": 163.455,
+        "callbackWallMs": 91.253,
+        "callbackCpuMs": 9.289,
+        "afterCallbackMs": 72.202,
+        "cpuLowerMs": 13.575,
+        "cpuUpperMs": 26.847,
+        "outsideTracedTasksMs": 0.039,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 91.262,
+            "wallMs": 91.276,
+            "cpuMs": 9.311
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 91.253,
+            "wallMs": 91.253,
+            "cpuMs": 9.289
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 91.245,
+            "wallMs": 91.245,
+            "cpuMs": 9.283
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 91.224,
+            "wallMs": 91.224,
+            "cpuMs": 9.263
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 90.974,
+            "wallMs": 90.974,
+            "cpuMs": 9.033
+          },
+          {
+            "name": "PrePaint",
+            "overlapMs": 18.872,
+            "wallMs": 18.872,
+            "cpuMs": 0.487
+          },
+          {
+            "name": "Layout",
+            "overlapMs": 14.795,
+            "wallMs": 14.795,
+            "cpuMs": 1.362
+          },
+          {
+            "name": "LocalFrameView::performLayout",
+            "overlapMs": 14.775,
+            "wallMs": 14.775,
+            "cpuMs": 1.344
+          }
+        ]
+      },
+      {
+        "offsetMs": 7492.959,
+        "intervalMs": 145.707,
+        "callbackWallMs": 113.23,
+        "callbackCpuMs": 9.999,
+        "afterCallbackMs": 32.477,
+        "cpuLowerMs": 15.424,
+        "cpuUpperMs": 19.72,
+        "outsideTracedTasksMs": 0.066,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 113.239,
+            "wallMs": 113.249,
+            "cpuMs": 10.018
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 113.23,
+            "wallMs": 113.23,
+            "cpuMs": 9.999
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 109.675,
+            "wallMs": 109.675,
+            "cpuMs": 9.967
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 109.633,
+            "wallMs": 109.633,
+            "cpuMs": 9.929
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 109.403,
+            "wallMs": 109.403,
+            "cpuMs": 9.707
+          },
+          {
+            "name": "Paint",
+            "overlapMs": 11.098,
+            "wallMs": 11.098,
+            "cpuMs": 1.837
+          },
+          {
+            "name": "Commit",
+            "overlapMs": 8.495,
+            "wallMs": 8.495,
+            "cpuMs": 0.757
+          }
+        ]
+      },
+      {
+        "offsetMs": 8499.659,
+        "intervalMs": 142.249,
+        "callbackWallMs": 116.863,
+        "callbackCpuMs": 9.592,
+        "afterCallbackMs": 25.386,
+        "cpuLowerMs": 14.832,
+        "cpuUpperMs": 15.88,
+        "outsideTracedTasksMs": 0.032,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 118.558,
+            "wallMs": 118.57,
+            "cpuMs": 10.662
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 116.863,
+            "wallMs": 116.863,
+            "cpuMs": 9.592
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 116.845,
+            "wallMs": 116.845,
+            "cpuMs": 9.574
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 116.826,
+            "wallMs": 116.826,
+            "cpuMs": 9.556
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 109.366,
+            "wallMs": 109.366,
+            "cpuMs": 9.178
+          },
+          {
+            "name": "Layout",
+            "overlapMs": 8.637,
+            "wallMs": 8.637,
+            "cpuMs": 1.241
+          },
+          {
+            "name": "LocalFrameView::performLayout",
+            "overlapMs": 8.585,
+            "wallMs": 8.585,
+            "cpuMs": 1.2
+          },
+          {
+            "name": "UpdateLayoutTree",
+            "overlapMs": 7.07,
+            "wallMs": 7.07,
+            "cpuMs": 0.305
+          }
+        ]
+      },
+      {
+        "offsetMs": 9484.496,
+        "intervalMs": 139.133,
+        "callbackWallMs": 108.124,
+        "callbackCpuMs": 9.054,
+        "afterCallbackMs": 31.009,
+        "cpuLowerMs": 14.449,
+        "cpuUpperMs": 15.502,
+        "outsideTracedTasksMs": 0.032,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 114.319,
+            "wallMs": 114.329,
+            "cpuMs": 9.152
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 108.124,
+            "wallMs": 108.124,
+            "cpuMs": 9.054
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 104.847,
+            "wallMs": 104.847,
+            "cpuMs": 9.013
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 102.461,
+            "wallMs": 102.461,
+            "cpuMs": 8.954
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 102.168,
+            "wallMs": 102.168,
+            "cpuMs": 8.676
+          },
+          {
+            "name": "Layout",
+            "overlapMs": 17.877,
+            "wallMs": 17.877,
+            "cpuMs": 2.463
+          },
+          {
+            "name": "LocalFrameView::performLayout",
+            "overlapMs": 17.798,
+            "wallMs": 17.798,
+            "cpuMs": 2.437
+          }
+        ]
+      },
+      {
+        "offsetMs": 11567.598,
+        "intervalMs": 105.631,
+        "callbackWallMs": 85.385,
+        "callbackCpuMs": 10.302,
+        "afterCallbackMs": 20.246,
+        "cpuLowerMs": 14.22,
+        "cpuUpperMs": 14.511,
+        "outsideTracedTasksMs": 0.025,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 85.389,
+            "wallMs": 85.399,
+            "cpuMs": 10.315
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 85.385,
+            "wallMs": 85.385,
+            "cpuMs": 10.302
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 85.373,
+            "wallMs": 85.373,
+            "cpuMs": 10.292
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 85.351,
+            "wallMs": 85.351,
+            "cpuMs": 10.272
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 85.062,
+            "wallMs": 85.062,
+            "cpuMs": 9.991
+          },
+          {
+            "name": "PrePaint",
+            "overlapMs": 8.5,
+            "wallMs": 8.5,
+            "cpuMs": 0.692
+          },
+          {
+            "name": "Layout",
+            "overlapMs": 7.492,
+            "wallMs": 7.492,
+            "cpuMs": 1.143
+          },
+          {
+            "name": "LocalFrameView::performLayout",
+            "overlapMs": 7.464,
+            "wallMs": 7.464,
+            "cpuMs": 1.118
+          }
+        ]
+      },
+      {
+        "offsetMs": 13462.526,
+        "intervalMs": 106.638,
+        "callbackWallMs": 87.207,
+        "callbackCpuMs": 8.509,
+        "afterCallbackMs": 19.431,
+        "cpuLowerMs": 1.803,
+        "cpuUpperMs": 9.813,
+        "outsideTracedTasksMs": 0.033,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 87.224,
+            "wallMs": 87.243,
+            "cpuMs": 8.545
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 87.207,
+            "wallMs": 87.207,
+            "cpuMs": 8.509
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 87.187,
+            "wallMs": 87.187,
+            "cpuMs": 8.492
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 87.16,
+            "wallMs": 87.16,
+            "cpuMs": 8.466
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 87.075,
+            "wallMs": 87.075,
+            "cpuMs": 8.382
+          },
+          {
+            "name": "Layerize",
+            "overlapMs": 8.937,
+            "wallMs": 8.937,
+            "cpuMs": 0.049
+          },
+          {
+            "name": "TimerFire",
+            "overlapMs": 5.355,
+            "wallMs": 5.355,
+            "cpuMs": 0.213
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 5.347,
+            "wallMs": 5.347,
+            "cpuMs": 0.206
+          }
+        ]
+      },
+      {
+        "offsetMs": 14478.302,
+        "intervalMs": 146.944,
+        "callbackWallMs": 120.253,
+        "callbackCpuMs": 7.697,
+        "afterCallbackMs": 26.691,
+        "cpuLowerMs": 13.233,
+        "cpuUpperMs": 19.534,
+        "outsideTracedTasksMs": 5.302,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 120.267,
+            "wallMs": 120.284,
+            "cpuMs": 7.727
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 120.253,
+            "wallMs": 120.253,
+            "cpuMs": 7.697
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 120.237,
+            "wallMs": 120.237,
+            "cpuMs": 7.684
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 120.211,
+            "wallMs": 120.211,
+            "cpuMs": 7.659
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 119.914,
+            "wallMs": 119.914,
+            "cpuMs": 7.382
+          },
+          {
+            "name": "Layout",
+            "overlapMs": 15.292,
+            "wallMs": 15.292,
+            "cpuMs": 1.542
+          },
+          {
+            "name": "LocalFrameView::performLayout",
+            "overlapMs": 15.266,
+            "wallMs": 15.266,
+            "cpuMs": 1.521
+          }
+        ]
+      },
+      {
+        "offsetMs": 15509.168,
+        "intervalMs": 113.132,
+        "callbackWallMs": 97.244,
+        "callbackCpuMs": 9.527,
+        "afterCallbackMs": 15.888,
+        "cpuLowerMs": 13.444,
+        "cpuUpperMs": 19.867,
+        "outsideTracedTasksMs": 0.089,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 97.248,
+            "wallMs": 97.257,
+            "cpuMs": 9.538
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 97.244,
+            "wallMs": 97.244,
+            "cpuMs": 9.527
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 97.234,
+            "wallMs": 97.234,
+            "cpuMs": 9.518
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 97.219,
+            "wallMs": 97.219,
+            "cpuMs": 9.505
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 96.978,
+            "wallMs": 96.978,
+            "cpuMs": 9.27
+          }
+        ]
+      },
+      {
+        "offsetMs": 17509.125,
+        "intervalMs": 139.725,
+        "callbackWallMs": 126.118,
+        "callbackCpuMs": 11.189,
+        "afterCallbackMs": 13.607,
+        "cpuLowerMs": 15.168,
+        "cpuUpperMs": 15.512,
+        "outsideTracedTasksMs": 0.042,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 126.132,
+            "wallMs": 126.14,
+            "cpuMs": 11.211
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 126.118,
+            "wallMs": 126.118,
+            "cpuMs": 11.189
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 126.106,
+            "wallMs": 126.106,
+            "cpuMs": 11.18
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 126.085,
+            "wallMs": 126.085,
+            "cpuMs": 11.161
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 124.627,
+            "wallMs": 124.627,
+            "cpuMs": 10.759
+          }
+        ]
+      },
+      {
+        "offsetMs": 18420.907,
+        "intervalMs": 275.91,
+        "callbackWallMs": 179.479,
+        "callbackCpuMs": 10.036,
+        "afterCallbackMs": 96.431,
+        "cpuLowerMs": 15.174,
+        "cpuUpperMs": 16.709,
+        "outsideTracedTasksMs": 1.304,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 179.493,
+            "wallMs": 179.51,
+            "cpuMs": 10.066
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 179.479,
+            "wallMs": 179.479,
+            "cpuMs": 10.036
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 179.459,
+            "wallMs": 179.459,
+            "cpuMs": 10.019
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 179.433,
+            "wallMs": 179.433,
+            "cpuMs": 9.993
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 158.412,
+            "wallMs": 158.412,
+            "cpuMs": 9.668
+          },
+          {
+            "name": "Paint",
+            "overlapMs": 34.824,
+            "wallMs": 34.824,
+            "cpuMs": 0.927
+          },
+          {
+            "name": "Paint",
+            "overlapMs": 34.022,
+            "wallMs": 34.022,
+            "cpuMs": 0.26
+          },
+          {
+            "name": "TimerFire",
+            "overlapMs": 20.477,
+            "wallMs": 20.477,
+            "cpuMs": 0.254
+          }
+        ]
+      },
+      {
+        "offsetMs": 18696.817,
+        "intervalMs": 183.649,
+        "callbackWallMs": 141.248,
+        "callbackCpuMs": 9.259,
+        "afterCallbackMs": 42.401,
+        "cpuLowerMs": 13.633,
+        "cpuUpperMs": 22.696,
+        "outsideTracedTasksMs": 0.02,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 141.271,
+            "wallMs": 141.276,
+            "cpuMs": 9.286
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 141.248,
+            "wallMs": 141.248,
+            "cpuMs": 9.259
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 141.231,
+            "wallMs": 141.231,
+            "cpuMs": 9.244
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 141.214,
+            "wallMs": 141.214,
+            "cpuMs": 9.227
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 140.815,
+            "wallMs": 140.815,
+            "cpuMs": 8.877
+          },
+          {
+            "name": "HitTest",
+            "overlapMs": 8.769,
+            "wallMs": 8.769,
+            "cpuMs": 0.07
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskCanceled",
+            "overlapMs": 7.872,
+            "wallMs": 7.872,
+            "cpuMs": 0.014
+          },
+          {
+            "name": "Layout",
+            "overlapMs": 7.548,
+            "wallMs": 7.548,
+            "cpuMs": 1.243
+          }
+        ]
+      },
+      {
+        "offsetMs": 19431.366,
+        "intervalMs": 245.547,
+        "callbackWallMs": 237.996,
+        "callbackCpuMs": 9.104,
+        "afterCallbackMs": 7.551,
+        "cpuLowerMs": 9.828,
+        "cpuUpperMs": 16.841,
+        "outsideTracedTasksMs": 6.721,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 238.011,
+            "wallMs": 238.026,
+            "cpuMs": 9.133
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 237.996,
+            "wallMs": 237.996,
+            "cpuMs": 9.104
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 237.985,
+            "wallMs": 237.985,
+            "cpuMs": 9.095
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 237.956,
+            "wallMs": 237.956,
+            "cpuMs": 9.068
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 237.847,
+            "wallMs": 237.847,
+            "cpuMs": 8.96
+          }
+        ]
+      },
+      {
+        "offsetMs": 20498.818,
+        "intervalMs": 135.336,
+        "callbackWallMs": 123.859,
+        "callbackCpuMs": 10.507,
+        "afterCallbackMs": 11.477,
+        "cpuLowerMs": 12.314,
+        "cpuUpperMs": 20.131,
+        "outsideTracedTasksMs": 0.513,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 123.884,
+            "wallMs": 125.444,
+            "cpuMs": 10.551
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 123.859,
+            "wallMs": 123.859,
+            "cpuMs": 10.507
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 123.835,
+            "wallMs": 123.835,
+            "cpuMs": 10.487
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 119.351,
+            "wallMs": 119.351,
+            "cpuMs": 10.421
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 118.255,
+            "wallMs": 118.255,
+            "cpuMs": 10.143
+          }
+        ]
+      },
+      {
+        "offsetMs": 21434.133,
+        "intervalMs": 136.857,
+        "callbackWallMs": 120.024,
+        "callbackCpuMs": 8.634,
+        "afterCallbackMs": 16.833,
+        "cpuLowerMs": 9.652,
+        "cpuUpperMs": 9.844,
+        "outsideTracedTasksMs": 0.047,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 120.039,
+            "wallMs": 120.048,
+            "cpuMs": 8.657
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 120.024,
+            "wallMs": 120.024,
+            "cpuMs": 8.634
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 120.013,
+            "wallMs": 120.013,
+            "cpuMs": 8.626
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 119.996,
+            "wallMs": 119.996,
+            "cpuMs": 8.61
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 119.909,
+            "wallMs": 119.909,
+            "cpuMs": 8.525
+          },
+          {
+            "name": "TimerFire",
+            "overlapMs": 5.226,
+            "wallMs": 5.226,
+            "cpuMs": 0.385
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 5.203,
+            "wallMs": 5.203,
+            "cpuMs": 0.363
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 5.182,
+            "wallMs": 5.182,
+            "cpuMs": 0.343
+          }
+        ]
+      },
+      {
+        "offsetMs": 21655.875,
+        "intervalMs": 166.289,
+        "callbackWallMs": 26.181,
+        "callbackCpuMs": 7.296,
+        "afterCallbackMs": 140.108,
+        "cpuLowerMs": 44.557,
+        "cpuUpperMs": 93.72,
+        "outsideTracedTasksMs": 0.32,
+        "longSlices": [
+          {
+            "name": "Layout",
+            "overlapMs": 54.735,
+            "wallMs": 54.735,
+            "cpuMs": 11.902
+          },
+          {
+            "name": "LocalFrameView::performLayout",
+            "overlapMs": 54.72,
+            "wallMs": 54.72,
+            "cpuMs": 11.889
+          },
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 26.192,
+            "wallMs": 26.221,
+            "cpuMs": 7.333
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 26.181,
+            "wallMs": 26.181,
+            "cpuMs": 7.296
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 26.159,
+            "wallMs": 26.159,
+            "cpuMs": 7.277
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 25.805,
+            "wallMs": 25.805,
+            "cpuMs": 7.231
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 25.78,
+            "wallMs": 25.78,
+            "cpuMs": 7.209
+          },
+          {
+            "name": "V8.MemoryPressureNotification",
+            "overlapMs": 8.001,
+            "wallMs": 8.001,
+            "cpuMs": 3.433
+          }
+        ]
+      },
+      {
+        "offsetMs": 21822.164,
+        "intervalMs": 103.35,
+        "callbackWallMs": 69.186,
+        "callbackCpuMs": 21.077,
+        "afterCallbackMs": 34.164,
+        "cpuLowerMs": 0.258,
+        "cpuUpperMs": 44.982,
+        "outsideTracedTasksMs": 0.074,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 69.189,
+            "wallMs": 69.203,
+            "cpuMs": 21.093
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 69.186,
+            "wallMs": 69.186,
+            "cpuMs": 21.077
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 69.168,
+            "wallMs": 69.168,
+            "cpuMs": 21.062
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 69.146,
+            "wallMs": 69.146,
+            "cpuMs": 21.042
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 68.931,
+            "wallMs": 68.931,
+            "cpuMs": 20.832
+          },
+          {
+            "name": "V8.StackGuard",
+            "overlapMs": 46.086,
+            "wallMs": 46.086,
+            "cpuMs": 12.078
+          },
+          {
+            "name": "V8.HandleInterrupts",
+            "overlapMs": 46.083,
+            "wallMs": 46.083,
+            "cpuMs": 12.076
+          },
+          {
+            "name": "MajorGC",
+            "overlapMs": 46.026,
+            "wallMs": 46.026,
+            "cpuMs": 12.023
+          }
+        ]
+      },
+      {
+        "offsetMs": 22504.064,
+        "intervalMs": 124.67,
+        "callbackWallMs": 102.71,
+        "callbackCpuMs": 10.106,
+        "afterCallbackMs": 21.96,
+        "cpuLowerMs": 15.66,
+        "cpuUpperMs": 17.425,
+        "outsideTracedTasksMs": 1.201,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 102.73,
+            "wallMs": 102.767,
+            "cpuMs": 10.155
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 102.71,
+            "wallMs": 102.71,
+            "cpuMs": 10.106
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 102.695,
+            "wallMs": 102.695,
+            "cpuMs": 10.094
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 102.677,
+            "wallMs": 102.677,
+            "cpuMs": 10.076
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 93.433,
+            "wallMs": 93.433,
+            "cpuMs": 9.682
+          },
+          {
+            "name": "RunMicrotasks",
+            "overlapMs": 9.058,
+            "wallMs": 9.058,
+            "cpuMs": 0.262
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 8.989,
+            "wallMs": 8.989,
+            "cpuMs": 0.216
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 8.952,
+            "wallMs": 8.952,
+            "cpuMs": 0.18
+          }
+        ]
+      },
+      {
+        "offsetMs": 24429.855,
+        "intervalMs": 120.492,
+        "callbackWallMs": 88.362,
+        "callbackCpuMs": 6.336,
+        "afterCallbackMs": 32.13,
+        "cpuLowerMs": 7.009,
+        "cpuUpperMs": 13.449,
+        "outsideTracedTasksMs": 0.047,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 88.369,
+            "wallMs": 88.382,
+            "cpuMs": 6.355
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 88.362,
+            "wallMs": 88.362,
+            "cpuMs": 6.336
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 88.329,
+            "wallMs": 88.329,
+            "cpuMs": 6.306
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 78.683,
+            "wallMs": 78.683,
+            "cpuMs": 6.256
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 70.333,
+            "wallMs": 70.333,
+            "cpuMs": 6.17
+          },
+          {
+            "name": "Commit",
+            "overlapMs": 14.486,
+            "wallMs": 14.486,
+            "cpuMs": 0.212
+          },
+          {
+            "name": "TimerFire",
+            "overlapMs": 11.092,
+            "wallMs": 11.092,
+            "cpuMs": 0.23
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 11.085,
+            "wallMs": 11.085,
+            "cpuMs": 0.224
+          }
+        ]
+      },
+      {
+        "offsetMs": 24550.347,
+        "intervalMs": 194.084,
+        "callbackWallMs": 183.821,
+        "callbackCpuMs": 10.588,
+        "afterCallbackMs": 10.263,
+        "cpuLowerMs": 8.575,
+        "cpuUpperMs": 15.499,
+        "outsideTracedTasksMs": 0.172,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 183.834,
+            "wallMs": 183.869,
+            "cpuMs": 10.634
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 183.821,
+            "wallMs": 183.821,
+            "cpuMs": 10.588
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 183.809,
+            "wallMs": 183.809,
+            "cpuMs": 10.578
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 183.794,
+            "wallMs": 183.794,
+            "cpuMs": 10.563
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 183.513,
+            "wallMs": 183.513,
+            "cpuMs": 10.291
+          },
+          {
+            "name": "MinorGC",
+            "overlapMs": 8.685,
+            "wallMs": 8.685,
+            "cpuMs": 0.283
+          },
+          {
+            "name": "V8.GCScavenger",
+            "overlapMs": 8.652,
+            "wallMs": 8.652,
+            "cpuMs": 0.253
+          },
+          {
+            "name": "V8.GC_SCAVENGER",
+            "overlapMs": 8.645,
+            "wallMs": 8.645,
+            "cpuMs": 0.248
+          }
+        ]
+      },
+      {
+        "offsetMs": 25513.208,
+        "intervalMs": 112.569,
+        "callbackWallMs": 102.819,
+        "callbackCpuMs": 9.889,
+        "afterCallbackMs": 9.75,
+        "cpuLowerMs": 14.427,
+        "cpuUpperMs": 15.2,
+        "outsideTracedTasksMs": 0.145,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 102.831,
+            "wallMs": 102.836,
+            "cpuMs": 9.905
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 102.819,
+            "wallMs": 102.819,
+            "cpuMs": 9.889
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 102.809,
+            "wallMs": 102.809,
+            "cpuMs": 9.881
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 102.793,
+            "wallMs": 102.793,
+            "cpuMs": 9.866
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 102.552,
+            "wallMs": 102.552,
+            "cpuMs": 9.63
+          },
+          {
+            "name": "MinorGC",
+            "overlapMs": 8.604,
+            "wallMs": 8.604,
+            "cpuMs": 0.426
+          },
+          {
+            "name": "V8.GCScavenger",
+            "overlapMs": 8.575,
+            "wallMs": 8.575,
+            "cpuMs": 0.401
+          },
+          {
+            "name": "V8.GC_SCAVENGER",
+            "overlapMs": 8.566,
+            "wallMs": 8.566,
+            "cpuMs": 0.395
+          }
+        ]
+      },
+      {
+        "offsetMs": 27488.429,
+        "intervalMs": 111.23,
+        "callbackWallMs": 69.932,
+        "callbackCpuMs": 8.553,
+        "afterCallbackMs": 41.298,
+        "cpuLowerMs": 13.213,
+        "cpuUpperMs": 13.554,
+        "outsideTracedTasksMs": 0.036,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 69.935,
+            "wallMs": 69.954,
+            "cpuMs": 8.586
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 69.932,
+            "wallMs": 69.932,
+            "cpuMs": 8.553
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 69.746,
+            "wallMs": 69.746,
+            "cpuMs": 8.534
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 69.721,
+            "wallMs": 69.721,
+            "cpuMs": 8.511
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 69.132,
+            "wallMs": 69.132,
+            "cpuMs": 8.268
+          },
+          {
+            "name": "Layout",
+            "overlapMs": 24.161,
+            "wallMs": 24.161,
+            "cpuMs": 1.548
+          },
+          {
+            "name": "LocalFrameView::performLayout",
+            "overlapMs": 24.132,
+            "wallMs": 24.132,
+            "cpuMs": 1.523
+          },
+          {
+            "name": "Paint",
+            "overlapMs": 13.443,
+            "wallMs": 13.443,
+            "cpuMs": 0.836
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "source": "wild-atlas-managed-1440-after-2026-11-06.json.gz",
+    "windowSeconds": [
+      3,
+      28.0
+    ],
+    "firstCallbackSeconds": 0.09705,
+    "lastCallbackSeconds": 50.675095,
+    "callbacksPer5Seconds": {
+      "0": 260,
+      "1": 257,
+      "2": 257,
+      "3": 249,
+      "4": 282,
+      "5": 259,
+      "6": 262,
+      "7": 219,
+      "8": 253,
+      "9": 257,
+      "10": 37
+    },
+    "fps": 52.34111727220287,
+    "intervalMs": {
+      "count": 1302,
+      "mean": 19.10543855606759,
+      "p95": 42.973,
+      "max": 203.7
+    },
+    "callbackWallMs": {
+      "count": 1303,
+      "mean": 16.248046047582502,
+      "p95": 34.122,
+      "max": 190.085
+    },
+    "callbackCpuMs": {
+      "count": 1303,
+      "mean": 7.564892555640829,
+      "p95": 9.417,
+      "max": 22.525
+    },
+    "over100ms": 21,
+    "over100msMainCpuUpperBelowHalf": 21,
+    "spikes": [
+      {
+        "offsetMs": 4034.456,
+        "intervalMs": 103.26,
+        "callbackWallMs": 95.64,
+        "callbackCpuMs": 8.933,
+        "afterCallbackMs": 7.62,
+        "cpuLowerMs": 7.063,
+        "cpuUpperMs": 13.526,
+        "outsideTracedTasksMs": 0.05,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 95.655,
+            "wallMs": 95.666,
+            "cpuMs": 8.959
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 95.64,
+            "wallMs": 95.64,
+            "cpuMs": 8.933
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 95.627,
+            "wallMs": 95.627,
+            "cpuMs": 8.921
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 95.608,
+            "wallMs": 95.608,
+            "cpuMs": 8.903
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 95.264,
+            "wallMs": 95.264,
+            "cpuMs": 8.647
+          }
+        ]
+      },
+      {
+        "offsetMs": 4999.708,
+        "intervalMs": 160.823,
+        "callbackWallMs": 153.819,
+        "callbackCpuMs": 9.639,
+        "afterCallbackMs": 7.004,
+        "cpuLowerMs": 10.486,
+        "cpuUpperMs": 10.906,
+        "outsideTracedTasksMs": 0.048,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 153.841,
+            "wallMs": 153.857,
+            "cpuMs": 9.675
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 153.819,
+            "wallMs": 153.819,
+            "cpuMs": 9.639
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 153.801,
+            "wallMs": 153.801,
+            "cpuMs": 9.624
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 153.777,
+            "wallMs": 153.777,
+            "cpuMs": 9.601
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 153.654,
+            "wallMs": 153.654,
+            "cpuMs": 9.479
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 5.898,
+            "wallMs": 5.898,
+            "cpuMs": 0.285
+          },
+          {
+            "name": "HandlePostMessage",
+            "overlapMs": 5.89,
+            "wallMs": 5.89,
+            "cpuMs": 0.278
+          }
+        ]
+      },
+      {
+        "offsetMs": 5966.208,
+        "intervalMs": 147.292,
+        "callbackWallMs": 65.765,
+        "callbackCpuMs": 9.782,
+        "afterCallbackMs": 81.527,
+        "cpuLowerMs": 14.177,
+        "cpuUpperMs": 26.48,
+        "outsideTracedTasksMs": 0.035,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 65.774,
+            "wallMs": 65.784,
+            "cpuMs": 9.799
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 65.765,
+            "wallMs": 65.765,
+            "cpuMs": 9.782
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 65.757,
+            "wallMs": 65.757,
+            "cpuMs": 9.777
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 65.743,
+            "wallMs": 65.743,
+            "cpuMs": 9.764
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 65.496,
+            "wallMs": 65.496,
+            "cpuMs": 9.523
+          },
+          {
+            "name": "Paint",
+            "overlapMs": 21.945,
+            "wallMs": 21.945,
+            "cpuMs": 0.996
+          },
+          {
+            "name": "Layout",
+            "overlapMs": 20.718,
+            "wallMs": 20.718,
+            "cpuMs": 1.292
+          },
+          {
+            "name": "LocalFrameView::performLayout",
+            "overlapMs": 20.692,
+            "wallMs": 20.692,
+            "cpuMs": 1.27
+          }
+        ]
+      },
+      {
+        "offsetMs": 7021.831,
+        "intervalMs": 127.271,
+        "callbackWallMs": 59.961,
+        "callbackCpuMs": 4.118,
+        "afterCallbackMs": 67.31,
+        "cpuLowerMs": 9.727,
+        "cpuUpperMs": 12.131,
+        "outsideTracedTasksMs": 0.053,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 59.963,
+            "wallMs": 59.973,
+            "cpuMs": 4.127
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 59.961,
+            "wallMs": 59.961,
+            "cpuMs": 4.118
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 59.951,
+            "wallMs": 59.951,
+            "cpuMs": 4.109
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 59.937,
+            "wallMs": 59.937,
+            "cpuMs": 4.095
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 59.854,
+            "wallMs": 59.854,
+            "cpuMs": 4.02
+          },
+          {
+            "name": "Commit",
+            "overlapMs": 37.315,
+            "wallMs": 37.315,
+            "cpuMs": 2.04
+          },
+          {
+            "name": "Paint",
+            "overlapMs": 11.63,
+            "wallMs": 11.63,
+            "cpuMs": 0.851
+          },
+          {
+            "name": "Layout",
+            "overlapMs": 10.261,
+            "wallMs": 10.261,
+            "cpuMs": 0.987
+          }
+        ]
+      },
+      {
+        "offsetMs": 8030.056,
+        "intervalMs": 123.893,
+        "callbackWallMs": 105.524,
+        "callbackCpuMs": 11.301,
+        "afterCallbackMs": 18.369,
+        "cpuLowerMs": 15.543,
+        "cpuUpperMs": 18.626,
+        "outsideTracedTasksMs": 1.893,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 105.544,
+            "wallMs": 105.554,
+            "cpuMs": 11.33
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 105.524,
+            "wallMs": 105.524,
+            "cpuMs": 11.301
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 105.508,
+            "wallMs": 105.508,
+            "cpuMs": 11.288
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 105.491,
+            "wallMs": 105.491,
+            "cpuMs": 11.271
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 105.049,
+            "wallMs": 105.049,
+            "cpuMs": 10.943
+          },
+          {
+            "name": "Layout",
+            "overlapMs": 7.036,
+            "wallMs": 7.036,
+            "cpuMs": 1.414
+          },
+          {
+            "name": "LocalFrameView::performLayout",
+            "overlapMs": 7.012,
+            "wallMs": 7.012,
+            "cpuMs": 1.394
+          },
+          {
+            "name": "Commit",
+            "overlapMs": 5.514,
+            "wallMs": 5.514,
+            "cpuMs": 0.788
+          }
+        ]
+      },
+      {
+        "offsetMs": 10020.104,
+        "intervalMs": 129.599,
+        "callbackWallMs": 124.178,
+        "callbackCpuMs": 8.636,
+        "afterCallbackMs": 5.421,
+        "cpuLowerMs": 0.294,
+        "cpuUpperMs": 13.001,
+        "outsideTracedTasksMs": 3.085,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 125.77,
+            "wallMs": 125.798,
+            "cpuMs": 8.738
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 124.178,
+            "wallMs": 124.178,
+            "cpuMs": 8.636
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 124.153,
+            "wallMs": 124.153,
+            "cpuMs": 8.612
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 124.122,
+            "wallMs": 124.122,
+            "cpuMs": 8.582
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 124.039,
+            "wallMs": 124.039,
+            "cpuMs": 8.502
+          }
+        ]
+      },
+      {
+        "offsetMs": 10975.622,
+        "intervalMs": 133.554,
+        "callbackWallMs": 119.103,
+        "callbackCpuMs": 8.711,
+        "afterCallbackMs": 14.451,
+        "cpuLowerMs": 9.609,
+        "cpuUpperMs": 15.021,
+        "outsideTracedTasksMs": 5.314,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 119.115,
+            "wallMs": 119.123,
+            "cpuMs": 8.731
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 119.103,
+            "wallMs": 119.103,
+            "cpuMs": 8.711
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 119.091,
+            "wallMs": 119.091,
+            "cpuMs": 8.702
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 119.073,
+            "wallMs": 119.073,
+            "cpuMs": 8.685
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 118.97,
+            "wallMs": 118.97,
+            "cpuMs": 8.584
+          },
+          {
+            "name": "Layerize",
+            "overlapMs": 8.016,
+            "wallMs": 8.016,
+            "cpuMs": 0.12
+          }
+        ]
+      },
+      {
+        "offsetMs": 11980.148,
+        "intervalMs": 169.784,
+        "callbackWallMs": 166.225,
+        "callbackCpuMs": 9.637,
+        "afterCallbackMs": 3.559,
+        "cpuLowerMs": 10.24,
+        "cpuUpperMs": 11.341,
+        "outsideTracedTasksMs": 0.046,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 166.266,
+            "wallMs": 166.279,
+            "cpuMs": 9.67
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 166.225,
+            "wallMs": 166.225,
+            "cpuMs": 9.637
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 166.207,
+            "wallMs": 166.207,
+            "cpuMs": 9.622
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 166.19,
+            "wallMs": 166.19,
+            "cpuMs": 9.606
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 165.997,
+            "wallMs": 165.997,
+            "cpuMs": 9.518
+          },
+          {
+            "name": "V8.GCIncrementalMarking",
+            "overlapMs": 8.327,
+            "wallMs": 8.327,
+            "cpuMs": 0.083
+          },
+          {
+            "name": "V8.GC_MC_INCREMENTAL",
+            "overlapMs": 8.321,
+            "wallMs": 8.321,
+            "cpuMs": 0.079
+          }
+        ]
+      },
+      {
+        "offsetMs": 12149.932,
+        "intervalMs": 116.625,
+        "callbackWallMs": 105.356,
+        "callbackCpuMs": 22.525,
+        "afterCallbackMs": 11.269,
+        "cpuLowerMs": 26.385,
+        "cpuUpperMs": 28.589,
+        "outsideTracedTasksMs": 0.587,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 105.366,
+            "wallMs": 105.383,
+            "cpuMs": 22.55
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 105.356,
+            "wallMs": 105.356,
+            "cpuMs": 22.525
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 104.837,
+            "wallMs": 104.837,
+            "cpuMs": 22.502
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 104.818,
+            "wallMs": 104.818,
+            "cpuMs": 22.485
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 104.217,
+            "wallMs": 104.217,
+            "cpuMs": 22.185
+          },
+          {
+            "name": "V8.StackGuard",
+            "overlapMs": 49.516,
+            "wallMs": 49.516,
+            "cpuMs": 10.606
+          },
+          {
+            "name": "V8.HandleInterrupts",
+            "overlapMs": 49.512,
+            "wallMs": 49.512,
+            "cpuMs": 10.604
+          },
+          {
+            "name": "MajorGC",
+            "overlapMs": 49.444,
+            "wallMs": 49.444,
+            "cpuMs": 10.538
+          }
+        ]
+      },
+      {
+        "offsetMs": 13931.231,
+        "intervalMs": 104.99,
+        "callbackWallMs": 46.599,
+        "callbackCpuMs": 9.303,
+        "afterCallbackMs": 58.391,
+        "cpuLowerMs": 13.028,
+        "cpuUpperMs": 21.701,
+        "outsideTracedTasksMs": 8.327,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 46.602,
+            "wallMs": 46.616,
+            "cpuMs": 9.32
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 46.599,
+            "wallMs": 46.599,
+            "cpuMs": 9.303
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 46.513,
+            "wallMs": 46.513,
+            "cpuMs": 9.278
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 46.492,
+            "wallMs": 46.492,
+            "cpuMs": 9.258
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 46.358,
+            "wallMs": 46.358,
+            "cpuMs": 9.131
+          },
+          {
+            "name": "Commit",
+            "overlapMs": 30.434,
+            "wallMs": 30.434,
+            "cpuMs": 0.861
+          },
+          {
+            "name": "Layout",
+            "overlapMs": 10.174,
+            "wallMs": 10.174,
+            "cpuMs": 1.267
+          },
+          {
+            "name": "LocalFrameView::performLayout",
+            "overlapMs": 10.136,
+            "wallMs": 10.136,
+            "cpuMs": 1.231
+          }
+        ]
+      },
+      {
+        "offsetMs": 14036.221,
+        "intervalMs": 124.693,
+        "callbackWallMs": 117.415,
+        "callbackCpuMs": 8.517,
+        "afterCallbackMs": 7.278,
+        "cpuLowerMs": 9.174,
+        "cpuUpperMs": 15.486,
+        "outsideTracedTasksMs": 5.311,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 117.427,
+            "wallMs": 117.44,
+            "cpuMs": 8.54
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 117.415,
+            "wallMs": 117.415,
+            "cpuMs": 8.517
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 117.397,
+            "wallMs": 117.397,
+            "cpuMs": 8.501
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 117.373,
+            "wallMs": 117.373,
+            "cpuMs": 8.477
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 117.293,
+            "wallMs": 117.293,
+            "cpuMs": 8.399
+          }
+        ]
+      },
+      {
+        "offsetMs": 15011.864,
+        "intervalMs": 113.432,
+        "callbackWallMs": 91.744,
+        "callbackCpuMs": 9.339,
+        "afterCallbackMs": 21.688,
+        "cpuLowerMs": 5.964,
+        "cpuUpperMs": 12.752,
+        "outsideTracedTasksMs": 0.026,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 91.747,
+            "wallMs": 98.042,
+            "cpuMs": 9.382
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 91.744,
+            "wallMs": 91.744,
+            "cpuMs": 9.339
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 91.705,
+            "wallMs": 91.705,
+            "cpuMs": 9.306
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 91.676,
+            "wallMs": 91.676,
+            "cpuMs": 9.277
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 91.469,
+            "wallMs": 91.469,
+            "cpuMs": 9.077
+          },
+          {
+            "name": "Paint",
+            "overlapMs": 13.564,
+            "wallMs": 13.564,
+            "cpuMs": 0.494
+          },
+          {
+            "name": "Paint",
+            "overlapMs": 12.917,
+            "wallMs": 12.917,
+            "cpuMs": 0.155
+          }
+        ]
+      },
+      {
+        "offsetMs": 15935.931,
+        "intervalMs": 190.789,
+        "callbackWallMs": 190.085,
+        "callbackCpuMs": 7.946,
+        "afterCallbackMs": 0.704,
+        "cpuLowerMs": 8.296,
+        "cpuUpperMs": 8.411,
+        "outsideTracedTasksMs": 0.042,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 190.1,
+            "wallMs": 190.113,
+            "cpuMs": 7.974
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 190.085,
+            "wallMs": 190.085,
+            "cpuMs": 7.946
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 181.485,
+            "wallMs": 181.485,
+            "cpuMs": 7.916
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 181.463,
+            "wallMs": 181.463,
+            "cpuMs": 7.896
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 176.012,
+            "wallMs": 176.012,
+            "cpuMs": 7.816
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskCanceled",
+            "overlapMs": 8.59,
+            "wallMs": 8.59,
+            "cpuMs": 0.023
+          }
+        ]
+      },
+      {
+        "offsetMs": 16126.72,
+        "intervalMs": 138.043,
+        "callbackWallMs": 57.517,
+        "callbackCpuMs": 5.032,
+        "afterCallbackMs": 80.526,
+        "cpuLowerMs": 10.696,
+        "cpuUpperMs": 15.375,
+        "outsideTracedTasksMs": 3.918,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 57.522,
+            "wallMs": 57.53,
+            "cpuMs": 5.043
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 57.517,
+            "wallMs": 57.517,
+            "cpuMs": 5.032
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 57.504,
+            "wallMs": 57.504,
+            "cpuMs": 5.022
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 57.484,
+            "wallMs": 57.484,
+            "cpuMs": 5.002
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 49.335,
+            "wallMs": 49.335,
+            "cpuMs": 4.872
+          },
+          {
+            "name": "Layout",
+            "overlapMs": 39.159,
+            "wallMs": 39.159,
+            "cpuMs": 1.335
+          },
+          {
+            "name": "LocalFrameView::performLayout",
+            "overlapMs": 39.135,
+            "wallMs": 39.135,
+            "cpuMs": 1.313
+          },
+          {
+            "name": "PrePaint",
+            "overlapMs": 9.543,
+            "wallMs": 9.543,
+            "cpuMs": 0.548
+          }
+        ]
+      },
+      {
+        "offsetMs": 16987.409,
+        "intervalMs": 186.919,
+        "callbackWallMs": 176.402,
+        "callbackCpuMs": 11.105,
+        "afterCallbackMs": 10.517,
+        "cpuLowerMs": 14.758,
+        "cpuUpperMs": 15.949,
+        "outsideTracedTasksMs": 0.872,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 176.418,
+            "wallMs": 176.426,
+            "cpuMs": 11.129
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 176.402,
+            "wallMs": 176.402,
+            "cpuMs": 11.105
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 176.393,
+            "wallMs": 176.393,
+            "cpuMs": 11.099
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 176.38,
+            "wallMs": 176.38,
+            "cpuMs": 11.087
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 176.09,
+            "wallMs": 176.09,
+            "cpuMs": 10.804
+          },
+          {
+            "name": "Commit",
+            "overlapMs": 5.289,
+            "wallMs": 5.289,
+            "cpuMs": 0.775
+          }
+        ]
+      },
+      {
+        "offsetMs": 17935.09,
+        "intervalMs": 203.7,
+        "callbackWallMs": 97.769,
+        "callbackCpuMs": 9.781,
+        "afterCallbackMs": 105.931,
+        "cpuLowerMs": 14.824,
+        "cpuUpperMs": 21.992,
+        "outsideTracedTasksMs": 6.784,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 97.78,
+            "wallMs": 97.796,
+            "cpuMs": 9.807
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 97.769,
+            "wallMs": 97.769,
+            "cpuMs": 9.781
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 97.759,
+            "wallMs": 97.759,
+            "cpuMs": 9.773
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 97.739,
+            "wallMs": 97.739,
+            "cpuMs": 9.755
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 97.287,
+            "wallMs": 97.287,
+            "cpuMs": 9.514
+          },
+          {
+            "name": "PrePaint",
+            "overlapMs": 42.406,
+            "wallMs": 42.406,
+            "cpuMs": 0.863
+          },
+          {
+            "name": "Layout",
+            "overlapMs": 14.514,
+            "wallMs": 14.514,
+            "cpuMs": 1.565
+          },
+          {
+            "name": "LocalFrameView::performLayout",
+            "overlapMs": 14.488,
+            "wallMs": 14.488,
+            "cpuMs": 1.542
+          }
+        ]
+      },
+      {
+        "offsetMs": 19004.014,
+        "intervalMs": 152.534,
+        "callbackWallMs": 131.981,
+        "callbackCpuMs": 10.092,
+        "afterCallbackMs": 20.553,
+        "cpuLowerMs": 14.269,
+        "cpuUpperMs": 20.135,
+        "outsideTracedTasksMs": 1.214,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 131.994,
+            "wallMs": 132.001,
+            "cpuMs": 10.111
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 131.981,
+            "wallMs": 131.981,
+            "cpuMs": 10.092
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 131.971,
+            "wallMs": 131.971,
+            "cpuMs": 10.085
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 131.956,
+            "wallMs": 131.956,
+            "cpuMs": 10.07
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 131.674,
+            "wallMs": 131.674,
+            "cpuMs": 9.794
+          },
+          {
+            "name": "Paint",
+            "overlapMs": 7.161,
+            "wallMs": 7.161,
+            "cpuMs": 0.794
+          },
+          {
+            "name": "Paint",
+            "overlapMs": 6.111,
+            "wallMs": 6.111,
+            "cpuMs": 0.142
+          }
+        ]
+      },
+      {
+        "offsetMs": 23996.529,
+        "intervalMs": 103.751,
+        "callbackWallMs": 84.145,
+        "callbackCpuMs": 8.683,
+        "afterCallbackMs": 19.606,
+        "cpuLowerMs": 11.099,
+        "cpuUpperMs": 16.999,
+        "outsideTracedTasksMs": 5.4,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 84.151,
+            "wallMs": 84.165,
+            "cpuMs": 8.699
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 84.145,
+            "wallMs": 84.145,
+            "cpuMs": 8.683
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 84.133,
+            "wallMs": 84.133,
+            "cpuMs": 8.674
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 84.094,
+            "wallMs": 84.094,
+            "cpuMs": 8.658
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 83.9,
+            "wallMs": 83.9,
+            "cpuMs": 8.472
+          },
+          {
+            "name": "Paint",
+            "overlapMs": 8.302,
+            "wallMs": 8.302,
+            "cpuMs": 0.428
+          },
+          {
+            "name": "Paint",
+            "overlapMs": 8.033,
+            "wallMs": 8.033,
+            "cpuMs": 0.17
+          }
+        ]
+      },
+      {
+        "offsetMs": 24999.608,
+        "intervalMs": 135.481,
+        "callbackWallMs": 127.583,
+        "callbackCpuMs": 11.32,
+        "afterCallbackMs": 7.898,
+        "cpuLowerMs": 15.114,
+        "cpuUpperMs": 15.491,
+        "outsideTracedTasksMs": 0.027,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 127.595,
+            "wallMs": 127.604,
+            "cpuMs": 11.34
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 127.583,
+            "wallMs": 127.583,
+            "cpuMs": 11.32
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 127.571,
+            "wallMs": 127.571,
+            "cpuMs": 11.31
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 125.227,
+            "wallMs": 125.227,
+            "cpuMs": 11.278
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 124.963,
+            "wallMs": 124.963,
+            "cpuMs": 11.038
+          }
+        ]
+      },
+      {
+        "offsetMs": 25940.866,
+        "intervalMs": 112.539,
+        "callbackWallMs": 91.966,
+        "callbackCpuMs": 7.542,
+        "afterCallbackMs": 20.573,
+        "cpuLowerMs": 8.256,
+        "cpuUpperMs": 16.307,
+        "outsideTracedTasksMs": 7.93,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 91.983,
+            "wallMs": 91.995,
+            "cpuMs": 7.57
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 91.966,
+            "wallMs": 91.966,
+            "cpuMs": 7.542
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 91.955,
+            "wallMs": 91.955,
+            "cpuMs": 7.535
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 91.935,
+            "wallMs": 91.935,
+            "cpuMs": 7.516
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 91.836,
+            "wallMs": 91.836,
+            "cpuMs": 7.418
+          },
+          {
+            "name": "PrePaint",
+            "overlapMs": 6.947,
+            "wallMs": 6.947,
+            "cpuMs": 0.192
+          }
+        ]
+      },
+      {
+        "offsetMs": 27029.395,
+        "intervalMs": 113.499,
+        "callbackWallMs": 98.363,
+        "callbackCpuMs": 9.591,
+        "afterCallbackMs": 15.136,
+        "cpuLowerMs": 13.558,
+        "cpuUpperMs": 14.865,
+        "outsideTracedTasksMs": 0.989,
+        "longSlices": [
+          {
+            "name": "PageAnimator::serviceScriptedAnimations",
+            "overlapMs": 98.377,
+            "wallMs": 98.386,
+            "cpuMs": 9.613
+          },
+          {
+            "name": "FireAnimationFrame",
+            "overlapMs": 98.363,
+            "wallMs": 98.363,
+            "cpuMs": 9.591
+          },
+          {
+            "name": "v8::Debugger::AsyncTaskRun",
+            "overlapMs": 98.351,
+            "wallMs": 98.351,
+            "cpuMs": 9.581
+          },
+          {
+            "name": "v8.callFunction",
+            "overlapMs": 97.828,
+            "wallMs": 97.828,
+            "cpuMs": 9.541
+          },
+          {
+            "name": "FunctionCall",
+            "overlapMs": 97.632,
+            "wallMs": 97.632,
+            "cpuMs": 9.352
+          },
+          {
+            "name": "Commit",
+            "overlapMs": 5.198,
+            "wallMs": 5.198,
+            "cpuMs": 0.697
+          }
+        ]
+      }
+    ]
+  }
+]
