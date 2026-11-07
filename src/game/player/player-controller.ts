@@ -8,8 +8,9 @@ import { placeBlocked } from '../world/places';
 import { stationBlocked, stationSurface, constrainStationPosition } from '../world/station-layout';
 import { clamp } from '../shared/math';
 import type { Resource } from '../resources/catalog';
+import type { FlatMap } from '../world/flat-map';
 export class PlayerController {
-  readonly position = new THREE.Vector3(SPAWN.x, groundSurface(SPAWN.x, SPAWN.z), SPAWN.z);
+  readonly position: THREE.Vector3;
   private velocity = new THREE.Vector3();
   private grounded = true;
   private shoreCooldown = 0;
@@ -30,14 +31,27 @@ export class PlayerController {
     private collected: Set<number>,
     private onShore: () => void,
     private extraBlocked: (x: number, z: number) => boolean = () => false,
-  ) {}
+    private flatMap?: FlatMap,
+  ) {
+    const spawn = flatMap?.spawn ?? SPAWN;
+    this.position = new THREE.Vector3(
+      spawn.x,
+      flatMap?.height ?? groundSurface(spawn.x, spawn.z),
+      spawn.z,
+    );
+  }
   jump() {
     if (this.grounded) {
       this.velocity.y = this.elevated ? 18 : 13;
       this.grounded = false;
     }
   }
-  reset(x = SPAWN.x, z = SPAWN.z) {
+  reset(x = this.flatMap?.spawn.x ?? SPAWN.x, z = this.flatMap?.spawn.z ?? SPAWN.z) {
+    if (this.flatMap) {
+      this.teleport(x, this.flatMap.height, z, false);
+      this.stamina = 100;
+      return;
+    }
     const blocked = (px: number, pz: number) =>
       stationBlocked(px, pz) ||
       placeBlocked(px, pz) ||
@@ -77,7 +91,7 @@ export class PlayerController {
     return { ...result, moving: distance > 0.001, distance };
   }
   private advance(dt: number, yaw: number, forward: number, right: number, sprinting: boolean) {
-    if (!this.elevated) {
+    if (!this.elevated && !this.flatMap) {
       const safe = constrainStationPosition(
         this.position.x,
         this.position.z,
@@ -103,13 +117,15 @@ export class PlayerController {
     );
     if (moving) {
       input.normalize();
-      const pace = surfaceTravelScale(
-        this.elevated ? skySurface : groundSurface,
-        this.position.x,
-        this.position.z,
-        input.x,
-        input.z,
-      );
+      const pace = this.flatMap
+        ? 1
+        : surfaceTravelScale(
+            this.elevated ? skySurface : groundSurface,
+            this.position.x,
+            this.position.z,
+            input.x,
+            input.z,
+          );
       const turn = Math.atan2(-input.x, -input.z) - this.heading;
       // Take a shorter approach while pivoting, before accelerating in the new direction.
       const pivotPace = speed > WALK_SPEED ? 0.38 : 0.55;
@@ -123,9 +139,11 @@ export class PlayerController {
       oldZ = this.position.z;
     this.tryMove(this.velocity.x * dt, this.velocity.z * dt);
     const distance = Math.hypot(this.position.x - oldX, this.position.z - oldZ);
-    const ground = this.elevated
-      ? skySurface(this.position.x, this.position.z)
-      : groundSurface(this.position.x, this.position.z);
+    const ground =
+      this.flatMap?.height ??
+      (this.elevated
+        ? skySurface(this.position.x, this.position.z)
+        : groundSurface(this.position.x, this.position.z));
     const previousY = this.position.y;
     if (ground === null || (this.grounded && previousY - ground > STEP_HEIGHT + 0.02))
       this.grounded = false;
@@ -151,6 +169,7 @@ export class PlayerController {
   }
   private tryMove(dx: number, dz: number) {
     const valid = (x: number, z: number) => {
+      if (this.flatMap) return !this.flatMap.blocked(x, z, 0.65) && !this.extraBlocked(x, z);
       if (this.elevated) {
         const h = skySurface(x, z);
         return h === null || h - this.position.y <= (this.grounded ? STEP_HEIGHT + 0.02 : 0.01);

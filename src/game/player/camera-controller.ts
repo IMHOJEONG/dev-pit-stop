@@ -30,6 +30,7 @@ export class CameraController {
     private collected: Set<number>,
     position: THREE.Vector3,
     obstacles: THREE.Object3D[] = [],
+    private groundAt = terrainHeight,
   ) {
     this.meshCollision = new MeshCameraCollision(obstacles);
     this.resourceIndex = new ResourceCameraIndex(resources);
@@ -71,7 +72,7 @@ export class CameraController {
     );
     this.cameraPosition.y = Math.max(
       this.cameraPosition.y,
-      terrainHeight(this.cameraPosition.x, this.cameraPosition.z) + 3,
+      this.groundAt(this.cameraPosition.x, this.cameraPosition.z) + 3,
     );
     const padding = Math.max(
       0.65,

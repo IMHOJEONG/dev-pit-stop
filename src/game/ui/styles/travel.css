@@ -305,3 +305,8 @@ dialog[data-panel='map'] .modal-header {
   font-size: 11px;
   white-space: nowrap;
 }
+.atlas-map-link {
+  display: inline-flex;
+  justify-content: center;
+  text-decoration: none;
+}

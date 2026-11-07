@@ -6,6 +6,7 @@ import { stationBlocked, stationSurface } from '../world/station-layout';
 import { placeBlocked } from '../world/places';
 import { LAUNCH } from '../world/landmarks';
 import { clamp } from '../shared/math';
+import type { FlatMap } from '../world/flat-map';
 export const GARAGE = { x: 7, z: 202, heading: 0 };
 export interface VehicleSave {
   x: number;
@@ -24,11 +25,13 @@ export class VehicleController {
   constructor(
     private resources: Resource[],
     private collected: Set<number>,
+    private flatMap?: FlatMap,
   ) {
     this.reset();
   }
   /** A swept chassis footprint keeps all four wheels on safe, driveable ground. */
   canOccupy(x: number, z: number, heading = this.heading) {
+    if (this.flatMap) return !this.flatMap.blocked(x, z, Math.hypot(1.65, 2.4));
     const base = groundSurface(x, z),
       sin = Math.sin(heading),
       cos = Math.cos(heading);
@@ -89,7 +92,10 @@ export class VehicleController {
     );
   }
   get onBridge() {
-    return bridgeSurface(this.position.x, this.position.z) !== null;
+    return !this.flatMap && bridgeSurface(this.position.x, this.position.z) !== null;
+  }
+  heightAt(x: number, z: number) {
+    return this.flatMap?.height ?? groundSurface(x, z);
   }
   boardingApproach(position: THREE.Vector3): THREE.Vector3[] | null {
     if (this.onBridge || !this.nearby(position)) return null;
@@ -118,7 +124,7 @@ export class VehicleController {
     );
     let previous = position;
     for (const point of points) {
-      point.y = groundSurface(point.x, point.z);
+      point.y = this.heightAt(point.x, point.z);
       const steps = Math.ceil(previous.distanceTo(point) * 2);
       for (let i = 1; i <= steps; i++) {
         const t = i / steps,
@@ -131,6 +137,7 @@ export class VehicleController {
     return points;
   }
   private walkable(x: number, z: number) {
+    if (this.flatMap) return !this.flatMap.blocked(x, z, 0.65);
     const y = groundSurface(x, z);
     return (
       y >= 0.8 &&
@@ -159,30 +166,27 @@ export class VehicleController {
         const angle = this.heading + Math.PI / 2 + (i * Math.PI) / 8,
           x = this.position.x + Math.sin(angle) * radius,
           z = this.position.z + Math.cos(angle) * radius,
-          y = groundSurface(x, z);
+          y = this.heightAt(x, z);
         const side =
           (x - this.position.x) * Math.cos(this.heading) -
           (z - this.position.z) * Math.sin(this.heading);
         // Leave through an open side, never through the bonnet or a bridge railing.
         if (Math.abs(side) < 2.4) continue;
-        if (
-          y < 0.8 ||
-          Math.abs(y - this.position.y) > 1.2 ||
-          stationBlocked(x, z) ||
-          placeBlocked(x, z) ||
-          bridgeRailBlocked(x, z)
-        )
-          continue;
-        if (
-          this.resources.some(
-            (r) =>
-              !this.collected.has(r.id) &&
-              Math.hypot(x - r.x, z - r.z) <
-                (r.kind === 'stone' ? 2.2 * r.scale : r.kind === 'wood' ? 1.05 * r.scale : 0.9) +
-                  0.8,
-          )
-        )
-          continue;
+        if (!this.walkable(x, z)) continue;
+        if (this.flatMap) {
+          const steps = Math.ceil(radius * 2);
+          let clear = true;
+          for (let step = 1; step < steps; step++) {
+            const t = step / steps;
+            const px = THREE.MathUtils.lerp(this.position.x, x, t);
+            const pz = THREE.MathUtils.lerp(this.position.z, z, t);
+            if (!this.walkable(px, pz)) {
+              clear = false;
+              break;
+            }
+          }
+          if (!clear) continue;
+        }
         this.riding = false;
         this.speed = 0;
         this.steering = 0;
@@ -208,7 +212,7 @@ export class VehicleController {
         this.speed = clamp(this.speed + clamp(throttle, -1, 1) * 10 * delta, -8, 24);
       else this.speed = Math.sign(this.speed) * Math.max(0, Math.abs(this.speed) - 5 * delta);
       let heading = this.heading - (this.speed / 3.6) * Math.tan(this.steeringAngle) * delta;
-      const bridge = nearestRoute(this.position.x, this.position.z, 'bridge');
+      const bridge = this.flatMap ? null : nearestRoute(this.position.x, this.position.z, 'bridge');
       if (!steer && Math.abs(this.speed) > 0.1 && bridge && bridge.distance < 4.5) {
         const route = bridge.segment.route,
           a = route.points[0],
@@ -243,7 +247,7 @@ export class VehicleController {
         dz = -Math.cos(heading) * this.speed * delta;
       const x = this.position.x + dx,
         z = this.position.z + dz,
-        h = groundSurface(x, z);
+        h = this.heightAt(x, z);
       if (
         !this.canOccupy(x, z, heading) ||
         Math.abs(h - this.position.y) > Math.hypot(dx, dz) * 0.85 + 0.25
@@ -266,14 +270,15 @@ export class VehicleController {
   restore(saved?: VehicleSave) {
     this.reset();
     if (saved && this.canOccupy(saved.x, saved.z, saved.heading)) {
-      this.position.set(saved.x, groundSurface(saved.x, saved.z), saved.z);
+      this.position.set(saved.x, this.heightAt(saved.x, saved.z), saved.z);
       this.heading = saved.heading;
       this.riding = saved.riding;
     }
   }
   reset() {
-    this.position.set(GARAGE.x, groundSurface(GARAGE.x, GARAGE.z), GARAGE.z);
-    this.heading = GARAGE.heading;
+    const garage = this.flatMap?.garage ?? GARAGE;
+    this.position.set(garage.x, this.heightAt(garage.x, garage.z), garage.z);
+    this.heading = garage.heading;
     this.speed = 0;
     this.steering = 0;
     this.riding = false;

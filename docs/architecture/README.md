@@ -12,6 +12,7 @@
 - 후속 진단: [성능 패널 켬/끔 비교·GPU 샘플·지형 구역별 렌더링](./panel-stall-2026-11-06.md)
 - Chrome 추적: [계단 장면의 실제 스레드 CPU 시간과 경과 시간 비교](./chrome-thread-trace-2026-11-06.md)
 - 대기 원인 추적: [Chrome 컴포지터와 macOS 스레드 상태 동시 계측](./chrome-macos-stalls-2026-11-07.md)
+- 계단 왕복 추적: [실제 이동 중 100ms 초과 간격의 macOS 스레드 상태](./stairs-walk-scheduling-2026-11-07.md)
 
 ## 1. 결정 요약
 

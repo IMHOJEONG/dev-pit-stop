@@ -10,7 +10,6 @@ import {
 import { DEFAULT_APPEARANCE } from '../player/appearance';
 import type { Appearance } from '../player/appearance';
 import { disposeScene } from '../shared/dispose';
-import { groundSurface } from '../world/ground-surface';
 import type { VehicleTransition } from './vehicle-transition';
 import type { VehicleController } from './vehicle-controller';
 export class VehicleView {
@@ -108,7 +107,7 @@ export class VehicleView {
     const contacts = this.wheels.map(({ pivot }) => {
       const x = vehicle.position.x + pivot.position.x * cos + pivot.position.z * sin,
         z = vehicle.position.z - pivot.position.x * sin + pivot.position.z * cos;
-      return { x, z, y: groundSurface(x, z) };
+      return { x, z, y: vehicle.heightAt(x, z) };
     });
     const floor = contacts.reduce((sum, p) => sum + p.y, 0) / contacts.length;
     const snap = !this.initialized || this.root.position.distanceTo(vehicle.position) > 12;
