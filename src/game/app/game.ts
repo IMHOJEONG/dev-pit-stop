@@ -79,11 +79,18 @@ export class Game {
   private loadingTimer: ReturnType<typeof setTimeout>;
   private completionTimer: ReturnType<typeof setTimeout> | null = null;
   constructor() {
-    this.renderer = new GameRenderer(
-      $<HTMLCanvasElement>('world'),
-      this.world.scene,
-      this.world.camera,
-    );
+    try {
+      this.renderer = new GameRenderer(
+        $<HTMLCanvasElement>('world'),
+        this.world.scene,
+        this.world.camera,
+      );
+    } catch (error) {
+      this.hud.dispose();
+      this.camera.dispose();
+      this.world.dispose();
+      throw error;
+    }
     this.performance = new PerformancePanel(
       this.renderer.renderer,
       () => ({

@@ -1,8 +1,11 @@
 import * as THREE from 'three';
-export function disposeScene(scene: THREE.Scene) {
+import { assetRegistry } from './asset-registry';
+
+export function disposeScene(scene: THREE.Object3D) {
   const geometries = new Set<THREE.BufferGeometry>(),
     materials = new Set<THREE.Material>();
   scene.traverse((obj) => {
+    assetRegistry.releaseOwner(obj);
     if (obj instanceof THREE.InstancedMesh) obj.dispose();
     if (
       obj instanceof THREE.DirectionalLight ||
@@ -11,7 +14,7 @@ export function disposeScene(scene: THREE.Scene) {
     )
       obj.shadow.dispose();
     if (obj instanceof THREE.Mesh) {
-      geometries.add(obj.geometry);
+      if (!assetRegistry.ownsGeometry(obj.geometry)) geometries.add(obj.geometry);
       for (const m of Array.isArray(obj.material) ? obj.material : [obj.material]) materials.add(m);
     }
   });

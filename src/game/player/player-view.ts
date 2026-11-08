@@ -62,16 +62,16 @@ export class PlayerView {
   private previousPosition: THREE.Vector3 | null = null;
   private facingYaw: number | null = null;
   private tool: 'axe' | 'pickaxe' = 'axe';
-  constructor(scene: THREE.Scene) {
-    this.rig = new CharacterRig(DEFAULT_APPEARANCE);
+  constructor(private scene: THREE.Scene) {
+    this.rig = new CharacterRig(DEFAULT_APPEARANCE, scene);
     this.group.add(this.rig.root);
     scene.add(this.group);
   }
   setAppearance(appearance: Appearance) {
-    const old = new THREE.Scene();
-    old.add(this.rig.root);
-    disposeScene(old);
-    this.rig = new CharacterRig(appearance);
+    const next = new CharacterRig(appearance, this.scene);
+    this.rig.root.removeFromParent();
+    disposeScene(this.rig.root);
+    this.rig = next;
     this.group.add(this.rig.root);
     this.reset();
   }

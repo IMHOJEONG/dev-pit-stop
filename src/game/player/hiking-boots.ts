@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { mat, mesh } from '../shared/meshes';
 import { batchStaticMeshes } from '../shared/static-batch';
+import type { GeometryFactory } from '../shared/asset-registry';
 /** Rounded footprint, narrower at the heel and slightly fuller along the outside edge. */
 const outline = [
   [0, -0.443],
@@ -88,7 +89,11 @@ function cord(
   lace.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), direction.normalize());
   return lace;
 }
-export function createHikingBoot(width: number, side: number) {
+export function createHikingBoot(
+  width: number,
+  side: number,
+  geometry: GeometryFactory = (_, create) => create(),
+) {
   const boot = new THREE.Group();
   boot.name = side < 0 ? 'left-foot' : 'right-foot';
   boot.scale.x = side < 0 ? -1 : 1;
@@ -99,41 +104,61 @@ export function createHikingBoot(width: number, side: number) {
   const lining = mat(0x3c443c),
     laces = mat(0xcbbb96),
     metal = mat(0x7e8277, { metalness: 0.45, roughness: 0.65 });
-  const outsole = mesh(soleGeometry(width, 0.045, 0.012), rubber, boot, 0, -0.188);
+  const part = (name: string, create: () => THREE.BufferGeometry) =>
+    geometry(`boot:${width}:${name}`, create);
+  const outsole = mesh(
+    part('outsole', () => soleGeometry(width, 0.045, 0.012)),
+    rubber,
+    boot,
+    0,
+    -0.188,
+  );
   outsole.name = 'boot-outsole';
-  const welt = mesh(soleGeometry(width * 0.97, 0.027, 0.006), midsole, boot, 0, -0.137);
+  const welt = mesh(
+    part('midsole', () => soleGeometry(width * 0.97, 0.027, 0.006)),
+    midsole,
+    boot,
+    0,
+    -0.137,
+  );
   welt.name = 'boot-midsole';
   const vamp = mesh(
-    upperGeometry(width, [
-      [0.2, 0.135, 0.13],
-      [0.12, 0.163, 0.2],
-      [-0.02, 0.175, 0.2],
-      [-0.17, 0.184, 0.13],
-      [-0.32, 0.172, 0.055],
-      [-0.415, 0.115, 0.015],
-      [-0.444, 0.02, -0.025],
-    ]),
+    part('vamp', () =>
+      upperGeometry(width, [
+        [0.2, 0.135, 0.13],
+        [0.12, 0.163, 0.2],
+        [-0.02, 0.175, 0.2],
+        [-0.17, 0.184, 0.13],
+        [-0.32, 0.172, 0.055],
+        [-0.415, 0.115, 0.015],
+        [-0.444, 0.02, -0.025],
+      ]),
+    ),
     leather,
     boot,
   );
   vamp.name = 'boot-leather-upper';
   // A rubber toe bumper wraps over the front edge, and a heel counter supports the ankle.
   const toe = mesh(
-    upperGeometry(width, [
-      [-0.285, 0.179, 0.078],
-      [-0.33, 0.172, 0.058],
-      [-0.419, 0.118, 0.019],
-      [-0.447, 0.02, -0.021],
-    ]),
+    part('toe', () =>
+      upperGeometry(width, [
+        [-0.285, 0.179, 0.078],
+        [-0.33, 0.172, 0.058],
+        [-0.419, 0.118, 0.019],
+        [-0.447, 0.02, -0.021],
+      ]),
+    ),
     panels,
     boot,
   );
   toe.name = 'boot-toe-cap';
   const heel = mesh(
-    upperGeometry(width, [
-      [0.211, 0.134, 0.15],
-      [0.14, 0.17, 0.215],
-    ]),
+    part('heel', () =>
+      upperGeometry(width, [
+        [0.211, 0.134, 0.15],
+        [0.14, 0.17, 0.215],
+      ]),
+    ),
     panels,
     boot,
   );
@@ -142,18 +167,27 @@ export function createHikingBoot(width: number, side: number) {
   cuff.name = 'boot-cuff';
   boot.add(cuff);
   const shaft = mesh(
-    new THREE.CylinderGeometry(0.166 * width, 0.175 * width, 0.24, 12, 1, true),
+    part(
+      'shaft',
+      () => new THREE.CylinderGeometry(0.166 * width, 0.175 * width, 0.24, 12, 1, true),
+    ),
     leather,
     cuff,
     0,
     0.18,
   );
   shaft.name = 'boot-ankle';
-  const collar = mesh(new THREE.TorusGeometry(0.165 * width, 0.029, 6, 14), lining, cuff, 0, 0.305);
+  const collar = mesh(
+    part('collar', () => new THREE.TorusGeometry(0.165 * width, 0.029, 6, 14)),
+    lining,
+    cuff,
+    0,
+    0.305,
+  );
   collar.rotation.x = Math.PI / 2;
   collar.name = 'boot-padded-collar';
   const tongue = mesh(
-    new THREE.BoxGeometry(0.16 * width, 0.035, 0.29),
+    part('tongue', () => new THREE.BoxGeometry(0.16 * width, 0.035, 0.29)),
     panels,
     boot,
     0,

@@ -16,12 +16,13 @@ export class VehicleView {
   readonly root = new THREE.Group();
   private chassis = new THREE.Group();
   private wheels: { pivot: THREE.Group; tire: THREE.Mesh; front: boolean }[] = [];
-  private driver = new CharacterRig(DEFAULT_APPEARANCE);
+  private driver: CharacterRig;
   private wheel = new THREE.Group();
   private initialized = false;
   private previousSpeed = 0;
   private lean = 0;
-  constructor(scene: THREE.Scene) {
+  constructor(private scene: THREE.Scene) {
+    this.driver = new CharacterRig(DEFAULT_APPEARANCE, scene);
     this.root.name = 'exploration-buggy';
     this.root.add(this.chassis);
     scene.add(this.root);
@@ -94,10 +95,10 @@ export class VehicleView {
     }
   }
   setAppearance(appearance: Appearance) {
-    const old = new THREE.Scene();
-    old.add(this.driver.root);
-    disposeScene(old);
-    this.driver = new CharacterRig(appearance);
+    const next = new CharacterRig(appearance, this.scene);
+    this.driver.root.removeFromParent();
+    disposeScene(this.driver.root);
+    this.driver = next;
     this.chassis.add(this.driver.root);
     this.poseDriver();
   }
