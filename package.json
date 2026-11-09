@@ -21,10 +21,10 @@
   "devDependencies": {
     "@types/three": "^0.180.0",
     "typescript": "~5.9.3",
-    "vite-plus": "1.4.0"
+    "vite-plus": "1.5.1"
   },
   "overrides": {
-    "vite": "npm:@voidzero-dev/vite-plus-core@1.4.0",
+    "vite": "npm:@voidzero-dev/vite-plus-core@1.5.1",
     "vitest": "5.0.5"
   },
   "engines": {
