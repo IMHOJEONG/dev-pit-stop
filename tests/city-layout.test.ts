@@ -20,8 +20,9 @@ describe('City View play area', () => {
     expect(blocked(spawn.x, spawn.z, 0.65)).toBe(false);
     const vehicle = new VehicleController([], new Set(), CITY_LAYOUT);
     expect(vehicle.canOccupy(garage.x, garage.z)).toBe(true);
+    const roadEnd = CITY_SIZE / 2 - 6;
     for (const axis of ROAD_AXES) {
-      for (let along = -88; along <= 88; along++) {
+      for (let along = -roadEnd; along <= roadEnd; along++) {
         expect(vehicle.canOccupy(axis, along)).toBe(true);
         expect(vehicle.canOccupy(along, axis)).toBe(true);
       }
@@ -31,6 +32,15 @@ describe('City View play area', () => {
       expect(vehicle.canOccupy(building.x, building.z)).toBe(false);
     }
     expect(vehicle.canOccupy(CITY_SIZE / 2, 0)).toBe(false);
+  });
+
+  it('drives from the original garage past the old boundary to the northern avenue', () => {
+    const vehicle = new VehicleController([], new Set(), CITY_LAYOUT);
+    vehicle.restore({ ...CITY_LAYOUT.garage, riding: true });
+    for (let frame = 0; frame < 1200 && vehicle.position.z > ROAD_AXES[0]; frame++)
+      vehicle.update(1 / 60, 1, 0, false);
+    expect(vehicle.position.z).toBeCloseTo(-168, 0);
+    expect(vehicle.blocked).toBe(false);
   });
 
   it('walks and jumps on the city floor and stops at a building', () => {

@@ -8,6 +8,8 @@ import {
   ROAD_WIDTH,
 } from './layout';
 
+const DETAIL_TILE_SIZE = 112;
+
 interface Box {
   x: number;
   y: number;
@@ -37,10 +39,11 @@ export function buildCity(scene: THREE.Scene) {
     color: number,
     y: number,
   ) => ground.push({ ...lot, height: 0.02, y, color });
+  const stripeLimit = CITY_SIZE / 2 - 6;
   for (const axis of ROAD_AXES) {
     slab({ x: axis, z: 0, width: ROAD_WIDTH, depth: CITY_SIZE - 3 }, asphalt, 0.01);
     slab({ x: 0, z: axis, width: CITY_SIZE - 3, depth: ROAD_WIDTH }, asphalt, 0.012);
-    for (let position = -88; position <= 88; position += 5) {
+    for (let position = -stripeLimit; position <= stripeLimit; position += 5) {
       if (ROAD_AXES.some((crossing) => Math.abs(crossing - position) < 11)) continue;
       slab({ x: axis, z: position, width: 0.2, depth: 2.7 }, 0xe8c778, 0.031);
       slab({ x: position, z: axis, width: 2.7, depth: 0.2 }, 0xe8c778, 0.031);
@@ -60,9 +63,12 @@ export function buildCity(scene: THREE.Scene) {
 
   const walls = new THREE.Group();
   scene.add(walls);
-  const details: Box[] = [];
+  const detailTiles = new Map<string, Box[]>();
   for (const building of CITY_BUILDINGS) {
     const { x, z, width, depth, height, color } = building;
+    const key = `${Math.floor(x / DETAIL_TILE_SIZE)},${Math.floor(z / DETAIL_TILE_SIZE)}`;
+    const details = detailTiles.get(key) ?? [];
+    detailTiles.set(key, details);
     const wall = new THREE.Mesh(geometry, new THREE.MeshLambertMaterial({ color }));
     wall.position.set(x, height / 2, z);
     wall.scale.set(width, height, depth);
@@ -117,8 +123,10 @@ export function buildCity(scene: THREE.Scene) {
     trees.add(canopy);
   }
 
-  for (const boxes of [ground, details]) {
-    const batch = new THREE.InstancedMesh(geometry, new THREE.MeshLambertMaterial(), boxes.length);
+  // Give the renderer bounds per tile so it can skip distant facades outside the camera view.
+  const batchMaterial = new THREE.MeshLambertMaterial();
+  for (const boxes of [ground, ...detailTiles.values()]) {
+    const batch = new THREE.InstancedMesh(geometry, batchMaterial, boxes.length);
     const transform = new THREE.Object3D();
     const color = new THREE.Color();
     boxes.forEach((box, i) => {

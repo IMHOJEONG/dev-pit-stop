@@ -27,12 +27,15 @@ export function drawCityMap(canvas: HTMLCanvasElement, player: Point, vehicle: P
     rect({ x: 0, z: axis, width: CITY_SIZE - 3, depth: ROAD_WIDTH }, '#303c44');
   }
   for (const building of CITY_BUILDINGS) rect(building, '#576367');
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.font = '600 12px system-ui';
   for (const space of CITY_SPACES) {
-    rect(space, space.x < 0 ? '#506b55' : '#735c49');
+    rect(space, space.mapColor);
+    ctx.strokeStyle = '#253943';
+    ctx.lineWidth = 2.5;
+    ctx.strokeText(space.name, x(space.x), z(space.z));
     ctx.fillStyle = '#fff0d5';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.font = '600 15px system-ui';
     ctx.fillText(space.name, x(space.x), z(space.z));
   }
   ctx.fillStyle = '#ffcd79';

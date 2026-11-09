@@ -20,7 +20,7 @@ import { VehicleTransition } from '../vehicles/vehicle-transition';
 import { VehicleView } from '../vehicles/vehicle-view';
 import { buildCity } from './city-view';
 import { drawCityMap } from './map';
-import { CITY_LAYOUT } from './layout';
+import { CITY_LAYOUT, CITY_SIZE } from './layout';
 
 const SAVE_KEY = 'wild-atlas-city-view-v1';
 const groundAt = () => CITY_LAYOUT.height;
@@ -49,7 +49,7 @@ export function startCity() {
       <dialog id="city-map-dialog" class="city-map-dialog" aria-labelledby="city-map-title">
         <div><h2 id="city-map-title">시티 뷰 지도</h2><button id="city-close-map" class="secondary-button" aria-label="지도 닫기">닫기</button></div>
         <canvas id="city-map" width="520" height="520" aria-label="건물, 도로, 공원과 현재 위치를 표시하는 도시 지도"></canvas>
-        <p>● 나의 위치 · ■ 버기 · N ↑</p>
+        <p>● 나의 위치 · ■ 버기 · N ↑ · ${CITY_SIZE} × ${CITY_SIZE} m</p>
       </dialog>
     </main>`;
   return new CityGame();
