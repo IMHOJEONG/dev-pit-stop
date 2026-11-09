@@ -8,6 +8,10 @@ import { LAUNCH } from '../world/landmarks';
 import { clamp } from '../shared/math';
 import type { FlatMap } from '../world/flat-map';
 export const GARAGE = { x: 7, z: 202, heading: 0 };
+// Include the city buggy's bumpers and the full sweep of the steered front tires.
+const CITY_BUGGY_HALF_WIDTH = 2.2;
+const CITY_BUGGY_HALF_LENGTH = 2.85;
+const LEGACY_CITY_CLEARANCE = Math.hypot(1.65, 2.4);
 export interface VehicleSave {
   x: number;
   z: number;
@@ -31,7 +35,14 @@ export class VehicleController {
   }
   /** A swept chassis footprint keeps all four wheels on safe, driveable ground. */
   canOccupy(x: number, z: number, heading = this.heading) {
-    if (this.flatMap) return !this.flatMap.blocked(x, z, Math.hypot(1.65, 2.4));
+    if (this.flatMap)
+      return !this.flatMap.vehicleBlocked(
+        x,
+        z,
+        heading,
+        CITY_BUGGY_HALF_WIDTH,
+        CITY_BUGGY_HALF_LENGTH,
+      );
     const base = groundSurface(x, z),
       sin = Math.sin(heading),
       cos = Math.cos(heading);
@@ -69,6 +80,20 @@ export class VehicleController {
       }
     }
     return true;
+  }
+  private slideAlongWall(x: number, z: number, heading: number) {
+    const { x: startX, z: startZ } = this.position;
+    const tangents = [
+      [x, startZ],
+      [startX, z],
+    ];
+    if (Math.abs(z - startZ) > Math.abs(x - startX)) tangents.reverse();
+    // Preserve as much travel and steering as the contact allows.
+    for (const yaw of [heading, this.heading])
+      for (const [tx, tz] of tangents)
+        if (Math.hypot(tx - startX, tz - startZ) > 1e-6 && this.canOccupy(tx, tz, yaw))
+          return { x: tx, z: tz, heading: yaw };
+    return null;
   }
   blocksPedestrian(x: number, z: number) {
     if (this.riding) return false;
@@ -252,35 +277,54 @@ export class VehicleController {
       heading = this.heading + clamp(yawDelta, -yawLimit, yawLimit);
       const dx = -Math.sin(heading) * this.speed * delta,
         dz = -Math.cos(heading) * this.speed * delta;
-      const x = this.position.x + dx,
-        z = this.position.z + dz,
-        h = this.heightAt(x, z);
-      if (
-        !this.canOccupy(x, z, heading) ||
-        Math.abs(h - this.position.y) > Math.hypot(dx, dz) * 0.85 + 0.25
-      ) {
+      let x = this.position.x + dx;
+      let z = this.position.z + dz;
+      let clear = this.canOccupy(x, z, heading);
+      if (!clear && this.flatMap && heading !== this.heading) {
+        const slide = this.slideAlongWall(x, z, heading);
+        if (slide) {
+          ({ x, z, heading } = slide);
+          clear = true;
+        }
+      }
+      const travelled = Math.hypot(x - this.position.x, z - this.position.z);
+      const h = this.heightAt(x, z);
+      if (!clear || Math.abs(h - this.position.y) > travelled * 0.85 + 0.25) {
         this.speed = 0;
         this.blocked = true;
         continue;
       }
       this.heading = Math.atan2(Math.sin(heading), Math.cos(heading));
       this.position.set(x, h, z);
-      distance += Math.hypot(dx, dz);
-      if (Math.hypot(dx, dz) > 1e-6) this.blocked = false;
-      this.travel += this.speed * delta;
+      distance += travelled;
+      if (travelled > 1e-6) this.blocked = false;
+      this.travel += Math.sign(this.speed) * travelled;
     }
     return distance;
   }
   snapshot(): VehicleSave {
     return { x: this.position.x, z: this.position.z, heading: this.heading, riding: this.riding };
   }
+  private recoverCityParking(x: number, z: number, heading: number) {
+    if (!this.flatMap || this.flatMap.blocked(x, z, LEGACY_CITY_CLEARANCE)) return null;
+    for (let radius = 0.25; radius <= 1.5; radius += 0.25)
+      for (let direction = 0; direction < 8; direction++) {
+        const angle = (direction * Math.PI) / 4;
+        const px = x + Math.cos(angle) * radius;
+        const pz = z + Math.sin(angle) * radius;
+        if (this.canOccupy(px, pz, heading)) return { x: px, z: pz };
+      }
+    return null;
+  }
   restore(saved?: VehicleSave) {
     this.reset();
-    if (saved && this.canOccupy(saved.x, saved.z, saved.heading)) {
-      this.position.set(saved.x, this.heightAt(saved.x, saved.z), saved.z);
-      this.heading = saved.heading;
-      this.riding = saved.riding;
-    }
+    if (!saved) return;
+    const { x, z, heading, riding } = saved;
+    const parked = this.canOccupy(x, z, heading) ? saved : this.recoverCityParking(x, z, heading);
+    if (!parked) return;
+    this.position.set(parked.x, this.heightAt(parked.x, parked.z), parked.z);
+    this.heading = heading;
+    this.riding = riding;
   }
   reset() {
     const garage = this.flatMap?.garage ?? GARAGE;

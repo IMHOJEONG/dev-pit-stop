@@ -309,12 +309,7 @@ class CityGame {
       if (!raw) return;
       const save: { x: number; z: number; vehicle: VehicleSave } | null = JSON.parse(raw);
       const v = save?.vehicle;
-      if (
-        v &&
-        [v.x, v.z, v.heading].every(Number.isFinite) &&
-        typeof v.riding === 'boolean' &&
-        this.vehicle.canOccupy(v.x, v.z, v.heading)
-      ) {
+      if (v && [v.x, v.z, v.heading].every(Number.isFinite) && typeof v.riding === 'boolean') {
         this.vehicle.restore(v);
       }
       if (this.vehicle.riding) this.player.position.copy(this.vehicle.position);

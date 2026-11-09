@@ -64,4 +64,35 @@ export const CITY_LAYOUT: FlatMap = {
       ) || CITY_TREES.some(([tx, tz]) => Math.hypot(x - tx, z - tz) < 0.45 + clearance)
     );
   },
+  vehicleBlocked(x, z, heading, halfWidth, halfLength) {
+    const cos = Math.cos(heading);
+    const sin = Math.sin(heading);
+    const absCos = Math.abs(cos);
+    const absSin = Math.abs(sin);
+    const reachX = halfWidth * absCos + halfLength * absSin;
+    const reachZ = halfWidth * absSin + halfLength * absCos;
+    if (Math.abs(x) + reachX >= CITY_SIZE / 2 || Math.abs(z) + reachZ >= CITY_SIZE / 2) return true;
+
+    // Separate along the city's axes first, then along the buggy's two axes.
+    for (const building of CITY_BUILDINGS) {
+      const dx = building.x - x;
+      const dz = building.z - z;
+      const width = building.width / 2;
+      const depth = building.depth / 2;
+      if (Math.abs(dx) >= width + reachX || Math.abs(dz) >= depth + reachZ) continue;
+      if (
+        Math.abs(dx * cos - dz * sin) < halfWidth + width * absCos + depth * absSin &&
+        Math.abs(dx * sin + dz * cos) < halfLength + width * absSin + depth * absCos
+      )
+        return true;
+    }
+    for (const [tx, tz] of CITY_TREES) {
+      const dx = tx - x;
+      const dz = tz - z;
+      const side = Math.max(0, Math.abs(dx * cos - dz * sin) - halfWidth);
+      const along = Math.max(0, Math.abs(dx * sin + dz * cos) - halfLength);
+      if (side * side + along * along < 0.45 ** 2) return true;
+    }
+    return false;
+  },
 };
